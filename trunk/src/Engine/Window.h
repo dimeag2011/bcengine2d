@@ -24,3 +24,4 @@ private:
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam);
 //--------------------------------------------------------------------------------
 #endif //WINDOW_H
+
