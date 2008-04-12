@@ -38,29 +38,35 @@ bool Game::StartUp()
 	if (!OnStartUp())
 		return false;
 
-	Vertices[0].x=50;
-	Vertices[0].y=50;
+	/*
+
+	Vertices[0].x=0;
+	Vertices[0].y=0;
 	Vertices[0].z=0;
-	Vertices[0].color=D3DCOLOR_XRGB(0, 0, 0);
+	Vertices[0].color=D3DCOLOR_XRGB(0, 0, 255);
 
-	Vertices[1].x=100;
-	Vertices[1].y=100;
+	Vertices[1].x=10;
+	Vertices[1].y=-10;
 	Vertices[1].z=0;
-	Vertices[1].color=D3DCOLOR_XRGB(0, 0, 0);
+	Vertices[1].color=D3DCOLOR_XRGB(0, 0, 255);
 
-	Vertices[2].x=150;
-	Vertices[2].y=150;
+	Vertices[2].x=-10;
+	Vertices[2].y=-10;
 	Vertices[2].z=0;
-	Vertices[2].color=D3DCOLOR_XRGB(0, 0, 0);
+	Vertices[2].color=D3DCOLOR_XRGB(0, 0, 255);
+
+	*/
 
 	return true;
 }
 //--------------------------------------------------------------------------------
 bool Game::Loop()
 {
+	/*
 	m_pkRender->StartFrame();
 	m_pkRender->Draw(Vertices, D3DPT_TRIANGLELIST, 3);
 	m_pkRender->EndFrame();
+	*/
 
 	if (OnLoop())
 		return true;

@@ -175,11 +175,19 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\Entity2D.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Game.cpp"
 				>
 			</File>
 			<File
 				RelativePath=".\Renderer.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Shape.cpp"
 				>
 			</File>
 			<File
@@ -197,11 +205,23 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Entity2D.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Entity2D.inl"
+				>
+			</File>
+			<File
 				RelativePath=".\Game.h"
 				>
 			</File>
 			<File
 				RelativePath=".\Renderer.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Shape.h"
 				>
 			</File>
 			<File
