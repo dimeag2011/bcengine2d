@@ -38,25 +38,6 @@ bool Game::StartUp()
 	if (!OnStartUp())
 		return false;
 
-	/*
-
-	Vertices[0].x=0;
-	Vertices[0].y=0;
-	Vertices[0].z=0;
-	Vertices[0].color=D3DCOLOR_XRGB(0, 0, 255);
-
-	Vertices[1].x=10;
-	Vertices[1].y=-10;
-	Vertices[1].z=0;
-	Vertices[1].color=D3DCOLOR_XRGB(0, 0, 255);
-
-	Vertices[2].x=-10;
-	Vertices[2].y=-10;
-	Vertices[2].z=0;
-	Vertices[2].color=D3DCOLOR_XRGB(0, 0, 255);
-
-	*/
-
 	return true;
 }
 //--------------------------------------------------------------------------------

@@ -11,13 +11,6 @@ public:
 	Shape();
 	~Shape();
 
-	enum SHAPE_TYPE
-	{
-		TRIANGLE,
-		BOX,
-		CIRCLE
-	};
-
 
 };
 #endif //SHAPE_H
@@ -36,8 +29,16 @@ class ENGINE_API Shape : public Entity2D
 {
 // constructor / destructor
 public:
-	Shape ();
+	enum SHAPE_TYPE
+	{
+		TRIANGLE,
+		BOX,
+		CIRCLE
+	};
+
+	Shape (SHAPE_TYPE eShapeType);
 	~Shape () { /***/ }
+
 
 // inherited from Entity2D
 public:
@@ -45,7 +46,8 @@ public:
 
 // topology
 private:
-	ColorVertex m_akVertices[4];
+	SHAPE_TYPE m_eShapeType;
+	ColorVertex * m_pkVertices;
 };
 //----------------------------------------------------------------
 #endif //SHAPE_H

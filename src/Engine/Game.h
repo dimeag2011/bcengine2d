@@ -33,15 +33,8 @@ private:
 	Window* m_pkWindows;
 	HINSTANCE m_hInstance;
 
-/*
-   template class ENGINE_API std::allocator<Entity2D*>
-   template class ENGINE_API std::vector<Entity2D*,
-      std::allocator<Entity2D*> >;
-*/
-
 	std::vector<Entity2D*> m_apkEntities;
 
-	//ColorVertex Vertices[3];
 };
 //--------------------------------------------------------------------------------
 #endif //GAME_H 
