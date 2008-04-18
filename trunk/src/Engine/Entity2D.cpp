@@ -25,5 +25,6 @@ void Entity2D::draw (Renderer * rkRenderer)
 	// apply transformation
 	rkRenderer->translate(m_fX, m_fY);
 	rkRenderer->rotateZ(m_fRotation * 3.14159f / 180.0f);
+	rkRenderer->scale(m_fW, m_fH);
 }
 //----------------------------------------------------------------

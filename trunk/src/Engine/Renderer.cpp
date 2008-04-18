@@ -64,24 +64,18 @@ bool Renderer::InitDX(HWND hWnd)
 
 	m_pkDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
 	m_pkDevice->SetRenderState(D3DRS_ZENABLE, FALSE);
+	m_pkDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 	
-	/*
-	D3DXMatrixIdentity(&d3dmat);
+	//D3DXMatrixIdentity(&d3dmat);
 	//D3DXMatrixTranslation(& d3dmat, 0,  0, 1.0f);
 	//D3DXMatrixRotationZ(& d3dmat, 0);
-	hr = m_pkDevice->SetTransform(D3DTS_WORLD, &d3dmat);
+	//hr = m_pkDevice->SetTransform(D3DTS_WORLD, &d3dmat);
 
 	if (hr!=D3D_OK)
 		return false;
-	D3DXMatrixIdentity(&d3dmat);
-	D3DXVECTOR3 eyePos(0.0f, 0.0f, -5.0f);
-	D3DXVECTOR3 lookPos(0.0f, 0.0f, 0.0f);
-	D3DXVECTOR3 upVec(0.0f, 1.0f, 0.0f); 
-	D3DXMatrixLookAtLH(&d3dmat, &eyePos, &lookPos, &upVec);
-	hr = m_pkDevice->SetTransform(D3DTS_VIEW, &d3dmat);
 
-	if (hr!=D3D_OK)
-		return false;
+	setViewPosition(0,0);
+
 	D3DVIEWPORT9 kViewport;
 
 	m_pkDevice->GetViewport(&kViewport);
@@ -92,7 +86,6 @@ bool Renderer::InitDX(HWND hWnd)
 	if (hr!=D3D_OK)
 		return false;
 
-*/
 	m_pkVertexBuffer = new VertexBuffer<ColorVertex,COLOR_VERTEX>();
 	
 	if (!m_pkVertexBuffer)
@@ -125,13 +118,13 @@ void Renderer::EndFrame()
 //--------------------------------------------------------------------------------
 void Renderer::Draw(
 	ColorVertex * vertexColletion, 
-	D3DPRIMITIVETYPE prim, 
+	PrimitiveType ePrim, 
 	unsigned int uiVertexCount)
 {
-	StartFrame();
+	//StartFrame();
 	m_pkVertexBuffer->Bind();
-	m_pkVertexBuffer->Draw(vertexColletion, prim, uiVertexCount);
-	EndFrame();
+	m_pkVertexBuffer->Draw(vertexColletion, static_cast<D3DPRIMITIVETYPE>(ePrim), uiVertexCount);
+	//EndFrame();
 }
 //--------------------------------------------------------------------------------
 void Renderer::setViewPosition(float fPosX, float fPosY) 
@@ -207,5 +200,19 @@ void Renderer::rotateZ (float fAngle)
 	m_pkDevice->MultiplyTransform(eMatMode, &kTempMatrix);
 }
 //----------------------------------------------------------------
+void Renderer::scale (float fW, float fH)
+{
+	D3DXMATRIX kTempMatrix;
+
+	// generate scale matrix
+	D3DXMatrixScaling(&kTempMatrix, fW,  fH, 1.0f);
+
+	// convert from MatrixMode to D3DTRANSFORMSTATETYPE
+	D3DTRANSFORMSTATETYPE eMatMode = static_cast<D3DTRANSFORMSTATETYPE>(m_eCurrentMatMode);
+
+	// set the matrix
+	m_pkDevice->MultiplyTransform(eMatMode, &kTempMatrix);
+}
+
 
 

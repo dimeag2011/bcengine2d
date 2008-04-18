@@ -1,6 +1,6 @@
 
 //--------------------------------------------------------------------------------
-#include <windows.h>
+#include <Windows.h>
 #include "TestGame.h"
 //--------------------------------------------------------------------------------
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,

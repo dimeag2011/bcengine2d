@@ -18,7 +18,7 @@ bool Game::StartUp()
 {
 	//variable temporal para almacenar el hWnd recibirlo del createWindow y 
 	//pasarlo a InitDX
-	HWND hWnd;
+	HWND hWnd=NULL;
 
 	m_pkWindows = new Window(m_hInstance);
 
@@ -62,14 +62,20 @@ bool Game::StartUp()
 //--------------------------------------------------------------------------------
 bool Game::Loop()
 {
-	/*
+	assert(m_pkRender);
+
 	m_pkRender->StartFrame();
-	m_pkRender->Draw(Vertices, D3DPT_TRIANGLELIST, 3);
-	m_pkRender->EndFrame();
-	*/
+
+	// draw all the entities
+	for(unsigned int i=0; i<m_apkEntities.size(); i++)
+	{
+		m_apkEntities[i]->draw(m_pkRender);
+	}
 
 	if (OnLoop())
 		return true;
+
+	m_pkRender->EndFrame();
 
 	return false;
 }
@@ -87,3 +93,10 @@ bool Game::ShutDown()
 	return true;
 }
 //--------------------------------------------------------------------------------
+void Game::addEntity(Entity2D* pkEntity)
+{
+	assert(pkEntity);
+
+	m_apkEntities.push_back(pkEntity);
+}
+//----------------------------------------------------------------

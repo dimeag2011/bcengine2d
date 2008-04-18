@@ -2,6 +2,7 @@
 #define TEST_GAME_H
 
 #include "Game.h"
+#include "Shape.h"
 
 class TestGame : public Game
 {
@@ -17,5 +18,8 @@ protected:
 	bool OnStartUp();
 	bool OnLoop();
 	bool OnShutDown();
+
+	Shape* m_pkShape;
+
 };
 #endif
