@@ -15,6 +15,12 @@ TestGame::~TestGame ()
 //----------------------------------------------------------------
 bool TestGame::OnStartUp ()
 {
+	m_pkShape = new Shape();
+	m_pkShape->setDim(100,100);
+	m_pkShape->setPos(0,0);
+
+	addEntity(m_pkShape);
+
 	return true;
 }
 //----------------------------------------------------------------

@@ -4,7 +4,7 @@
 #include <windows.h>
 //--------------------------------------------------------------------------------
 // deshabilito el warning del export de STL dll 
-//#pragma warning(disable : 4251)
+#pragma warning(disable : 4251)
 //--------------------------------------------------------------------------------
 //opcion import/export
 #ifdef ENGINE_EXPORTS
@@ -21,6 +21,6 @@
 #include <cassert>
 //--------------------------------------------------------------------------------
 // uso el namespace std
-//using namespace std
+using namespace std;
 //--------------------------------------------------------------------------------
 #endif //DEFINES_H

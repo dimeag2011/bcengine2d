@@ -32,7 +32,7 @@ public:
 //----------------------------------------------------------------
 class Renderer;
 //----------------------------------------------------------------
-class SUPERENGINE_API Shape : public Entity2D
+class ENGINE_API Shape : public Entity2D
 {
 // constructor / destructor
 public:
@@ -41,7 +41,7 @@ public:
 
 // inherited from Entity2D
 public:
-	void draw (Renderer& rkRenderer) const;
+	void draw (Renderer * rkRenderer);
 
 // topology
 private:

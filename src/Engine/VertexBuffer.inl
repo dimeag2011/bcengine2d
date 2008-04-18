@@ -50,9 +50,9 @@ inline bool VertexBuffer<PixelFormatClass, FVF>::Create(IDirect3DDevice9 * pDev,
 template <class PixelFormatClass, unsigned int FVF>
 inline void VertexBuffer<PixelFormatClass, FVF>::Bind(void)
 {
-	m_pkDevice->SetVertexShader(NULL);
-	m_pkDevice->SetFVF(FVF);
-	m_pkDevice->SetStreamSource(0, m_pkVertexBuffer, NULL, sizeof(PixelFormatClass));
+	HRESULT hr = m_pkDevice->SetVertexShader(NULL);
+	hr = m_pkDevice->SetFVF(FVF);
+	hr = m_pkDevice->SetStreamSource(0, m_pkVertexBuffer, NULL, sizeof(PixelFormatClass));
 }
 //--------------------------------------------------------------------------------
 template <class PixelFormatClass, unsigned int FVF>
