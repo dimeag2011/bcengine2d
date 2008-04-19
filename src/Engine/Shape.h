@@ -1,20 +1,3 @@
-/*
-//	Dani Modificaciones
-#ifndef SHAPE_H
-#define SHAPE_H
-
-#include "Structs.h"
-
-class Shape
-{
-public:
-	Shape();
-	~Shape();
-
-
-};
-#endif //SHAPE_H
-*/
 //----------------------------------------------------------------
 #ifndef SHAPE_H
 #define SHAPE_H
@@ -48,6 +31,8 @@ public:
 private:
 	SHAPE_TYPE m_eShapeType;
 	ColorVertex * m_pkVertices;
+	int m_iNumCaras;
+	float m_fRadio;
 };
 //----------------------------------------------------------------
 #endif //SHAPE_H
