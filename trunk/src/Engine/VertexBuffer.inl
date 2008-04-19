@@ -122,7 +122,7 @@ inline void VertexBuffer<PixelFormatClass, FVF>::Flush()
 	else if (m_kPrimitiveType == D3DPT_TRIANGLESTRIP)
 		iPrimitiveCount = m_uiVtxToLock-2;
 	else if (m_kPrimitiveType == D3DPT_TRIANGLEFAN)
-		iPrimitiveCount = m_uiVtxToLock-1;
+		iPrimitiveCount = m_uiVtxToLock-2;
 	else
 		iPrimitiveCount = 0;
 	

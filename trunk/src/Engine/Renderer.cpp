@@ -62,6 +62,7 @@ bool Renderer::InitDX(HWND hWnd)
 	if (!m_pkDevice)
 		return false;
 
+	m_pkDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 	m_pkDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
 	m_pkDevice->SetRenderState(D3DRS_ZENABLE, FALSE);
 	m_pkDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
