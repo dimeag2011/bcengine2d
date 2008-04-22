@@ -17,8 +17,14 @@ bool TestGame::OnStartUp ()
 {
 	m_pkShape = new Shape(m_pkShape->BOX);
 	m_pkShape->setDim(100,100);
-	m_pkShape->setPos(400,300);
+	m_pkShape->setPos(0,0);
 	m_pkShape->setRotation(45);
+	m_pkShape->setColor(155,0,155);
+	int r;
+	int g;
+	int b;
+	m_pkShape->getColor(r, g, b);
+
 
 	addEntity(m_pkShape);
 

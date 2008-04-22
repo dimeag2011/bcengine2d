@@ -26,6 +26,8 @@ public:
 // inherited from Entity2D
 public:
 	void draw (Renderer * rkRenderer);
+	void getColor (int &iRed, int &iGreen, int &iBlue);
+	void setColor (int iRed, int iGreen, int iBlue);
 
 // topology
 private:
@@ -33,6 +35,7 @@ private:
 	ColorVertex * m_pkVertices;
 	int m_iNumCaras;
 	float m_fRadio;
+	int m_iCantVertices;
 };
 //----------------------------------------------------------------
 #endif //SHAPE_H
