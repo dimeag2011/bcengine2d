@@ -62,7 +62,7 @@ bool Renderer::InitDX(HWND hWnd)
 	if (!m_pkDevice)
 		return false;
 
-	m_pkDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
+	//m_pkDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 	m_pkDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
 	m_pkDevice->SetRenderState(D3DRS_ZENABLE, FALSE);
 	m_pkDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
@@ -81,7 +81,7 @@ bool Renderer::InitDX(HWND hWnd)
 
 	m_pkDevice->GetViewport(&kViewport);
 
-	D3DXMatrixOrthoLH(&m_mProjectionMatrix, (float) kViewport.Height, (float) kViewport.Height, -25, 25);
+	D3DXMatrixOrthoLH(&m_mProjectionMatrix, (float) kViewport.Width, (float) kViewport.Height, -25, 25);
 	hr = m_pkDevice->SetTransform(D3DTS_PROJECTION, &m_mProjectionMatrix);
 
 	if (hr!=D3D_OK)
