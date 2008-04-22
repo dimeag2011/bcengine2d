@@ -10,7 +10,7 @@ Entity2D()
 
 	ColorVertex* pkV;
 
-	m_iNumCaras = 149;
+	m_iNumCaras = 145;
 	m_fRadio = 1;
 
 	switch(m_eShapeType)

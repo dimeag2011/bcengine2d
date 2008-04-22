@@ -15,10 +15,10 @@ TestGame::~TestGame ()
 //----------------------------------------------------------------
 bool TestGame::OnStartUp ()
 {
-	m_pkShape = new Shape(m_pkShape->CIRCLE);
-	m_pkShape->setDim(250,250);
-	m_pkShape->setPos(0,0);
-	//m_pkShape->setRotation(45);
+	m_pkShape = new Shape(m_pkShape->BOX);
+	m_pkShape->setDim(100,100);
+	m_pkShape->setPos(400,300);
+	m_pkShape->setRotation(45);
 
 	addEntity(m_pkShape);
 
