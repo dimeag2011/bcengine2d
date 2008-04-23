@@ -41,3 +41,13 @@ inline void Entity2D::setDim (float fW, float fH)
 	m_fH = fH;
 }
 //----------------------------------------------------------------
+inline float Entity2D::getDimH ()
+{
+	return m_fH;
+}
+//----------------------------------------------------------------
+inline float Entity2D::getDimW ()
+{
+	return m_fW;
+}
+//----------------------------------------------------------------

@@ -26,6 +26,8 @@ public:
 	void setRotation (float fRotation);
 	float getRotation () const;
 	void setDim (float fW, float fH);
+	float getDimW ();
+	float getDimH ();
 //----------------------------------------------------------------
 // interface
 	virtual void draw (Renderer * rkRenderer);
