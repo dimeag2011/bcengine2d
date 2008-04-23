@@ -15,18 +15,27 @@ TestGame::~TestGame ()
 //----------------------------------------------------------------
 bool TestGame::OnStartUp ()
 {
-	m_pkShape = new Shape(m_pkShape->BOX);
-	m_pkShape->setDim(100,100);
-	m_pkShape->setPos(0,0);
-	m_pkShape->setRotation(45);
-	m_pkShape->setColor(155,0,155);
-	int r;
-	int g;
-	int b;
-	m_pkShape->getColor(r, g, b);
 
+	m_pkBox = new Box();
+	m_pkBox->setPos(0,0);
+	m_pkBox->setColor(255,255,255);
+	m_pkBox->setDim(100,100);
 
-	addEntity(m_pkShape);
+	addEntity(m_pkBox);
+
+	m_pkCirc = new Circle(145);
+	m_pkCirc->setPos(150, 150);
+	m_pkCirc->setDim(50,50);
+	m_pkCirc->setColor(55,55,55);
+
+	addEntity(m_pkCirc);
+
+	m_pkTri = new Triangle();
+	m_pkTri->setPos(-100, -100);
+	m_pkTri->setDim(100,100);
+	m_pkTri->setColor(100,100,0);
+
+	addEntity(m_pkTri);
 
 	return true;
 }

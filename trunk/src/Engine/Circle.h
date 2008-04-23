@@ -1,33 +1,29 @@
 //----------------------------------------------------------------
-#ifndef SHAPE_H
-#define SHAPE_H
+#ifndef CIRCLE_H
+#define CIRCLE_H
 //----------------------------------------------------------------
-#include "Defines.h"
-#include "Entity2D.h"
-#include "Structs.h"
+#include "Shape.h"
+#include "Renderer.h"
 //----------------------------------------------------------------
 class Renderer;
 //----------------------------------------------------------------
-class ENGINE_API Shape : public Entity2D
+class ENGINE_API Circle : public Shape
 {
 // constructor / destructor
-protected:
-	Shape ();
 public:
-	virtual ~Shape () { /***/ }
+
+	Circle (int iNumCaras);
+	~Circle () { /***/ }
 
 
-// inherited from Entity2D
+// inherited from Shape
 public:
 	void draw (Renderer * rkRenderer);
-	void getColor (int &iRed, int &iGreen, int &iBlue);
-	void setColor (int iRed, int iGreen, int iBlue);
 
 // topology
-protected:
-	ColorVertex* m_pkVertices;
-	int m_iCantVertices;
+private:
+	int m_iNumCaras; //MAXIMO PERMITIDO 145!!!
 };
 //----------------------------------------------------------------
-#endif //SHAPE_H
+#endif //CIRCLE_H
 //----------------------------------------------------------------
