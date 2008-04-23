@@ -8,10 +8,11 @@ class Renderer;
 //----------------------------------------------------------------
 class ENGINE_API Entity2D
 {
-public:
 //----------------------------------------------------------------
 // constructor y destructor
+protected:
 	Entity2D ();
+public:
 	virtual ~Entity2D () { /***/ }
 //----------------------------------------------------------------
 // seteo y devuelvo el nombre

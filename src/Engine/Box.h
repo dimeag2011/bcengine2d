@@ -1,33 +1,28 @@
 //----------------------------------------------------------------
-#ifndef SHAPE_H
-#define SHAPE_H
+#ifndef BOX_H
+#define BOX_H
 //----------------------------------------------------------------
-#include "Defines.h"
-#include "Entity2D.h"
-#include "Structs.h"
+#include "Shape.h"
+#include "Renderer.h"
 //----------------------------------------------------------------
 class Renderer;
 //----------------------------------------------------------------
-class ENGINE_API Shape : public Entity2D
+class ENGINE_API Box : public Shape
 {
 // constructor / destructor
-protected:
-	Shape ();
 public:
-	virtual ~Shape () { /***/ }
+
+	Box ();
+	~Box () { /***/ }
 
 
-// inherited from Entity2D
+// inherited from Shape
 public:
 	void draw (Renderer * rkRenderer);
-	void getColor (int &iRed, int &iGreen, int &iBlue);
-	void setColor (int iRed, int iGreen, int iBlue);
 
 // topology
-protected:
-	ColorVertex* m_pkVertices;
-	int m_iCantVertices;
+private:
 };
 //----------------------------------------------------------------
-#endif //SHAPE_H
+#endif //BOX_H
 //----------------------------------------------------------------

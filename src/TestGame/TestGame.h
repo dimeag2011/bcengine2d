@@ -2,7 +2,10 @@
 #define TEST_GAME_H
 
 #include "Game.h"
-#include "Shape.h"
+//#include "Shape.h"
+#include "Box.h"
+#include "Circle.h"
+#include "Triangle.h"
 
 class TestGame : public Game
 {
@@ -19,7 +22,9 @@ protected:
 	bool OnLoop();
 	bool OnShutDown();
 
-	Shape* m_pkShape;
+	Box* m_pkBox;
+	Circle* m_pkCirc;
+	Triangle* m_pkTri;
 
 };
 #endif

@@ -177,6 +177,14 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
+				RelativePath=".\Box.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Circle.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Entity2D.cpp"
 				>
 			</File>
@@ -193,6 +201,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Triangle.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Window.cpp"
 				>
 			</File>
@@ -202,6 +214,14 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
+			<File
+				RelativePath=".\Box.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Circle.h"
+				>
+			</File>
 			<File
 				RelativePath=".\Defines.h"
 				>
@@ -228,6 +248,10 @@
 			</File>
 			<File
 				RelativePath=".\Structs.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Triangle.h"
 				>
 			</File>
 			<File
