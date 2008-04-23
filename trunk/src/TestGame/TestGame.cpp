@@ -25,8 +25,9 @@ bool TestGame::OnStartUp ()
 
 	m_pkCirc = new Circle(145);
 	m_pkCirc->setPos(150, 150);
-	m_pkCirc->setDim(50,50);
+	m_pkCirc->setDim(150,150);
 	m_pkCirc->setColor(55,55,55);
+	m_pkCirc->setNumeroCaras(70);
 
 	addEntity(m_pkCirc);
 

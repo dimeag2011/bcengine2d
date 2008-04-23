@@ -19,6 +19,8 @@ public:
 // inherited from Shape
 public:
 	void draw (Renderer * rkRenderer);
+	int getNumeroCaras();
+	void setNumeroCaras(int iNumCaras);
 
 // topology
 private:
