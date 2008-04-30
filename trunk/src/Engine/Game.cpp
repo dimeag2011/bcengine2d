@@ -38,6 +38,8 @@ bool Game::StartUp()
 	if (!OnStartUp())
 		return false;
 
+	m_kTimer.FirstMeasure();
+
 	return true;
 }
 //--------------------------------------------------------------------------------
@@ -57,6 +59,10 @@ bool Game::Loop()
 		return true;
 
 	m_pkRender->EndFrame();
+
+	m_pkWindows->SetWindowTitle(strcat("Engine v0.1 - FPS", itoa(m_kTimer.GetFPS())));
+
+	m_kTimer.Measure();
 
 	return false;
 }

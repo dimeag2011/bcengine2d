@@ -12,6 +12,7 @@ public:
 	~Window();
 
 	bool createWindow(unsigned int uiWidth, unsigned int uiHeight, HWND & hWnd);
+	void SetWindowTitle(LPCSTR lpString);
 
 private:
 

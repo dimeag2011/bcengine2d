@@ -5,6 +5,7 @@
 #include "Window.h"
 #include "Renderer.h"
 #include "Entity2D.h"
+#include "Timer.h"
 
 #include "Structs.h"
 //--------------------------------------------------------------------------------
@@ -21,6 +22,8 @@ public:
 	bool ShutDown();
 
 	void addEntity(Entity2D* pkEntity);
+
+	Timer m_kTimer;
 
 protected:
 	//game virtual functions to be overloaded in game
