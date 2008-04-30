@@ -67,3 +67,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message,
 	return DefWindowProc(hWnd, message, wParam, lParam);
 }
 //--------------------------------------------------------------------------------
+void Window::SetWindowTitle(LPCSTR lpString)
+{
+	SetWindowText(m_hWnd, lpString);
+}

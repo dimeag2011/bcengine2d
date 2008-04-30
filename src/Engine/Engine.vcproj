@@ -201,6 +201,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Timer.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Triangle.cpp"
 				>
 			</File>
@@ -248,6 +252,10 @@
 			</File>
 			<File
 				RelativePath=".\Structs.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Timer.h"
 				>
 			</File>
 			<File
