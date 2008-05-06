@@ -60,7 +60,10 @@ bool Game::Loop()
 
 	m_pkRender->EndFrame();
 
-	m_pkWindows->SetWindowTitle(strcat("Engine v0.1 - FPS", itoa(m_kTimer.GetFPS())));
+	stringstream s;
+	s << "Engine v0.1 - FPS:" << m_kTimer.GetFPS();
+	//m_pkWindows->SetWindowTitle(strcat("Engine v0.1 - FPS", itoa(m_kTimer.GetFPS())));
+	m_pkWindows->SetWindowTitle(s.str().c_str());
 
 	m_kTimer.Measure();
 
