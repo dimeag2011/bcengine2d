@@ -19,6 +19,7 @@
 #include <vector>
 #include <map>
 #include <cassert>
+#include <sstream>
 //--------------------------------------------------------------------------------
 // uso el namespace std
 using namespace std;
