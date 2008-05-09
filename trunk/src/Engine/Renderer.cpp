@@ -18,7 +18,7 @@ bool Renderer::InitDX(HWND hWnd)
 	IDirect3D9 * _pD3D;
 
 	// Intento crear el objeto DX9
-	_pD3D = Direct3DCreate9(D3D_SDK_VERSION);
+	_pD3D = Direct3DCreate9(D3D_SDK_VERSION);	
 
 	if (!_pD3D)
 		return false;
@@ -128,6 +128,17 @@ void Renderer::Draw(
 	//EndFrame();
 }
 //--------------------------------------------------------------------------------
+void Renderer::Draw(
+					TextureVertex* pakVertices, 
+					PrimitiveType ePrim, 
+					unsigned int uiVertexCount)
+{
+	m_kTextureBuffer->Bind();
+	m_kTextureBuffer->Draw(pakVertices, 
+						static_cast<D3DPRIMITIVETYPE>(ePrim), 
+						uiVertexCount);
+}
+//--------------------------------------------------------------------------------
 void Renderer::setViewPosition(float fPosX, float fPosY) 
 {
 	D3DXMATRIX kMatrix;
@@ -214,6 +225,49 @@ void Renderer::scale (float fW, float fH)
 	// set the matrix
 	m_pkDevice->MultiplyTransform(eMatMode, &kTempMatrix);
 }
+//----------------------------------------------------------------
+void Renderer::unbindTexture ()
+{
+	m_pkDevice->SetTexture(0, NULL);
+}
+//----------------------------------------------------------------
+bool Renderer::bindTexture(Texture * rkTexture)
+{
+	
+	IDirect3DTexture9* pkDXTexture = m_kTextureMap[rkTexture->getFilename()];
 
+	assert(pkDXTexture);
+	
+	HRESULT hr = m_pkDevice->SetTexture(0, pkDXTexture);
 
+	return true;
+}
+//----------------------------------------------------------------
+bool Renderer::loadTexture(char* pszFilename, Texture * rkTexture)
+{
+	
+	IDirect3DTexture9* pkBitmapTexture = NULL;
+	D3DXIMAGE_INFO kImageinfo;
+	HRESULT hr;
+	
+	hr = D3DXCreateTextureFromFileEx(m_pkDevice,
+			rkTexture->getFilename().c_str(), 
+			0, 0, 0, 0,
+			D3DFMT_UNKNOWN, D3DPOOL_MANAGED,
+			D3DX_FILTER_NONE, D3DX_FILTER_NONE,
+			0, //pTexInfo->texColorKey,
+			&kImageinfo,
+			NULL,
+			&pkBitmapTexture);
 
+	if (hr != D3D_OK)
+		return false;
+
+	rkTexture->setWidth(kImageinfo.Width);
+	rkTexture->setHeight(kImageinfo.Height);
+
+	m_kTextureMap[rkTexture->getFilename()] = pkBitmapTexture;
+
+	return NULL;
+}
+//----------------------------------------------------------------

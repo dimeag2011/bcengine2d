@@ -201,6 +201,14 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Sprite.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Texture.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\Timer.cpp"
 				>
 			</File>
@@ -251,7 +259,23 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Sprite.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Sprite.inl"
+				>
+			</File>
+			<File
 				RelativePath=".\Structs.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Texture.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Texture.inl"
 				>
 			</File>
 			<File

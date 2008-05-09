@@ -25,5 +25,15 @@ enum MatrixMode
 	PROJECTION = D3DTS_PROJECTION
 };
 //----------------------------------------------------------------
+// texture vertex D3D define
+#define TEXTURE_VERTEX (D3DFVF_XYZ|D3DFVF_TEX1|D3DFVF_TEXCOORDSIZE2(0))
+
+// texture vertex struct
+struct TextureVertex
+{
+	float X,Y,Z;
+	float U, V;
+};
+//----------------------------------------------------------------
 #endif // GRAPHICS_STRUCTS_H
 //----------------------------------------------------------------

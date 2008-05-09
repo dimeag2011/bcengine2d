@@ -5,9 +5,13 @@
 #include <D3DX9.h>
 #include "Structs.h"
 #include "VertexBuffer.h"
+#include "Defines.h"
+#include "Texture.h"
 //--------------------------------------------------------------------------------
 #pragma comment (lib, "d3d9.lib")
 #pragma comment (lib, "d3dx9.lib")
+//--------------------------------------------------------------------------------
+class Texture;
 //--------------------------------------------------------------------------------
 class Renderer
 {
@@ -21,7 +25,10 @@ public:
 
 	Renderer(HWND hWnd);
 	~Renderer();
+
 	void Draw(ColorVertex * vertexColletion, PrimitiveType ePrim, unsigned int uiVertexCount);
+	void Draw(TextureVertex * vertexColletion, PrimitiveType ePrim, unsigned int uiVertexCount);
+
 // matrix handling
 	void setMatrixMode (MatrixMode eMode);
 	void loadIdentity ();
@@ -29,6 +36,11 @@ public:
 	void rotateZ (float fAngle);
 	void setViewPosition (float fPosX, float fPosY);
 	void scale (float fW, float fH);
+
+//	Metodos de Textura
+	void unbindTexture ();
+	bool bindTexture (Texture * rkTexture);
+	bool loadTexture (char* pszFilename, Texture * rkTexture);
 
 private:
 	void StartFrame();
@@ -39,12 +51,17 @@ private:
 	HWND m_hWnd;
 	IDirect3DDevice9*  m_pkDevice;
 	VertexBuffer<ColorVertex,COLOR_VERTEX> * m_pkVertexBuffer;
+	VertexBuffer<TextureVertex, TEXTURE_VERTEX> * m_kTextureBuffer;
 	/*
 	D3DXMATRIX d3dmat;
 	*/D3DXMATRIX m_mProjectionMatrix;
 	
 	// current matrix mode
 	MatrixMode m_eCurrentMatMode;
+
+protected:
+	std::map <std::string, IDirect3DTexture9*> m_kTextureMap;
+	typedef std::map<std::string, IDirect3DTexture9*>::iterator TextureIterator;
 
 	friend class Game;
 };
