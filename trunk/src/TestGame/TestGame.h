@@ -1,11 +1,7 @@
 #ifndef TEST_GAME_H
 #define TEST_GAME_H
 
-#include "Game.h"
-//#include "Shape.h"
-#include "Box.h"
-#include "Circle.h"
-#include "Triangle.h"
+#include "Engine.h"
 
 class TestGame : public Game
 {
@@ -26,5 +22,8 @@ protected:
 	Circle* m_pkCirc;
 	Triangle* m_pkTri;
 
+	Sprite* m_pkPacman;
+	Sprite* m_pkGhost1;
+	Texture::Ptr m_pkTexture;
 };
 #endif

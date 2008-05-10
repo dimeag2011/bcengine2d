@@ -16,8 +16,8 @@ public:
 	virtual ~Entity2D () { /***/ }
 //----------------------------------------------------------------
 // seteo y devuelvo el nombre
-	void setName (std::string kName);
-	const std::string& getName () const;
+	void setName (string kName);
+	const string& getName () const;
 //----------------------------------------------------------------
 // seteo y devuelvo posicion, rotacion y dimension
 	void setPos (float fX, float fY);
@@ -35,7 +35,7 @@ public:
 private:
 //----------------------------------------------------------------
 // nombre
-	std::string m_kName;
+	string m_kName;
 //----------------------------------------------------------------
 // posicion, rotacion y dimension
 	float m_fX, m_fY;

@@ -11,14 +11,14 @@ class ENGINE_API Texture
 
 // constructor / destructor
 public:
-	Texture (std::string kFilename);
+	Texture (string kFilename);
 	~Texture ();
 
 // accessors
 public:
 	unsigned int getWidth ();
 	unsigned int getHeight ();
-	std::string getFilename ();
+	string getFilename ();
 	void setWidth (unsigned int uiWidth);
 	void setHeight (unsigned int uiHeight);
 
@@ -26,7 +26,7 @@ public:
 private:
 	unsigned int m_uiWidth;
 	unsigned int m_uiHeight;
-	std::string m_kFilename;
+	string m_kFilename;
 };
 //----------------------------------------------------------------
 #include "Texture.inl"

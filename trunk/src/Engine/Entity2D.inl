@@ -1,10 +1,10 @@
 //----------------------------------------------------------------
-inline void Entity2D::setName (std::string kName)
+inline void Entity2D::setName (string kName)
 {
 	m_kName = kName;
 }
 //----------------------------------------------------------------
-inline const std::string& Entity2D::getName () const
+inline const string& Entity2D::getName () const
 {
 	return m_kName;
 }

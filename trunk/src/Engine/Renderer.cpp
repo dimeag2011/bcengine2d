@@ -243,7 +243,7 @@ bool Renderer::bindTexture(Texture::Ptr rkTexture)
 	return true;
 }
 //----------------------------------------------------------------
-bool Renderer::loadTexture(char* pszFilename, Texture::Ptr rkTexture)
+bool Renderer::loadTexture(const char* pszFilename, Texture::Ptr rkTexture)
 {
 	
 	IDirect3DTexture9* pkBitmapTexture = NULL;
