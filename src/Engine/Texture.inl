@@ -19,7 +19,7 @@ inline void Texture::setHeight (unsigned int uiHeight)
 	m_uiHeight = uiHeight;
 }
 //----------------------------------------------------------------
-inline std::string Texture::getFilename ()
+inline string Texture::getFilename ()
 {
 	return m_kFilename;
 }

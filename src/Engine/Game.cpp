@@ -83,10 +83,3 @@ bool Game::ShutDown()
 	return true;
 }
 //--------------------------------------------------------------------------------
-void Game::addEntity(Entity2D* pkEntity)
-{
-	assert(pkEntity);
-
-	m_apkEntities.push_back(pkEntity);
-}
-//----------------------------------------------------------------

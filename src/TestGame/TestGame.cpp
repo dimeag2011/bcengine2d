@@ -15,6 +15,9 @@ TestGame::~TestGame ()
 //----------------------------------------------------------------
 bool TestGame::OnStartUp ()
 {
+	Importer* pkImporter = getImporter();
+
+	pkImporter->importResources("../../res/sprite.xml");
 
 	m_pkBox = new Box();
 	m_pkBox->setPos(0,0);
@@ -37,6 +40,33 @@ bool TestGame::OnStartUp ()
 	m_pkTri->setColor(200,120,0);
 
 	addEntity(m_pkTri);
+
+	// initialize pacman
+	if( pkImporter->createSprite("Pacman", *m_pkPacman) )
+	{
+		// set properties
+		m_pkPacman->setName("el pacman loco");
+		m_pkPacman->setDim(50,50);
+		m_pkPacman->setPos(-100,150);
+		/*
+		// set animation
+		if( m_pkPacman->setAnimation("Eat") )
+			m_pkPacman->getAnimation()->play();
+	*/
+		// add it to the scene
+		addEntity(m_pkPacman);
+	}
+
+	// initialize ghost
+	if( pkImporter->createSprite("Fantasma", *m_pkGhost1) )
+	{
+		// set properties
+		m_pkGhost1->setName("el fantasma loco");
+		m_pkGhost1->setDim(50,50);
+		m_pkGhost1->setPos(-200,0);
+
+		addEntity(m_pkGhost1);
+	}
 
 	return true;
 }

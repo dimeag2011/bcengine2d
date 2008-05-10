@@ -69,5 +69,48 @@ void Sprite::setTextureArea (unsigned int uiOffsetX,
 	pkV->U = fU2;	pkV->V = fV1;
 }
 //----------------------------------------------------------------
+bool Sprite::addAnimationInfo (std::string kName, AnimationInfo::Ptr pkInfo)
+{
+	// get the animation
+	AnimationInfo::Ptr pkAnimInfo = m_kAnimationMap[kName];
 
+	// if the animation with that name already exists, return
+	if( pkAnimInfo.get() )
+		return false;
+
+	// add it to the entity
+	m_kAnimationMap[kName] = pkInfo;
+
+	return true;
+}
+//----------------------------------------------------------------
+bool Sprite::removeAnimationInfo (std::string kName)
+{
+	// get the animation
+	AnimationInfo::Ptr pkAnimInfo = m_kAnimationMap[kName];
+
+	// if the animation with that name does not exist, return
+	if( !pkAnimInfo.get() )
+		return false;
+
+ 	// delete the animation
+	m_kAnimationMap.erase(kName);
+
+	return false;
+}
+//----------------------------------------------------------------
+void Sprite::clone (Sprite& rkSprite)
+{
+	// check for clone to self
+	if(&rkSprite == this)
+		return;
+
+	// increment smart pointers references
+	rkSprite.m_pkTexture = m_pkTexture;
+	rkSprite.m_kAnimationMap = m_kAnimationMap;
+
+	// copy vertices
+	for(unsigned int i=0; i<4; i++)
+		rkSprite.m_akVertices[i] = m_akVertices[i];
+}
 //----------------------------------------------------------------

@@ -1,17 +1,13 @@
 //----------------------------------------------------------------
-#include "Texture.h"
-//----------------------------------------------------------------
-Texture::Texture (string kFilename)
-:
-m_uiWidth(0),
-m_uiHeight(0),
-m_kFilename(kFilename)
+inline void Game::addEntity(Entity2D* pkEntity)
 {
+	assert(pkEntity);
 
+	m_apkEntities.push_back(pkEntity);
 }
 //----------------------------------------------------------------
-Texture::~Texture ()
+inline Importer* Game::getImporter ()
 {
-
+	return m_pkImporter;
 }
 //----------------------------------------------------------------
