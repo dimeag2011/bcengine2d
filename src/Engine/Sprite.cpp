@@ -5,8 +5,7 @@
 //----------------------------------------------------------------
 Sprite::Sprite ()
 :
-Entity2D(),
-m_pkTexture(NULL)
+Entity2D()
 {
 	// set the vertex values
 	TextureVertex* pkV = &(m_akVertices[0]);

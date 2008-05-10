@@ -39,8 +39,8 @@ public:
 
 //	Metodos de Textura
 	void unbindTexture ();
-	bool bindTexture (Texture * rkTexture);
-	bool loadTexture (char* pszFilename, Texture * rkTexture);
+	bool bindTexture (Texture::Ptr rkTexture);
+	bool loadTexture (char* pszFilename, Texture::Ptr rkTexture);
 
 private:
 	void StartFrame();

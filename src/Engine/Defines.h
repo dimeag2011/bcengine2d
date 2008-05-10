@@ -21,6 +21,13 @@
 #include <cassert>
 #include <sstream>
 //--------------------------------------------------------------------------------
+// boost smart pointer
+#include <boost/shared_ptr.hpp>
+
+#define DECLARE_SMART_POINTER(classname) \
+	public:	\
+		typedef boost::shared_ptr<classname> Ptr;
+//--------------------------------------------------------------------------------
 // uso el namespace std
 using namespace std;
 //--------------------------------------------------------------------------------
