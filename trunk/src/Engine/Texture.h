@@ -7,6 +7,8 @@
 class ENGINE_API Texture
 {
 
+	DECLARE_SMART_POINTER(Texture);
+
 // constructor / destructor
 public:
 	Texture (std::string kFilename);

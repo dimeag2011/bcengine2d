@@ -231,7 +231,7 @@ void Renderer::unbindTexture ()
 	m_pkDevice->SetTexture(0, NULL);
 }
 //----------------------------------------------------------------
-bool Renderer::bindTexture(Texture * rkTexture)
+bool Renderer::bindTexture(Texture::Ptr rkTexture)
 {
 	
 	IDirect3DTexture9* pkDXTexture = m_kTextureMap[rkTexture->getFilename()];
@@ -243,7 +243,7 @@ bool Renderer::bindTexture(Texture * rkTexture)
 	return true;
 }
 //----------------------------------------------------------------
-bool Renderer::loadTexture(char* pszFilename, Texture * rkTexture)
+bool Renderer::loadTexture(char* pszFilename, Texture::Ptr rkTexture)
 {
 	
 	IDirect3DTexture9* pkBitmapTexture = NULL;

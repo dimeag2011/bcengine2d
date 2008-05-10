@@ -5,8 +5,7 @@
 #include "Defines.h"
 #include "Entity2D.h"
 #include "Structs.h"
-//----------------------------------------------------------------
-class Texture;
+#include "Texture.h"
 //----------------------------------------------------------------
 class ENGINE_API Sprite : public Entity2D
 {
@@ -21,8 +20,8 @@ public:
 
 // texture handling
 public:
-	void setTexture (Texture* pkTexture);
-	const Texture* getTexture ();
+	void setTexture (Texture::Ptr pkTexture);
+	const Texture::Ptr getTexture ();
 
 	void setTextureArea (unsigned int uiOffsetX, 
 						unsigned int uiOffsetY, 
@@ -33,7 +32,7 @@ public:
 private:
 	TextureVertex m_akVertices[4];
 
-	Texture* m_pkTexture;
+	Texture::Ptr m_pkTexture;
 };
 //----------------------------------------------------------------
 #include "Sprite.inl"
