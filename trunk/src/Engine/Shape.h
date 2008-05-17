@@ -20,6 +20,7 @@ public:
 // inherited from Entity2D
 public:
 	void draw (Renderer * rkRenderer);
+	void update (float fTimeBetweenFrames);
 	void getColor (int &iRed, int &iGreen, int &iBlue);
 	void setColor (int iRed, int iGreen, int iBlue);
 

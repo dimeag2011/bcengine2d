@@ -18,6 +18,7 @@ public:
 // drawing (inherited from Entity2D)
 public:
 	void draw (Renderer* rkRenderer);
+	void update (float fTimeBetweenFrames);
 
 // clones a sprite
 public:
@@ -50,7 +51,7 @@ public:
 
 	bool setAnimation (std::string kName);
 	AnimationInfo::Ptr getAnimationInfo (std::string kName);
-	Animation* getAnimation () const;
+	Animation* getAnimation ();
 
 };
 //----------------------------------------------------------------

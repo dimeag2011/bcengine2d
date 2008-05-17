@@ -32,6 +32,10 @@ public:
 // interface
 	virtual void draw (Renderer * rkRenderer);
 //----------------------------------------------------------------
+// functions to override
+public:
+	virtual void update (float fTimeBetweenFrames) = 0;
+
 private:
 //----------------------------------------------------------------
 // nombre
