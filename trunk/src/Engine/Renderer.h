@@ -50,8 +50,8 @@ private:
 
 	HWND m_hWnd;
 	IDirect3DDevice9*  m_pkDevice;
-	VertexBuffer<ColorVertex,COLOR_VERTEX> * m_pkVertexBuffer;
-	VertexBuffer<TextureVertex, TEXTURE_VERTEX> * m_kTextureBuffer;
+	VertexBuffer<ColorVertex,COLOR_VERTEX> m_pkVertexBuffer;
+	VertexBuffer<TextureVertex, TEXTURE_VERTEX> m_kTextureBuffer;
 	/*
 	D3DXMATRIX d3dmat;
 	*/D3DXMATRIX m_mProjectionMatrix;

@@ -5,7 +5,8 @@
 //----------------------------------------------------------------
 Sprite::Sprite ()
 :
-Entity2D()
+Entity2D(),
+m_pkCurrentAnim(NULL)
 {
 	// set the vertex values
 	TextureVertex* pkV = &(m_akVertices[0]);
@@ -99,18 +100,18 @@ bool Sprite::removeAnimationInfo (std::string kName)
 	return false;
 }
 //----------------------------------------------------------------
-void Sprite::clone (Sprite& rkSprite)
+void Sprite::clone (Sprite* rkSprite)
 {
 	// check for clone to self
-	if(&rkSprite == this)
+	if(rkSprite == this)
 		return;
 
 	// increment smart pointers references
-	rkSprite.m_pkTexture = m_pkTexture;
-	rkSprite.m_kAnimationMap = m_kAnimationMap;
+	rkSprite->m_pkTexture = m_pkTexture;
+	rkSprite->m_kAnimationMap = m_kAnimationMap;
 
 	// copy vertices
 	for(unsigned int i=0; i<4; i++)
-		rkSprite.m_akVertices[i] = m_akVertices[i];
+		rkSprite->m_akVertices[i] = m_akVertices[i];
 }
 //----------------------------------------------------------------

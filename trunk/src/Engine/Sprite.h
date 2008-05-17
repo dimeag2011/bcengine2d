@@ -21,7 +21,7 @@ public:
 
 // clones a sprite
 public:
-	void clone (Sprite& rkSprite);
+	void clone (Sprite* rkSprite);
 
 // texture handling
 public:

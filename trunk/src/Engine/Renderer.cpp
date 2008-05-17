@@ -87,14 +87,13 @@ bool Renderer::InitDX(HWND hWnd)
 	if (hr!=D3D_OK)
 		return false;
 
-	m_pkVertexBuffer = new VertexBuffer<ColorVertex,COLOR_VERTEX>();
-	
-	if (!m_pkVertexBuffer)
+	// create the color buffer
+	if(!m_pkVertexBuffer.Create(m_pkDevice, true))
 		return false;
 
-	if (!m_pkVertexBuffer->Create(m_pkDevice, true))
+	// create the texture buffer
+	if(!m_kTextureBuffer.Create(m_pkDevice, true))
 		return false;
-
 
 	return true;
 }
@@ -123,8 +122,8 @@ void Renderer::Draw(
 	unsigned int uiVertexCount)
 {
 	//StartFrame();
-	m_pkVertexBuffer->Bind();
-	m_pkVertexBuffer->Draw(vertexColletion, static_cast<D3DPRIMITIVETYPE>(ePrim), uiVertexCount);
+	m_pkVertexBuffer.Bind();
+	m_pkVertexBuffer.Draw(vertexColletion, static_cast<D3DPRIMITIVETYPE>(ePrim), uiVertexCount);
 	//EndFrame();
 }
 //--------------------------------------------------------------------------------
@@ -133,8 +132,8 @@ void Renderer::Draw(
 					PrimitiveType ePrim, 
 					unsigned int uiVertexCount)
 {
-	m_kTextureBuffer->Bind();
-	m_kTextureBuffer->Draw(pakVertices, 
+	m_kTextureBuffer.Bind();
+	m_kTextureBuffer.Draw(pakVertices, 
 						static_cast<D3DPRIMITIVETYPE>(ePrim), 
 						uiVertexCount);
 }

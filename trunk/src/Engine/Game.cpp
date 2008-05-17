@@ -1,10 +1,12 @@
 #include "Game.h"
+#include "Importer.h"
 //--------------------------------------------------------------------------------
 Game::Game(HINSTANCE hInstance)
 :
 m_pkRender(NULL),
 m_pkWindows(NULL),
-m_hInstance(hInstance)
+m_hInstance(hInstance),
+m_pkImporter(NULL)
 {
 
 }
@@ -34,6 +36,9 @@ bool Game::StartUp()
 
 	if(!m_pkRender->InitDX(hWnd))
 		return false;
+
+	// create loader
+	m_pkImporter = new Importer(m_pkRender);
 
 	if (!OnStartUp())
 		return false;
