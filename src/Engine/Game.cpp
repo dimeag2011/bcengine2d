@@ -52,6 +52,12 @@ bool Game::Loop()
 {
 	assert(m_pkRender);
 
+	// update all the entities
+	for(unsigned int i=0; i<m_apkEntities.size(); i++)
+	{
+		m_apkEntities[i]->update(m_kTimer.GetDT());
+	}
+
 	m_pkRender->StartFrame();
 
 	// draw all the entities

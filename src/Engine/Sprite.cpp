@@ -26,6 +26,24 @@ m_pkCurrentAnim(NULL)
 	pkV->U = 1.0f;	pkV->V = 0.0f;
 }
 //----------------------------------------------------------------
+void Sprite::update (float fTimeBetweenFrames)
+{
+	//Entity2D::update(fTimeBetweenFrames);
+
+	// update the animations
+	if(m_pkCurrentAnim)
+	{
+		m_pkCurrentAnim->update(fTimeBetweenFrames);
+
+		unsigned int uiCurrentFrame = m_pkCurrentAnim->getCurrentFrame();
+		const FrameInfo& kInfo = m_pkCurrentAnim->getInfo()->getFrameInfo(uiCurrentFrame);
+
+		// update sprite
+		setTextureArea(kInfo.uiOffsetX, kInfo.uiOffsetY,
+						kInfo.uiWidth, kInfo.uiHeight);
+	}
+}
+//----------------------------------------------------------------
 void Sprite::draw (Renderer* rkRenderer)
 {
 	assert(m_pkTexture);
@@ -115,3 +133,4 @@ void Sprite::clone (Sprite* rkSprite)
 		rkSprite->m_akVertices[i] = m_akVertices[i];
 }
 //----------------------------------------------------------------
+

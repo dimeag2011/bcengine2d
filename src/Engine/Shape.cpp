@@ -16,6 +16,11 @@ void Shape::draw (Renderer * rkRenderer)
 	//rkRenderer.unbindTexture();
 }
 //----------------------------------------------------------------
+void Shape::update (float fTimeBetweenFrames)
+{
+
+}
+//----------------------------------------------------------------
 void Shape::getColor (int &iRed, int &iGreen, int &iBlue)
 {
 	iRed = getR(m_pkVertices[0].color);

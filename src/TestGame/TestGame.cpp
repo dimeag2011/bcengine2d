@@ -53,11 +53,11 @@ bool TestGame::OnStartUp ()
 		m_pkPacman->setName("el pacman loco");
 		m_pkPacman->setDim(50,50);
 		m_pkPacman->setPos(-100,150);
-		/*
+		
 		// set animation
 		if( m_pkPacman->setAnimation("Eat") )
 			m_pkPacman->getAnimation()->play();
-	*/
+	
 		// add it to the scene
 		addEntity(m_pkPacman);
 	}
