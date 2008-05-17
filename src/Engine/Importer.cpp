@@ -54,6 +54,7 @@ bool Importer::importSprite (XMLNode& rkNode)
 	const char* pszName = rkNode.getAttribute("Name");
 
 	// find the sprite
+
 	Sprite* pkSprite = m_kpSpritesMap[pszName];
 	
 	// if it was found, return
@@ -174,7 +175,7 @@ bool Importer::importTexture (const char* pszFilename)
 	return true;
 }
 //----------------------------------------------------------------------
-bool Importer::createSprite (const char* pszName, Sprite& rkSprite)
+bool Importer::createSprite (const char* pszName, Sprite* rkSprite)
 {
 	Sprite* pkSprite = m_kpSpritesMap[pszName];
 

@@ -3,7 +3,12 @@
 //----------------------------------------------------------------
 TestGame::TestGame (HINSTANCE hInstance)
 :
-Game (hInstance)
+Game (hInstance),
+m_pkBox(NULL),
+m_pkCirc(NULL),
+m_pkTri(NULL),
+m_pkPacman(new Sprite()),
+m_pkGhost1(new Sprite())
 {
 	
 }
@@ -42,7 +47,7 @@ bool TestGame::OnStartUp ()
 	addEntity(m_pkTri);
 
 	// initialize pacman
-	if( pkImporter->createSprite("Pacman", *m_pkPacman) )
+	if( pkImporter->createSprite("Pacman", m_pkPacman) )
 	{
 		// set properties
 		m_pkPacman->setName("el pacman loco");
@@ -58,7 +63,7 @@ bool TestGame::OnStartUp ()
 	}
 
 	// initialize ghost
-	if( pkImporter->createSprite("Fantasma", *m_pkGhost1) )
+	if( pkImporter->createSprite("Fantasma", m_pkGhost1) )
 	{
 		// set properties
 		m_pkGhost1->setName("el fantasma loco");
