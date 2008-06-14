@@ -5,7 +5,7 @@ Renderer::Renderer(HWND hWnd)
 m_hWnd(hWnd),
 m_pkDevice(NULL)
 {
-
+	
 }
 //--------------------------------------------------------------------------------
 Renderer::~Renderer()
@@ -62,10 +62,12 @@ bool Renderer::InitDX(HWND hWnd)
 	if (!m_pkDevice)
 		return false;
 
-	//m_pkDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 	m_pkDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
 	m_pkDevice->SetRenderState(D3DRS_ZENABLE, FALSE);
-	m_pkDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
+	m_pkDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
+	m_pkDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
+	//m_pkDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
+	m_pkDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
 	
 	//D3DXMatrixIdentity(&d3dmat);
 	//D3DXMatrixTranslation(& d3dmat, 0,  0, 1.0f);
@@ -185,7 +187,7 @@ void Renderer::loadIdentity ()
 //----------------------------------------------------------------
 void Renderer::translate (float fX, float fY, float fZ)
 {
-	D3DXMATRIX kTempMatrix;
+	D3DXMATRIX kTempMatrix;	
 
 	// generate translation matrix
 	D3DXMatrixTranslation(&kTempMatrix, fX,  fY, 1.0f);

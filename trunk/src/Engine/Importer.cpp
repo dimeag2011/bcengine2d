@@ -1,5 +1,6 @@
 #include "Importer.h"
 #include "Renderer.h"
+#include "Sprite.h"
 //----------------------------------------------------------------
 Importer::Importer (Renderer* pkRenderer)
 :

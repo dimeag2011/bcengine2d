@@ -52,6 +52,7 @@ public:
 	bool setAnimation (std::string kName);
 	AnimationInfo::Ptr getAnimationInfo (std::string kName);
 	Animation* getAnimation ();
+	void onCollision (Entity2D* pkEntity);
 
 };
 //----------------------------------------------------------------

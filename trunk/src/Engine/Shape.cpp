@@ -13,7 +13,7 @@ m_pkVertices(NULL)
 void Shape::draw (Renderer * rkRenderer)
 {
 	Entity2D::draw(rkRenderer);
-	//rkRenderer.unbindTexture();
+	rkRenderer->unbindTexture();
 }
 //----------------------------------------------------------------
 void Shape::update (float fTimeBetweenFrames)
@@ -36,3 +36,8 @@ void Shape::setColor (int iRed, int iGreen, int iBlue)
 	}
 }
 //----------------------------------------------------------------
+void Shape::onCollision (Entity2D* pkEntity)
+{
+
+}
+

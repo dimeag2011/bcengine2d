@@ -21,6 +21,7 @@ public:
 	void draw (Renderer * rkRenderer);
 	int getNumeroCaras();
 	void setNumeroCaras(int iNumCaras);
+	void setDim (float fW, float fH);
 
 // topology
 private:
