@@ -23,6 +23,8 @@ public:
 	void update (float fTimeBetweenFrames);
 	void getColor (int &iRed, int &iGreen, int &iBlue);
 	void setColor (int iRed, int iGreen, int iBlue);
+	void onCollision (Entity2D* pkEntity);
+
 
 // topology
 protected:

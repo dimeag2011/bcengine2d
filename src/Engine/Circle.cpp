@@ -66,3 +66,8 @@ void Circle::setNumeroCaras(int iNumCaras)
 	setDim(getDimW(), getDimH());
 }
 //----------------------------------------------------------------
+void Circle::setDim (float fW, float fH)
+{
+	Entity2D::setDim(fW / 2, fH / 2);
+}
+

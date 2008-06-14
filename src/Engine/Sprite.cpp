@@ -133,4 +133,8 @@ void Sprite::clone (Sprite* rkSprite)
 		rkSprite->m_akVertices[i] = m_akVertices[i];
 }
 //----------------------------------------------------------------
+void Sprite::onCollision (Entity2D* pkEntity)
+{
+
+}
 

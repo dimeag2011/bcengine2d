@@ -6,7 +6,6 @@
 int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 				   LPSTR lpCmdLine,int intnShowCmd)
 {
-
 	TestGame* pkGame = new TestGame(hInstance);
 
 	if(!pkGame->StartUp())

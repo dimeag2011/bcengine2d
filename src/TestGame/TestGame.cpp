@@ -22,7 +22,8 @@ bool TestGame::OnStartUp ()
 {
 	Importer* pkImporter = getImporter();
 
-	pkImporter->importResources("../../res/sprite.xml");
+	if( !pkImporter->importResources("../../res/sprite.xml") )
+		return false;
 
 	m_pkBox = new Box();
 	m_pkBox->setPos(0,0);
@@ -34,8 +35,9 @@ bool TestGame::OnStartUp ()
 	m_pkCirc = new Circle(145);
 	m_pkCirc->setPos(150, 150);
 	m_pkCirc->setDim(100,100);
-	m_pkCirc->setColor(0,115,0);
+	m_pkCirc->setColor(255,255,255);
 	m_pkCirc->setNumeroCaras(50);
+	m_pkCirc->setDim(200,100);
 
 	addEntity(m_pkCirc);
 
