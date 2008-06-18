@@ -63,11 +63,13 @@ void Circle::setNumeroCaras(int iNumCaras)
 		pkV->color = D3DCOLOR_XRGB(iRed, iGreen, iBlue);
 	}
 	
-	setDim(getDimW(), getDimH());
+	Entity2D::setDim(getDimW(), getDimH(), false);
 }
 //----------------------------------------------------------------
+
 void Circle::setDim (float fW, float fH)
 {
-	Entity2D::setDim(fW / 2, fH / 2);
+	Entity2D::setDim(fW / 2, fH / 2, false);
+	setBBDim(fW, fH);
 }
 
