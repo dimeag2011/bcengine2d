@@ -28,7 +28,7 @@ public:
 	float getBBPosY () const;
 	void setRotation (float fRotation);
 	float getRotation () const;
-	void setDim (float fW, float fH, bool setBBDim = true);
+	virtual void setDim (float fW, float fH, bool setBBDim = true);
 	float getDimW ();
 	float getDimH ();
 	void setBBDim (float fBBW, float fBBH);
@@ -38,11 +38,11 @@ public:
 //----------------------------------------------------------------
 // Moviemeito de la entidad
 public:
-	void setAngle (float fAngle);
-	float getAngle ();
+	void setMoveAngle (float fAngle);
+	float getMoveAngle ();
 
-	void setSpeed (float fSpeed);
-	float getSpeed ();
+	void setMoveSpeed (float fSpeed);
+	float getMoveSpeed ();
 
 	void setMoving (bool bisMoving);
 	bool getMoving ();
@@ -52,9 +52,9 @@ public:
 	// movement
 
 	float m_fPrevX, m_fPrevY;
-	float m_fAngle, m_fAngleRad;
-	float m_fSpeed;
-	bool m_bisMoving;
+	float m_fMoveAngle, m_fMoveAngleRad;
+	float m_fMoveSpeed;
+	bool m_bIsMoving;
 //----------------------------------------------------------------
 // Colisiones
 public:
@@ -76,7 +76,7 @@ public:
 //----------------------------------------------------------------
 // functions to override
 public:
-	virtual void update (float fTimeBetweenFrames) = 0;
+	virtual void update (float fTimeBetweenFrames);
 
 private:
 //----------------------------------------------------------------

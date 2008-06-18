@@ -18,7 +18,7 @@ void Shape::draw (Renderer * rkRenderer)
 //----------------------------------------------------------------
 void Shape::update (float fTimeBetweenFrames)
 {
-
+	Entity2D::update(fTimeBetweenFrames);
 }
 //----------------------------------------------------------------
 void Shape::getColor (int &iRed, int &iGreen, int &iBlue)

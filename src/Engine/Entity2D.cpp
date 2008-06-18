@@ -14,13 +14,12 @@ m_fBBY(0),
 m_fBBW(0),
 m_fBBH(0),
 m_fRotation(0),
-m_bisMoving(false),
-m_fSpeed(0),
-m_fAngle(0),
-m_fAngleRad(0),
+m_bIsMoving(false),
+m_fMoveSpeed(0),
+m_fMoveAngle(0),
+m_fMoveAngleRad(0),
 m_fPrevX(0), 
-m_fPrevY(0),
-m_bAtachedBB(true)
+m_fPrevY(0)
 {
 	/***/
 	// initialize AABB vertices
@@ -49,7 +48,7 @@ void Entity2D::draw (Renderer * rkRenderer)
 {
 	// set the world matrix
 	rkRenderer->setMatrixMode(WORLD);
- 
+ /*
 	// reset the matrix
 	rkRenderer->loadIdentity();
 
@@ -59,7 +58,7 @@ void Entity2D::draw (Renderer * rkRenderer)
 	rkRenderer->scale(m_fBBW, m_fBBH);
 	rkRenderer->unbindTexture();
 	rkRenderer->Draw(m_akAABBVertices, Renderer::LINE_STRIP, 5);
-	
+	*/
 
 	// apply transformation
 	rkRenderer->loadIdentity();
@@ -87,5 +86,16 @@ Entity2D::CollisionResult Entity2D::checkCollision(Entity2D* pkEntity) const
 	}
 
 	return None;
+}
+//----------------------------------------------------------------
+void Entity2D::update (float fTimeBetweenFrames)
+{
+	if (m_bIsMoving)
+	{
+		m_fPrevX = m_fX;
+		m_fPrevY = m_fY;
+		m_fX += cos(m_fMoveAngleRad) * (m_fMoveSpeed * fTimeBetweenFrames);
+		m_fY += sin(m_fMoveAngleRad) * (m_fMoveSpeed * fTimeBetweenFrames);
+	}
 }
 //----------------------------------------------------------------

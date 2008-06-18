@@ -29,6 +29,9 @@ bool TestGame::OnStartUp ()
 	m_pkBox->setPos(0,0);
 	m_pkBox->setColor(0,65,220);
 	m_pkBox->setDim(100,100);
+	m_pkBox->setMoveSpeed(0.05f);
+	m_pkBox->setMoveAngle(45);
+	m_pkBox->setMoving(true);
 
 	addEntity(m_pkBox);
 
@@ -42,10 +45,10 @@ bool TestGame::OnStartUp ()
 	addEntity(m_pkCirc);
 
 	m_pkTri = new Triangle();
-	m_pkTri->setPos(-100, -100);
+	m_pkTri->setPos(-150, -150);
 	m_pkTri->setDim(100,100);
 	m_pkTri->setColor(200,120,0);
-	m_pkTri->setBBPos(50,50);
+	//m_pkTri->setBBPos(50,50);
 
 	addEntity(m_pkTri);
 
@@ -60,6 +63,9 @@ bool TestGame::OnStartUp ()
 		// set animation
 		if( m_pkPacman->setAnimation("Eat") )
 			m_pkPacman->getAnimation()->play();
+
+		m_pkPacman->setMoveSpeed(0.15f);
+		m_pkPacman->setMoving(true);
 	
 		// add it to the scene
 		addEntity(m_pkPacman);
