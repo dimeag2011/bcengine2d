@@ -11,11 +11,11 @@ inline const string& Entity2D::getName () const
 //----------------------------------------------------------------
 inline void Entity2D::setPos (float fX, float fY)
 {
-	if (m_bAtachedBB)
+	/*if (m_bAtachedBB)
 	{
 		m_fBBX = fX + (m_fBBX - m_fX);
 		m_fBBY = fY + (m_fBBY - m_fY);
-	}
+	}*/
 	m_fX = fX;
 	m_fY = fY;
 }
@@ -56,10 +56,15 @@ inline float Entity2D::getRotation () const
 	return m_fRotation;
 }
 //----------------------------------------------------------------
-inline void Entity2D::setDim (float fW, float fH)
+inline void Entity2D::setDim (float fW, float fH, bool setBBDim)
 {
 	m_fW = fW;
 	m_fH = fH;
+	if (setBBDim)
+	{
+		m_fBBW = fW;
+		m_fBBH = fH;
+	}
 }
 //----------------------------------------------------------------
 inline float Entity2D::getDimH ()
@@ -129,15 +134,5 @@ inline float Entity2D::getPrevPosX () const
 inline float Entity2D::getPrevPosY () const
 {
 	return m_fPrevY;
-}
-//----------------------------------------------------------------
-inline void Entity2D::setAtachedBB (bool bAtached)
-{
-	m_bAtachedBB = bAtached;
-}
-//----------------------------------------------------------------
-inline bool Entity2D::getAtachedBB ()
-{
-	return m_bAtachedBB;
 }
 //----------------------------------------------------------------

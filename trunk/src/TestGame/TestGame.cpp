@@ -45,6 +45,7 @@ bool TestGame::OnStartUp ()
 	m_pkTri->setPos(-100, -100);
 	m_pkTri->setDim(100,100);
 	m_pkTri->setColor(200,120,0);
+	m_pkTri->setBBPos(50,50);
 
 	addEntity(m_pkTri);
 

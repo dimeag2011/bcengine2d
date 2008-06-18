@@ -28,14 +28,12 @@ public:
 	float getBBPosY () const;
 	void setRotation (float fRotation);
 	float getRotation () const;
-	void setDim (float fW, float fH);
+	void setDim (float fW, float fH, bool setBBDim = true);
 	float getDimW ();
 	float getDimH ();
 	void setBBDim (float fBBW, float fBBH);
 	float getBBDimW ();
 	float getBBDimH ();
-	void setAtachedBB (bool bAtached);
-	bool getAtachedBB ();
 
 //----------------------------------------------------------------
 // Moviemeito de la entidad

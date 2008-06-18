@@ -53,18 +53,20 @@ void Entity2D::draw (Renderer * rkRenderer)
 	// reset the matrix
 	rkRenderer->loadIdentity();
 
+	// AABB
+	rkRenderer->translate(m_fX, m_fY);
+	rkRenderer->translate(m_fBBX, m_fBBY);
+	rkRenderer->scale(m_fBBW, m_fBBH);
+	rkRenderer->unbindTexture();
+	rkRenderer->Draw(m_akAABBVertices, Renderer::LINE_STRIP, 5);
 	
 
 	// apply transformation
+	rkRenderer->loadIdentity();
 	rkRenderer->translate(m_fX, m_fY);
 	rkRenderer->rotateZ(m_fRotation * 3.14159f / 180.0f);
 	rkRenderer->scale(m_fW, m_fH);
-	// AABB
-	rkRenderer->loadIdentity();
-	rkRenderer->translate(m_fBBX, m_fBBY);
-	rkRenderer->scale(m_fW, m_fH);
-	rkRenderer->unbindTexture();
-	rkRenderer->Draw(m_akAABBVertices, Renderer::LINE_STRIP, 5);
+
 }
 //----------------------------------------------------------------
 //----------------------------------------------------------------
