@@ -11,11 +11,6 @@ inline const string& Entity2D::getName () const
 //----------------------------------------------------------------
 inline void Entity2D::setPos (float fX, float fY)
 {
-	/*if (m_bAtachedBB)
-	{
-		m_fBBX = fX + (m_fBBX - m_fX);
-		m_fBBY = fY + (m_fBBY - m_fY);
-	}*/
 	m_fX = fX;
 	m_fY = fY;
 }
@@ -95,35 +90,35 @@ inline float Entity2D::getBBDimW ()
 //----------------------------------------------------------------
 
 //----------------------------------------------------------------
-inline void Entity2D::setAngle (float fAngle)
+inline void Entity2D::setMoveAngle (float fAngle)
 {
-	m_fAngle = fAngle;
-	m_fAngleRad = fAngle * 3.14159f / 180.0f;
+	m_fMoveAngle = fAngle;
+	m_fMoveAngleRad = fAngle * 3.14159f / 180.0f;
 }
 //----------------------------------------------------------------
-inline float Entity2D::getAngle ()
+inline float Entity2D::getMoveAngle ()
 {
-	return m_fAngle;
+	return m_fMoveAngle;
 }
 //----------------------------------------------------------------
-inline void Entity2D::setSpeed (float fSpeed)
+inline void Entity2D::setMoveSpeed (float fSpeed)
 {
-	m_fSpeed = fSpeed;
+	m_fMoveSpeed = fSpeed;
 }
 //----------------------------------------------------------------
-inline float Entity2D::getSpeed ()
+inline float Entity2D::getMoveSpeed ()
 {
-	return m_fSpeed;
+	return m_fMoveSpeed;
 }
 //----------------------------------------------------------------
 inline void Entity2D::setMoving (bool bMoving)
 {
-	m_bisMoving = bMoving;
+	m_bIsMoving = bMoving;
 }
 //----------------------------------------------------------------
 inline bool Entity2D::getMoving ()
 {
-	return m_bisMoving;
+	return m_bIsMoving;
 }
 //----------------------------------------------------------------
 inline float Entity2D::getPrevPosX () const

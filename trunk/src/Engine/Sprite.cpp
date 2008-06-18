@@ -28,7 +28,7 @@ m_pkCurrentAnim(NULL)
 //----------------------------------------------------------------
 void Sprite::update (float fTimeBetweenFrames)
 {
-	//Entity2D::update(fTimeBetweenFrames);
+	Entity2D::update(fTimeBetweenFrames);
 
 	// update the animations
 	if(m_pkCurrentAnim)
@@ -42,6 +42,7 @@ void Sprite::update (float fTimeBetweenFrames)
 		setTextureArea(kInfo.uiOffsetX, kInfo.uiOffsetY,
 						kInfo.uiWidth, kInfo.uiHeight);
 	}
+
 }
 //----------------------------------------------------------------
 void Sprite::draw (Renderer* rkRenderer)
