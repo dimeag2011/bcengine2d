@@ -57,8 +57,8 @@ void Circle::setNumeroCaras(int iNumCaras)
 
 		//* 3.14159f / 180.0f
 		pkV = &(m_pkVertices[i]);
-		pkV->x = (float)(dAngSin);
-		pkV->y = (float)(dAngCos);
+		pkV->x = (float)(dAngSin) * 0.5;
+		pkV->y = (float)(dAngCos) * 0.5;
 		pkV->z = 1.0f;
 		pkV->color = D3DCOLOR_XRGB(iRed, iGreen, iBlue);
 	}
@@ -69,7 +69,7 @@ void Circle::setNumeroCaras(int iNumCaras)
 
 void Circle::setDim (float fW, float fH)
 {
-	Entity2D::setDim(fW / 2, fH / 2, false);
+	Entity2D::setDim(fW , fH , false);
 	setBBDim(fW, fH);
 }
 

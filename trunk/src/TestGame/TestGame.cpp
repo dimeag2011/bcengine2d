@@ -87,6 +87,20 @@ bool TestGame::OnStartUp ()
 //----------------------------------------------------------------
 bool TestGame::OnLoop ()
 {
+	if(m_pkPacman->checkCollision(m_pkCirc))
+	{
+
+		//m_pkPacman->setMoveSpeed(0.0f);
+		m_pkPacman->setMoveAngle(180.0);
+		m_pkPacman->setRotation(180.0);
+	}
+	if(m_pkBox->checkCollision(m_pkCirc))
+	{
+
+		//m_pkPacman->setMoveSpeed(0.0f);
+		m_pkBox->setMoveAngle(m_pkBox->getMoveAngle()*-1);
+		//m_pkBox->setRotation(180.0);
+	}
 	return false;
 }
 //----------------------------------------------------------------
