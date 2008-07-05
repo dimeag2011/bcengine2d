@@ -27,6 +27,12 @@ Shape()
 	pkV->color = D3DCOLOR_XRGB(255,0,0);
 }
 //----------------------------------------------------------------
+Box::~Box ()
+{
+	delete m_pkVertices;
+	m_pkVertices = NULL;
+}
+//----------------------------------------------------------------
 void Box::draw (Renderer * rkRenderer)
 {
 	Shape::draw(rkRenderer);

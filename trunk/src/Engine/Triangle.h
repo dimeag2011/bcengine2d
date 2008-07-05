@@ -13,7 +13,7 @@ class ENGINE_API Triangle : public Shape
 public:
 
 	Triangle ();
-	~Triangle () { /***/ }
+	~Triangle ();
 
 
 // inherited from Shape

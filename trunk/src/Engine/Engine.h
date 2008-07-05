@@ -3,7 +3,7 @@
 #define ENGINE_H
 //----------------------------------------------------------------
 
-// include all the exported engine classes
+// Incluyo las clases que van a ser exportadas
 
 #include "Game.h"
 #include "Sprite.h"

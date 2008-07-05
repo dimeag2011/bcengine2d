@@ -48,16 +48,17 @@ void Entity2D::draw (Renderer * rkRenderer)
 {
 	// set the world matrix
 	rkRenderer->setMatrixMode(WORLD);
- /*
-	// reset the matrix
-	rkRenderer->loadIdentity();
 
-	// AABB
-	rkRenderer->translate(m_fX, m_fY);
-	rkRenderer->translate(m_fBBX, m_fBBY);
-	rkRenderer->scale(m_fBBW, m_fBBH);
-	rkRenderer->unbindTexture();
-	rkRenderer->Draw(m_akAABBVertices, Renderer::LINE_STRIP, 5);
+	/* Dibujo la AABB
+		// reset the matrix
+		rkRenderer->loadIdentity();
+
+		// AABB
+		rkRenderer->translate(m_fX, m_fY);
+		rkRenderer->translate(m_fBBX, m_fBBY);
+		rkRenderer->scale(m_fBBW, m_fBBH);
+		rkRenderer->unbindTexture();
+		rkRenderer->Draw(m_akAABBVertices, Renderer::LINE_STRIP, 5);
 	*/
 
 	// apply transformation
@@ -67,7 +68,6 @@ void Entity2D::draw (Renderer * rkRenderer)
 	rkRenderer->scale(m_fW, m_fH);
 
 }
-//----------------------------------------------------------------
 //----------------------------------------------------------------
 Entity2D::CollisionResult Entity2D::checkCollision(Entity2D* pkEntity) const
 {

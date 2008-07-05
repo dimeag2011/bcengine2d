@@ -21,7 +21,7 @@ void Shape::update (float fTimeBetweenFrames)
 	Entity2D::update(fTimeBetweenFrames);
 }
 //----------------------------------------------------------------
-void Shape::getColor (int &iRed, int &iGreen, int &iBlue)
+void Shape::getColor (int &iRed, int &iGreen, int &iBlue) const
 {
 	iRed = getR(m_pkVertices[0].color);
 	iGreen = getG(m_pkVertices[0].color);

@@ -21,7 +21,7 @@ public:
 public:
 	void draw (Renderer * rkRenderer);
 	void update (float fTimeBetweenFrames);
-	void getColor (int &iRed, int &iGreen, int &iBlue);
+	void getColor (int &iRed, int &iGreen, int &iBlue) const;
 	void setColor (int iRed, int iGreen, int iBlue);
 	void onCollision (Entity2D* pkEntity);
 

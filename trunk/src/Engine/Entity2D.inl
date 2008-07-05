@@ -62,12 +62,12 @@ inline void Entity2D::setDim (float fW, float fH, bool setBBDim)
 	}
 }
 //----------------------------------------------------------------
-inline float Entity2D::getDimH ()
+inline float Entity2D::getDimH () const
 {
 	return m_fH;
 }
 //----------------------------------------------------------------
-inline float Entity2D::getDimW ()
+inline float Entity2D::getDimW () const
 {
 	return m_fW;
 }
@@ -78,17 +78,15 @@ inline void Entity2D::setBBDim (float fBBW, float fBBH)
 	m_fBBH = fBBH;
 }
 //----------------------------------------------------------------
-inline float Entity2D::getBBDimH ()
+inline float Entity2D::getBBDimH () const
 {
 	return m_fBBH;
 }
 //----------------------------------------------------------------
-inline float Entity2D::getBBDimW ()
+inline float Entity2D::getBBDimW () const
 {
 	return m_fBBW;
 }
-//----------------------------------------------------------------
-
 //----------------------------------------------------------------
 inline void Entity2D::setMoveAngle (float fAngle)
 {
@@ -96,7 +94,7 @@ inline void Entity2D::setMoveAngle (float fAngle)
 	m_fMoveAngleRad = fAngle * 3.14159f / 180.0f;
 }
 //----------------------------------------------------------------
-inline float Entity2D::getMoveAngle ()
+inline float Entity2D::getMoveAngle () const
 {
 	return m_fMoveAngle;
 }
@@ -106,7 +104,7 @@ inline void Entity2D::setMoveSpeed (float fSpeed)
 	m_fMoveSpeed = fSpeed;
 }
 //----------------------------------------------------------------
-inline float Entity2D::getMoveSpeed ()
+inline float Entity2D::getMoveSpeed () const
 {
 	return m_fMoveSpeed;
 }
@@ -116,7 +114,7 @@ inline void Entity2D::setMoving (bool bMoving)
 	m_bIsMoving = bMoving;
 }
 //----------------------------------------------------------------
-inline bool Entity2D::getMoving ()
+inline bool Entity2D::getMoving () const
 {
 	return m_bIsMoving;
 }
