@@ -174,106 +174,10 @@
 	</References>
 	<Files>
 		<Filter
-			Name="Source Files"
-			Filter="cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx"
-			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
+			Name="Entity"
 			>
-			<File
-				RelativePath=".\Animation.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\AnimationInfo.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Box.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Circle.cpp"
-				>
-			</File>
 			<File
 				RelativePath=".\Entity2D.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Game.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Importer.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Renderer.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Shape.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Sprite.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Texture.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Timer.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Triangle.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\Window.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\XMLParser.cpp"
-				>
-			</File>
-		</Filter>
-		<Filter
-			Name="Header Files"
-			Filter="h;hpp;hxx;hm;inl;inc;xsd"
-			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
-			>
-			<File
-				RelativePath=".\Animation.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Animation.inl"
-				>
-			</File>
-			<File
-				RelativePath=".\AnimationInfo.h"
-				>
-			</File>
-			<File
-				RelativePath=".\AnimationInfo.inl"
-				>
-			</File>
-			<File
-				RelativePath=".\Box.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Circle.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Defines.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Engine.h"
 				>
 			</File>
 			<File
@@ -282,6 +186,142 @@
 			</File>
 			<File
 				RelativePath=".\Entity2D.inl"
+				>
+			</File>
+			<Filter
+				Name="Shape"
+				>
+				<File
+					RelativePath=".\Box.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Box.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Circle.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Circle.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Shape.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Shape.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Triangle.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Triangle.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Sprite"
+				>
+				<File
+					RelativePath=".\Animation.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Animation.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Animation.inl"
+					>
+				</File>
+				<File
+					RelativePath=".\AnimationInfo.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\AnimationInfo.h"
+					>
+				</File>
+				<File
+					RelativePath=".\AnimationInfo.inl"
+					>
+				</File>
+				<File
+					RelativePath=".\Sprite.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Sprite.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Sprite.inl"
+					>
+				</File>
+				<File
+					RelativePath=".\Texture.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Texture.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Texture.inl"
+					>
+				</File>
+			</Filter>
+		</Filter>
+		<Filter
+			Name="Tools"
+			>
+			<File
+				RelativePath=".\Importer.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Importer.h"
+				>
+			</File>
+			<File
+				RelativePath=".\XMLParser.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\XMLParser.h"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Graphics"
+			>
+			<File
+				RelativePath=".\Renderer.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Renderer.h"
+				>
+			</File>
+			<File
+				RelativePath=".\VertexBuffer.h"
+				>
+			</File>
+			<File
+				RelativePath=".\VertexBuffer.inl"
+				>
+			</File>
+		</Filter>
+		<Filter
+			Name="Basics"
+			>
+			<File
+				RelativePath=".\Game.cpp"
 				>
 			</File>
 			<File
@@ -293,68 +333,38 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Importer.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Renderer.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Shape.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Sprite.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Sprite.inl"
-				>
-			</File>
-			<File
-				RelativePath=".\Structs.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Texture.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Texture.inl"
-				>
-			</File>
-			<File
-				RelativePath=".\Timer.h"
-				>
-			</File>
-			<File
-				RelativePath=".\Triangle.h"
-				>
-			</File>
-			<File
-				RelativePath=".\VertexBuffer.h"
-				>
-			</File>
-			<File
-				RelativePath=".\VertexBuffer.inl"
+				RelativePath=".\Window.cpp"
 				>
 			</File>
 			<File
 				RelativePath=".\Window.h"
 				>
 			</File>
+		</Filter>
+		<Filter
+			Name="Timer"
+			>
 			<File
-				RelativePath=".\XMLParser.h"
+				RelativePath=".\Timer.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Timer.h"
 				>
 			</File>
 		</Filter>
-		<Filter
-			Name="Resource Files"
-			Filter="rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav"
-			UniqueIdentifier="{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}"
+		<File
+			RelativePath=".\Defines.h"
 			>
-		</Filter>
+		</File>
+		<File
+			RelativePath=".\Engine.h"
+			>
+		</File>
+		<File
+			RelativePath=".\Structs.h"
+			>
+		</File>
 	</Files>
 	<Globals>
 	</Globals>

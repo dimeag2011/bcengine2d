@@ -13,11 +13,10 @@ struct ColorVertex
 	DWORD color;
 };
 //----------------------------------------------------------------
-// matrix modes
-
 // include DirectX to have the matrix constants
 #include <d3dx9.h>
-
+//----------------------------------------------------------------
+// matrix modes
 enum MatrixMode
 {
 	WORLD = D3DTS_WORLDMATRIX(0),

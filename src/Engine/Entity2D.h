@@ -29,23 +29,23 @@ public:
 	void setRotation (float fRotation);
 	float getRotation () const;
 	virtual void setDim (float fW, float fH, bool setBBDim = true);
-	float getDimW ();
-	float getDimH ();
+	float getDimW () const;
+	float getDimH () const;
 	void setBBDim (float fBBW, float fBBH);
-	float getBBDimW ();
-	float getBBDimH ();
+	float getBBDimW () const;
+	float getBBDimH () const;
 
 //----------------------------------------------------------------
 // Moviemeito de la entidad
 public:
 	void setMoveAngle (float fAngle);
-	float getMoveAngle ();
+	float getMoveAngle () const;
 
 	void setMoveSpeed (float fSpeed);
-	float getMoveSpeed ();
+	float getMoveSpeed () const;
 
 	void setMoving (bool bisMoving);
-	bool getMoving ();
+	bool getMoving () const;
 
 	float getPrevPosX () const;
 	float getPrevPosY () const;

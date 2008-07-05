@@ -13,7 +13,7 @@ class ENGINE_API Box : public Shape
 public:
 
 	Box ();
-	~Box () { /***/ }
+	~Box ();
 
 
 // inherited from Shape

@@ -57,8 +57,8 @@ void Circle::setNumeroCaras(int iNumCaras)
 
 		//* 3.14159f / 180.0f
 		pkV = &(m_pkVertices[i]);
-		pkV->x = (float)(dAngSin) * 0.5;
-		pkV->y = (float)(dAngCos) * 0.5;
+		pkV->x = (float)(dAngSin) * 0.5f;
+		pkV->y = (float)(dAngCos) * 0.5f;
 		pkV->z = 1.0f;
 		pkV->color = D3DCOLOR_XRGB(iRed, iGreen, iBlue);
 	}

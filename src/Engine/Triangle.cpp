@@ -24,6 +24,12 @@ Shape()
 
 }
 //----------------------------------------------------------------
+Triangle::~Triangle ()
+{
+	delete m_pkVertices;
+	m_pkVertices = NULL;
+}
+//----------------------------------------------------------------
 void Triangle::draw (Renderer * rkRenderer)
 {
 	Shape::draw(rkRenderer);
