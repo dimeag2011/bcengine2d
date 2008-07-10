@@ -57,6 +57,8 @@ void Input::update()
     else
         if (m_bButtonState[MB_3])
             m_bButtonState[MB_3] = false;
+
+	getKeyEvent();
 }
 //----------------------------------------------------------------
 void Input::getKeyEvent()

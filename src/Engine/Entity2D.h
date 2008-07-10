@@ -20,9 +20,10 @@ public:
 	const string& getName () const;
 //----------------------------------------------------------------
 // seteo y devuelvo posicion, rotacion y dimension
-	void setPos (float fX, float fY);
+	void setPos (float fX, float fY, float fZ = 1.0f);
 	float getPosX () const;
 	float getPosY () const;
+	float getPosZ () const;
 	void setBBPos (float fBBX, float fBBY);
 	float getBBPosX () const;
 	float getBBPosY () const;
@@ -84,7 +85,7 @@ private:
 	string m_kName;
 //----------------------------------------------------------------
 // posicion, rotacion y dimension
-	float m_fX, m_fY;
+	float m_fX, m_fY, m_fZ;
 	float m_fW, m_fH;
 	float m_fBBX, m_fBBY;
 	float m_fBBW, m_fBBH;
