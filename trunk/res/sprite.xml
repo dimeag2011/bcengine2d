@@ -3,7 +3,7 @@
   xmlns="http://www.dmg.org/PMML-3-0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema_instance" >
 
-<SPRITE Name='Pacman' TextureFile='../../res/pacman.bmp' TexPosX='18' TexPosY='0' Width='18' Height='18'>
+<SPRITE Name='Pacman' TextureFile='../../res/pacman.xml' TexPosX='18' TexPosY='0' Width='18' Height='18'>
 
   <SPRITE_ANIMATION Name='Eat' Time='300.0'>
     <FRAME TexPosX='0' TexPosY='0' Width='18' Height='18'></FRAME>
@@ -21,7 +21,7 @@
   
 </SPRITE>
 
-<SPRITE Name='Fantasma' TextureFile='../../res/pacman.bmp' TexPosX='0' TexPosY='18' Width='18' Height='18'>
+<SPRITE Name='Fantasma' TextureFile='../../res/pacman.xml' TexPosX='0' TexPosY='18' Width='18' Height='18'>
   
 </SPRITE>
 

@@ -24,3 +24,10 @@ inline string Texture::getFilename ()
 	return m_kFilename;
 }
 //----------------------------------------------------------------
+inline void Texture::getColorKey (int &iRed, int &iGreen, int &iBlue)
+{
+	iRed = m_kColorKey.red;
+	iGreen = m_kColorKey.green;
+	iBlue = m_kColorKey.blue;
+}
+//----------------------------------------------------------------

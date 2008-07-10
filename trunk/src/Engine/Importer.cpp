@@ -70,7 +70,7 @@ bool Importer::importSprite (XMLNode& rkNode)
 	m_kpSpritesMap[pszName] = pkSprite;
 
 	// load sprite attributes
-	const char* pszTexFile = rkNode.getAttribute("TextureFile");
+	const char* pszTexXMLFile = rkNode.getAttribute("TextureFile");
 	const char* pszTexPosX = rkNode.getAttribute("TexPosX");
 	const char* pszTexPosY = rkNode.getAttribute("TexPosY");
 	const char* pszWidth = rkNode.getAttribute("Width");
@@ -83,7 +83,11 @@ bool Importer::importSprite (XMLNode& rkNode)
 	unsigned int uiHeight = atoi(pszHeight);
 
 	// set attributes to sprite
-	importTexture(pszTexFile);
+	XMLNode kMainNode = XMLNode::openFileHelper(pszTexXMLFile,"PMML");
+	XMLNode& rkTextureNode = kMainNode.getChildNode("TEXTURA");
+	importTexture(rkTextureNode);
+
+	const char* pszTexFile = rkTextureNode.getAttribute("TextureFile");
 	pkSprite->setTexture( m_kpTexturesMap[pszTexFile] );
 
 	pkSprite->setName(pszName);
@@ -154,24 +158,36 @@ bool Importer::importSpriteAnimation (XMLNode& rkNode)
 	return true;
 }
 //----------------------------------------------------------------------
-bool Importer::importTexture (const char* pszFilename)
+bool Importer::importTexture (XMLNode& rkTextureNode)
 {
 	assert(m_pkRenderer);
 
+	const char* pszTextureFile = rkTextureNode.getAttribute("TextureFile");
+
 	// find the texture
-	Texture::Ptr pkTexture = m_kpTexturesMap[pszFilename];
+	Texture::Ptr pkTexture = m_kpTexturesMap[pszTextureFile];
 	
 	// if it was found, return
 	if(pkTexture.get())
 		return true;
 
+	XMLNode kColoreyNode = rkTextureNode.getChildNode("ColorKey");
+
+	const char* pszRed = kColoreyNode.getAttribute("R");
+	const char* pszGreen = kColoreyNode.getAttribute("G");
+	const char* pszBlue = kColoreyNode.getAttribute("B");
+
+	int iRed = atoi(pszRed);
+	int iGreen = atoi(pszGreen);
+	int iBlue = atoi(pszBlue);
+
 	// create the new texture
-	pkTexture = Texture::Ptr( new Texture(pszFilename) );
+	pkTexture = Texture::Ptr( new Texture(pszTextureFile, iRed, iGreen, iBlue) );
 
 	// add to map
-	m_kpTexturesMap[pszFilename] = pkTexture;
+	m_kpTexturesMap[pszTextureFile] = pkTexture;
 
-	m_pkRenderer->loadTexture(pszFilename, pkTexture);
+	m_pkRenderer->loadTexture(pszTextureFile, pkTexture);
 
 	return true;
 }
@@ -191,7 +207,11 @@ bool Importer::createSprite (const char* pszName, Sprite* rkSprite)
 Texture::Ptr Importer::getTexture (const char* pszFilename)
 {
 	Texture::Ptr pkTexture = m_kpTexturesMap[pszFilename];
-	Texture::Ptr pkNewTexture(new Texture(*pkTexture));
+	int iRed;
+	int iGreen;
+	int iBlue;
+	pkTexture->getColorKey(iRed,iGreen,iBlue);
+	Texture::Ptr pkNewTexture(new Texture(pkTexture->getFilename(), iRed, iGreen ,iBlue));
 	return pkNewTexture;
 }
 //----------------------------------------------------------------

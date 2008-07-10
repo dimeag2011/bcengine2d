@@ -38,16 +38,19 @@ bool TestGame::OnStartUp ()
 	m_pkCirc = new Circle(145);
 	m_pkCirc->setPos(150, 150);
 	m_pkCirc->setDim(100,100);
-	m_pkCirc->setColor(255,255,255);
+	m_pkCirc->setColor(0,0,0);
 	m_pkCirc->setNumeroCaras(50);
+	m_pkCirc->setVertexColor(0,255,255,255);
 	m_pkCirc->setDim(200,100);
-
+	
 	addEntity(m_pkCirc);
 
 	m_pkTri = new Triangle();
 	m_pkTri->setPos(-150, -150);
 	m_pkTri->setDim(100,100);
-	m_pkTri->setColor(200,120,0);
+	m_pkTri->setColor(200,0,0);
+	m_pkTri->setVertexColor(0,100,20,0);
+	m_pkTri->setVertexColor(1,100,20,0);
 	//m_pkTri->setBBPos(50,50);
 
 	addEntity(m_pkTri);

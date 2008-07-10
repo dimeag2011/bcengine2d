@@ -31,7 +31,7 @@ public:
 // loaders
 private:
 	bool importSprite (XMLNode& rkNode);
-	bool importTexture (const char* pszFilename);
+	bool importTexture (XMLNode& rkTextureNode);
 	bool importSpriteAnimation (XMLNode& rkNode);
 
 // resources
