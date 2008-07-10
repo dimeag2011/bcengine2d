@@ -6,6 +6,8 @@
 #include "Renderer.h"
 #include "Entity2D.h"
 #include "Timer.h"
+#include "Input.h"
+#include "DirectInput.h"
 
 #include "Structs.h"
 //--------------------------------------------------------------------------------
@@ -32,6 +34,9 @@ protected:
 	virtual bool OnStartUp()=0;
 	virtual bool OnLoop()=0;
 	virtual bool OnShutDown()=0;
+
+	//the input
+	Input* m_pkInput;
 
 // resources
 public:

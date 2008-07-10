@@ -6,7 +6,8 @@ Game::Game(HINSTANCE hInstance)
 m_pkRender(NULL),
 m_pkWindows(NULL),
 m_hInstance(hInstance),
-m_pkImporter(NULL)
+m_pkImporter(NULL),
+m_pkInput(NULL)
 {
 
 }
@@ -40,6 +41,12 @@ bool Game::StartUp()
 	// create loader
 	m_pkImporter = new Importer(m_pkRender);
 
+	// create input
+	m_pkInput = new DirectInput(m_hInstance, hWnd);
+
+	if(!m_pkInput->init())
+		return false;
+
 	if (!OnStartUp())
 		return false;
 
@@ -51,6 +58,8 @@ bool Game::StartUp()
 bool Game::Loop()
 {
 	assert(m_pkRender);
+
+	m_pkInput->reacquire();
 
 	// update all the entities
 	for(unsigned int i=0; i<m_apkEntities.size(); i++)
@@ -90,6 +99,10 @@ bool Game::ShutDown()
 		delete m_pkWindows;
 
 	m_pkWindows = NULL;
+
+	m_pkInput->deinit();
+	delete m_pkInput;
+	m_pkInput = NULL;
 
 	return true;
 }
