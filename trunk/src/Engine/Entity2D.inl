@@ -9,10 +9,11 @@ inline const string& Entity2D::getName () const
 	return m_kName;
 }
 //----------------------------------------------------------------
-inline void Entity2D::setPos (float fX, float fY)
+inline void Entity2D::setPos (float fX, float fY, float fZ)
 {
 	m_fX = fX;
 	m_fY = fY;
+	m_fZ = fZ;
 }
 //----------------------------------------------------------------
 inline float Entity2D::getPosX () const
@@ -23,6 +24,11 @@ inline float Entity2D::getPosX () const
 inline float Entity2D::getPosY () const
 {
 	return m_fY;
+}
+//----------------------------------------------------------------
+inline float Entity2D::getPosZ () const
+{
+	return m_fZ;
 }
 //----------------------------------------------------------------
 inline void Entity2D::setBBPos (float fBBX, float fBBY)

@@ -4,6 +4,10 @@
 //----------------------------------------------------------------
 #include "Defines.h"
 //----------------------------------------------------------------
+//#define Key_Up(key)			getKeyEventUp (unsigned int uiKeyID)
+//#define Key_Down(key)		getKeyEventDown (unsigned int uiKeyID)
+//#define Key_Pressed(key)	getKeyDown (unsigned int uiKeyID)
+//----------------------------------------------------------------
 class ENGINE_API Input
 {
 public:

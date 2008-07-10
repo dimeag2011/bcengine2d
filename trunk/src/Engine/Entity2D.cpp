@@ -7,6 +7,7 @@ Entity2D::Entity2D ()
 m_kName(""),
 m_fX(0), 
 m_fY(0), 
+m_fZ(0), 
 m_fW(0),
 m_fH(0),
 m_fBBX(0), 
@@ -63,7 +64,7 @@ void Entity2D::draw (Renderer * rkRenderer)
 
 	// apply transformation
 	rkRenderer->loadIdentity();
-	rkRenderer->translate(m_fX, m_fY);
+	rkRenderer->translate(m_fX, m_fY, m_fZ);
 	rkRenderer->rotateZ(m_fRotation * 3.14159f / 180.0f);
 	rkRenderer->scale(m_fW, m_fH);
 

@@ -63,11 +63,13 @@ bool Renderer::InitDX(HWND hWnd)
 		return false;
 
 	m_pkDevice->SetRenderState(D3DRS_LIGHTING, FALSE);
-	m_pkDevice->SetRenderState(D3DRS_ZENABLE, FALSE);
+	//m_pkDevice->SetRenderState(D3DRS_ZENABLE, FALSE);
 	m_pkDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
 	m_pkDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
 	//m_pkDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
 	m_pkDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
+	m_pkDevice->SetRenderState(D3DRS_ZENABLE, D3DZB_TRUE);
+	m_pkDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_LESSEQUAL);
 	
 	//D3DXMatrixIdentity(&d3dmat);
 	//D3DXMatrixTranslation(& d3dmat, 0,  0, 1.0f);
@@ -190,7 +192,7 @@ void Renderer::translate (float fX, float fY, float fZ)
 	D3DXMATRIX kTempMatrix;	
 
 	// generate translation matrix
-	D3DXMatrixTranslation(&kTempMatrix, fX,  fY, 1.0f);
+	D3DXMatrixTranslation(&kTempMatrix, fX,  fY, fZ);
 
 	// convert from MatrixMode to D3DTRANSFORMSTATETYPE
 	D3DTRANSFORMSTATETYPE eMatMode = static_cast<D3DTRANSFORMSTATETYPE>(m_eCurrentMatMode);
