@@ -36,6 +36,34 @@ void Shape::setColor (int iRed, int iGreen, int iBlue)
 	}
 }
 //----------------------------------------------------------------
+bool Shape::getVertexColor (int iVertex, int &iRed, int &iGreen, int &iBlue)
+{
+	if (iVertex >= m_iCantVertices)
+	{
+		return false;
+	}
+
+	iRed = getR(m_pkVertices[iVertex].color);
+	iGreen = getG(m_pkVertices[iVertex].color);
+	iBlue = getB(m_pkVertices[iVertex].color);
+
+	return true;
+
+}
+//----------------------------------------------------------------
+bool Shape::setVertexColor (int iVertex, int iRed, int iGreen, int iBlue)
+{
+	if (iVertex >= m_iCantVertices)
+	{
+		return false;
+	}
+
+	m_pkVertices[iVertex].color = D3DCOLOR_XRGB(iRed, iGreen, iBlue);
+
+	return true;
+
+}
+//----------------------------------------------------------------
 void Shape::onCollision (Entity2D* pkEntity)
 {
 

@@ -34,5 +34,12 @@ struct TextureVertex
 	float U, V;
 };
 //----------------------------------------------------------------
+// Estructura para almacenar un color RGB
+struct RGBColor {
+	int red;
+	int green;
+	int blue;
+};
+//----------------------------------------------------------------
 #endif // GRAPHICS_STRUCTS_H
 //----------------------------------------------------------------

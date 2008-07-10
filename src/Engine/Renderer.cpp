@@ -251,12 +251,17 @@ bool Renderer::loadTexture(const char* pszFilename, Texture::Ptr rkTexture)
 	D3DXIMAGE_INFO kImageinfo;
 	HRESULT hr;
 	
+	int iRed;
+	int iGreen;
+	int iBlue;
+	rkTexture.get()->getColorKey(iRed,iGreen,iBlue);
+
 	hr = D3DXCreateTextureFromFileEx(m_pkDevice,
 			rkTexture->getFilename().c_str(), 
 			0, 0, 0, 0,
 			D3DFMT_UNKNOWN, D3DPOOL_MANAGED,
 			D3DX_FILTER_NONE, D3DX_FILTER_NONE,
-			0, //pTexInfo->texColorKey,
+			D3DCOLOR_XRGB(iRed, iGreen, iBlue), //0,
 			&kImageinfo,
 			NULL,
 			&pkBitmapTexture);
