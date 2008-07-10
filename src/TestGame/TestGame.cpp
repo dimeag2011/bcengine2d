@@ -68,7 +68,7 @@ bool TestGame::OnStartUp ()
 			m_pkPacman->getAnimation()->play();
 
 		m_pkPacman->setMoveSpeed(0.15f);
-		m_pkPacman->setMoving(true);
+		//m_pkPacman->setMoving(true);
 	
 		// add it to the scene
 		addEntity(m_pkPacman);
@@ -104,6 +104,16 @@ bool TestGame::OnLoop ()
 		m_pkBox->setMoveAngle(m_pkBox->getMoveAngle()*-1);
 		//m_pkBox->setRotation(180.0);
 	}
+	m_pkInput->getKeyEvent();
+	if (m_pkInput->getKeyEventDown(DIK_Q))
+		m_pkPacman->setMoving(true);
+
+	if (m_pkInput->getKeyEventUp(DIK_A))
+		m_pkPacman->setMoving(false);
+
+	if (m_pkInput->getKeyDown(DIK_Z))
+		m_pkPacman->setPos(m_pkPacman->getPosX() + 0.1, m_pkPacman->getPosY() + 0.1);
+
 	return false;
 }
 //----------------------------------------------------------------
