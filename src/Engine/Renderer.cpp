@@ -105,7 +105,7 @@ bool Renderer::InitDX(HWND hWnd)
 void Renderer::StartFrame()
 {
 	// Limpia la escena
-	m_pkDevice->Clear(0, NULL, D3DCLEAR_TARGET, D3DCOLOR_XRGB(0, 150, 150), 1.0f, 0);
+	m_pkDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 150, 150), 1.0f, 0);
 	
 	// Comienzo el render de una escena
 	m_pkDevice->BeginScene();

@@ -61,7 +61,7 @@ bool TestGame::OnStartUp ()
 		// set properties
 		m_pkPacman->setName("el pacman loco");
 		m_pkPacman->setDim(50,50);
-		m_pkPacman->setPos(-100,150,2.0f);
+		m_pkPacman->setPos(-100,150,0.0f);
 		
 		// set animation
 		if( m_pkPacman->setAnimation("Eat") )
