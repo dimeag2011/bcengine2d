@@ -3,7 +3,10 @@
 Renderer::Renderer(HWND hWnd)
 :
 m_hWnd(hWnd),
-m_pkDevice(NULL)
+m_pkDevice(NULL),
+m_kViewerPos(0.0f, 0.0f, -5.0f),
+m_kViewerUp(0.0f, 1.0f, 0.0f),
+m_fViewerAngle(0.0f)
 {
 	
 }
@@ -79,7 +82,7 @@ bool Renderer::InitDX(HWND hWnd)
 	if (hr!=D3D_OK)
 		return false;
 
-	setViewPosition(0,0);
+	setViewportPosition();
 
 	D3DVIEWPORT9 kViewport;
 
@@ -142,6 +145,7 @@ void Renderer::Draw(
 						uiVertexCount);
 }
 //--------------------------------------------------------------------------------
+/* DEPRECATED
 void Renderer::setViewPosition(float fPosX, float fPosY) 
 {
 	D3DXMATRIX kMatrix;
@@ -154,6 +158,20 @@ void Renderer::setViewPosition(float fPosX, float fPosY)
 	kUpVector.x = 0.0f;	kUpVector.y = 1.0f;	kUpVector.z = 0.0f;
 
 	D3DXMatrixLookAtLH(&kMatrix, &kEyePos, &kLookPos, &kUpVector);
+	m_pkDevice->SetTransform(D3DTS_VIEW, &kMatrix);
+}
+//----------------------------------------------------------------
+*/ // NEW VERSION
+void Renderer::setViewportPosition()
+{
+	D3DXMATRIX kMatrix;
+	D3DXVECTOR3 kLookPos;
+
+	kLookPos.x = m_kViewerPos.x;	
+	kLookPos.y = m_kViewerPos.y;
+	kLookPos.z = 0.0f;
+
+	D3DXMatrixLookAtLH(&kMatrix, &m_kViewerPos, &kLookPos, &m_kViewerUp);
 	m_pkDevice->SetTransform(D3DTS_VIEW, &kMatrix);
 }
 //----------------------------------------------------------------
@@ -279,3 +297,4 @@ bool Renderer::loadTexture(const char* pszFilename, Texture::Ptr rkTexture)
 	return NULL;
 }
 //----------------------------------------------------------------
+
