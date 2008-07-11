@@ -13,7 +13,7 @@
 //--------------------------------------------------------------------------------
 class Texture;
 //--------------------------------------------------------------------------------
-class Renderer
+class ENGINE_API Renderer
 {
 public:
 	enum PrimitiveType
@@ -35,7 +35,6 @@ public:
 	void loadIdentity ();
 	void translate (float fX, float fY, float fZ = 0.0f);
 	void rotateZ (float fAngle);
-	void setViewPosition (float fPosX, float fPosY);
 	void scale (float fW, float fH);
 
 //	Metodos de Textura
@@ -43,11 +42,23 @@ public:
 	bool bindTexture (Texture::Ptr rkTexture);
 	bool loadTexture (const char* pszFilename, Texture::Ptr rkTexture);
 
+//	Metodos de la posicion del viewer
+	void setViewerPosition(float fPosX, float fPosY);
+	void getViewerPosition(float &fPosX, float &fPosY);
+	void setViewerAngle(float fAngle);
+	float getViewerAngle();
+
 private:
 	void StartFrame();
 	void EndFrame();
 
 	bool InitDX(HWND hWnd);
+
+	//Metodo para la posicion del viewport
+	//DEPRECATED
+	//void setViewPosition (float fPosX, float fPosY);
+	//NEW VERSION
+	void setViewportPosition();
 
 	HWND m_hWnd;
 	IDirect3DDevice9*  m_pkDevice;
@@ -60,11 +71,17 @@ private:
 	// current matrix mode
 	MatrixMode m_eCurrentMatMode;
 
+	D3DXVECTOR3 m_kViewerPos;
+	D3DXVECTOR3 m_kViewerUp;
+	float m_fViewerAngle;
+
 protected:
 	map <string, IDirect3DTexture9*> m_kTextureMap;
 	typedef map<string, IDirect3DTexture9*>::iterator TextureIterator;
 
 	friend class Game;
 };
+//--------------------------------------------------------------------------------
+#include "Renderer.inl"
 //--------------------------------------------------------------------------------
 #endif //RENDERER_H

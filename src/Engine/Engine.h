@@ -12,6 +12,7 @@
 #include "Box.h"
 #include "Circle.h"
 #include "Triangle.h"
+#include "Renderer.h"
 
 //----------------------------------------------------------------
 #endif // ENGINE_H

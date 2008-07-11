@@ -27,7 +27,6 @@ public:
 
 	void addEntity(Entity2D* pkEntity);
 
-	Timer m_kTimer;
 
 protected:
 	//game virtual functions to be overloaded in game
@@ -35,18 +34,18 @@ protected:
 	virtual bool OnLoop()=0;
 	virtual bool OnShutDown()=0;
 
-	//the input
 	Input* m_pkInput;
+	Renderer* m_pkRender;
+	Importer* m_pkImporter;
+	Timer m_kTimer;
 
-// resources
+	// resources
 public:
 	Importer* getImporter ();
 
 private:
-	Renderer* m_pkRender;
 	Window* m_pkWindows;
 	HINSTANCE m_hInstance;
-	Importer* m_pkImporter;
 
 	vector<Entity2D*> m_apkEntities;
 
