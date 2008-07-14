@@ -2,6 +2,7 @@
 #define TEST_GAME_H
 
 #include "Engine.h"
+#include "TestScene.h"
 
 class TestGame : public Game
 {
@@ -24,6 +25,7 @@ protected:
 
 	Sprite* m_pkPacman;
 	Sprite* m_pkGhost1;
-	Texture::Ptr m_pkTexture;
+	//Texture::Ptr m_pkTexture;
+	TestScene* m_pkScene1;
 };
 #endif

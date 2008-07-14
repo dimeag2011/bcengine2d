@@ -22,6 +22,14 @@ bool TestGame::OnStartUp ()
 {
 	Importer* pkImporter = getImporter();
 
+	m_pkScene1 = new TestScene();
+
+	m_pkScene1->init(pkImporter, m_pkInput);
+	m_pkScene1->setName("Escena1");
+	
+	addSceneToUpdate(m_pkScene1);
+	addSceneToDraw(m_pkScene1);
+
 	if( !pkImporter->importResources("../../res/sprite.xml") )
 		return false;
 
@@ -42,6 +50,7 @@ bool TestGame::OnStartUp ()
 	m_pkCirc->setNumeroCaras(50);
 	m_pkCirc->setVertexColor(0,255,255,255);
 	m_pkCirc->setDim(200,100);
+	m_pkCirc->setVisibleBB(true);
 	
 	addEntity(m_pkCirc);
 
@@ -94,8 +103,9 @@ bool TestGame::OnLoop ()
 	{
 
 		//m_pkPacman->setMoveSpeed(0.0f);
-		m_pkPacman->setMoveAngle(180.0);
-		m_pkPacman->setRotation(180.0);
+		//m_pkPacman->setMoveAngle(180.0);
+		//m_pkPacman->setRotation(180.0);
+		m_pkPacman->setPos(m_pkPacman->getPrevPosX(), m_pkPacman->getPrevPosY());
 	}
 	if(m_pkBox->checkCollision(m_pkCirc))
 	{
@@ -265,13 +275,23 @@ bool TestGame::OnLoop ()
 		m_pkRender->setViewerPosition(0,0);
 	}
 
+	if (m_pkInput->getKeyDown(DIK_A))
+		m_pkCirc->setRotation(m_pkCirc->getRotation() + 0.1f);
+
 	if (m_pkInput->getKeyDown(DIK_Z))
-		m_pkPacman->setPos(m_pkPacman->getPosX() + 0.1f, m_pkPacman->getPosY() + 0.1f);
+		m_pkCirc->setRotation(m_pkCirc->getRotation() - 0.1f);
+
+	if (m_pkInput->getKeyDown(DIK_S))
+		m_pkCirc->setDim(m_pkCirc->getDimW() + 0.1f, m_pkCirc->getDimH() + 0.1f);
+
+	if (m_pkInput->getKeyDown(DIK_X))
+		m_pkCirc->setDim(m_pkCirc->getDimW() - 0.1f, m_pkCirc->getDimH() - 0.1f);
 
 	return false;
 }
 //----------------------------------------------------------------
 bool TestGame::OnShutDown ()
 {
+	m_pkScene1->deinit();
 	return true;
 }

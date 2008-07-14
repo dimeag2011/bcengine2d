@@ -11,10 +11,9 @@ class Renderer;
 class ENGINE_API Shape : public Entity2D
 {
 // constructor / destructor
-protected:
-	Shape ();
 public:
-	virtual ~Shape () { /***/ }
+	Shape ();
+	~Shape () { /***/ }
 
 
 // inherited from Entity2D

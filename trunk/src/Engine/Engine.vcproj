@@ -344,6 +344,22 @@
 				RelativePath=".\Window.h"
 				>
 			</File>
+			<Filter
+				Name="Scene"
+				>
+				<File
+					RelativePath=".\Scene.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\Scene.h"
+					>
+				</File>
+				<File
+					RelativePath=".\Scene.inl"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Timer"

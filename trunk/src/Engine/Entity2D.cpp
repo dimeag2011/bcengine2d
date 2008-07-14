@@ -5,6 +5,7 @@
 Entity2D::Entity2D ()
 :
 m_kName(""),
+m_kColGroup(""),
 m_fX(0), 
 m_fY(0), 
 m_fZ(0), 
@@ -20,7 +21,9 @@ m_fMoveSpeed(0),
 m_fMoveAngle(0),
 m_fMoveAngleRad(0),
 m_fPrevX(0), 
-m_fPrevY(0)
+m_fPrevY(0),
+m_bVisible(true),
+m_bVisibleBB(false)
 {
 	/***/
 	// initialize AABB vertices
@@ -50,23 +53,29 @@ void Entity2D::draw (Renderer * rkRenderer)
 	// set the world matrix
 	rkRenderer->setMatrixMode(WORLD);
 
-	/* Dibujo la AABB
+	//Dibujo la AABB
+	if (m_bVisibleBB)
+	{
 		// reset the matrix
 		rkRenderer->loadIdentity();
-
-		// AABB
+		// apply transformation
 		rkRenderer->translate(m_fX, m_fY);
 		rkRenderer->translate(m_fBBX, m_fBBY);
 		rkRenderer->scale(m_fBBW, m_fBBH);
 		rkRenderer->unbindTexture();
 		rkRenderer->Draw(m_akAABBVertices, Renderer::LINE_STRIP, 5);
-	*/
-
-	// apply transformation
+	}
+	
+	//Dibujo entidad
+	// reset the matrix
 	rkRenderer->loadIdentity();
+	// apply transformation
 	rkRenderer->translate(m_fX, m_fY, m_fZ);
 	rkRenderer->rotateZ(m_fRotation * 3.14159f / 180.0f);
-	rkRenderer->scale(m_fW, m_fH);
+	if (m_bVisible)
+		rkRenderer->scale(m_fW, m_fH);
+	else
+		rkRenderer->scale(0, 0);
 
 }
 //----------------------------------------------------------------
