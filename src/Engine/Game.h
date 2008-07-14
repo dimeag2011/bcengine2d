@@ -8,6 +8,7 @@
 #include "Timer.h"
 #include "Input.h"
 #include "DirectInput.h"
+#include "Scene.h"
 
 #include "Structs.h"
 //--------------------------------------------------------------------------------
@@ -48,6 +49,21 @@ private:
 	HINSTANCE m_hInstance;
 
 	vector<Entity2D*> m_apkEntities;
+
+	//scenes
+public:
+
+private:
+	typedef map< string, Scene* > SceneMap;
+	typedef map< string, Scene* >::iterator SceneMapIt;
+	SceneMap m_kpaSceneToUpdate;
+	SceneMap m_kpaSceneToDraw;
+
+public:
+	bool addSceneToUpdate(Scene* pkScene);
+	bool removeSceneToUpdate(Scene* pkScene);
+	bool addSceneToDraw(Scene* pkScene);
+	bool removeSceneToDraw(Scene* pkScene);
 
 };
 //----------------------------------------------------------------

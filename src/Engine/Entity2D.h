@@ -19,6 +19,13 @@ public:
 	void setName (string kName);
 	const string& getName () const;
 //----------------------------------------------------------------
+// seteo y devuelvo si es visible la entidad y su BB
+public:
+	void setVisible (bool bVisible);
+	bool getVisible ();
+	void setVisibleBB (bool bVisibleBB);
+	bool getVisibleBB ();
+//----------------------------------------------------------------
 // seteo y devuelvo posicion, rotacion y dimension
 	void setPos (float fX, float fY, float fZ = 1.0f);
 	float getPosX () const;
@@ -52,6 +59,7 @@ public:
 	float getPrevPosY () const;
 	// movement
 
+private:
 	float m_fPrevX, m_fPrevY;
 	float m_fMoveAngle, m_fMoveAngleRad;
 	float m_fMoveSpeed;
@@ -69,10 +77,16 @@ public:
 
 	CollisionResult checkCollision(Entity2D* pkEntity) const;
 	virtual void onCollision (Entity2D* pkEntity) = 0;
+	const string& getCollisionGroup () const;
+	void setCollisionGroup (string kColGroup);
 
+private:
 	ColorVertex m_akAABBVertices[5];
+	string m_kColGroup;
+	bool m_bVisibleBB;
 //----------------------------------------------------------------
 // interface
+public:
 	virtual void draw (Renderer * rkRenderer);
 //----------------------------------------------------------------
 // functions to override
@@ -91,6 +105,7 @@ private:
 	float m_fBBW, m_fBBH;
 	float m_fRotation;
 	bool m_bAtachedBB;
+	bool m_bVisible;
 };
 //----------------------------------------------------------------
 #include "Entity2D.inl"

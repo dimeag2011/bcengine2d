@@ -13,6 +13,7 @@
 #include "Circle.h"
 #include "Triangle.h"
 #include "Renderer.h"
+#include "Scene.h"
 
 //----------------------------------------------------------------
 #endif // ENGINE_H

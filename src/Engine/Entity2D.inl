@@ -135,3 +135,33 @@ inline float Entity2D::getPrevPosY () const
 	return m_fPrevY;
 }
 //----------------------------------------------------------------
+inline const string& Entity2D::getCollisionGroup () const
+{
+	return m_kColGroup;
+}
+//----------------------------------------------------------------
+inline void Entity2D::setCollisionGroup (string kColGroup)
+{
+	m_kColGroup = kColGroup;
+}
+//----------------------------------------------------------------
+inline void Entity2D::setVisible (bool bVisible)
+{
+	m_bVisible = bVisible;	
+}
+//----------------------------------------------------------------
+inline bool Entity2D::getVisible ()
+{
+	return m_bVisible;
+}
+//----------------------------------------------------------------
+inline void Entity2D::setVisibleBB (bool bVisibleBB)
+{
+	m_bVisibleBB = bVisibleBB;
+}
+//----------------------------------------------------------------
+inline bool Entity2D::getVisibleBB ()
+{
+	return m_bVisibleBB;
+}
+//----------------------------------------------------------------
