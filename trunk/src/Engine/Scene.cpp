@@ -4,7 +4,8 @@
 //----------------------------------------------------------------
 Scene::Scene ()
 :
-m_pkInput(NULL)
+m_pkInput(NULL),
+m_pkSound(NULL)
 {
 	/***/
 }
@@ -14,8 +15,18 @@ Scene::~Scene ()
 	/***/
 }
 //----------------------------------------------------------------
-bool Scene::init (Importer* pkImporter, Input* pkInput)
+bool Scene::init (string kName, Importer* pkImporter, Input* pkInput, Sound* pkSound)
 {
+	if (kName == "")
+		return false;
+
+	setName(kName);
+
+	if (!pkSound)
+		return false;
+
+	m_pkSound = pkSound;
+
 	m_pkInput = pkInput;
 
 	if( !onInit(pkImporter) )

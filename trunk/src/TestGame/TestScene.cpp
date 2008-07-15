@@ -67,6 +67,24 @@ bool TestScene::onUpdate (float fTimeBetweenFrames)
 	//updatePacmanCollision();
 	updateGhostInput();
 
+	if (m_pkInput->getKeyEventDown(DIK_M))
+		m_pkSound->playSoundFile("../../res/Sounds/ophelia.mp3");
+
+	if (m_pkInput->getKeyEventDown(DIK_N))
+		m_pkSound->stopAllSounds();
+
+	if (m_pkInput->getKeyDown(DIK_K))
+		m_pkSound->setMasterVolume(m_pkSound->getMasterVolume() + 0.001f);
+	
+	if (m_pkInput->getKeyDown(DIK_J))
+		m_pkSound->setMasterVolume(m_pkSound->getMasterVolume() - 0.001f);
+
+	if (m_pkInput->getKeyEventDown(DIK_L))
+		m_pkSound->pauseAllSounds(true);
+
+	if (m_pkInput->getKeyEventUp(DIK_L))
+		m_pkSound->pauseAllSounds(false);
+	
 	return true;
 }
 //----------------------------------------------------------------

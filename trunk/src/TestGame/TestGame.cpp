@@ -24,8 +24,7 @@ bool TestGame::OnStartUp ()
 
 	m_pkScene1 = new TestScene();
 
-	m_pkScene1->init(pkImporter, m_pkInput);
-	m_pkScene1->setName("Escena1");
+	m_pkScene1->init("Escena1", pkImporter, m_pkInput, m_pkSound);
 	
 	addSceneToUpdate(m_pkScene1);
 	addSceneToDraw(m_pkScene1);
@@ -93,6 +92,8 @@ bool TestGame::OnStartUp ()
 
 		addEntity(m_pkGhost1);
 	}
+
+	m_pkSound->playSoundFile("../../res/Sounds/bell.wav");
 
 	return true;
 }
