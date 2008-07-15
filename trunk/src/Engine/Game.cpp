@@ -7,7 +7,8 @@ m_pkRender(NULL),
 m_pkWindows(NULL),
 m_hInstance(hInstance),
 m_pkImporter(NULL),
-m_pkInput(NULL)
+m_pkInput(NULL),
+m_pkSound(NULL)
 {
 
 }
@@ -46,6 +47,13 @@ bool Game::StartUp()
 
 	if(!m_pkInput->init())
 		return false;
+
+	m_pkSound = new Sound();
+
+	if(!m_pkSound->startSoundEngine())
+		return false;
+
+	m_pkSound->playSound("../../res/Sounds/bell.wav");
 
 	if (!OnStartUp())
 		return false;
@@ -125,6 +133,12 @@ bool Game::ShutDown()
 	m_pkInput->deinit();
 	delete m_pkInput;
 	m_pkInput = NULL;
+
+	if(!m_pkSound->stopSoundEngine())
+		return false;
+
+	delete m_pkSound;
+	m_pkSound = NULL;
 
 	return true;
 }

@@ -9,6 +9,7 @@
 #include "Input.h"
 #include "DirectInput.h"
 #include "Scene.h"
+#include "Sound.h"
 
 #include "Structs.h"
 //--------------------------------------------------------------------------------
@@ -39,6 +40,7 @@ protected:
 	Renderer* m_pkRender;
 	Importer* m_pkImporter;
 	Timer m_kTimer;
+	Sound* m_pkSound;
 
 	// resources
 public:
