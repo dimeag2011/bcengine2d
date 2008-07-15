@@ -53,8 +53,6 @@ bool Game::StartUp()
 	if(!m_pkSound->startSoundEngine())
 		return false;
 
-	m_pkSound->playSound("../../res/Sounds/bell.wav");
-
 	if (!OnStartUp())
 		return false;
 

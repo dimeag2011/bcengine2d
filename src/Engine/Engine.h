@@ -14,6 +14,7 @@
 #include "Triangle.h"
 #include "Renderer.h"
 #include "Scene.h"
+#include "Sound.h"
 
 //----------------------------------------------------------------
 #endif // ENGINE_H

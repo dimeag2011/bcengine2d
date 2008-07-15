@@ -28,7 +28,7 @@ bool Sound::stopSoundEngine()
 	return true;
 }
 //---------------------------------------------------------------- 
-bool Sound::playSound(string kFileName, bool bLoop)
+bool Sound::playSoundFile(string kFileName, bool bLoop)
 {
 	if (kFileName=="")
 		return false;
@@ -38,3 +38,24 @@ bool Sound::playSound(string kFileName, bool bLoop)
 	return true;
 }
 //---------------------------------------------------------------- 
+void Sound::stopAllSounds()
+{
+	m_pkSoundEngine->stopAllSounds();
+}
+//---------------------------------------------------------------- 
+void Sound::setMasterVolume(float fVolume)
+{
+	if (fVolume >= 0.0f && fVolume <=1.0f)
+		m_pkSoundEngine->setSoundVolume(fVolume);
+}
+//---------------------------------------------------------------- 
+float Sound::getMasterVolume()
+{
+	return m_pkSoundEngine->getSoundVolume();
+}
+//---------------------------------------------------------------- 
+void Sound::pauseAllSounds(bool bPause)
+{
+	m_pkSoundEngine->setAllSoundsPaused(bPause);	
+}
+//----------------------------------------------------------------

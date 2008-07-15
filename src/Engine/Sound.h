@@ -9,7 +9,7 @@ typedef ISoundEngine* SoundEngine;
 //---------------------------------------------------------------- 
 #include "Defines.h"
 //---------------------------------------------------------------- 
-class Sound
+class ENGINE_API Sound
 {
 public:
 	Sound();
@@ -18,7 +18,13 @@ public:
 	bool startSoundEngine();
 	bool stopSoundEngine();
 
-	bool playSound(string kFileName, bool bLoop=false);
+	bool playSoundFile(string kFileName, bool bLoop=false);
+	void stopAllSounds();
+
+	void pauseAllSounds(bool bPause);
+
+	void setMasterVolume(float fVolume);
+	float getMasterVolume();
 
 protected:
 	SoundEngine m_pkSoundEngine;

@@ -8,6 +8,7 @@ class Renderer;
 class Entity2D;
 class Importer;
 class Input;
+class Sound;
 //----------------------------------------------------------------
 class ENGINE_API Scene
 {
@@ -26,7 +27,7 @@ public:
 
 // main loop steps
 public:
-	bool init (Importer* pkImporter, Input* pkInput);
+	bool init (string kName, Importer* pkImporter, Input* pkInput, Sound* pkSound);
 	bool update (float fTimeBetweenFrames);
 	void draw (Renderer* pkRenderer) const;
 	bool deinit ();
@@ -54,6 +55,7 @@ protected:
 // services
 protected:
 	Input* m_pkInput;
+	Sound* m_pkSound;
 
 // entities
 private:
