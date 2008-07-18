@@ -58,6 +58,9 @@ bool Game::StartUp()
 
 	m_kTimer.FirstMeasure();
 
+	m_pkMapa = new Map(m_pkRender);
+	m_pkMapa->loadMap("../../res/MapaPrueba/tilesetFixed.xml","../../res/MapaPrueba/Mapa.xml");
+
 	return true;
 }
 //--------------------------------------------------------------------------------
@@ -66,6 +69,8 @@ bool Game::Loop()
 	assert(m_pkRender);
 
 	m_pkInput->reacquire();
+
+	m_pkMapa->update(m_kTimer.GetDT());
 
 	// update all the entities
 	for(unsigned int i=0; i<m_apkEntities.size(); i++)
@@ -85,6 +90,8 @@ bool Game::Loop()
 	}
 
 	m_pkRender->StartFrame();
+
+	m_pkMapa->draw();
 
 	// draw all the entities
 	for(unsigned int i=0; i<m_apkEntities.size(); i++)

@@ -16,6 +16,8 @@ m_fBBY(0),
 m_fBBW(0),
 m_fBBH(0),
 m_fRotation(0),
+m_bHFlip(false),
+m_bVFlip(false),
 m_bIsMoving(false),
 m_fMoveSpeed(0),
 m_fMoveAngle(0),
@@ -72,6 +74,16 @@ void Entity2D::draw (Renderer * rkRenderer)
 	// apply transformation
 	rkRenderer->translate(m_fX, m_fY, m_fZ);
 	rkRenderer->rotateZ(m_fRotation * 3.14159f / 180.0f);
+	if (m_bHFlip)
+		rkRenderer->rotateX(D3DX_PI);
+	else
+		rkRenderer->rotateX(0);
+
+	if (m_bVFlip)
+		rkRenderer->rotateY(D3DX_PI);
+	else
+		rkRenderer->rotateY(0);
+
 	if (m_bVisible)
 		rkRenderer->scale(m_fW, m_fH);
 	else

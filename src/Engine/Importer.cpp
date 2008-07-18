@@ -192,14 +192,14 @@ bool Importer::importTexture (XMLNode& rkTextureNode)
 	return true;
 }
 //----------------------------------------------------------------------
-bool Importer::createSprite (const char* pszName, Sprite* rkSprite)
+bool Importer::createSprite (const char* pszName, Sprite* pkSprite)
 {
-	Sprite* pkSprite = m_kpSpritesMap[pszName];
+	Sprite* pkSpriteAux = m_kpSpritesMap[pszName];
 
-	if(!pkSprite)
+	if(!pkSpriteAux)
 		return false;
 
-	pkSprite->clone(rkSprite);
+	pkSpriteAux->clone(pkSprite);
 
 	return true;
 }
