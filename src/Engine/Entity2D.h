@@ -61,10 +61,11 @@ public:
 
 	float getPrevPosX () const;
 	float getPrevPosY () const;
+	float getPrevPosZ () const;
 	// movement
 
 private:
-	float m_fPrevX, m_fPrevY;
+	float m_fPrevX, m_fPrevY, m_fPrevZ;
 	float m_fMoveAngle, m_fMoveAngleRad;
 	float m_fMoveSpeed;
 	bool m_bIsMoving;

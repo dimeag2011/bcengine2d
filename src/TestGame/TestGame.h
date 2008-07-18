@@ -3,6 +3,7 @@
 
 #include "Engine.h"
 #include "TestScene.h"
+#include "TestScene2.h"
 
 class TestGame : public Game
 {
@@ -19,14 +20,11 @@ protected:
 	bool OnLoop();
 	bool OnShutDown();
 
-	Box* m_pkBox;
-	Circle* m_pkCirc;
-	Triangle* m_pkTri;
+	void UpdateViewPortPos();
 
-	Sprite* m_pkPacman;
-	Sprite* m_pkGhost1;
 	//Texture::Ptr m_pkTexture;
 	TestScene* m_pkScene1;
+	TestScene2* m_pkScene2;
 	Map* m_pkMapa;
 
 };

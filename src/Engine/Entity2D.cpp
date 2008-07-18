@@ -24,6 +24,7 @@ m_fMoveAngle(0),
 m_fMoveAngleRad(0),
 m_fPrevX(0), 
 m_fPrevY(0),
+m_fPrevZ(0),
 m_bVisible(true),
 m_bVisibleBB(false)
 {
@@ -116,6 +117,7 @@ void Entity2D::update (float fTimeBetweenFrames)
 	{
 		m_fPrevX = m_fX;
 		m_fPrevY = m_fY;
+		m_fPrevZ = m_fZ;
 		m_fX += cos(m_fMoveAngleRad) * (m_fMoveSpeed * fTimeBetweenFrames);
 		m_fY += sin(m_fMoveAngleRad) * (m_fMoveSpeed * fTimeBetweenFrames);
 	}

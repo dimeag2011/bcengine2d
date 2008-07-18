@@ -135,6 +135,11 @@ inline float Entity2D::getPrevPosY () const
 	return m_fPrevY;
 }
 //----------------------------------------------------------------
+inline float Entity2D::getPrevPosZ () const
+{
+	return m_fPrevZ;
+}
+//----------------------------------------------------------------
 inline const string& Entity2D::getCollisionGroup () const
 {
 	return m_kColGroup;

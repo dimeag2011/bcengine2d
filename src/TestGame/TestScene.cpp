@@ -64,7 +64,7 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 	m_pkMapa = new Map(pkRenderer);
 	m_pkMapa->loadMap("../../res/MapaPrueba/tilesetFixed.xml","../../res/MapaPrueba/Mapa.xml");
 	m_pkMapa->setPos(500,500);
-	m_pkMapa->setLayerVisible(0,false);
+	m_pkMapa->setLayerVisible(1,false);
 	setCurrentMap(m_pkMapa);
 
 	return true;
@@ -117,6 +117,7 @@ void TestScene::updateGhostInput ()
 //----------------------------------------------------------------
 void TestScene::updatePacmanCollision ()
 {
+	/*
 	Entity2D::CollisionResult eResult = m_pkPacman->checkCollision(m_pkShape);
 
 	if(eResult != Entity2D::None )
@@ -148,6 +149,7 @@ void TestScene::updatePacmanCollision ()
 	{
 		m_pkGhost1->setPos(1000,1000);
 	}
+	*/
 }
 //----------------------------------------------------------------
 void TestScene::onDraw (Renderer* pkRenderer) const
