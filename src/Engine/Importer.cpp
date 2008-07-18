@@ -155,6 +155,28 @@ bool Importer::importSpriteAnimation (XMLNode& rkNode)
 		pkAnimInfo->addFrame(uiTexPosX, uiTexPosY, uiWidth, uiHeight);
 	}
 
+	/*		BEGIN SPEED		*/
+	// get animation attibutes
+	const char* pszSpeed = rkNode.getAttribute("Speed");
+
+	// convert animation attibutes
+	float fSpeed = (float)(strtod(pszSpeed,NULL));
+	pkAnimInfo->setSpeed(fSpeed);
+	/*		END SPEED		*/
+
+	/*		BEGIN LOOP		*/
+	// get animation attibutes
+	string kLoop = rkNode.getAttribute("Loop");
+
+	// convert animation attibutes
+	bool bLoop = false;
+	
+	if(kLoop == "true")
+		bLoop = true;
+
+	pkAnimInfo->setLoopable(bLoop);
+	/*		END LOOP		*/
+
 	return true;
 }
 //----------------------------------------------------------------------

@@ -37,7 +37,7 @@ void Animation::update (float fTimeBetweenFrames)
 	// update frame time
 	while(m_fCurrentFrameTime > m_pkInfo->getTimePerFrame() )
 	{
-		m_fCurrentFrameTime -= m_pkInfo->getTimePerFrame();
+		m_fCurrentFrameTime -= m_pkInfo->getTimePerFrame() * m_pkInfo->getSpeed();
 		m_uiCurrentFrame++;
 
 		if(m_uiCurrentFrame >= m_pkInfo->getFrameCount() )

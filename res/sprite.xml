@@ -5,20 +5,13 @@
 
 <SPRITE Name='Pacman' TextureFile='../../res/pacman.xml' TexPosX='18' TexPosY='0' Width='18' Height='18'>
 
-  <SPRITE_ANIMATION Name='Eat' Time='300.0'>
+  <SPRITE_ANIMATION Name='Eat' Time='300.0' Speed='1' Loop='true' >
     <FRAME TexPosX='0' TexPosY='0' Width='18' Height='18'></FRAME>
     <FRAME TexPosX='18' TexPosY='0' Width='18' Height='18'></FRAME>
     <FRAME TexPosX='36' TexPosY='0' Width='18' Height='18'></FRAME>
     <FRAME TexPosX='18' TexPosY='0' Width='18' Height='18'></FRAME>
   </SPRITE_ANIMATION>
-
-  <SPRITE_ANIMATION Name='Eat' Time='300.0'>
-    <FRAME TexPosX='0' TexPosY='0' Width='18' Height='18'></FRAME>
-    <FRAME TexPosX='18' TexPosY='0' Width='18' Height='18'></FRAME>
-    <FRAME TexPosX='36' TexPosY='0' Width='18' Height='18'></FRAME>
-    <FRAME TexPosX='18' TexPosY='0' Width='18' Height='18'></FRAME>
-  </SPRITE_ANIMATION>
-  
+ 
 </SPRITE>
 
 <SPRITE Name='Fantasma' TextureFile='../../res/pacman.xml' TexPosX='0' TexPosY='18' Width='18' Height='18'>
