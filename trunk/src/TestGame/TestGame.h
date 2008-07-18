@@ -27,5 +27,7 @@ protected:
 	Sprite* m_pkGhost1;
 	//Texture::Ptr m_pkTexture;
 	TestScene* m_pkScene1;
+	Map* m_pkMapa;
+
 };
 #endif

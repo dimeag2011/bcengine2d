@@ -8,7 +8,8 @@ m_pkBox(NULL),
 m_pkCirc(NULL),
 m_pkTri(NULL),
 m_pkPacman(new Sprite()),
-m_pkGhost1(new Sprite())
+m_pkGhost1(new Sprite()),
+m_pkMapa(NULL)
 {
 	
 }
@@ -24,7 +25,7 @@ bool TestGame::OnStartUp ()
 
 	m_pkScene1 = new TestScene();
 
-	m_pkScene1->init("Escena1", pkImporter, m_pkInput, m_pkSound);
+	m_pkScene1->init("Escena1", pkImporter, m_pkInput, m_pkSound, m_pkRender);
 	
 	addSceneToUpdate(m_pkScene1);
 	addSceneToDraw(m_pkScene1);
@@ -94,6 +95,13 @@ bool TestGame::OnStartUp ()
 
 		addEntity(m_pkGhost1);
 	}
+
+	m_pkMapa = new Map(m_pkRender);
+	m_pkMapa->loadMap("../../res/MapaPrueba/tilesetFixed.xml","../../res/MapaPrueba/Mapa.xml");
+	m_pkMapa->setPos(500,500);
+	m_pkMapa->setLayerVisible(1,false);
+	setCurrentMap(m_pkMapa);
+	
 
 	m_pkSound->playSoundFile("../../res/Sounds/bell.wav");
 

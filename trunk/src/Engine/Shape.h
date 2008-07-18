@@ -13,7 +13,7 @@ class ENGINE_API Shape : public Entity2D
 // constructor / destructor
 public:
 	Shape ();
-	~Shape () { /***/ }
+	virtual ~Shape () { /***/ }
 
 
 // inherited from Entity2D

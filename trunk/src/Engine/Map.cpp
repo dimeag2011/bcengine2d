@@ -268,12 +268,17 @@ void Map::loadLayer(XMLNode kLayer)
 	}
 
 	// cargo el id en el mapa de ids
-	m_ikLayerIdMap[iId] = kName;
+	LayerData kLayerData;
+	kLayerData.kName = kName;
+	kLayerData.bVisible = true;
+	kLayerData.bUpdatable = true;
+	
+	m_ikLayerIdMap[iId] = kLayerData;
 
 	// creo el vector del layer
-	XMLNode kLayerData = kLayer.getChildNode("data");
+	XMLNode kLayerDataNode = kLayer.getChildNode("data");
 
-	string kData = kLayerData.getText();
+	string kData = kLayerDataNode.getText();
 
 	TileVector* pkNewLayer = new TileVector();
 
@@ -363,15 +368,17 @@ void Map::moveMap()
 	}
 }
 //----------------------------------------------------------------
-void Map::draw(int iLayerId)
+void Map::draw()
 {
-	if (iLayerId == -1)
+	//accedo a cada layer
+	for(int i=0; i < (int)(m_ikLayerIdMap.size()); i++ )
 	{
-		//accedo a cada layer
-		for(int i=0; i < (int)(m_ikLayerIdMap.size()); i++ )
+		// e fijo si la tengo que dibujar
+		LayerData kLayerData = m_ikLayerIdMap[i];
+		if (kLayerData.bVisible)
 		{
-			//para cada layer dibujo sus tiles
-			TileVector* kLayer = m_kkLayerMap[m_ikLayerIdMap[i]];
+			//dibujo sus tiles
+			TileVector* kLayer = m_kkLayerMap[kLayerData.kName];
 			for(int i=0; i < (int)(kLayer->size()); i++)
 			{
 				Tile* kTile = kLayer->at(i);
@@ -381,64 +388,84 @@ void Map::draw(int iLayerId)
 			}
 		}
 	}
-	else
-	{
-		LayerIdMapIterator itLayer = m_ikLayerIdMap.find(iLayerId);
-		
-		if (itLayer == m_ikLayerIdMap.end())
-			return;
-
-		string kName = m_ikLayerIdMap[iLayerId];
-
-		TileVector* kLayer = m_kkLayerMap[kName];
-		for(int i=0; i < (int)(kLayer->size()); i++)
-		{
-			Tile* kTile = kLayer->at(i);
-			if (kTile->getId() != 0)
-				kTile->draw(m_pkRenderer);	
-		}
-
-	}
 }
 //----------------------------------------------------------------
-void Map::update(float fTimeBetweenFrames, int iLayerId)
+void Map::update(float fTimeBetweenFrames)
 {
-	if (iLayerId == -1)
+	for(int i=0; i < (int)(m_ikLayerIdMap.size()); i++ )
 	{
-		//accedo a cada layer
-		LayerMapIterator itLPos;
-		LayerMapIterator itLEnd;
-
-		for(itLPos = m_kkLayerMap.begin(), itLEnd = m_kkLayerMap.end();
-			itLPos != itLEnd; itLPos++)
+		// me fijo si la tengo que updatear
+		LayerData kLayerData = m_ikLayerIdMap[i];
+		if (kLayerData.bUpdatable)
 		{
-			//para cada layer seteo la pos de mundo de sus tiles
-			TileVector* kLayer = itLPos->second;
+			//updateo los tiles
+			TileVector* kLayer = m_kkLayerMap[kLayerData.kName];
 			for(int i=0; i < (int)(kLayer->size()); i++)
 			{
 				Tile* kTile = kLayer->at(i);
 				if (kTile->getId() != 0)
-					kTile->update(fTimeBetweenFrames);	
+					kTile->update(fTimeBetweenFrames);
 				
 			}
 		}
 	}
-	else
-	{
-		LayerIdMapIterator itLayer = m_ikLayerIdMap.find(iLayerId);
-		
-		if (itLayer == m_ikLayerIdMap.end())
-			return;
-
-		string kName = m_ikLayerIdMap[iLayerId];
-
-		TileVector* kLayer = m_kkLayerMap[kName];
-		for(int i=0; i < (int)(kLayer->size()); i++)
-		{
-			Tile* kTile = kLayer->at(i);
-			if (kTile->getId() != 0)
-				kTile->update(fTimeBetweenFrames);	
-		}
-
-	}
 }
+//----------------------------------------------------------------
+void Map::setLayerVisible(int iLayerId, bool bVisible)
+{
+	// me fijo si existe el layer con ese id
+	LayerIdMapIterator itLayer;
+	itLayer = m_ikLayerIdMap.find(iLayerId);
+
+	if (itLayer == m_ikLayerIdMap.end())
+		return;
+
+	//seteo el nuevo valor
+	LayerData kLayerData = m_ikLayerIdMap[iLayerId];
+	kLayerData.bVisible = bVisible;
+	m_ikLayerIdMap[iLayerId] = kLayerData;
+}
+//----------------------------------------------------------------
+bool Map::getLayerVisible(int iLayerId)
+{
+	// me fijo si existe el layer con ese id
+	LayerIdMapIterator itLayer;
+	itLayer = m_ikLayerIdMap.find(iLayerId);
+
+	if (itLayer == m_ikLayerIdMap.end())
+		return false;
+
+	//devuelvo el valor
+	LayerData kLayerData = m_ikLayerIdMap[iLayerId];
+	return kLayerData.bVisible;
+}
+//----------------------------------------------------------------
+void Map::setLayerUpdatable(int iLayerId, bool bUpdatable)
+{
+	// me fijo si existe el layer con ese id
+	LayerIdMapIterator itLayer;
+	itLayer = m_ikLayerIdMap.find(iLayerId);
+
+	if (itLayer == m_ikLayerIdMap.end())
+		return;
+
+	//seteo el nuevo valor
+	LayerData kLayerData = m_ikLayerIdMap[iLayerId];
+	kLayerData.bUpdatable = bUpdatable;
+	m_ikLayerIdMap[iLayerId] = kLayerData;
+}
+//----------------------------------------------------------------
+bool Map::getLayerUpdateble(int iLayerId)
+{
+	// me fijo si existe el layer con ese id
+	LayerIdMapIterator itLayer;
+	itLayer = m_ikLayerIdMap.find(iLayerId);
+
+	if (itLayer == m_ikLayerIdMap.end())
+		return false;
+
+	//devuelvo el valor
+	LayerData kLayerData = m_ikLayerIdMap[iLayerId];
+	return kLayerData.bUpdatable;
+}
+//----------------------------------------------------------------

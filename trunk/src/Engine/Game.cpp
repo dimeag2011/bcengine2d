@@ -8,7 +8,8 @@ m_pkWindows(NULL),
 m_hInstance(hInstance),
 m_pkImporter(NULL),
 m_pkInput(NULL),
-m_pkSound(NULL)
+m_pkSound(NULL),
+m_pkCurrentMap(NULL)
 {
 
 }
@@ -58,8 +59,6 @@ bool Game::StartUp()
 
 	m_kTimer.FirstMeasure();
 
-	m_pkMapa = new Map(m_pkRender);
-	m_pkMapa->loadMap("../../res/MapaPrueba/tilesetFixed.xml","../../res/MapaPrueba/Mapa.xml");
 
 	return true;
 }
@@ -70,7 +69,9 @@ bool Game::Loop()
 
 	m_pkInput->reacquire();
 
-	m_pkMapa->update(m_kTimer.GetDT());
+	//actualizo el mapa
+	if (m_pkCurrentMap)
+		m_pkCurrentMap->update(m_kTimer.GetDT());
 
 	// update all the entities
 	for(unsigned int i=0; i<m_apkEntities.size(); i++)
@@ -90,8 +91,10 @@ bool Game::Loop()
 	}
 
 	m_pkRender->StartFrame();
-
-	m_pkMapa->draw();
+	
+	//dibujo el mapa
+	if (m_pkCurrentMap)
+		m_pkCurrentMap->draw();
 
 	// draw all the entities
 	for(unsigned int i=0; i<m_apkEntities.size(); i++)
@@ -228,3 +231,4 @@ bool Game::removeSceneToDraw(Scene* pkScene)
 	return true;
 }
 //--------------------------------------------------------------------------------
+
