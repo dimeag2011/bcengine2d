@@ -28,6 +28,9 @@ public:
 	void setLength (float fLenght);
 	float getLength () const;
 
+	void setSpeed (float fSpeed);
+	float getSpeed () const;
+
 	float getTimePerFrame () const;
 	size_t getFrameCount () const;
 	const FrameInfo& getFrameInfo (unsigned int uiIndex) const;
@@ -39,6 +42,7 @@ public:
 private:
 	float m_fLength;
 	bool m_bIsLoopable;
+	float m_fSpeed;
 	vector<FrameInfo> m_akFramesInfo;
 	float m_fTimePerFrame;
 };

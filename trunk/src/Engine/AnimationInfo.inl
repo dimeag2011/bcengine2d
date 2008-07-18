@@ -1,10 +1,3 @@
-/*****************************************************************
- Naicigam Engine v0.1
-
- File: AnimationInfo.inl
- Created: 06/05/08
-*****************************************************************/
-
 //----------------------------------------------------------------
 inline void AnimationInfo::setLength (float fLenght)
 {
@@ -40,5 +33,15 @@ inline bool AnimationInfo::getLoopable () const
 inline const FrameInfo& AnimationInfo::getFrameInfo (unsigned int uiIndex) const
 {
 	return m_akFramesInfo[uiIndex];
+}
+//----------------------------------------------------------------
+inline void AnimationInfo::setSpeed (float fSpeed)
+{
+	m_fSpeed = fSpeed;
+}
+//----------------------------------------------------------------
+inline float AnimationInfo::getSpeed  () const
+{
+	return m_fSpeed;
 }
 //----------------------------------------------------------------
