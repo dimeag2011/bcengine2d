@@ -43,7 +43,6 @@ protected:
 	Timer m_kTimer;
 	Sound* m_pkSound;
 
-	Map* m_pkMapa;
 
 	// resources
 public:
@@ -63,12 +62,14 @@ private:
 	typedef map< string, Scene* >::iterator SceneMapIt;
 	SceneMap m_kpaSceneToUpdate;
 	SceneMap m_kpaSceneToDraw;
+	Map* m_pkCurrentMap;
 
 public:
 	bool addSceneToUpdate(Scene* pkScene);
 	bool removeSceneToUpdate(Scene* pkScene);
 	bool addSceneToDraw(Scene* pkScene);
 	bool removeSceneToDraw(Scene* pkScene);
+	void setCurrentMap(Map* pkMap);
 
 };
 //----------------------------------------------------------------

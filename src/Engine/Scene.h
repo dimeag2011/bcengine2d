@@ -9,6 +9,7 @@ class Entity2D;
 class Importer;
 class Input;
 class Sound;
+class Map;
 //----------------------------------------------------------------
 class ENGINE_API Scene
 {
@@ -27,10 +28,14 @@ public:
 
 // main loop steps
 public:
-	bool init (string kName, Importer* pkImporter, Input* pkInput, Sound* pkSound);
+	bool init (string kName, Importer* pkImporter, 
+		Input* pkInput, Sound* pkSound, Renderer* pkRenderer);
 	bool update (float fTimeBetweenFrames);
 	void draw (Renderer* pkRenderer) const;
 	bool deinit ();
+
+// mapa
+	void setCurrentMap(Map* pkMap);
 
 // entity handling
 public:
@@ -45,7 +50,7 @@ public:
 
 // application specific steps
 protected:
-	virtual bool onInit (Importer* pkImporter) = 0;
+	virtual bool onInit (Importer* pkImporter, Renderer* pkRenderer) = 0;
 	virtual bool onUpdate (float fTimeBetweenFrames) = 0;
 	virtual void onDraw (Renderer* rkRenderer) const = 0;
 	virtual bool onDeinit () = 0;
@@ -65,6 +70,9 @@ private:
 
 	// entities
 	Entity2DVector m_apkEntities;
+
+	// mapa
+	Map* m_pkCurrentMap;
 
 	// collision groups
 	typedef map< string, Entity2DVector* > CollisionGroupMap;

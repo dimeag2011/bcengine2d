@@ -15,12 +15,16 @@ public:
 	~Map();
 
 	bool loadMap(string kTileSetFile, string kTileMapFile);
-	void draw(int iLayerId=-1);
-	void update(float fTimeBetweenFrames, int iLayerId=-1);
-	void setPos(float fX, float fY, float fZ=24);
+	void draw();
+	void update(float fTimeBetweenFrames);
+	void setPos(float fX, float fY, float fZ=15);
 	float getPosX();
 	float getPosY();
 	float getPosZ();
+	void setLayerVisible(int iLayerId, bool bVisible);
+	bool getLayerVisible(int iLayerId);
+	void setLayerUpdatable(int iLayerId, bool bUpdatable);
+	bool getLayerUpdateble(int iLayerId);
 
 private:
 	string m_kName;
@@ -45,8 +49,16 @@ private:
 	typedef vector<Tile*> TileVector;
 	map<string, TileVector*> m_kkLayerMap;
 	typedef map<string, TileVector*>::iterator LayerMapIterator;
-	map<int, string> m_ikLayerIdMap;
-	typedef map<int, string>::iterator LayerIdMapIterator;
+	
+	struct LayerData {
+		string kName;
+		bool bVisible;
+		bool bUpdatable;
+	};
+	map<int, LayerData> m_ikLayerIdMap;
+	typedef map<int, LayerData>::iterator LayerIdMapIterator;
+
+
 
 	Renderer* m_pkRenderer;
 

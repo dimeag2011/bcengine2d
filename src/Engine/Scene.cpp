@@ -1,11 +1,13 @@
 //----------------------------------------------------------------
 #include "Scene.h"
 #include "Entity2D.h"
+#include "Map.h"
 //----------------------------------------------------------------
 Scene::Scene ()
 :
 m_pkInput(NULL),
-m_pkSound(NULL)
+m_pkSound(NULL),
+m_pkCurrentMap(NULL)
 {
 	/***/
 }
@@ -15,7 +17,8 @@ Scene::~Scene ()
 	/***/
 }
 //----------------------------------------------------------------
-bool Scene::init (string kName, Importer* pkImporter, Input* pkInput, Sound* pkSound)
+bool Scene::init (string kName, Importer* pkImporter, 
+				  Input* pkInput, Sound* pkSound, Renderer* pkRenderer)
 {
 	if (kName == "")
 		return false;
@@ -29,7 +32,7 @@ bool Scene::init (string kName, Importer* pkImporter, Input* pkInput, Sound* pkS
 
 	m_pkInput = pkInput;
 
-	if( !onInit(pkImporter) )
+	if( !onInit(pkImporter, pkRenderer) )
 		return false;
 
 	sortEntitiesByDepth();
@@ -80,6 +83,10 @@ void Scene::checkAllCollisions ()
 //----------------------------------------------------------------
 bool Scene::update (float fTimeBetweenFrames)
 {
+	//actualizo el mapa
+	if (m_pkCurrentMap)
+		m_pkCurrentMap->update(fTimeBetweenFrames);
+
 	// update all the entities
 	for(unsigned int i=0; i<m_apkEntities.size(); i++)
 		m_apkEntities[i]->update(fTimeBetweenFrames);
@@ -93,6 +100,10 @@ bool Scene::update (float fTimeBetweenFrames)
 //----------------------------------------------------------------
 void Scene::draw (Renderer* pkRenderer) const
 {
+	//dibujo el mapa
+	if (m_pkCurrentMap)
+		m_pkCurrentMap->draw();
+
 	// draw all the entities
 	for(unsigned int i=0; i<m_apkEntities.size(); i++)
 		m_apkEntities[i]->draw(pkRenderer);

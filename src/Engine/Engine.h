@@ -15,6 +15,7 @@
 #include "Renderer.h"
 #include "Scene.h"
 #include "Sound.h"
+#include "Map.h"
 
 //----------------------------------------------------------------
 #endif // ENGINE_H

@@ -5,7 +5,8 @@ TestScene::TestScene ()
 :
 m_pkShape(NULL),
 m_pkPacman(NULL),
-m_pkGhost1(NULL)
+m_pkGhost1(NULL),
+m_pkMapa(NULL)
 {
 	/***/
 }
@@ -15,11 +16,12 @@ TestScene::~TestScene ()
 	/***/
 }
 //----------------------------------------------------------------
-bool TestScene::onInit (Importer* pkImporter)
+bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 {
 	m_pkShape = new Box();
 	m_pkPacman = new Sprite();
 	m_pkGhost1 = new Sprite();
+	m_pkMapa = new Map(pkRenderer);
 
 	pkImporter->importResources("../../res/sprite.xml");
 
@@ -58,6 +60,12 @@ bool TestScene::onInit (Importer* pkImporter)
 	addEntity(m_pkPacman, "pacman");
 	addEntity(m_pkGhost1, "fantasma");
 	addEntity(m_pkShape, "caja");
+
+	m_pkMapa = new Map(pkRenderer);
+	m_pkMapa->loadMap("../../res/MapaPrueba/tilesetFixed.xml","../../res/MapaPrueba/Mapa.xml");
+	m_pkMapa->setPos(500,500);
+	m_pkMapa->setLayerVisible(0,false);
+	setCurrentMap(m_pkMapa);
 
 	return true;
 }

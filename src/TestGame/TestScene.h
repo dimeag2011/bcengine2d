@@ -13,7 +13,7 @@ public:
 
 // application specific steps
 protected:
-	bool onInit (Importer* pkImporter);
+	bool onInit (Importer* pkImporter, Renderer* pkRenderer);
 	bool onUpdate (float fTimeBetweenFrames);
 	void onDraw (Renderer* pkRenderer) const;
 	bool onDeinit ();
@@ -28,6 +28,7 @@ private:
 	Shape* m_pkShape;
 	Sprite* m_pkPacman;
 	Sprite* m_pkGhost1;
+	Map* m_pkMapa;
 
 };
 //----------------------------------------------------------------
