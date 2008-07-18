@@ -198,6 +198,14 @@
 				RelativePath=".\TestScene.h"
 				>
 			</File>
+			<File
+				RelativePath=".\TestScene2.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\TestScene2.h"
+				>
+			</File>
 		</Filter>
 	</Files>
 	<Globals>
