@@ -165,3 +165,24 @@ inline bool Entity2D::getVisibleBB ()
 	return m_bVisibleBB;
 }
 //----------------------------------------------------------------
+inline void Entity2D::setHFlip(bool bHFlip)
+{
+	m_bHFlip = bHFlip;
+}
+//----------------------------------------------------------------
+inline bool Entity2D::getHFlip()
+{
+	return m_bHFlip;
+}
+//----------------------------------------------------------------
+inline void Entity2D::setVFlip(bool bVFlip)
+{
+	m_bVFlip = bVFlip;
+}
+//----------------------------------------------------------------
+inline bool Entity2D::getVFlip()
+{
+	return m_bVFlip;
+}
+//----------------------------------------------------------------
+

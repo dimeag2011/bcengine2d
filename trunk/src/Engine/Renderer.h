@@ -34,6 +34,8 @@ public:
 	void setMatrixMode (MatrixMode eMode);
 	void loadIdentity ();
 	void translate (float fX, float fY, float fZ = 0.0f);
+	void rotateX (float fAngle);
+	void rotateY (float fAngle);
 	void rotateZ (float fAngle);
 	void scale (float fW, float fH);
 

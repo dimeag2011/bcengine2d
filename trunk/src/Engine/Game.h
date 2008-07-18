@@ -10,6 +10,7 @@
 #include "DirectInput.h"
 #include "Scene.h"
 #include "Sound.h"
+#include "Map.h"
 
 #include "Structs.h"
 //--------------------------------------------------------------------------------
@@ -41,6 +42,8 @@ protected:
 	Importer* m_pkImporter;
 	Timer m_kTimer;
 	Sound* m_pkSound;
+
+	Map* m_pkMapa;
 
 	// resources
 public:

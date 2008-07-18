@@ -69,7 +69,7 @@ bool Renderer::InitDX(HWND hWnd)
 	//m_pkDevice->SetRenderState(D3DRS_ZENABLE, FALSE);
 	m_pkDevice->SetRenderState(D3DRS_DESTBLEND, D3DBLEND_INVSRCALPHA);
 	m_pkDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_SRCALPHA);
-	//m_pkDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_CCW);
+	m_pkDevice->SetRenderState(D3DRS_CULLMODE, D3DCULL_NONE);
 	m_pkDevice->SetRenderState(D3DRS_ALPHABLENDENABLE, TRUE);
 	m_pkDevice->SetRenderState(D3DRS_ZENABLE, D3DZB_TRUE);
 	m_pkDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_LESSEQUAL);
@@ -211,6 +211,34 @@ void Renderer::translate (float fX, float fY, float fZ)
 
 	// generate translation matrix
 	D3DXMatrixTranslation(&kTempMatrix, fX,  fY, fZ);
+
+	// convert from MatrixMode to D3DTRANSFORMSTATETYPE
+	D3DTRANSFORMSTATETYPE eMatMode = static_cast<D3DTRANSFORMSTATETYPE>(m_eCurrentMatMode);
+
+	// set the matrix
+	m_pkDevice->MultiplyTransform(eMatMode, &kTempMatrix);
+}
+//----------------------------------------------------------------
+void Renderer::rotateX (float fAngle)
+{
+	D3DXMATRIX kTempMatrix;
+
+	// generate translation matrix
+	D3DXMatrixRotationX(&kTempMatrix, fAngle);
+
+	// convert from MatrixMode to D3DTRANSFORMSTATETYPE
+	D3DTRANSFORMSTATETYPE eMatMode = static_cast<D3DTRANSFORMSTATETYPE>(m_eCurrentMatMode);
+
+	// set the matrix
+	m_pkDevice->MultiplyTransform(eMatMode, &kTempMatrix);
+}
+//----------------------------------------------------------------
+void Renderer::rotateY (float fAngle)
+{
+	D3DXMATRIX kTempMatrix;
+
+	// generate translation matrix
+	D3DXMatrixRotationY(&kTempMatrix, fAngle);
 
 	// convert from MatrixMode to D3DTRANSFORMSTATETYPE
 	D3DTRANSFORMSTATETYPE eMatMode = static_cast<D3DTRANSFORMSTATETYPE>(m_eCurrentMatMode);

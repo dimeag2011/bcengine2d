@@ -119,19 +119,19 @@ bool Sprite::removeAnimationInfo (std::string kName)
 	return false;
 }
 //----------------------------------------------------------------
-void Sprite::clone (Sprite* rkSprite)
+void Sprite::clone (Sprite* pkSprite)
 {
 	// check for clone to self
-	if(rkSprite == this)
+	if(pkSprite == this)
 		return;
 
 	// increment smart pointers references
-	rkSprite->m_pkTexture = m_pkTexture;
-	rkSprite->m_kAnimationMap = m_kAnimationMap;
+	pkSprite->m_pkTexture = m_pkTexture;
+	pkSprite->m_kAnimationMap = m_kAnimationMap;
 
 	// copy vertices
 	for(unsigned int i=0; i<4; i++)
-		rkSprite->m_akVertices[i] = m_akVertices[i];
+		pkSprite->m_akVertices[i] = m_akVertices[i];
 }
 //----------------------------------------------------------------
 void Sprite::onCollision (Entity2D* pkEntity)

@@ -25,7 +25,7 @@ public:
 
 // resources accessors
 public:
-	bool createSprite (const char* pszName, Sprite* rkSprite);
+	bool createSprite (const char* pszName, Sprite* pkSprite);
 	Texture::Ptr getTexture (const char* pszFilename);
 
 // loaders

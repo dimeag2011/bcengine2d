@@ -415,6 +415,34 @@
 				>
 			</File>
 		</Filter>
+		<Filter
+			Name="Map"
+			>
+			<File
+				RelativePath=".\Map.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Map.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Map.inl"
+				>
+			</File>
+			<File
+				RelativePath=".\Tile.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\Tile.h"
+				>
+			</File>
+			<File
+				RelativePath=".\Tile.inl"
+				>
+			</File>
+		</Filter>
 		<File
 			RelativePath=".\Defines.h"
 			>

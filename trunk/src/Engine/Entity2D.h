@@ -26,7 +26,7 @@ public:
 	void setVisibleBB (bool bVisibleBB);
 	bool getVisibleBB ();
 //----------------------------------------------------------------
-// seteo y devuelvo posicion, rotacion y dimension
+// seteo y devuelvo posicion, rotacion, flipeo y dimension
 	void setPos (float fX, float fY, float fZ = 1.0f);
 	float getPosX () const;
 	float getPosY () const;
@@ -36,6 +36,10 @@ public:
 	float getBBPosY () const;
 	void setRotation (float fRotation);
 	float getRotation () const;
+	void setHFlip(bool bHFlip);
+	bool getHFlip();
+	void setVFlip(bool bVFlip);
+	bool getVFlip();
 	virtual void setDim (float fW, float fH, bool setBBDim = true);
 	float getDimW () const;
 	float getDimH () const;
@@ -98,12 +102,13 @@ private:
 // nombre
 	string m_kName;
 //----------------------------------------------------------------
-// posicion, rotacion y dimension
+// posicion, rotacion, flipeo y dimension
 	float m_fX, m_fY, m_fZ;
 	float m_fW, m_fH;
 	float m_fBBX, m_fBBY;
 	float m_fBBW, m_fBBH;
 	float m_fRotation;
+	bool m_bHFlip, m_bVFlip;
 	bool m_bAtachedBB;
 	bool m_bVisible;
 };

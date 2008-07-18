@@ -36,9 +36,16 @@ struct TextureVertex
 //----------------------------------------------------------------
 // Estructura para almacenar un color RGB
 struct RGBColor {
-	int red;
-	int green;
-	int blue;
+	int iRed;
+	int iGreen;
+	int iBlue;
+
+	RGBColor(int iR, int iG, int iB)
+	{
+		iRed = iR;
+		iGreen = iG;
+		iBlue = iB;
+	}
 };
 //----------------------------------------------------------------
 #endif // GRAPHICS_STRUCTS_H

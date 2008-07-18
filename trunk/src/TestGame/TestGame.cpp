@@ -59,6 +59,8 @@ bool TestGame::OnStartUp ()
 	m_pkTri->setColor(200,0,0);
 	m_pkTri->setVertexColor(0,100,20,0);
 	m_pkTri->setVertexColor(1,100,20,0);
+	m_pkTri->setHFlip(!m_pkTri->getHFlip());
+	m_pkTri->setVFlip(!m_pkTri->getVFlip());
 	//m_pkTri->setBBPos(50,50);
 
 	addEntity(m_pkTri);
