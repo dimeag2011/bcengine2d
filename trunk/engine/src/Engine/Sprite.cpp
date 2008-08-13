@@ -1,7 +1,7 @@
 //----------------------------------------------------------------
-#include "Sprite.h"
-#include "Renderer.h"
-#include "Texture.h"
+#include "includes\Sprite.h"
+#include "includes\Renderer.h"
+#include "includes\Texture.h"
 //----------------------------------------------------------------
 Sprite::Sprite ()
 :

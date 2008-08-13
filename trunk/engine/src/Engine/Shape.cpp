@@ -1,6 +1,6 @@
 //----------------------------------------------------------------
-#include "Shape.h"
-#include "Renderer.h"
+#include "includes\Shape.h"
+#include "includes\Renderer.h"
 //----------------------------------------------------------------
 Shape::Shape ()
 :

@@ -1,6 +1,6 @@
 //----------------------------------------------------------------
-#include "Entity2D.h"
-#include "Renderer.h"
+#include "includes\Entity2D.h"
+#include "includes\Renderer.h"
 //----------------------------------------------------------------
 Entity2D::Entity2D ()
 :

@@ -1,5 +1,5 @@
-#include "AnimationInfo.h"
-#include "Sprite.h"
+#include "includes\AnimationInfo.h"
+#include "includes\Sprite.h"
 //----------------------------------------------------------------
 void AnimationInfo::addFrame (unsigned int uiOffsetX, 
 							unsigned int uiOffsetY, 

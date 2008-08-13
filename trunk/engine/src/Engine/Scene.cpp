@@ -1,7 +1,7 @@
 //----------------------------------------------------------------
-#include "Scene.h"
-#include "Entity2D.h"
-#include "Map.h"
+#include "includes\Scene.h"
+#include "includes\Entity2D.h"
+#include "includes\Map.h"
 //----------------------------------------------------------------
 Scene::Scene ()
 :

@@ -183,11 +183,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Entity2D.h"
+				RelativePath=".\includes\Entity2D.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Entity2D.inl"
+				RelativePath=".\includes\Entity2D.inl"
 				>
 			</File>
 			<Filter
@@ -198,7 +198,7 @@
 					>
 				</File>
 				<File
-					RelativePath=".\Box.h"
+					RelativePath=".\includes\Box.h"
 					>
 				</File>
 				<File
@@ -206,7 +206,7 @@
 					>
 				</File>
 				<File
-					RelativePath=".\Circle.h"
+					RelativePath=".\includes\Circle.h"
 					>
 				</File>
 				<File
@@ -214,7 +214,7 @@
 					>
 				</File>
 				<File
-					RelativePath=".\Shape.h"
+					RelativePath=".\includes\Shape.h"
 					>
 				</File>
 				<File
@@ -222,7 +222,7 @@
 					>
 				</File>
 				<File
-					RelativePath=".\Triangle.h"
+					RelativePath=".\includes\Triangle.h"
 					>
 				</File>
 			</Filter>
@@ -234,11 +234,11 @@
 					>
 				</File>
 				<File
-					RelativePath=".\Animation.h"
+					RelativePath=".\includes\Animation.h"
 					>
 				</File>
 				<File
-					RelativePath=".\Animation.inl"
+					RelativePath=".\includes\Animation.inl"
 					>
 				</File>
 				<File
@@ -246,11 +246,11 @@
 					>
 				</File>
 				<File
-					RelativePath=".\AnimationInfo.h"
+					RelativePath=".\includes\AnimationInfo.h"
 					>
 				</File>
 				<File
-					RelativePath=".\AnimationInfo.inl"
+					RelativePath=".\includes\AnimationInfo.inl"
 					>
 				</File>
 				<File
@@ -258,11 +258,11 @@
 					>
 				</File>
 				<File
-					RelativePath=".\Sprite.h"
+					RelativePath=".\includes\Sprite.h"
 					>
 				</File>
 				<File
-					RelativePath=".\Sprite.inl"
+					RelativePath=".\includes\Sprite.inl"
 					>
 				</File>
 				<File
@@ -270,11 +270,11 @@
 					>
 				</File>
 				<File
-					RelativePath=".\Texture.h"
+					RelativePath=".\includes\Texture.h"
 					>
 				</File>
 				<File
-					RelativePath=".\Texture.inl"
+					RelativePath=".\includes\Texture.inl"
 					>
 				</File>
 			</Filter>
@@ -287,7 +287,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Importer.h"
+				RelativePath=".\includes\Importer.h"
 				>
 			</File>
 			<File
@@ -295,7 +295,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\XMLParser.h"
+				RelativePath=".\includes\XMLParser.h"
 				>
 			</File>
 		</Filter>
@@ -307,19 +307,19 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Renderer.h"
+				RelativePath=".\includes\Renderer.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Renderer.inl"
+				RelativePath=".\includes\Renderer.inl"
 				>
 			</File>
 			<File
-				RelativePath=".\VertexBuffer.h"
+				RelativePath=".\includes\VertexBuffer.h"
 				>
 			</File>
 			<File
-				RelativePath=".\VertexBuffer.inl"
+				RelativePath=".\includes\VertexBuffer.inl"
 				>
 			</File>
 		</Filter>
@@ -331,11 +331,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Game.h"
+				RelativePath=".\includes\Game.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Game.inl"
+				RelativePath=".\includes\Game.inl"
 				>
 			</File>
 			<File
@@ -343,7 +343,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Window.h"
+				RelativePath=".\includes\Window.h"
 				>
 			</File>
 			<Filter
@@ -354,11 +354,11 @@
 					>
 				</File>
 				<File
-					RelativePath=".\Scene.h"
+					RelativePath=".\includes\Scene.h"
 					>
 				</File>
 				<File
-					RelativePath=".\Scene.inl"
+					RelativePath=".\includes\Scene.inl"
 					>
 				</File>
 			</Filter>
@@ -371,7 +371,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Timer.h"
+				RelativePath=".\includes\Timer.h"
 				>
 			</File>
 		</Filter>
@@ -383,7 +383,7 @@
 				>
 			</File>
 			<File
-				RelativePath=".\DirectInput.h"
+				RelativePath=".\includes\DirectInput.h"
 				>
 			</File>
 			<File
@@ -391,11 +391,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Input.h"
+				RelativePath=".\includes\Input.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Input.inl"
+				RelativePath=".\includes\Input.inl"
 				>
 			</File>
 		</Filter>
@@ -407,11 +407,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Sound.h"
+				RelativePath=".\includes\Sound.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Sound.inl"
+				RelativePath=".\includes\Sound.inl"
 				>
 			</File>
 		</Filter>
@@ -423,11 +423,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Map.h"
+				RelativePath=".\includes\Map.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Map.inl"
+				RelativePath=".\includes\Map.inl"
 				>
 			</File>
 			<File
@@ -435,24 +435,24 @@
 				>
 			</File>
 			<File
-				RelativePath=".\Tile.h"
+				RelativePath=".\includes\Tile.h"
 				>
 			</File>
 			<File
-				RelativePath=".\Tile.inl"
+				RelativePath=".\includes\Tile.inl"
 				>
 			</File>
 		</Filter>
 		<File
-			RelativePath=".\Defines.h"
+			RelativePath=".\includes\Defines.h"
 			>
 		</File>
 		<File
-			RelativePath=".\Engine.h"
+			RelativePath=".\includes\Engine.h"
 			>
 		</File>
 		<File
-			RelativePath=".\Structs.h"
+			RelativePath=".\includes\Structs.h"
 			>
 		</File>
 	</Files>
