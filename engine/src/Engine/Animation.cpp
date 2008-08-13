@@ -6,8 +6,8 @@
 *****************************************************************/
 
 //----------------------------------------------------------------
-#include "Animation.h"
-#include "Sprite.h"
+#include "includes\Animation.h"
+#include "includes\Sprite.h"
 //----------------------------------------------------------------
 Animation::Animation (AnimationInfo::Ptr pkInfo)
 :

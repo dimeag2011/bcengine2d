@@ -1,5 +1,5 @@
 //----------------------------------------------------------------
-#include "DirectInput.h"
+#include "includes\DirectInput.h"
 //----------------------------------------------------------------
 DirectInput::DirectInput (HINSTANCE hInstance, HWND hWnd)
 :

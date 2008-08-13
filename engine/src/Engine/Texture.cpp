@@ -1,5 +1,5 @@
 //----------------------------------------------------------------
-#include "Texture.h"
+#include "includes\Texture.h"
 //----------------------------------------------------------------
 Texture::Texture (string kFilename, int iRed, int iGreen, int iBlue)
 :
