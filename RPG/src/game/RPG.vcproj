@@ -2,7 +2,7 @@
 <VisualStudioProject
 	ProjectType="Visual C++"
 	Version="8,00"
-	Name="BasicGame"
+	Name="RPG"
 	ProjectGUID="{82E76625-CFD4-4C02-945C-8C8A80A1AB8B}"
 	RootNamespace="Game"
 	Keyword="Win32Proj"
@@ -187,11 +187,11 @@
 			Name="game"
 			>
 			<File
-				RelativePath=".\BasicGame.cpp"
+				RelativePath=".\RPG.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\BasicGame.h"
+				RelativePath=".\RPG.h"
 				>
 			</File>
 		</Filter>
