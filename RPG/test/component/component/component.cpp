@@ -108,6 +108,10 @@ bool Component::notifyNewChild(Component* pkNewChild)
 //-----------------------------------------------------------------------------------------
 bool Component::notifyNewParent(Component* pkNewParent)
 {
+	if (m_pkParent)
+	{
+		m_pkParent->notifyChildRemoved(this);
+	}
 	m_pkParent = pkNewParent;
 
 	return true;
