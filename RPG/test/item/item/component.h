@@ -11,52 +11,52 @@ using namespace std;
 class Component
 {
 //-----------------------------------------------------------------------------------------
-	public:	
+public:	
 //-----------------------------------------------------------------------------------------
-		Component();
-		Component(const string &rkName,const string &rkType);
-		~Component();
+	Component();
+	Component(const string &rkName,const string &rkType);
+	~Component();
 //-----------------------------------------------------------------------------------------
-		void setName(const string &rkName);
-		string getName() const;
-		void setType(const string &rkType);
-		string getType() const;
+	void setName(const string &rkName);
+	string getName() const;
+	void setType(const string &rkType);
+	string getType() const;
 //-----------------------------------------------------------------------------------------
-		bool setNewParent(Component* pkNewParent);
-		bool addNewChild(Component* pkNewChild);
-		bool notifyNewChild(Component* pkNewChild);
-		bool notifyNewParent(Component* pkNewParent);
-		bool removeParent();
-		bool notifyChildRemoved(Component* pkExChild);
-		bool removeCurrentChild();
-		bool removeChild(Component* pkChild);
-		bool notifyParentRemoved(Component* pkExParent);
-		virtual void OnChildAdded(Component* pkNewChild);
-		virtual void OnNewParentSet(Component* pkNewParent);
-		virtual void OnChildRemoved(Component* pkExChild);
-		virtual void OnParentRemoved(Component* pkExParent);
-		Component* getCurrentChild();
-		bool goFirstChild();
-		bool goNextChild();
-		bool goPrevChild();
+	bool setNewParent(Component* pkNewParent);
+	bool addNewChild(Component* pkNewChild);
+	bool notifyNewChild(Component* pkNewChild);
+	bool notifyNewParent(Component* pkNewParent);
+	bool removeParent();
+	bool notifyChildRemoved(Component* pkExChild);
+	bool removeCurrentChild();
+	bool removeChild(Component* pkChild);
+	bool notifyParentRemoved(Component* pkExParent);
+	virtual void OnChildAdded(Component* pkNewChild);
+	virtual void OnNewParentSet(Component* pkNewParent);
+	virtual void OnChildRemoved(Component* pkExChild);
+	virtual void OnParentRemoved(Component* pkExParent);
+	Component* getCurrentChild();
+	bool goFirstChild();
+	bool goNextChild();
+	bool goPrevChild();
 //-----------------------------------------------------------------------------------------
-		Component* findChild(Component* pkChild);
+	Component* findChild(Component* pkChild);
 //-----------------------------------------------------------------------------------------
-		Component* getParent();
+	Component* getParent();
 //-----------------------------------------------------------------------------------------
-		int getNumChilds();
+	int getNumChilds();
 //-----------------------------------------------------------------------------------------
-	private:
+private:
 //-----------------------------------------------------------------------------------------
-		typedef list<Component*> ChildList;
-		typedef list<Component*>::iterator ChildListIterator;
-		ChildList m_kChilds;
-		ChildListIterator m_itCurrentChild;
+	typedef list<Component*> ChildList;
+	typedef list<Component*>::iterator ChildListIterator;
+	ChildList m_kChilds;
+	ChildListIterator m_itCurrentChild;
 //-----------------------------------------------------------------------------------------
-		Component* m_pkParent;
+	Component* m_pkParent;
 //-----------------------------------------------------------------------------------------
-		string m_kName;
-		string m_kType;
+	string m_kName;
+	string m_kType;
 //-----------------------------------------------------------------------------------------
 };
 //-----------------------------------------------------------------------------------------
