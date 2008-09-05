@@ -199,6 +199,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\itemManager.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\main.cpp"
 				>
 			</File>
@@ -229,6 +233,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\class.h"
+				>
+			</File>
+			<File
 				RelativePath=".\component.h"
 				>
 			</File>
@@ -250,6 +258,10 @@
 			</File>
 			<File
 				RelativePath=".\item.inl"
+				>
+			</File>
+			<File
+				RelativePath=".\itemManager.h"
 				>
 			</File>
 			<File
