@@ -63,7 +63,13 @@ m_iSwill()= 0,
 //-----------------------------------------------------------------------------------------
 Item::~Item()
 {
-  m_kModAtt
-	/***/
+ //destruyo las variables de attribute y skill 
+	delete m_kModAtt;
+   m_kModAtt = NULL;
+	
+   delete m_kSkill;
+   m_kSkill = NULL;
+
+   /***/
 }
 //-----------------------------------------------------------------------------------------

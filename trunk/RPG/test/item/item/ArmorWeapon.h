@@ -12,12 +12,15 @@ class ArmorWeapon : public Component
 //-----------------------------------------------------------------------------------------
 public:
 	ArmorWeapon();
-	ArmorWeapon(const string &rkName , const string &rkType ,int iDaño, int iCa, int iResAcd,
+	~ArmorWeapon();
+	createAweapon(const string &rkName , const string &rkType ,int iDaño, int iCa, int iResAcd,
 				int iResFue, int iResFri ,int iResSon,int iResElec,int iModFue, 
 				int iModAgi,  int iModCon, int iModInt,int iModSab, int iModCar, 
 				int iModReDa)
 				: Component(const string &rkName,const string &rkType)
 	
+	
+	/*
 	void setDaño(int iDaño);
 	int  getDaño();
 	void setCa(int iCa);
@@ -52,8 +55,10 @@ public:
 	int  getMana();
 	void setSlotOcu(int iSlotOcu);
 	int  getSlotOcu();
+	*/
 //-----------------------------------------------------------------------------------------
 private:
+	/*
 	int m_iDaño;
 	int m_iCa;
 	int m_iResAcd;
@@ -71,6 +76,9 @@ private:
 	int m_iHps;
 	int m_iMana;
 	int m_iSlotOcu;
+	*/
+	Attribute m_kAweapon;
+	Skill m_kSkill;
 }
 //-----------------------------------------------------------------------------------------
 #include "ArmorWeapon.inl"
