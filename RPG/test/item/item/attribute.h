@@ -11,12 +11,12 @@ class Attribute : public Component
 //-----------------------------------------------------------------------------------------
 public:
 	Attribute();
-	Attribute(const string &rkName , const string &rkType ,int iDaño, int iCa, int iResAcd,
+	/*Attribute(const string &rkName , const string &rkType ,int iDaño, int iCa, int iResAcd,
 				int iResFir, int iResFro ,int iResSon,int iResElec,int iStr, 
 				int iDex,  int iCon, int iInt,int iWis, int iCha, 
 				int iReDa, int iHps, int iMana, int iSlotOcu, int iSref,
 				int iSStr, int iSwill)
-				: Component(const string &rkName,const string &rkType)
+				: Component(const string &rkName,const string &rkType);*/
 	
 	void setDaño(int iDaño);
 	int  getDaño();

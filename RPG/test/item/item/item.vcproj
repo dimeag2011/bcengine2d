@@ -175,14 +175,6 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\armorWeapon.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\attribute.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\component.cpp"
 				>
 			</File>
@@ -199,15 +191,11 @@
 				>
 			</File>
 			<File
-				RelativePath=".\itemManager.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\main.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\skill.cpp"
+				RelativePath=".\slot.cpp"
 				>
 			</File>
 		</Filter>
@@ -216,26 +204,6 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath=".\armorWeapon.h"
-				>
-			</File>
-			<File
-				RelativePath=".\armorWeapon.inl"
-				>
-			</File>
-			<File
-				RelativePath=".\attribute.h"
-				>
-			</File>
-			<File
-				RelativePath=".\attribute.inl"
-				>
-			</File>
-			<File
-				RelativePath=".\class.h"
-				>
-			</File>
 			<File
 				RelativePath=".\component.h"
 				>
@@ -261,17 +229,37 @@
 				>
 			</File>
 			<File
-				RelativePath=".\itemManager.h"
+				RelativePath=".\slot.h"
 				>
 			</File>
-			<File
-				RelativePath=".\skill.h"
+			<Filter
+				Name="Factory"
 				>
-			</File>
-			<File
-				RelativePath=".\skill.inl"
-				>
-			</File>
+				<File
+					RelativePath=".\factory.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\factory.h"
+					>
+				</File>
+				<File
+					RelativePath=".\itemFactory.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\itemFactory.h"
+					>
+				</File>
+				<File
+					RelativePath=".\itemManager.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\itemManager.h"
+					>
+				</File>
+			</Filter>
 		</Filter>
 		<Filter
 			Name="Resource Files"
