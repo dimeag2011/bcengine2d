@@ -3,9 +3,9 @@
 #define ITEMMNGR_H
 //-----------------------------------------------------------------------------------------
 #include "item.h"
-#include "armorWeapon.h"
+//#include "armorWeapon.h"
 #include <list>
-#include "cstlib.h"
+#include <cstdlib>
 //-----------------------------------------------------------------------------------------
 class ItemManager{
 //-----------------------------------------------------------------------------------------
@@ -24,3 +24,4 @@ private:
 	Item *m_ikAuxItem;
 
 };
+#endif;

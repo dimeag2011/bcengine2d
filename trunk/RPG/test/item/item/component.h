@@ -50,6 +50,8 @@ private:
 //-----------------------------------------------------------------------------------------
 	typedef list<Component*> ChildList;
 	typedef list<Component*>::iterator ChildListIterator;
+
+public:	
 	ChildList m_kChilds;
 	ChildListIterator m_itCurrentChild;
 //-----------------------------------------------------------------------------------------

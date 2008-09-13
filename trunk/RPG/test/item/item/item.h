@@ -3,14 +3,15 @@
 #define ITEM_H
 //-----------------------------------------------------------------------------------------
 #include "component.h"
-#include "attribute.h"
-#include "skill.h"
+//#include "attribute.h"
+//#include "skill.h"
 //-----------------------------------------------------------------------------------------
 class Item : public Component
 {
 public:
 	Item();
-	Item(const string &rkName , const string &rkType ,int iDaño, int iCa, int iResAcd,
+	//Reever los constructores.
+	/*Item(const string &rkName , const string &rkType ,int iDaño, int iCa, int iResAcd,
 				int iResFir, int iResFro ,int iResSon,int iResElec,int iStr, 
 				int iDex,  int iCon, int iInt,int iWis, int iCha, 
 				int iReDa, int iHps, int iMana, int iSlotOcu, int iSref,
@@ -19,7 +20,7 @@ public:
 				int iResFir, int iResFro ,int iResSon,int iResElec,int iStr, 
 				int iDex,  int iCon, int iInt,int iWis, int iCha, 
 				int iReDa, int iHps, int iMana, int iSlotOcu, int iSref,
-				int iSStr, int iSwill)
+				int iSStr, int iSwill)*/
 	~Item();
 
 //-----------------------------------------------------------------------------------------
@@ -27,17 +28,25 @@ public:
 	float getPeso();
 	void setDescripcion(const string &rkDesc);
 	string getDescripcion() const ;
-	virtual void setAttItem(Atrribute kModAtt);
+	//virtual void setAttItem(Atrribute kModAtt);
 //-----------------------------------------------------------------------------------------
 private:
 	string m_kDesc;
 	float m_kPeso;
-	Attribute m_kModAtt; 
-	Skill m_kSkill;
+	
+	//propidades del item
+	bool			m_bStackeable;
+	int				m_iMaxStack;
+
+
+
+public:
+//	Attribute m_kModAtt; 
+//	Skill m_kModSkill;
 //-----------------------------------------------------------------------------------------	
 };
 //-----------------------------------------------------------------------------------------
-#include "item.inl"
+//#include "item.inl"
 //-----------------------------------------------------------------------------------------
 #endif //ITEM_H
 //-----------------------------------------------------------------------------------------

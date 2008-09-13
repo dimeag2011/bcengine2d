@@ -1,5 +1,5 @@
 //-----------------------------------------------------------------------------------------
-#include "ArmorWeapon"
+#include "ArmorWeapon.h"
 //-----------------------------------------------------------------------------------------
 ArmorWeapon : ArmorWeapon()
 :
@@ -51,6 +51,8 @@ m_kType(&rkType)
 	m_kAweapon.setSref(iSref);
 	m_kAweapon.setSStr(iSStr);
 	m_kAweapon.setSwill(iSwill);
+
+	m_kSkill = new Skill();
 }
 //-----------------------------------------------------------------------------------------
 ArmorWeapon : ~ArmorWeapon()

@@ -24,6 +24,7 @@ Item* ItemManager::CreateItem(string m_kType){
 		/***/
 		//Agregar tipos futuros de items
 	}   
+	return m_ikAuxItem;
 }
 void ItemManager::DeleteItem(Item *kItem){
 
