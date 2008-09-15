@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------------------
 #include "itemFactory.h"
 //-----------------------------------------------------------------------------------------
-int ItemFactory::count = 0;
+int ItemFactory :: count = 0;
 ItemFactory * ItemFactory::instance = NULL;
 //-----------------------------------------------------------------------------------------
 ItemFactory::ItemFactory(){
@@ -13,17 +13,16 @@ ItemFactory::~ItemFactory(){
 	ItemFactory::removeAll();
 }
 //-----------------------------------------------------------------------------------------
-Item* ItemFactory::CreateItem(string m_kType){
+Item * ItemFactory::CreateItem(int m_iType){
 
-	if(strcmp(m_kType,"ArmorWeapon")){
-		m_ikAux = new ArmorWeapon();
-        m_lkItemList.push_back(m_ikAux);
-	}else {
-	
-		/***/
-		//Agregar tipos futuros de items
-	}   
-  return m_ikAux;
+	switch(m_iType){
+		case TYPE_ARMOR:{
+			//m_iAux = new Armor();
+			m_lKList.push_back(m_iAux);
+			break;
+		 	}
+  	}
+	return m_iAux;
 }
 //-----------------------------------------------------------------------------------------
 ItemFactory * ItemFactory::GetInstance(){
@@ -42,4 +41,6 @@ void ItemFactory::RelaseInstance(){
 			instance = NULL;
 			delete instance;
 		}
+	}
 }
+//-----------------------------------------------------------------------

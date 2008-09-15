@@ -9,14 +9,14 @@ inline string Component::getName() const
 	return m_kName;
 }
 //-----------------------------------------------------------------------------------------
-inline void Component::setType(const string &rkType)
+inline void Component::setType(int iType)
 {
-	m_kType = rkType;
+	m_iType = iType;
 }
 //-----------------------------------------------------------------------------------------
-inline string Component::getType() const
+inline int Component::getType() 
 {
-	return m_kType;
+	return m_iType;
 }
 //-----------------------------------------------------------------------------------------
 inline Component* Component::getCurrentChild()

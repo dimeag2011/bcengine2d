@@ -14,16 +14,20 @@ ItemManager::~ItemManager(){
     /***/
 }
 //-----------------------------------------------------------------------
-Item* ItemManager::CreateItem(string m_kType){
+Item* ItemManager::CreateItem(int m_iType){
 
-	if(strcmp(m_kType,"ArmorWeapon")){
-		m_ikAuxItem = new ArmorWeapon();
-        m_lkItemList.push_back(m_ikAuxItem);
-	}else {
-	
-		/***/
-		//Agregar tipos futuros de items
-	}   
+	switch(m_iType){
+		case TYPE_ARMOR:{
+		//	m_ikAuxItem = new Armor();
+			m_lkItemList.push_back(m_ikAuxItem);
+			break;
+						}
+		case TYPE_WEAPON:{
+		//	m_ikAuxItem = new Weapon();
+			m_lkItemList.push_back(m_ikAuxItem);
+			break;
+		}
+	}
 	return m_ikAuxItem;
 }
 void ItemManager::DeleteItem(Item *kItem){

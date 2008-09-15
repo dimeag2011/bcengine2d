@@ -3,7 +3,7 @@
 //-----------------------------------------------------------------------
 Inventario::Inventario()
 :
-m_kSlots(0) 
+m_iSlots(0) 
 {
 	/***/
 }
@@ -13,6 +13,7 @@ Inventario::~Inventario(){
 }
 //-----------------------------------------------------------------------
 bool Inventario::isValidType(Component *pkChild){
+	
 	if ((pkChild->getType() == TYPE_ITEM) && (!isInventoryFull())){
 		return true;
 	}
@@ -28,7 +29,7 @@ bool Inventario::isInventoryEmpty(){
 }
 //-----------------------------------------------------------------------
 bool Inventario::isInventoryFull(){
-	if ((int(m_kChildst.size())) == m_iSlots){
+	if ((int(m_kChilds.size())) == m_iSlots){
 		return true;
 	} else {
 		return false;
