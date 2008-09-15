@@ -2,6 +2,8 @@
 #ifndef ITEMMNGR_H
 #define ITEMMNGR_H
 //-----------------------------------------------------------------------------------------
+#include "Defines.h"
+//-----------------------------------------------------------------------------------------
 #include "item.h"
 //#include "armorWeapon.h"
 #include <list>
@@ -14,13 +16,13 @@ public:
 	ItemManager();
 	~ItemManager();
 
-	Item* CreateItem(string &m_kType);
+	Item* CreateItem(int m_iType);
 	void DeleteItem(Item *kItem);
 //-----------------------------------------------------------------------------------------
 private:
 	list<Item*>m_lkItemList;
-	list<Item*>m_lkItemListIterator;
-	string m_kType;
+	list<Item*>::iterator m_lkItemListIterator;
+	int m_iType;
 	Item *m_ikAuxItem;
 
 };

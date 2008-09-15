@@ -5,17 +5,17 @@ Component::Component()
 :
 m_pkParent(NULL),
 m_kName(""),
-m_kType(""),
+m_iType(TYPE_ITEM),
 m_itCurrentChild(m_kChilds.end())
 {
 
 }
 //-----------------------------------------------------------------------------------------
-Component::Component(const string &rkName,const string &rkType)
+Component::Component(const string &rkName,int iType)
 :
 m_pkParent(NULL),
 m_kName(rkName),
-m_kType(rkType),
+m_iType(iType),
 m_itCurrentChild(m_kChilds.end())
 {
 

@@ -4,6 +4,7 @@
 //-----------------------------------------------------------------------------------------
 #include <string>
 #include <list>
+#include "Defines.h"
 
 //-----------------------------------------------------------------------------------------
 using namespace std;
@@ -14,13 +15,13 @@ class Component
 public:	
 //-----------------------------------------------------------------------------------------
 	Component();
-	Component(const string &rkName,const string &rkType);
+	Component(const string &rkName,int iType);
 	~Component();
 //-----------------------------------------------------------------------------------------
 	void setName(const string &rkName);
 	string getName() const;
-	void setType(const string &rkType);
-	string getType() const;
+	void setType(int iType);
+	int getType() ;
 //-----------------------------------------------------------------------------------------
 	bool setNewParent(Component* pkNewParent);
 	bool addNewChild(Component* pkNewChild);
@@ -58,7 +59,7 @@ public:
 	Component* m_pkParent;
 //-----------------------------------------------------------------------------------------
 	string m_kName;
-	string m_kType;
+	int m_iType;
 //-----------------------------------------------------------------------------------------
 };
 //-----------------------------------------------------------------------------------------

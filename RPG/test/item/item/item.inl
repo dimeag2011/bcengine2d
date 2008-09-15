@@ -4,7 +4,7 @@ inline void Item::setPeso(float &rkPeso)
 	m_kPeso = rkPeso;
 }
 //-----------------------------------------------------------------------------------------
-inline float Item::getPeso() const
+inline float Item::getPeso() 
 {
 	return m_kPeso;
 }

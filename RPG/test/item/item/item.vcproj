@@ -213,6 +213,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\Defines.h"
+				>
+			</File>
+			<File
 				RelativePath=".\functions.h"
 				>
 			</File>
