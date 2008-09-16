@@ -19,5 +19,5 @@ private:
 	static int count;
 	static ItemFactory * instance;
 	Item * m_iAux;
-}
+};
 //------------------------------------------------------------------------------------------
