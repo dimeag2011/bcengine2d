@@ -15,6 +15,8 @@ public:
 	bool isInventoryFull();
 	int getMaxSlots();
 	int getOcupedSlots();
+	bool addSlot(Component* pkNewSlot);
+	bool removeSlot(Component* pkSlot);
 //-----------------------------------------------------------------------
 private:
 	int m_iSlots;
