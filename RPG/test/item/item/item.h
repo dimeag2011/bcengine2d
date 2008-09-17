@@ -29,6 +29,7 @@ public:
 	float getPeso();
 	void setDescripcion(const string &rkDesc);
 	string getDescripcion() const ;
+	
 	//virtual void setAttItem(Atrribute kModAtt);
 //-----------------------------------------------------------------------------------------
 private:

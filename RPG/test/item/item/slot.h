@@ -2,13 +2,38 @@
 #define SLOT_H
 //-----------------------------------------------------------------------------------------
 #include "Component.h"
+#include "item.h"
 //-----------------------------------------------------------------------------------------
 class Slot : public Component{
 public:
-	bool addSlot(Component* pkNewSlot);
-	bool removeSlot(Component* pkSlot);
-	void reciveType(string m_kType);
-	bool isFullStack(Item m_kItem);
-}
+
+    Slot();
+	Slot(int iType);
+	~Slot();
+
+//---------------------------------------------------------------------
+
+	int GetAvailableStack();
+	int GetItemType() { return m_iItemType; }
+	bool IsItemType(int iItemType);
+
+	void OnChildAdded(Component * pChild);
+	void OnChildRemoved(Component * pChild);
+	bool IsChildValid(Component * pChild); 
+
+	int m_iMaxStack;
+	// qué tipo de item recibe
+	int m_iItemType;
+	// si puede recibir otro tipo de item
+	bool m_isTypeFixed;
+
+
+
+
+private:
+
+	//cantidad de items en slot actual
+	int itemCount;
+};
 //-----------------------------------------------------------------------------------------
 #endif //SLOT_H
