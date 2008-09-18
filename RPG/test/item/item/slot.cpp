@@ -54,21 +54,21 @@ void Slot::OnChildRemoved(Component * pChild)
 bool Slot::IsChildValid(Component * pChild)
 {
 	// se fija si es item...
-	if (pChild->getType() != Component::TYPE_ITEM)
+	if (pChild->getType() != TYPE_ITEM)
 		return false;
 	// ...y si hay stack disponible
-	if (GetAvailableStack() == 0)
-		return false;
+	//if (GetAvailableStack() == 0)
+	//	return false;
 
 	return true;
 
 }
 //-----------------------------------------------------------------------
-int GetAvailableStack()
+/*int GetAvailableStack()
 {
-	return m_iMaxStack - m_iChildNum;
+	return m_iMaxStack - m_itCurrentChild;
 
-}
+}*/
 //-----------------------------------------------------------------------
 bool Slot::IsItemType(int iItemType)
 {
