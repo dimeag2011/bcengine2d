@@ -29,6 +29,9 @@ public:
 	float getPeso();
 	void setDescripcion(const string &rkDesc);
 	string getDescripcion() const ;
+
+	int GetItemType() { return m_iType; }
+	int GetMaxStack() {return m_iMaxStack; }
 	
 	//virtual void setAttItem(Atrribute kModAtt);
 //-----------------------------------------------------------------------------------------

@@ -4,7 +4,7 @@
 //-----------------------------------------------------------------------------------------
 
 Slot::Slot():
-Component(Component::TYPE_SLOT),
+Component(),
 m_iMaxStack(-1),
 m_iItemType(-1)
 {
@@ -12,7 +12,7 @@ m_iItemType(-1)
 }
 //-----------------------------------------------------------------------
 Slot::Slot(int iType)
-:Component(Component::TYPE_SLOT),
+:Component(),
 m_iMaxStack(-1),
 m_iItemType(iType)
 {
@@ -42,7 +42,7 @@ void Slot::OnChildAdded(Component * pChild)
 void Slot::OnChildRemoved(Component * pChild)
 {
    // si era el último, seteo maxStack en -1
-	if (m_iChildNum == 0) {
+	if (m_itCurrentChild == 0) {
 		m_iMaxStack = -1;
 		// si el slot no tiene un tipo de item fijo,
 		// seteo el tipo de item en -1
@@ -54,7 +54,7 @@ void Slot::OnChildRemoved(Component * pChild)
 bool Slot::IsChildValid(Component * pChild)
 {
 	// se fija si es item...
-	if (pChild->GetType() != Component::TYPE_ITEM)
+	if (pChild->getType() != Component::TYPE_ITEM)
 		return false;
 	// ...y si hay stack disponible
 	if (GetAvailableStack() == 0)
