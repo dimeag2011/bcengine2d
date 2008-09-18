@@ -6,7 +6,7 @@
 :
 Attribute(),
 m_kName(""),
-m_kType(""),            
+m_kType(5),            
 m_iDaño(iDaño),
 m_iCa(iCa),
 m_iResAcd(iResAcd),
@@ -29,10 +29,8 @@ m_iSstr(iSstr),
 m_iSwill(iSwill)
 m_kDesc(""),
 m_kPeso(0)
-{
- 
-}
 */
+
 //-----------------------------------------------------------------------------------------
 Item::Item()
 :

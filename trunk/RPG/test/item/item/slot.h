@@ -3,8 +3,9 @@
 //-----------------------------------------------------------------------------------------
 #include "Component.h"
 #include "item.h"
+#include "Defines.h"
 //-----------------------------------------------------------------------------------------
-class Slot : public Component{
+class Slot : public Component {
 public:
 
     Slot();
@@ -14,7 +15,12 @@ public:
 //---------------------------------------------------------------------
 
 	int GetAvailableStack();
+
+	
 	int GetItemType() { return m_iItemType; }
+	int GetMaxStack() {return m_iMaxStack; }
+	
+
 	bool IsItemType(int iItemType);
 
 	void OnChildAdded(Component * pChild);
