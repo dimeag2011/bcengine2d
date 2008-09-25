@@ -17,8 +17,9 @@ void main()
 
 
 	myAuxFactory->CreateItem(5);
-
-
-
+	myAuxFactory->GetCreations();
+	
 	system("PAUSE");
+
+	myAuxFactory->RelaseInstance();
 }

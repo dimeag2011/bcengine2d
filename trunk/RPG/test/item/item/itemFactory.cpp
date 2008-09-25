@@ -17,7 +17,8 @@ Item * ItemFactory::CreateItem(int m_iType){
 
 	switch(m_iType){
 		case TYPE_ARMOR:{
-			//m_iAux = new Armor();
+			m_iAux = new Item();
+			m_iAux->setName("gloria");
 			m_lKList.push_back(m_iAux);
 			break;
 		 	}
@@ -30,6 +31,15 @@ ItemFactory * ItemFactory::GetInstance(){
 		instance = new ItemFactory();
 	count++;
 	return instance;
+}
+//-----------------------------------------------------------------------------------------
+void ItemFactory::GetCreations()
+{
+	//if(count > 0)
+	//	{	
+			for (int i = 0; i < count; i++)
+			{cout << "Nombre: " << m_iAux->getName() << endl;}
+	//	}
 }
 //-----------------------------------------------------------------------------------------
 void ItemFactory::RelaseInstance(){
