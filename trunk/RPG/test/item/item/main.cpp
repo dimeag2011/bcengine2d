@@ -15,8 +15,32 @@ void main()
 	ItemFactory * myAuxFactory = myFactory -> GetInstance();
     ItemFactory & ref = * ItemFactory::GetInstance();
 
+	Item * myItem = new Item();
+	myItem->setName("mami");
 
 	myAuxFactory->CreateItem(5);
+
+	Slot * myBlackSlot = new Slot();
+	myBlackSlot->setName("Slotito");
+	myBlackSlot->addNewChild(myItem);
+
+	//cout << myBlackSlot->m_kName << "  " <<  << endl;
+
+	if (myItem->getParent())
+	{
+		cout << "Parent is: " << myItem->getParent()->getName();
+		
+	}
+	else
+	{
+		cout << "-";
+	}
+	cout << endl << "----------------------------------------------------" << endl;
+	
+	//cout >>  >> endl;
+
+
+
 	myAuxFactory->GetCreations();
 	
 	system("PAUSE");
