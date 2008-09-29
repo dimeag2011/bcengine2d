@@ -14,13 +14,14 @@ private:
 public:
 	static ActorFactory * GetInstance();
 	static void RelaseInstance();
-	Actor* CreateActor(int m_iType);
+	Actor* CreateActor(int iType , int iClass);
 	void GetCreations();
 	//------------------------------------------------------------------------------------------
 private:
 	static int count;
 	static ActorFactory * instance;
 	Actor * m_iAux;
+	Clase m_kClass;
 
 };
 //------------------------------------------------------------------------------------------

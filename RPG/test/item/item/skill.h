@@ -39,7 +39,7 @@ public:
 	int getIntimidate();
 	void setListen(int iListen);
 	int getListen();
-    void setMoveSilently(int iMoveSilently);
+    	void setMoveSilently(int iMoveSilently);
 	int getMoveSilently();
 	void setOpenLock(int iOpenLock);
 	int getOpenLock();
@@ -61,7 +61,7 @@ private:
 	//Skill list
 	
 	int m_iAlert;
-    int m_iAppraise;
+    	int m_iAppraise;
 	int m_iBluff;
 	int m_iConcentration;
 	int m_iDecipherScript;

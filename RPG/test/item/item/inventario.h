@@ -4,6 +4,7 @@
 #include "Component.h"
 #include "Defines.h"
 #include "slot.h"
+#include "item.h"
 //-----------------------------------------------------------------------
 class Inventario : public Component{
 //-----------------------------------------------------------------------
