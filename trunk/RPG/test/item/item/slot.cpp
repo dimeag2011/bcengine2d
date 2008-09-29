@@ -75,4 +75,5 @@ bool Slot::IsItemType(int iItemType)
 	// si el tipo es -1 también es del tipo
 	return (m_iItemType == -1) || (m_iItemType == iItemType);
 }
+//-----------------------------------------------------------------------
 

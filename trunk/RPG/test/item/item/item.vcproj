@@ -175,27 +175,7 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\component.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\functions.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\inventario.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\item.cpp"
-				>
-			</File>
-			<File
 				RelativePath=".\main.cpp"
-				>
-			</File>
-			<File
-				RelativePath=".\slot.cpp"
 				>
 			</File>
 		</Filter>
@@ -204,41 +184,17 @@
 			Filter="h;hpp;hxx;hm;inl;inc;xsd"
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
-			<File
-				RelativePath=".\component.h"
-				>
-			</File>
-			<File
-				RelativePath=".\component.inl"
-				>
-			</File>
-			<File
-				RelativePath=".\Defines.h"
-				>
-			</File>
-			<File
-				RelativePath=".\functions.h"
-				>
-			</File>
-			<File
-				RelativePath=".\inventario.h"
-				>
-			</File>
-			<File
-				RelativePath=".\item.h"
-				>
-			</File>
-			<File
-				RelativePath=".\item.inl"
-				>
-			</File>
-			<File
-				RelativePath=".\slot.h"
-				>
-			</File>
 			<Filter
 				Name="Factory"
 				>
+				<File
+					RelativePath=".\actorFactory.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\actorFactory.h"
+					>
+				</File>
 				<File
 					RelativePath=".\factory.cpp"
 					>
@@ -261,6 +217,86 @@
 				</File>
 				<File
 					RelativePath=".\itemManager.h"
+					>
+				</File>
+				<File
+					RelativePath=".\worldFactory.h"
+					>
+				</File>
+				<File
+					RelativePath=".\worldItem.cpp"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="ItemBag"
+				>
+				<File
+					RelativePath=".\inventario.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\inventario.h"
+					>
+				</File>
+				<File
+					RelativePath=".\item.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\item.h"
+					>
+				</File>
+				<File
+					RelativePath=".\item.inl"
+					>
+				</File>
+				<File
+					RelativePath=".\slot.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\slot.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Miselaña"
+				>
+				<File
+					RelativePath=".\component.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\component.h"
+					>
+				</File>
+				<File
+					RelativePath=".\component.inl"
+					>
+				</File>
+				<File
+					RelativePath=".\Defines.h"
+					>
+				</File>
+				<File
+					RelativePath=".\functions.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\functions.h"
+					>
+				</File>
+			</Filter>
+			<Filter
+				Name="Actor"
+				>
+				<File
+					RelativePath=".\actor.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\actor.h"
 					>
 				</File>
 			</Filter>

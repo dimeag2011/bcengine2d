@@ -10,7 +10,7 @@ using namespace std;
 
 void main()
 {
-	//Creo el el factory
+	//Creo el factory
 	ItemFactory * myFactory    = ItemFactory::GetInstance();
 	ItemFactory * myAuxFactory = myFactory -> GetInstance();
     ItemFactory & ref = * ItemFactory::GetInstance();
@@ -18,7 +18,7 @@ void main()
 	Item * myItem = new Item();
 	myItem->setName("mami");
 
-	myAuxFactory->CreateItem(5);
+	myAuxFactory->CreateItem(TYPE_ARMOR);
 
 	Slot * myBlackSlot = new Slot();
 	myBlackSlot->setName("Slotito");

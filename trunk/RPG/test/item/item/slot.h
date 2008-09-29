@@ -13,10 +13,9 @@ public:
 	~Slot();
 
 //---------------------------------------------------------------------
+public:
 
 	int GetAvailableStack();
-
-	
 	int GetItemType() { return m_iItemType; }
 	int GetMaxStack() {return m_iMaxStack; }
 	
