@@ -11,13 +11,14 @@ class Attribute : public Component
 //-----------------------------------------------------------------------------------------
 public:
 	Attribute();
-	/*Attribute(const string &rkName , const string &rkType ,int iDaño, int iCa, int iResAcd,
+	Attribute(const string &rkName , int iType ,int iDaño, int iCa, int iResAcd,
 				int iResFir, int iResFro ,int iResSon,int iResElec,int iStr, 
 				int iDex,  int iCon, int iInt,int iWis, int iCha, 
 				int iReDa, int iHps, int iMana, int iSlotOcu, int iSref,
-				int iSStr, int iSwill)
-				: Component(const string &rkName,const string &rkType);*/
-	
+				int iSStr, int iSwill); :
+	//Component(const string &rkName,int iType){ m_kName = rkName; , m_iType = iType;};
+	~Attribute();
+
 	void setDaño(int iDaño);
 	int  getDaño();
 	void setCa(int iCa);
@@ -80,7 +81,7 @@ private:
 	int m_iSref;
 	int m_iSstr;
 	int m_iSwill; 
-}
+};
 //-----------------------------------------------------------------------------------------
 #include "attribute.inl"
 //-----------------------------------------------------------------------------------------

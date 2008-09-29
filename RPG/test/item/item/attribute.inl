@@ -1,5 +1,6 @@
 //-----------------------------------------------------------------------------------------
 inline void Attribute::setDaño(int iDaño){
+	
 	m_iDaño = iDaño;
 }
 //-----------------------------------------------------------------------------------------
@@ -24,11 +25,11 @@ inline int  Attribute::getResAcd(){
 }
 //-----------------------------------------------------------------------------------------
 inline void Attribute::setResFir(int iiResFir){
-	m_iiResFir = iiResFir;
+	m_iResFir = iiResFir;
 }
 //-----------------------------------------------------------------------------------------
 inline int  Attribute::getResFir(){
-	return m_iiResFir;
+	return m_iResFir;
 }
 //-----------------------------------------------------------------------------------------
 inline void Attribute::setResFro(int iResFro){
@@ -84,7 +85,7 @@ inline void Attribute::setInt(int iInt){
 }
 //-----------------------------------------------------------------------------------------
 inline int  Attribute::getInt(){
-	return iInt;
+	return m_iInt;
 }
 //-----------------------------------------------------------------------------------------
 inline void Attribute::setWis(int iWis){
@@ -100,7 +101,7 @@ inline void Attribute::setCha(int iCha){
 }
 //-----------------------------------------------------------------------------------------
 inline int  Attribute::getCha(){
-	return = m_iCha;
+	return m_iCha;
 }
 //-----------------------------------------------------------------------------------------
 inline void Attribute::setReDa(int iReDa){
@@ -132,7 +133,7 @@ inline void Attribute::setSlotOcu(int iSlotOcu){
 }
 //-----------------------------------------------------------------------------------------
 inline int  Attribute::getSlotOcu(){
-	return m_oSlotOcu;
+	return m_iSlotOcu;
 }
 //-----------------------------------------------------------------------------------------
 inline void Attribute::setSref(int iSref){
@@ -151,11 +152,11 @@ inline int  Attribute::getSstr(){
 	return m_iSstr;
 }
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setSvol(int iSvol){
-	m_iSvol = iSvol;
+inline void Attribute::setSwill(int iSwill){
+	m_iSwill = iSwill;
 }
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getSvol(){
-	return m_iSvol;
+inline int  Attribute::getSwill(){
+	return m_iSwill;
 }
 //-----------------------------------------------------------------------------------------

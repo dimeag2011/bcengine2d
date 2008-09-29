@@ -3,7 +3,7 @@
 //-----------------------------------------------------------------------
 Inventario::Inventario()
 :
-m_iSlots(0) 
+m_iSlots(INVENTORY_SLOTS) 
 {
 	/***/
 }
@@ -44,3 +44,13 @@ int Inventario::getOcupedSlots(){
 	return int(m_kChilds.size());
 }
 //-----------------------------------------------------------------------
+void Inventario::addSlot(Slot* pkNewSlot){
+		
+	pkNewSlot->OnChildAdded(this);
+
+}
+//-----------------------------------------------------------------------
+void Inventario::removeSlot(Slot* pkSlot){
+
+	pkSlot->OnChildRemoved(this);
+}

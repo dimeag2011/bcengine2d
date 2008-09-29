@@ -1,10 +1,10 @@
 //-----------------------------------------------------------------------------------------
-#include "Attribute"
+#include "Attribute.h"
+#include "Defines.h"
 //-----------------------------------------------------------------------------------------
 
-/*Attribute :: Attribute()
+Attribute :: Attribute()
 :
-Component(),
 m_iDaño(iDaño),
 m_iCa(iCa),
 m_iResAcd(iResAcd),
@@ -28,14 +28,14 @@ m_iSwill(iSwill)
 {
  /***/
 }
-*/
 
 //-----------------------------------------------------------------------------------------
 
-Attribute : Attribute()
+Attribute :: Attribute()
 :
+Component(),
 m_kName(""),
-m_kType(""),            
+m_iType(TYPE_ITEM),            
 m_iDaño(0) ,
 m_iCa(0),
 m_iResAcd(0),
@@ -60,8 +60,7 @@ m_iSwill(0)
  /***/
 }
 //-----------------------------------------------------------------------------------------
-
-Attribute : ~Attribute()
+Attribute::~Attribute()
 {
  /***/
 }
