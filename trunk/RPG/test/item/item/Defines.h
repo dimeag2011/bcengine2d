@@ -17,6 +17,20 @@
 // Actor Types
 #define TYPE_PLAYER		8
 #define TYPE_NPC		9
-#define TYPE_MIÑON		10
+#define TYPE_MINON		10
 #define TYPE_BOSS		11
 //------------------------------------------------------------------------------
+// Actor Types
+#define TYPE_WARRIOR    12
+#define TYPE_MAGE		13
+#define TYPE_ROUGE		14
+#define TYPE_CLERIC		15
+//------------------------------------------------------------------------------
+//clases de personajes
+
+struct Clase{
+int iVida; 	
+int iMana;
+int iCa;
+int iAtk; //Attack
+};

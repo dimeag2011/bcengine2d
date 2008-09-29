@@ -47,9 +47,9 @@ public:
 	int  getCha();
 	void setReDa(int iReDa);
 	int  getReDa();
-    void setHps(int iHps);
+      void setHps(int iHps);
 	int  getHps();
-    void setMana(int iMana);
+      void setMana(int iMana);
 	int  getMana();
 	void setSlotOcu(int iSlotOcu);
 	int  getSlotOcu();
