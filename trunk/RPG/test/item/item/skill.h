@@ -1,24 +1,17 @@
+#pragma once
 //-----------------------------------------------------------------------------------------
-#ifndef SKILL_H
-#define SKILL_H
-//-----------------------------------------------------------------------------------------
-#include "component.h"
-//-----------------------------------------------------------------------------------------
+#include "functions.h"
 using namespace std;
 //-----------------------------------------------------------------------------------------
-class Skill : public Component
-{
-//-----------------------------------------------------------------------------------------
+class Skill{
 public:
 	Skill();
-	Skill(const string &rkName , const string &rkType, int iAppraise,
-		int iBluff, int iConcentration, int iDecipherScript, int iDiplomacy,
-		int iDisableDevice, int iHeal, int iHide, int iIntimidate, int iListen, 
-		int iMoveSilently, int iOpenLock, int iSearch, int iSpellcraft, int iSwim,
-		int iUseMagicDevice)
-				: Component(const string &rkName,const string &rkType)
-	
-
+	Skill(int iAppraise,int iBluff, int iConcentration, int iDecipherScript,
+		int iDiplomacy,int iDisableDevice, int iHeal, int iHide, int iIntimidate,
+		int iListen,int iMoveSilently, int iOpenLock, int iSearch, int iSpellcraft,
+		int iSwim,int iUseMagicDevice);
+	~Skill();
+//-----------------------------------------------------------------------------------------
 	void setAppraise(int iAppraise);
 	int getAppraise();
 	void setBluff(int iBluff);
@@ -39,7 +32,7 @@ public:
 	int getIntimidate();
 	void setListen(int iListen);
 	int getListen();
-    	void setMoveSilently(int iMoveSilently);
+    void setMoveSilently(int iMoveSilently);
 	int getMoveSilently();
 	void setOpenLock(int iOpenLock);
 	int getOpenLock();
@@ -51,17 +44,13 @@ public:
 	int getSwim();
 	void setUseMagicDevice(int iUseMagicDevice);
 	int getUseMagicDevice();
-
-	~Skill();
-
-	//-----------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------
 
 private:
 
 	//Skill list
-	
 	int m_iAlert;
-    	int m_iAppraise;
+    int m_iAppraise;
 	int m_iBluff;
 	int m_iConcentration;
 	int m_iDecipherScript;
@@ -77,9 +66,7 @@ private:
 	int m_iSpellcraft;
 	int m_iSwim;
 	int m_iUseMagicDevice;
-}
+};
 //-----------------------------------------------------------------------------------------
 #include "skill.inl"
-//-----------------------------------------------------------------------------------------
-#endif //SKILL_H
 //-----------------------------------------------------------------------------------------

@@ -5,3 +5,4 @@
 #include "item.h"
 #include "slot.h"
 #include "itemFactory.h"
+#include "inventario.h"

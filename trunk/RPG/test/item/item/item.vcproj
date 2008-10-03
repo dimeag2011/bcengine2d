@@ -264,6 +264,18 @@
 				Name="Miselaña"
 				>
 				<File
+					RelativePath=".\attribute.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\attribute.inl"
+					>
+				</File>
+				<File
+					RelativePath=".\attributes.h"
+					>
+				</File>
+				<File
 					RelativePath=".\component.cpp"
 					>
 				</File>
@@ -285,6 +297,18 @@
 				</File>
 				<File
 					RelativePath=".\functions.h"
+					>
+				</File>
+				<File
+					RelativePath=".\skill.cpp"
+					>
+				</File>
+				<File
+					RelativePath=".\skill.h"
+					>
+				</File>
+				<File
+					RelativePath=".\skill.inl"
 					>
 				</File>
 			</Filter>
