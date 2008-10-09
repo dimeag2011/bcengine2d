@@ -13,10 +13,12 @@ ActorFactory::~ActorFactory(){
 	ActorFactory::removeAll();
 }
 //-----------------------------------------------------------------------------------------
-Actor * ActorFactory::CreateActor(int iType , int iClass){
+Actor * ActorFactory::CreateActor(string kName ,int iType , int iClass){
 //Seteo la clase
 	switch(iClass){
 		case TYPE_WARRIOR:	
+				m_kClass.sNomClass = "Guerrero";
+				m_kClass.iClase = iClass;
 				m_kClass.iCa = 15;
 				m_kClass.iAtk = 6;
 				m_kClass.iMana = 0;
@@ -24,6 +26,8 @@ Actor * ActorFactory::CreateActor(int iType , int iClass){
 				break;
 
 		case TYPE_MAGE:
+				m_kClass.sNomClass = "Mago";
+				m_kClass.iClase = iClass;
 				m_kClass.iCa = 10;
 				m_kClass.iAtk = 0;
 				m_kClass.iMana = 150;
@@ -31,6 +35,8 @@ Actor * ActorFactory::CreateActor(int iType , int iClass){
 				break;
 		
 		case TYPE_ROUGE:
+				m_kClass.sNomClass = "Ladron";
+				m_kClass.iClase = iClass;
 				m_kClass.iCa = 12;
 				m_kClass.iAtk = 2;
 				m_kClass.iMana = 20;
@@ -38,13 +44,17 @@ Actor * ActorFactory::CreateActor(int iType , int iClass){
 				break;
 		
 		case TYPE_CLERIC:
+				m_kClass.sNomClass = "Clerigo";
+				m_kClass.iClase = iClass;
 				m_kClass.iCa = 13;
 				m_kClass.iAtk = 3;
 				m_kClass.iMana = 60;
 				m_kClass.iVida = 120;
 				break;
 	
-		case default:
+		default:
+				m_kClass.sNomClass = "Comun";
+				m_kClass.iClase = 99;
 				m_kClass.iCa = 10;
 				m_kClass.iAtk = 2;
 				m_kClass.iMana = 0;
@@ -52,33 +62,35 @@ Actor * ActorFactory::CreateActor(int iType , int iClass){
 	}// End Switch
 	
 	
-	//Seteo el tipo de actor	
-	switch(m_iType){
+	//Seteo el tipo de actor y le paso la clase	
+	switch(iType){
 		case TYPE_PLAYER:
-				m_iAux = new Actor("",m_kClass);
-				m_iAux->setName("Player");
+				m_iAux = new Actor(kName,iType,m_kClass);
+				//m_iAux->setName(kName);
 				m_lKList.push_back(m_iAux);
 				break;
 
 		case TYPE_NPC:
-				m_iAux = new Actor("",m_kClass);
-				m_iAux->setName("NPC");
+				m_iAux = new Actor(kName,iType,m_kClass);
+				//m_iAux->setName(kName);
 				m_lKList.push_back(m_iAux);
 				break;
 		
 		case TYPE_MINON:
-				m_iAux = new Actor("",m_kClass);
-				m_iAux->setName("Minon");
+				m_iAux = new Actor(kName,iType,m_kClass);
+				//m_iAux->setName(kName);
 				m_lKList.push_back(m_iAux);
 				break;
+		
 		case TYPE_BOSS:
-				m_iAux = new Actor("",m_kClass);
-				m_iAux->setName("Boss");
+				m_iAux = new Actor(kName,iType,m_kClass);
+				//m_iAux->setName(kName);
 				m_lKList.push_back(m_iAux);
+	
 	}// End Switch
-}
 	return m_iAux;
 }
+	
 //-----------------------------------------------------------------------------------------
 ActorFactory * ActorFactory::GetInstance(){
 	if(count ==0)

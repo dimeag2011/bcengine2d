@@ -1,12 +1,13 @@
 //-----------------------------------------------------------------------------------------
-#include "Attributes.h"
+#include "Attribute.h"
 #include "Defines.h"
 //-----------------------------------------------------------------------------------------
+
 Attribute :: Attribute(int iDaño, int iCa, int iResAcd,
-				int iResFir, int iResFro ,int iResSon,int iResElec,int iStr, 
-				int iDex,  int iCon, int iInt,int iWis, int iCha, 
-				int iReDa, int iHps, int iMana, int iSlotOcu, int iSref,
-				int iSstr, int iSwill)
+					   int iResFir, int iResFro ,int iResSon,int iResElec,int iStr, 
+					   int iDex,  int iCon, int iInt,int iWis, int iCha, 
+					   int iReDa, int iHps, int iMana, int iSlotOcu, int iSref,
+					   int iSstr, int iSwill)
 :
 m_iDaño(iDaño),
 m_iCa(iCa),
@@ -36,6 +37,9 @@ m_iSwill(iSwill)
 
 Attribute :: Attribute()
 :
+//Component(),
+//m_kName(""),
+//m_iType(TYPE_ITEM),            
 m_iDaño(0) ,
 m_iCa(0),
 m_iResAcd(0),
