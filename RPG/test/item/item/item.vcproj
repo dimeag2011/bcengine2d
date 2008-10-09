@@ -268,11 +268,11 @@
 					>
 				</File>
 				<File
-					RelativePath=".\attribute.inl"
+					RelativePath=".\attribute.h"
 					>
 				</File>
 				<File
-					RelativePath=".\attributes.h"
+					RelativePath=".\attribute.inl"
 					>
 				</File>
 				<File
@@ -304,11 +304,11 @@
 					>
 				</File>
 				<File
-					RelativePath=".\skill.h"
+					RelativePath=".\skill.inl"
 					>
 				</File>
 				<File
-					RelativePath=".\skill.inl"
+					RelativePath=".\skills.h"
 					>
 				</File>
 			</Filter>

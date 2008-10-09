@@ -1,162 +1,233 @@
-//-----------------------------------------------------------------------------------------
-inline void Attribute::setDaño(int iDaño){
-	
-	m_iDaño = iDaño;
+/*inline void Skill::setAlert(int iAlert)
+{
+	m_iAlert = iAlert;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int Attribute::getDaño(){
-	return m_iDaño;
+
+inline int Skill::getAlert()
+{
+	return m_iAlert;
 }
+*/
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setCa(int iCa){
-	m_iCa = iCa;
+
+inline void Skill::setAppraise(int iAppraise){
+	m_iAppraise = iAppraise;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getCa(){
-	return m_iCa;
+
+inline int Skill::getAppraise()
+{
+	return m_iAppraise;
 }
+
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setResAcd(int iResAcd){
-	m_iResAcd = iResAcd;
+
+inline void Skill::setBluff(int iBluff)
+{
+	m_iBluff = iBluff;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getResAcd(){
-	return m_iResAcd;
+
+inline int Skill::getBluff()
+{
+	return m_iBluff;
 }
+
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setResFir(int iiResFir){
-	m_iResFir = iiResFir;
+
+inline void Skill::setConcentration(int iConcentration)
+{
+	m_iConcentration = iConcentration;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getResFir(){
-	return m_iResFir;
+
+inline int Skill::getConcentration()
+{
+	return	m_iConcentration;
 }
+
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setResFro(int iResFro){
-	m_iResFro = iResFro;
+inline void Skill::setDecipherScript(int iDecipherScript)
+{
+	m_iDecipherScript = iDecipherScript;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getResFro(){
-	return m_iResFro;
+
+inline int Skill::getDecipherScript()
+{
+	return m_iDecipherScript;
 }
+
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setResSon(int iResSon){
-	m_iResSon = iResSon;
+
+inline void Skill::setDiplomacy(int iDiplomacy)
+{
+	m_iDiplomacy = iDiplomacy;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getResSon(){
-	return m_iResSon;
+
+inline int Skill::getDiplomacy()
+{
+	return m_iDiplomacy;
 }
+
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setResElec(int iResElec){
-	m_iResElec = iResElec;
+
+inline void Skill::setDisableDevice(int iDisableDevice)
+{
+	m_iDisableDevice = iDisableDevice;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getResElec(){
-	return m_iResElec;
+
+inline int Skill::getDisableDevice()
+{
+	return m_iDisableDevice;
 }
+
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setStr(int iStr){
-	m_iStr = iStr;
+
+inline void Skill::setHeal(int iHeal)
+{
+	m_iHeal = iHeal;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getStr(){
-	return m_iStr;
+
+inline int Skill::getHeal()
+{
+	return m_iHeal;
 }
+
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setDex(int iDex){
-	m_iDex = iDex;
+
+inline void Skill::setHide(int iHide)
+{
+	m_iHide = iHide;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getDex(){
-	return m_iDex;
+
+inline int Skill::getHide()
+{
+	return m_iHide;
 }
+
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setCon(int iCon){
-	m_iCon = iCon;
+
+inline void Skill::setIntimidate(int iIntimidate)
+{
+	m_iIntimidate = iIntimidate;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getCon(){
-	return m_iCon;
+
+inline int Skill::getIntimidate()
+{
+	return m_iIntimidate;
 }
+
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setInt(int iInt){
-	m_iInt = iInt;
+
+inline void Skill::setListen(int iListen)
+{
+	m_iListen = iListen;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getInt(){
-	return m_iInt;
+
+inline int Skill::getListen()
+{
+	return m_iListen;
 }
+
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setWis(int iWis){
-	m_iWis = iWis;
+
+inline void Skill::setMoveSilently(int iMoveSilently)
+{
+	m_iMoveSilently = iMoveSilently;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getWis(){
-	return m_iWis;
+
+inline int Skill::getMoveSilently()
+{
+	return m_iMoveSilently;
 }
+
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setCha(int iCha){
-	m_iCha = iCha;
+
+inline void Skill::setOpenLock(int iOpenLock)
+{
+	m_iOpenLock = iOpenLock;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getCha(){
-	return m_iCha;
+
+inline int Skill::getOpenLock()
+{
+	return m_iOpenLock;
 }
+
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setReDa(int iReDa){
-	m_iReDa = iReDa; 
+
+inline void Skill::setSearch(int iSearch)
+{
+	m_iSearch = iSearch;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getReDa(){
-	return m_iReDa;
+
+inline int Skill::getSearch()
+{
+	return m_iSearch;
 }
+
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setHps(int iHps){
-	m_iHps = iHps;
+
+inline void Skill::setSpellcraft(int iSpellcraft)
+{
+	m_iSpellcraft = iSpellcraft;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getHps(){
-	return m_iHps;
+
+inline int Skill::getSpellcraft()
+{
+	return m_iSpellcraft;
 }
+
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setMana(int iMana){
-	m_iMana = iMana;
+
+inline void Skill::setSwim(int iSwim)
+{
+	m_iSwim = iSwim;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getMana(){
-	return m_iMana;
+
+inline int Skill::getSwim()
+{
+	return m_iSwim;
 }
+
 //-----------------------------------------------------------------------------------------
-inline void Attribute::setSlotOcu(int iSlotOcu){
-	m_iSlotOcu = iSlotOcu;
+
+inline void Skill::setUseMagicDevice(int iUseMagicDevice)
+{
+	m_iUseMagicDevice = iUseMagicDevice;
 }
+
 //-----------------------------------------------------------------------------------------
-inline int  Attribute::getSlotOcu(){
-	return m_iSlotOcu;
+
+inline int Skill::getUseMagicDevice()
+{
+	return m_iUseMagicDevice;
 }
-//-----------------------------------------------------------------------------------------
-inline void Attribute::setSref(int iSref){
-	m_iSref = iSref;
-}
-//-----------------------------------------------------------------------------------------
-inline int  Attribute::getSref(){
-	return m_iSref;
-}
-//-----------------------------------------------------------------------------------------
-inline void Attribute::setSstr(int iSstr){
-	m_iSstr = iSstr;
-}
-//-----------------------------------------------------------------------------------------
-inline int  Attribute::getSstr(){
-	return m_iSstr;
-}
-//-----------------------------------------------------------------------------------------
-inline void Attribute::setSwill(int iSwill){
-	m_iSwill = iSwill;
-}
-//-----------------------------------------------------------------------------------------
-inline int  Attribute::getSwill(){
-	return m_iSwill;
-}
-//-----------------------------------------------------------------------------------------

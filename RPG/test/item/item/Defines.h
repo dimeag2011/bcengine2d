@@ -1,5 +1,9 @@
 //------------------------------------------------------------------------------
 #pragma once
+#include "string.h"
+#include <iostream>
+using namespace std;
+
 // Master Types
 #define TYPE_EQUIPABLE			0
 #define TYPE_CONSUMEABLE		1
@@ -20,7 +24,7 @@
 #define TYPE_MINON		10
 #define TYPE_BOSS		11
 //------------------------------------------------------------------------------
-// Actor Types
+// Actor Class
 #define TYPE_WARRIOR    12
 #define TYPE_MAGE		13
 #define TYPE_ROUGE		14
@@ -29,6 +33,8 @@
 //clases de personajes
 
 struct Clase{
+int iClase;
+string sNomClass;
 int iVida; 	
 int iMana;
 int iCa;

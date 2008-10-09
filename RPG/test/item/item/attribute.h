@@ -1,21 +1,23 @@
 //-----------------------------------------------------------------------------------------
 #ifndef ATTRIBUTE_H
 #define ATTRIBUTE_H
+#pragma once
 //-----------------------------------------------------------------------------------------
-#include "component.h"
+//#include "component.h"
+#include <iostream>
 //-----------------------------------------------------------------------------------------
 using namespace std;
 //-----------------------------------------------------------------------------------------
-class Attribute : public Component
+class Attribute //: public Component
 {
 //-----------------------------------------------------------------------------------------
 public:
 	Attribute();
-	Attribute(const string &rkName , int iType ,int iDaño, int iCa, int iResAcd,
+	Attribute(/*const string &rkName , int iType ,*/int iDaño, int iCa, int iResAcd,
 				int iResFir, int iResFro ,int iResSon,int iResElec,int iStr, 
 				int iDex,  int iCon, int iInt,int iWis, int iCha, 
 				int iReDa, int iHps, int iMana, int iSlotOcu, int iSref,
-				int iSStr, int iSwill); :
+				int iSstr, int iSwill); 
 	//Component(const string &rkName,int iType){ m_kName = rkName; , m_iType = iType;};
 	~Attribute();
 
@@ -26,7 +28,7 @@ public:
 	void setResAcd(int iResAcd);
 	int  getResAcd();
 	void setResFir(int iResFir);
-	int  getResStr();
+	int  getResFir();
 	void setResFro(int iResFro);
 	int  getResFro();
 	void setResSon(int iResSon);
@@ -47,16 +49,16 @@ public:
 	int  getCha();
 	void setReDa(int iReDa);
 	int  getReDa();
-      void setHps(int iHps);
+    void setHps(int iHps);
 	int  getHps();
-      void setMana(int iMana);
+    void setMana(int iMana);
 	int  getMana();
 	void setSlotOcu(int iSlotOcu);
 	int  getSlotOcu();
 	void setSref(int iSref);
 	int  getSref();
-	void setSStr(int iSStr);
-	int  getSStr();
+	void setSstr(int iSStr);
+	int  getSstr();
 	void setSwill(int iSwill);
 	int  getSwill();
 //-----------------------------------------------------------------------------------------
