@@ -132,11 +132,39 @@ Clase Actor::getClassHero()
 //-----------------------------------------------------------------------------------------
 void Actor::setItemEffect(Item *kItem)
 {
+	m_kActAtt->setResAcd((m_kActAtt->getResAcd()+ kItem->m_kModAtt->getResAcd()));
+	m_kActAtt->setResFir((m_kActAtt->getResFir()+ kItem->m_kModAtt->getResFir()));
+	m_kActAtt->setResSon((m_kActAtt->getResSon()+ kItem->m_kModAtt->getResSon()));
+	m_kActAtt->setResElec((m_kActAtt->getResElec()+ kItem->m_kModAtt->getResElec()));
+	m_kActAtt->setStr((m_kActAtt->getStr()+ kItem->m_kModAtt->getStr()));
+	m_kActAtt->setDex((m_kActAtt->getDex()+ kItem->m_kModAtt->getDex()));
+	m_kActAtt->setCon((m_kActAtt->getCon()+ kItem->m_kModAtt->getCon()));
+	m_kActAtt->setInt((m_kActAtt->getInt()+ kItem->m_kModAtt->getInt()));
+	m_kActAtt->setWis((m_kActAtt->getWis()+ kItem->m_kModAtt->getWis()));
+	m_kActAtt->setCha((m_kActAtt->getCha()+ kItem->m_kModAtt->getCha()));
+
+	m_kActAtt->setSref((m_kActAtt->getSref()+ kItem->m_kModAtt->getSref()));
+	m_kActAtt->setSstr((m_kActAtt->getSstr()+ kItem->m_kModAtt->getSstr()));
+	m_kActAtt->setSwill((m_kActAtt->getSwill()+ kItem->m_kModAtt->getSwill()));
 
 }
 //-----------------------------------------------------------------------------------------
-void Actor::removeEffect()
+void Actor::removeEffect(Item *kItem)
 {
+	m_kActAtt->setResAcd((m_kActAtt->getResAcd()- kItem->m_kModAtt->getResAcd()));
+	m_kActAtt->setResFir((m_kActAtt->getResFir()- kItem->m_kModAtt->getResFir()));
+	m_kActAtt->setResSon((m_kActAtt->getResSon()- kItem->m_kModAtt->getResSon()));
+	m_kActAtt->setResElec((m_kActAtt->getResElec()- kItem->m_kModAtt->getResElec()));
+	m_kActAtt->setStr((m_kActAtt->getStr()- kItem->m_kModAtt->getStr()));
+	m_kActAtt->setDex((m_kActAtt->getDex()- kItem->m_kModAtt->getDex()));
+	m_kActAtt->setCon((m_kActAtt->getCon()- kItem->m_kModAtt->getCon()));
+	m_kActAtt->setInt((m_kActAtt->getInt()- kItem->m_kModAtt->getInt()));
+	m_kActAtt->setWis((m_kActAtt->getWis()- kItem->m_kModAtt->getWis()));
+	m_kActAtt->setCha((m_kActAtt->getCha()- kItem->m_kModAtt->getCha()));
+
+	m_kActAtt->setSref((m_kActAtt->getSref()- kItem->m_kModAtt->getSref()));
+	m_kActAtt->setSstr((m_kActAtt->getSstr()- kItem->m_kModAtt->getSstr()));
+	m_kActAtt->setSwill((m_kActAtt->getSwill()- kItem->m_kModAtt->getSwill()));
 
 }
 //-----------------------------------------------------------------------------------------
