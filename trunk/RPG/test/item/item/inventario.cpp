@@ -5,7 +5,10 @@ Inventario::Inventario()
 :
 m_iSlots(INVENTORY_SLOTS) 
 {
-	/***/
+	/*
+	for (int i = 0; i < m_iSlots; i++)
+		m_kNumItems.push_back(0);
+	*/
 }
 //-----------------------------------------------------------------------
 Inventario::~Inventario(){
@@ -44,13 +47,84 @@ int Inventario::getOcupedSlots(){
 	return int(m_kChilds.size());
 }
 //-----------------------------------------------------------------------
-void Inventario::addSlot(Slot* pkNewSlot){
-		
-	pkNewSlot->OnChildAdded(this);
+bool Inventario::addItem(Item* pkNewItem){
 
+	/*
+	int i;
+	if (getNumChilds() > 0)
+	{
+		goFirstChild();
+		for (i = 0; i < m_iSlots; i++)
+		{
+			if ((getCurrentChild()->getName().compare(pkNewItem->getName())) == 0)
+				break;
+		}
+	}
+	else
+	{
+		i = m_iSlots;
+	}
+
+	// TO-DO 
+	if (i < m_iSlots)
+	{
+		m_kNumItems[i]++;
+	}
+	else
+	{
+	*/
+		if((int(getNumChilds()) < m_iSlots))
+		{
+			if(addNewChild(pkNewItem))
+			{
+				m_iSlots--;
+				//m_kNumItems[getNumChilds()-1]++;
+			}
+			else
+			{
+				return false;
+			}
+
+		}
+		else
+		{
+			return false;
+		}
+	//}
+	return true;
+	
 }
 //-----------------------------------------------------------------------
-void Inventario::removeSlot(Slot* pkSlot){
+bool Inventario::removeItem(Item* pkItem){
 
-	pkSlot->OnChildRemoved(this);
+	//	if(!pkItem->removeChild(this))
+	if(!removeChild(pkItem))
+	{
+		return false;
+	}
+	m_iSlots++;
+	return true;
 }
+//-----------------------------------------------------------------------
+Item* Inventario::getItem(int iType){
+	
+	int i;
+	if (getNumChilds() > 0)
+	{
+		goFirstChild();
+		for (i = 0; i < m_iSlots; i++)
+		{
+			if ((getCurrentChild()->getType()) == iType)
+				break;
+		}
+			
+		return  (Item*) getCurrentChild();
+	
+	/*}else{
+
+
+ 		cout << "No se encontro Item" <<endl;
+	}*/
+	}
+}
+//-----------------------------------------------------------------------

@@ -16,7 +16,7 @@ using namespace std;
 #define TYPE_WEAPON		6
 #define TYPE_POTION		7
 //------------------------------------------------------------------------------
-#define INVENTORY_SLOTS			30
+#define INVENTORY_SLOTS			10
 //------------------------------------------------------------------------------
 // Actor Types
 #define TYPE_PLAYER		8

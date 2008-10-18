@@ -3,6 +3,7 @@
 //-----------------------------------------------------------------------------------------
 #include "factory.h"
 #include "item.h"
+#include <list>
 #include <iostream>
 //-----------------------------------------------------------------------------------------
 class WorldFactory : public Factory
@@ -14,13 +15,23 @@ private:
 public:
 	static WorldFactory * GetInstance();
 	static void RelaseInstance();
-	void addWorldItem(Item *pkItem);
+	
+	void addWorldComp(Component pkComp);
+	bool removeWorldComp(Component pkComp);
 	void GetCreations();
 	//------------------------------------------------------------------------------------------
 private:
 	static int count;
 	static WorldFactory * instance;
-	Item * m_iAux;
+	Component  m_iAux;
+	
+	list<Component>WorldList;
+	list<Component>::iterator WorldListIterator;
+
+/*public:
+	WorldList			m_WorldList;
+	WorldListIterator	m_WorldIterator;
+*/
 
 };
 //------------------------------------------------------------------------------------------

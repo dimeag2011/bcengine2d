@@ -22,7 +22,7 @@ public:
 				int iBluff, int iConcentration, int iDecipherScript, int iDiplomacy,
 				int iDisableDevice, int iHeal, int iHide, int iIntimidate, int iListen, 
 				int iMoveSilently, int iOpenLock, int iSearch, int iSpellcraft, int iSwim,
-				int iUseMagicDevice);
+				int iUseMagicDevice, bool bCom);
     /* : Attribute(const string &rkName , const string &rkType ,int iDaño, int iCa, int iResAcd,
 				int iResFir, int iResFro ,int iResSon,int iResElec,int iStr, 
 				int iDex,  int iCon, int iInt,int iWis, int iCha, 
@@ -35,9 +35,13 @@ public:
 	float getPeso();
 	void setDescripcion(const string &rkDesc);
 	string getDescripcion() const ;
-
+	void setConsumable(bool bCon){ m_bConsumable = bCon; }
+;//-----------------------------------------------------------------------------------------
 	int GetItemType() { return m_iType; }
-	int GetMaxStack() {return m_iMaxStack; }
+	bool GetConsumable() {return m_bConsumable; }
+//-----------------------------------------------------------------------------------------
+	void setAttributes(int iResAcd,int iResFir, int iResFro ,int iResSon,int iResElec
+						,int iStr,int iDex,int iCon, int iInt,int iWis, int iCha,bool bCon);
 	
 	//virtual void setAttItem(Atrribute kModAtt);
 //-----------------------------------------------------------------------------------------
@@ -46,14 +50,17 @@ private:
 	float m_kPeso;
 	
 	//propidades del item
-	bool			m_bStackeable;
+	bool			m_bConsumable;
 	int				m_iMaxStack;
 	int				m_iType;
-//	string			m_sName;
+	string			m_sName;
+
+	Attribute m_kAttAux; 
+	Skill m_kSkillAux;
 
 private:
-	Attribute *m_kModAtt; 
-	Skill *m_kModSkill;
+	Attribute m_kModAtt; 
+	Skill m_kModSkill;
 //-----------------------------------------------------------------------	
 friend class ItemFactory;
 friend class Actor;

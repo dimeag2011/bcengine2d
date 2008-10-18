@@ -3,6 +3,8 @@
 //-----------------------------------------------------------------------------------------
 #include "factory.h"
 #include "item.h"
+#include "ArmorWeapon.h"
+#include "potion.h"
 #include <iostream>
 //-----------------------------------------------------------------------------------------
 class ItemFactory : public Factory

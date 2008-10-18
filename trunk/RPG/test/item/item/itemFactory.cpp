@@ -16,13 +16,23 @@ ItemFactory::~ItemFactory(){
 Item * ItemFactory::CreateItem(int m_iType){
 
 	switch(m_iType){
-		case TYPE_ARMOR:{
-			m_iAux = new Item();
-			m_iAux->setName("gloria");
-			m_lKList.push_back(m_iAux);
-			break;
-		 	}
-  	}
+		case TYPE_ARMOR:
+				m_iAux = new ArmorWeapon();
+				m_iAux->setName("Armadura linda");
+				m_lKList.push_back(m_iAux);
+				break;
+
+		case TYPE_WEAPON:
+				m_iAux = new ArmorWeapon();
+				m_iAux->setName("Espada grosa");
+				m_lKList.push_back(m_iAux);
+				break;
+		case TYPE_POTION:
+				m_iAux = new Potion();
+				m_iAux->setName("Pocion loca");
+				m_lKList.push_back(m_iAux);
+			
+  			}
 	return m_iAux;
 }
 //-----------------------------------------------------------------------------------------

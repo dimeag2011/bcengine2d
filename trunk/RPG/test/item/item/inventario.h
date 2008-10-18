@@ -3,8 +3,9 @@
 //-----------------------------------------------------------------------
 #include "Component.h"
 #include "Defines.h"
-#include "slot.h"
+//#include "slot.h"
 #include "item.h"
+#include <vector>
 //-----------------------------------------------------------------------
 class Inventario : public Component{
 //-----------------------------------------------------------------------
@@ -17,13 +18,14 @@ public:
 	bool isInventoryFull();
 	int getMaxSlots();
 	int getOcupedSlots();
-	void addSlot(Slot* pkNewSlot);
-	void removeSlot(Slot* pkSlot);
+//-----------------------------------------------------------------------	
+	bool addItem(Item* pkNewItem);
+	bool removeItem(Item* pkItem);
+	Item* getItem(int iType);
 //-----------------------------------------------------------------------
 private:
 	int m_iSlots;
-	char *m_ckAux;
-	Slot m_kSlot;
+	//vector<int> m_kNumItems;
 //-----------------------------------------------------------------------
 };
 //-----------------------------------------------------------------------
