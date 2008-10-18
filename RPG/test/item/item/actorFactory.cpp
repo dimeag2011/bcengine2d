@@ -65,30 +65,30 @@ Actor * ActorFactory::CreateActor(string kName ,int iType , int iClass){
 	//Seteo el tipo de actor y le paso la clase	
 	switch(iType){
 		case TYPE_PLAYER:
-				m_iAux = new Actor(kName,iType,m_kClass);
+				m_iActorAux = new Actor(kName,iType, m_kClass);
 				//m_iAux->setName(kName);
-				m_lKList.push_back(m_iAux);
+				m_lKList.push_back(m_iActorAux);
 				break;
 
 		case TYPE_NPC:
-				m_iAux = new Actor(kName,iType,m_kClass);
+				m_iActorAux = new Actor(kName,iType,m_kClass);
 				//m_iAux->setName(kName);
-				m_lKList.push_back(m_iAux);
+				m_lKList.push_back(m_iActorAux);
 				break;
 		
 		case TYPE_MINON:
-				m_iAux = new Actor(kName,iType,m_kClass);
+				m_iActorAux = new Actor(kName,iType,m_kClass);
 				//m_iAux->setName(kName);
-				m_lKList.push_back(m_iAux);
+				m_lKList.push_back(m_iActorAux);
 				break;
 		
 		case TYPE_BOSS:
-				m_iAux = new Actor(kName,iType,m_kClass);
+				m_iActorAux = new Actor(kName,iType,m_kClass);
 				//m_iAux->setName(kName);
-				m_lKList.push_back(m_iAux);
+				m_lKList.push_back(m_iActorAux);
 	
 	}// End Switch
-	return m_iAux;
+	return m_iActorAux;
 }
 	
 //-----------------------------------------------------------------------------------------
@@ -104,7 +104,7 @@ void ActorFactory::GetCreations()
 	//if(count > 0)
 	//	{	
 	for (int i = 0; i < count; i++)
-	{cout << "Nombre: " << m_iAux->getName() << endl;}
+	{cout << "Nombre: " << m_iActorAux->getName() << endl;}
 	//	}
 }
 //-----------------------------------------------------------------------------------------

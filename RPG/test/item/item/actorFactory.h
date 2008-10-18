@@ -18,10 +18,11 @@ public:
 	Actor* CreateActor(string kName ,int iType , int iClass);
 	void GetCreations();
 //------------------------------------------------------------------------------------------
+public:
+	Actor * m_iActorAux;
 private:
 	static int count;
 	static ActorFactory * instance;
-	Actor * m_iAux;
 	Clase m_kClass;
 
 };

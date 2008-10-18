@@ -5,3 +5,5 @@
 #include "item.h"
 #include "slot.h"
 #include "itemFactory.h"
+#include "actorFactory.h"
+#include "actor.h"

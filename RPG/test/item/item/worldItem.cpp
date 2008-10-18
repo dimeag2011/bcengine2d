@@ -13,11 +13,9 @@ WorldFactory::~WorldFactory(){
 	WorldFactory::removeAll();
 }
 //-----------------------------------------------------------------------------------------
-void WorldFactory::addWorldItem(Item *pkItem){
+void WorldFactory::addWorldComp(Component pkComp){
 
-		//	m_iAux = new Item();
-		//	m_iAux->setName("gloria");
-			m_lKList.push_back(pkItem);
+		WorldList.push_back(pkComp);
 			
 }
 //-----------------------------------------------------------------------------------------
@@ -30,17 +28,18 @@ WorldFactory * WorldFactory::GetInstance(){
 //-----------------------------------------------------------------------------------------
 void WorldFactory::GetCreations()
 {
-/*	//Ver como hacer para que muestre el contenido
-	m_iAux = NULL;
+	//Ver como hacer para que muestre el contenido
+	WorldListIterator = WorldList.begin();
 	//if(count > 0)
 	//	{	
-	m_lkListIterator = m_lKList.begin;
-	while(m_lkListIterator != m_lKList.end())
+	while(WorldListIterator != WorldList.end())
 	{
-		m_iAux = m_lKList.front;
-		cout << "Nombre: " << m_iAux->getName() << endl;
+		m_iAux = WorldList.front();
+		cout << "Nombre: " << m_iAux.getName() << endl;
+		
+		WorldListIterator++;
 	}
-*/	
+	
 }
 //-----------------------------------------------------------------------------------------
 void WorldFactory::RelaseInstance(){
@@ -53,5 +52,23 @@ void WorldFactory::RelaseInstance(){
 			delete instance;
 		}
 	}
+}
+//-----------------------------------------------------------------------
+bool WorldFactory::removeWorldComp(Component pkComp){
+
+	WorldListIterator = WorldList.begin();
+	
+	while((WorldListIterator != WorldList.end()) && (WorldListIterator != pkComp))
+	{
+		WorldListIterator++;
+	}
+	if(WorldListIterator == WorldList.end()){
+		return false
+	}else{
+	
+			WorldList.erase(WorldListIterator);
+		return true
+	}
+	
 }
 //-----------------------------------------------------------------------
