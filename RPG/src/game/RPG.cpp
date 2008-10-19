@@ -3,9 +3,10 @@
 //----------------------------------------------------------------
 BasicGame::BasicGame (HINSTANCE hInstance)
 :
-Game (hInstance)
+Game (hInstance),
+m_pkScene1(NULL)
 {
-
+	
 }
 //----------------------------------------------------------------
 BasicGame::~BasicGame ()
@@ -16,6 +17,13 @@ BasicGame::~BasicGame ()
 bool BasicGame::OnStartUp ()
 {
 	Importer* pkImporter = getImporter();
+
+	 m_pkScene1 = new TestScene();
+
+	m_pkScene1->init("Escena1", pkImporter, m_pkInput, m_pkSound, m_pkRender);
+
+	addSceneToUpdate(m_pkScene1);
+	addSceneToDraw(m_pkScene1);
 	return true;
 }
 //----------------------------------------------------------------
@@ -28,6 +36,13 @@ bool BasicGame::OnLoop ()
 //----------------------------------------------------------------
 bool BasicGame::OnShutDown ()
 {
+	if (m_pkScene1)
+	{
+		m_pkScene1->deinit();
+		delete m_pkScene1;
+		m_pkScene1=NULL;
+	}
+	
 	return true;
 }
 //----------------------------------------------------------------
