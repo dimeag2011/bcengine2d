@@ -15,80 +15,59 @@ ActorFactory::~ActorFactory(){
 //-----------------------------------------------------------------------------------------
 Actor * ActorFactory::CreateActor(string kName ,int iType , int iClass){
 	//Seteo la clase
+	Clase kClass;
 	switch(iClass){
 		case TYPE_WARRIOR:	
-			m_kClass.sNomClass = "Guerrero";
-			m_kClass.iClase = iClass;
-			m_kClass.iCa = 15;
-			m_kClass.iAtk = 6;
-			m_kClass.iMana = 0;
-			m_kClass.iVida = 160;
+			kClass.sNomClass = "Guerrero";
+			kClass.iClase = iClass;
+			kClass.iCa = 15;
+			kClass.iAtk = 6;
+			kClass.iMana = 0;
+			kClass.iVida = 160;
 			break;
 
 		case TYPE_MAGE:
-			m_kClass.sNomClass = "Mago";
-			m_kClass.iClase = iClass;
-			m_kClass.iCa = 10;
-			m_kClass.iAtk = 0;
-			m_kClass.iMana = 150;
-			m_kClass.iVida = 60;
+			kClass.sNomClass = "Mago";
+			kClass.iClase = iClass;
+			kClass.iCa = 10;
+			kClass.iAtk = 0;
+			kClass.iMana = 150;
+			kClass.iVida = 60;
 			break;
 
 		case TYPE_ROUGE:
-			m_kClass.sNomClass = "Ladron";
-			m_kClass.iClase = iClass;
-			m_kClass.iCa = 12;
-			m_kClass.iAtk = 2;
-			m_kClass.iMana = 20;
-			m_kClass.iVida = 100;
+			kClass.sNomClass = "Ladron";
+			kClass.iClase = iClass;
+			kClass.iCa = 12;
+			kClass.iAtk = 2;
+			kClass.iMana = 20;
+			kClass.iVida = 100;
 			break;
 
 		case TYPE_CLERIC:
-			m_kClass.sNomClass = "Clerigo";
-			m_kClass.iClase = iClass;
-			m_kClass.iCa = 13;
-			m_kClass.iAtk = 3;
-			m_kClass.iMana = 60;
-			m_kClass.iVida = 120;
+			kClass.sNomClass = "Clerigo";
+			kClass.iClase = iClass;
+			kClass.iCa = 13;
+			kClass.iAtk = 3;
+			kClass.iMana = 60;
+			kClass.iVida = 120;
 			break;
 
 		default:
-			m_kClass.sNomClass = "Comun";
-			m_kClass.iClase = 99;
-			m_kClass.iCa = 10;
-			m_kClass.iAtk = 2;
-			m_kClass.iMana = 0;
-			m_kClass.iVida = 60;
+			kClass.sNomClass = "Comun";
+			kClass.iClase = 99;
+			kClass.iCa = 10;
+			kClass.iAtk = 2;
+			kClass.iMana = 0;
+			kClass.iVida = 60;
+			break;
 	}// End Switch
 
+	Actor* kActorAux = new Actor(kName, iType, kClass);
 
-	//Seteo el tipo de actor y le paso la clase	
-	switch(iType){
-		case TYPE_PLAYER:
-			m_iActorAux = new Actor(kName,iType, m_kClass);
-			//m_iAux->setName(kName);
-			m_lKList.push_back(m_iActorAux);
-			break;
+	m_lKList.push_back(kActorAux);
 
-		case TYPE_NPC:
-			m_iActorAux = new Actor(kName,iType,m_kClass);
-			//m_iAux->setName(kName);
-			m_lKList.push_back(m_iActorAux);
-			break;
-
-		case TYPE_MINON:
-			m_iActorAux = new Actor(kName,iType,m_kClass);
-			//m_iAux->setName(kName);
-			m_lKList.push_back(m_iActorAux);
-			break;
-
-		case TYPE_BOSS:
-			m_iActorAux = new Actor(kName,iType,m_kClass);
-			//m_iAux->setName(kName);
-			m_lKList.push_back(m_iActorAux);
-
-	}// End Switch
-	return m_iActorAux;
+	return kActorAux;
 }
 
 //-----------------------------------------------------------------------------------------
@@ -101,11 +80,15 @@ ActorFactory * ActorFactory::GetInstance(){
 //-----------------------------------------------------------------------------------------
 void ActorFactory::GetCreations()
 {
+	/*
 	//if(count > 0)
 	//	{	
 	for (int i = 0; i < count; i++)
-	{cout << "Nombre: " << m_iActorAux->getName() << endl;}
+	{
+		cout << "Nombre: " << m_iActorAux->getName() << endl;
+	}
 	//	}
+	*/
 }
 //-----------------------------------------------------------------------------------------
 void ActorFactory::RelaseInstance(){

@@ -33,10 +33,11 @@ Potion :: Potion(const string &rkName , int iType  ,int iDaño, int iCa, int iRes
 				 int iResFir, int iResFro ,int iResSon,int iResElec,int iStr, 
 				 int iDex,  int iCon, int iInt,int iWis, int iCha, bool bCom) 
 
-				 :Item(rkName ,iType ,iDaño,iCa,iResAcd,iResFir,iResFro ,iResSon,iResElec,iStr, 
-				 iDex,iCon,iInt,iWis,iCha,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, bCom),
-				 m_sName(rkName),
-				 m_iType(iType)            
+:Item(rkName ,iType ,iDaño,iCa,iResAcd,iResFir,iResFro ,iResSon,iResElec,iStr, 
+	 iDex,iCon,iInt,iWis,iCha,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0, bCom),
+m_sName(rkName),
+m_iType(iType),
+m_bCom(bCom)
 {
 	//Creo el objeto del tipo atributo
 

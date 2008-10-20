@@ -19,11 +19,11 @@ public:
 	void GetCreations();
 	//------------------------------------------------------------------------------------------
 public:
-	Actor * m_iActorAux;
+	//Actor * m_iActorAux;
 private:
 	static int count;
 	static ActorFactory * instance;
-	Clase m_kClass;
+	//Clase m_kClass;
 
 };
 //------------------------------------------------------------------------------------------
