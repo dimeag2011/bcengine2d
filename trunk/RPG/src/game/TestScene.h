@@ -30,12 +30,15 @@ private:
 	// Los dos Sprite de abajo van a recibir los sprites de m_kPj y m_kPosion
 	//mediante un getSprite de Actor y Item
 	ActorFactory * m_kmyActor;
+	ItemFactory * m_kmyItem;
 	Item * m_kPosion;
 	Item * m_kArmadura;
 	Item * m_kEspada;
 	Actor * m_kPj;
 	Sprite * Actor1;  
-	Sprite * Item1; 
+	Sprite * Armadura; 
+	Sprite * Posion;  
+	Sprite * Espada; 
 };
 //----------------------------------------------------------------
 #endif // TESTSCENE_H

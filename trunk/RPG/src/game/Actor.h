@@ -27,6 +27,7 @@ public:
 //-----------------------------------------------------------------------------------------
 	void setItemEffect(Item *kItem);
 	void removeEffect(string m_sName);
+	void removeEquipable(Item *kItem);
 	void putItemInventory(Item *kItem);
 	void removeItemInventory(Item *kItem);
 	void useItem(int iType);
