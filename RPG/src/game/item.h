@@ -40,6 +40,7 @@ public:
 //-----------------------------------------------------------------------------------------
 	int GetItemType() { return m_iType; }
 	bool GetConsumable() {return m_bConsumable; }
+	string GetName(){return m_sName;}
 //-----------------------------------------------------------------------------------------
 	void setAttributes(int iResAcd,int iResFir, int iResFro ,int iResSon,int iResElec
 		,int iStr,int iDex,int iCon, int iInt,int iWis, int iCha,bool bCon);

@@ -193,6 +193,27 @@ void Actor::setItemEffect(Item *kItem)
 
 }
 //-----------------------------------------------------------------------------------------
+void Actor::removeEquipable(Item *kItem)
+{
+	m_kActAtt.setResAcd((m_kActAtt.getResAcd()- kItem->m_kAttAux.getResAcd()));
+	m_kActAtt.setResFir((m_kActAtt.getResFir()- kItem->m_kAttAux.getResFir()));
+	m_kActAtt.setResSon((m_kActAtt.getResSon()- kItem->m_kAttAux.getResSon()));
+	m_kActAtt.setResElec((m_kActAtt.getResElec()- kItem->m_kAttAux.getResElec()));
+	m_kActAtt.setStr((m_kActAtt.getStr()- kItem->m_kAttAux.getStr()));
+	m_kActAtt.setDex((m_kActAtt.getDex()- kItem->m_kAttAux.getDex()));
+	m_kActAtt.setCon((m_kActAtt.getCon()- kItem->m_kAttAux.getCon()));
+	m_kActAtt.setInt((m_kActAtt.getInt()- kItem->m_kAttAux.getInt()));
+	m_kActAtt.setWis((m_kActAtt.getWis()- kItem->m_kAttAux.getWis()));
+	m_kActAtt.setCha((m_kActAtt.getCha()- kItem->m_kAttAux.getCha()));
+
+	m_kActAtt.setSref((m_kActAtt.getSref()- kItem->m_kAttAux.getSref()));
+	m_kActAtt.setSstr((m_kActAtt.getSstr()- kItem->m_kAttAux.getSstr()));
+	m_kActAtt.setSwill((m_kActAtt.getSwill()- kItem->m_kAttAux.getSwill()));
+
+	m_kAuxActAtt = m_kActAtt;
+
+}
+//-----------------------------------------------------------------------------------------
 void Actor::removeEffect(string m_sName)
 {
 	//Busco el nombre del item al cual quiero sacar el efecto.
@@ -201,7 +222,7 @@ void Actor::removeEffect(string m_sName)
 		{
 			break;
 		}
-	}	
+}	
 
 	m_kActAtt.setResAcd((m_kActAtt.getResAcd()- m_kAEffect[i]->m_kAttAux.getResAcd()));
 	m_kActAtt.setResFir((m_kActAtt.getResFir()- m_kAEffect[i]->m_kAttAux.getResFir()));

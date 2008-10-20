@@ -9,7 +9,7 @@ using namespace std;
 #define TYPE_CONSUMEABLE		1
 #define TYPE_QUEST				3
 #define TYPE_TRASH				4
-#define TYPE_ITEM				5
+#define TYPE_ITEM				2
 //------------------------------------------------------------------------------
 // Subtypes
 #define TYPE_ARMOR		5
