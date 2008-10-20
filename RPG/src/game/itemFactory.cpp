@@ -17,21 +17,20 @@ Item * ItemFactory::CreateItem(int m_iType){
 
 	switch(m_iType){
 		case TYPE_ARMOR:
-			m_iAux = new ArmorWeapon();
-			m_iAux->setName("Armadura linda");
+			m_iAux = new ArmorWeapon("Armadura linda",TYPE_ARMOR,5,10,5,5,5,
+									5,5,-3,-2,0,0,0,0,false);
 			m_lKList.push_back(m_iAux);
 			break;
 
 		case TYPE_WEAPON:
-			m_iAux = new ArmorWeapon();
-			m_iAux->setName("Espada grosa");
+			m_iAux = new ArmorWeapon("Espada grosa",TYPE_WEAPON,8,0,0,0,
+										0,0,0,0,0,0,0,0,0,false);
 			m_lKList.push_back(m_iAux);
 			break;
 		case TYPE_POTION:
-			m_iAux = new Potion();
-			m_iAux->setName("Pocion loca");
+			m_iAux = new Potion("Pocion loca",TYPE_POTION,0,0,0,0,0,0,0,
+								2,2,2,2,2,2,true);
 			m_lKList.push_back(m_iAux);
-
 	}
 	return m_iAux;
 }

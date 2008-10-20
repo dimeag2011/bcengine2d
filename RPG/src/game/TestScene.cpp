@@ -37,46 +37,21 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 	
 	// initialize actor
 	//Le paso un puntero al importer y le seteo la posicion
-	if( !m_kPj->onInit(pkImporter, 0.0f, 0.0f, "Actor 1") )
+	Sprite* m_pkAuxSprite = new Sprite();
+	if(!pkImporter->createSprite("Pacman", m_pkAuxSprite))
+	{
 		return false;
-
+	}
+	else
+	{
+		//m_pkAuxSprite->setName(sName);
+		m_pkAuxSprite->setDim(50,50);
+		m_pkAuxSprite->setPos(0, 0);
+		m_kPj->setSprite(m_pkAuxSprite);
+		m_pkAuxSprite = NULL;
+	}
 	
-	// initialize posion
-	//Lo mismo que el actor
-	if( !m_kPosion->onInit(pkImporter, 50.0f, 50.0f, "Item1") )
-		return false;
-
-	if( !m_kArmadura->onInit(pkImporter, 200.0f, 0.0f, "Item2") )
-		return false;
-
-	if( !m_kEspada->onInit(pkImporter, -300.0f, -300.0f, "Item3") )
-		return false;
-
-// set properties
-	/*m_pkGhost1->setName("el fantasma loco");
-	m_pkGhost1->setDim(50,50);
-	m_pkGhost1->setPos(-100.0f, 0.0f, -1.0f);
-*/
-	addCollisionGroup("fantasma");
-	addCollisionGroup("pacman");
-//	addCollisionGroup("caja");
-	
-	//Le paso los Sprites para el addEntity
-	Actor1 = (m_kPj->getSprite());
-	Posion = (m_kPosion->getSprite());
-	Armadura = (m_kArmadura->getSprite());
-	Espada = (m_kEspada->getSprite());
-	
-	Actor1->setVisible(true);
-	Posion->setVisible(true);
-	Armadura->setVisible(true);
-	Espada->setVisible(true);
-
-	addEntity(Actor1, "pacman");
-	addEntity(Posion, "fantasma");
-	addEntity(Armadura, "fantasma");
-	addEntity(Armadura, "fantasma");
-	//addEntity(m_pkShape, "caja");
+	addEntity(m_kPj->getSprite());
 
 	return true;
 }
@@ -87,16 +62,16 @@ bool TestScene::onUpdate (float fTimeBetweenFrames)
 	updateGhostInput();
 
 	if (m_pkInput->getKeyDown(DIK_W))
-		Actor1->setPos(Actor1->getPosX(), Actor1->getPosY()+10.0f, Actor1->getPosZ());
+		m_kPj->getSprite()->setPos(m_kPj->getSprite()->getPosX(), m_kPj->getSprite()->getPosY()+1.0f);
 
-	if (m_pkInput->getKeyDown(DIK_N))
-		Actor1->setPos(Actor1->getPosX(), Actor1->getPosY()-10.0f, Actor1->getPosZ());		
+	if (m_pkInput->getKeyDown(DIK_S))
+		m_kPj->getSprite()->setPos(m_kPj->getSprite()->getPosX(), m_kPj->getSprite()->getPosY()-1.0f);		
 
 	if (m_pkInput->getKeyDown(DIK_A))
-		Actor1->setPos(Actor1->getPosX()-10.0f, Actor1->getPosY(), Actor1->getPosZ());		
+		m_kPj->getSprite()->setPos(m_kPj->getSprite()->getPosX()-1.0f, m_kPj->getSprite()->getPosY());		
 	
 	if (m_pkInput->getKeyDown(DIK_D))
-		Actor1->setPos(Actor1->getPosX()+10.0f, Actor1->getPosY(), Actor1->getPosZ());		
+		m_kPj->getSprite()->setPos(m_kPj->getSprite()->getPosX()+1.0f, m_kPj->getSprite()->getPosY());		
 
 	if (m_pkInput->getKeyEventDown(DIK_U))
 	{
@@ -186,6 +161,7 @@ void TestScene::onDraw (Renderer* pkRenderer) const
 bool TestScene::onDeinit ()
 {
 	//Hago boleta todo
+	/*
 	delete Actor1; Actor1 = NULL;
 	delete Posion;  Posion = NULL;
 	delete Armadura;  Armadura = NULL;
@@ -195,6 +171,7 @@ bool TestScene::onDeinit ()
 	delete m_kPosion; m_kPosion = NULL;
 	delete m_kArmadura; m_kArmadura = NULL;
 	delete m_kEspada; m_kEspada = NULL;
+	*/
 	
 	m_kmyActor->removeAll();
 	m_kmyActor->RelaseInstance();

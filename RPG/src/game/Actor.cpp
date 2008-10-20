@@ -307,6 +307,7 @@ void Actor::useItem(int iType){
 
 }
 //-----------------------------------------------------------------------------------------
+/*
 void Actor::Draw(Renderer* pkReenderer)
 {
 	m_pkActorSpr->draw(pkReenderer);
@@ -326,3 +327,4 @@ bool Actor::onInit(Importer* pkImporter, float fPosX, float fPosY, string sName)
 	m_pkActorSpr->setPos(fPosX, fPosY, 500.0f);
 }
 //-----------------------------------------------------------------------------------------
+*/

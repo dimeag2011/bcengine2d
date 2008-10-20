@@ -120,11 +120,9 @@ Item* Inventario::getItem(int iType){
 
 		return  (Item*) getCurrentChild();
 
-		/*}else{
-		cout << "No se encontro Item" <<endl;
-		}*/
-
 	}
+
+	return NULL;
 }
 //-----------------------------------------------------------------------
 bool onInit(Importer* pkImporter, float fPosX, float fPosY)

@@ -26,6 +26,7 @@ private:
 	int				m_iType;
 	string			m_sName;
 	string			m_Desc;
+	bool			m_bCom;
 	//-----------------------------------------------------------------------------------------
 	friend class ItemFactory;
 	friend class Actor;

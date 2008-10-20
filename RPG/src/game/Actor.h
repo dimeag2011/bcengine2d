@@ -32,9 +32,10 @@ public:
 	void removeItemInventory(Item *kItem);
 	void useItem(int iType);
 //-----------------------------------------------------------------------------------------
-	void Draw(Renderer* pkReenderer);
-	bool onInit(Importer* pkImporter, float fPosX, float fPosY, string sName);
+	//void Draw(Renderer* pkReenderer);
+	//bool onInit(Importer* pkImporter, float fPosX, float fPosY, string sName);
 	Sprite * getSprite(){ return m_pkActorSpr; }
+	void setSprite(Sprite* kSprite) { m_pkActorSpr = kSprite;}
 //-----------------------------------------------------------------------------------------
 private:
 	Inventario *m_kInventory; 
@@ -49,9 +50,11 @@ private:
 	Attribute   m_kActAtt;
 	Skill		m_kActSki;
 
-	Sprite		*m_pkActorSpr;
+
 	float		m_fPosX;
 	float		m_fPosY;
+
+	Sprite		*m_pkActorSpr;
 
 public:
 	Attribute   m_kAuxActAtt;
