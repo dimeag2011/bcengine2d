@@ -22,8 +22,8 @@ public:
 private:
 	static int count;
 	static ItemFactory * instance;
-	Item * m_iAux;
-	Component * m_AuxComp;
+	
+	//Component * m_AuxComp;
 
 
 };

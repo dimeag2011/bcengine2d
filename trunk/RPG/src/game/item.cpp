@@ -152,12 +152,8 @@ void Item::setAttributes(int iResAcd,int iResFir, int iResFro ,int iResSon,int i
 	m_kAttAux = m_kModAtt;
 }
 //-----------------------------------------------------------------------------------------
-void Item::Draw(Renderer *pkRenderer)
-{
-	m_pkItemSpr->draw(pkRenderer);
-}
 //-----------------------------------------------------------------------------------------
-bool Item::onInit(Importer* pkImporter, float fPosX, float fPosY,string sName)
+/*bool Item::onInit(Importer* pkImporter, float fPosX, float fPosY,string sName)
 {
 	m_pkItemSpr = new Sprite();
 	if( !pkImporter->createSprite("Fantasma", m_pkItemSpr) ){
@@ -169,5 +165,5 @@ bool Item::onInit(Importer* pkImporter, float fPosX, float fPosY,string sName)
 	m_pkItemSpr->setPos(fPosX, fPosY, 500.0f);
 
 	return false;
-}
+}*/
 //-----------------------------------------------------------------------------------------

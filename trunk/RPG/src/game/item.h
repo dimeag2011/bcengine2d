@@ -45,8 +45,7 @@ public:
 	void setAttributes(int iResAcd,int iResFir, int iResFro ,int iResSon,int iResElec
 		,int iStr,int iDex,int iCon, int iInt,int iWis, int iCha,bool bCon);
 //-----------------------------------------------------------------------------------------	
-	void Draw(Renderer *pkRenderer);
-	bool onInit(Importer* pkImporter, float fPosX, float fPosY, string sName);
+	void setSprite(Sprite* kSprite) { m_pkItemSpr = kSprite;}
 	Sprite * getSprite() { return m_pkItemSpr; }
 	//virtual void setAttItem(Atrribute kModAtt);
 //-----------------------------------------------------------------------------------------

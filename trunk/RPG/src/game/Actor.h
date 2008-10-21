@@ -38,7 +38,6 @@ public:
 	void setSprite(Sprite* kSprite) { m_pkActorSpr = kSprite;}
 //-----------------------------------------------------------------------------------------
 private:
-	Inventario *m_kInventory; 
 	Item		*m_kAEffect[10];
 
 
@@ -57,6 +56,7 @@ private:
 	Sprite		*m_pkActorSpr;
 
 public:
+	Inventario *m_kInventory; 
 	Attribute   m_kAuxActAtt;
 	Skill		m_kAuxActSki;
 	int			i,z;

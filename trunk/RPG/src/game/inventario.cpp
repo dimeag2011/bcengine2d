@@ -5,10 +5,8 @@ Inventario::Inventario()
 :
 m_iSlots(INVENTORY_SLOTS) 
 {
-	/*
-	for (int i = 0; i < m_iSlots; i++)
-	m_kNumItems.push_back(0);
-	*/
+	for (int i=0; i<INVENTORY_SLOTS; i++)
+		m_pkInvSprt[i] = NULL;
 }
 //-----------------------------------------------------------------------
 Inventario::~Inventario(){
@@ -125,7 +123,7 @@ Item* Inventario::getItem(int iType){
 	return NULL;
 }
 //-----------------------------------------------------------------------
-bool onInit(Importer* pkImporter, float fPosX, float fPosY)
+/*bool onInit(Importer* pkImporter, float fPosX, float fPosY)
 {
 	/*if( !pkImporter->createSprite("Ghost", m_pkInvSprt) ){
 		return true;
@@ -134,12 +132,29 @@ bool onInit(Importer* pkImporter, float fPosX, float fPosY)
 	m_pkInvSprt->setName("el Item loco");
 	m_pkInvSprt->setDim(50,50);
 	m_pkInvSprt->setPos(fPosX, fPosY, 500.0f);
-*/
-	return false;
-}
-//-----------------------------------------------------------------------
-void Draw(Renderer * pkRenderer)
-{
 
+	return false;
+}*/ 
+//-----------------------------------------------------------------------
+void Inventario::setPos(float fPosX, float fPosY)
+{
+	if (m_pkInvSprt[0])
+	{
+		float Pos0X = ((INVENTORY_WIDTH * m_pkInvSprt[0]->getDimW()) - (m_pkInvSprt[0]->getDimW() / 2));
+		float Pos0Y = ((INVENTORY_HEIGHT * m_pkInvSprt[0]->getDimH()) - (m_pkInvSprt[0]->getDimH() / 2));
+
+		for(int i = 0; i < INVENTORY_HEIGHT; i++)
+		{
+			for (int j = 0; j < INVENTORY_WIDTH; j++)
+			{
+				if (m_pkInvSprt[INVENTORY_WIDTH * i + j])
+				{
+					float fWidth = m_pkInvSprt[INVENTORY_WIDTH * i + j]->getDimW();
+					float fHeight = m_pkInvSprt[INVENTORY_WIDTH * i + j]->getDimH();
+					m_pkInvSprt[INVENTORY_WIDTH * i + j]->setPos(Pos0X + fWidth *  i, Pos0Y + fHeight * j);
+				}
+			}
+		}
+	}
 }
 //-----------------------------------------------------------------------

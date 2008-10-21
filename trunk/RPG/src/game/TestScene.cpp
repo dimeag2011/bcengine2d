@@ -48,11 +48,27 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 		m_pkAuxSprite->setDim(50,50);
 		m_pkAuxSprite->setPos(0, 0);
 		m_kPj->setSprite(m_pkAuxSprite);
+		addEntity(m_pkAuxSprite);
 		m_pkAuxSprite = NULL;
 	}
 	
-	addEntity(m_kPj->getSprite());
-
+	for(int i=0; i < m_kPj->m_kInventory->getMaxSlots(); i++)
+	{
+		Sprite* m_pkAuxSprite = new Sprite();
+		if(!pkImporter->createSprite("Fantasma", m_pkAuxSprite))
+		{
+			return false;
+		}
+		else
+		{
+			m_pkAuxSprite->setDim(50,50);
+			m_kPj->m_kInventory->setSprite(m_pkAuxSprite, i);
+			addEntity(m_pkAuxSprite);
+			m_pkAuxSprite = NULL;
+		}
+	}
+	m_kPj->m_kInventory->setPos(10,10);
+	
 	return true;
 }
 //----------------------------------------------------------------
