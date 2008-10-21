@@ -15,23 +15,24 @@ ItemFactory::~ItemFactory(){
 //-----------------------------------------------------------------------------------------
 Item * ItemFactory::CreateItem(int m_iType){
 
+	Item * m_iAux;
 	switch(m_iType){
 		case TYPE_ARMOR:
 			m_iAux = new ArmorWeapon("Armadura linda",TYPE_ARMOR,5,10,5,5,5,
 									5,5,-3,-2,0,0,0,0,false);
-			m_lKList.push_back(m_iAux);
 			break;
 
 		case TYPE_WEAPON:
 			m_iAux = new ArmorWeapon("Espada grosa",TYPE_WEAPON,8,0,0,0,
 										0,0,0,0,0,0,0,0,0,false);
-			m_lKList.push_back(m_iAux);
 			break;
 		case TYPE_POTION:
 			m_iAux = new Potion("Pocion loca",TYPE_POTION,0,0,0,0,0,0,0,
 								2,2,2,2,2,2,true);
-			m_lKList.push_back(m_iAux);
+			break;
 	}
+	
+	m_lKList.push_back(m_iAux);
 	return m_iAux;
 }
 //-----------------------------------------------------------------------------------------
@@ -43,7 +44,7 @@ ItemFactory * ItemFactory::GetInstance(){
 }
 //-----------------------------------------------------------------------------------------
 void ItemFactory::GetCreations()
-{
+{/*
 	//if(count > 0)
 	//	{	
 	//			for (int i = 0; i < count; i++)
@@ -61,9 +62,7 @@ void ItemFactory::GetCreations()
 
 	}
 
-
-
-
+	*/
 }
 //-----------------------------------------------------------------------------------------
 void ItemFactory::RelaseInstance(){

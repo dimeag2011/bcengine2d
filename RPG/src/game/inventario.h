@@ -24,14 +24,18 @@ public:
 	bool removeItem(Item* pkItem);
 	Item* getItem(int iType);
 //-----------------------------------------------------------------------
-	bool onInit(Importer* pkImporter, float fPosX, float fPosY);
-	void Draw(Renderer * pkRenderer);
+	void setSprite(Sprite* kSprite, int iIndex) { m_pkInvSprt[iIndex] = kSprite; }
+	Sprite * getSprite(int iIndex) { return m_pkInvSprt[iIndex]; }
+//-----------------------------------------------------------------------
+	void setPos(float fPosX, float fPosY);
+	float getPosX() { return m_fPosX;}
+	float getPosY() { return m_fPosY;}
 //-----------------------------------------------------------------------
 
 private:
 	int m_iSlots;
 	float m_fPosX, m_fPosY;
-//	Sprite *m_pkInvSprt;
+	Sprite *m_pkInvSprt[INVENTORY_SLOTS];
 
 	//vector<int> m_kNumItems;
 //-----------------------------------------------------------------------
