@@ -447,6 +447,18 @@
 			Name="Font"
 			>
 			<File
+				RelativePath=".\Character.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\includes\Character.h"
+				>
+			</File>
+			<File
+				RelativePath=".\includes\Character.inl"
+				>
+			</File>
+			<File
 				RelativePath=".\Font.cpp"
 				>
 			</File>

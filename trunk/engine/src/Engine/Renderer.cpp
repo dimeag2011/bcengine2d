@@ -60,6 +60,18 @@ bool Renderer::InitDX(HWND hWnd)
 		);
 
 	if (hr!=D3D_OK)
+	{
+		hr = _pD3D->CreateDevice(
+				D3DADAPTER_DEFAULT,
+ 				D3DDEVTYPE_HAL,
+				hWnd,
+				D3DCREATE_SOFTWARE_VERTEXPROCESSING,
+				&d3dPresentParameters,
+				&m_pkDevice
+			);
+	}
+
+	if (hr!=D3D_OK)
 		return false;
 
 	if (!m_pkDevice)
