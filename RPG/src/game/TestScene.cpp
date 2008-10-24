@@ -48,7 +48,9 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 		m_pkAuxSprite->setDim(50,50);
 		m_pkAuxSprite->setPos(0, 0);
 		m_kPj->setSprite(m_pkAuxSprite);
-		addEntity(m_pkAuxSprite);
+		Actor1 = m_kPj->getSprite();
+		addEntity(Actor1);
+		//addEntity(m_pkAuxSprite);
 		m_pkAuxSprite = NULL;
 	}
 	
@@ -68,14 +70,65 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 		}
 	}
 	m_kPj->m_kInventory->setPos(10,10);
+
+
+	m_pkAuxSprite = new Sprite();
+	if(!pkImporter->createSprite("Fantasma", m_pkAuxSprite))
+	{
+		return false;
+	}
+	else
+	{
+		//m_pkAuxSprite->setName(sName);
+		m_pkAuxSprite->setDim(50,50);
+		m_pkAuxSprite->setPos(-50, 200);
+		m_kPosion->setSprite(m_pkAuxSprite);
+		//addEntity(m_pkAuxSprite);
+		Posion = m_kPosion->getSprite();
+		addEntity(Posion);
+		m_pkAuxSprite = NULL;
+	}
+
+	m_pkAuxSprite = new Sprite();
+	if(!pkImporter->createSprite("Fantasma", m_pkAuxSprite))
+	{
+		return false;
+	}
+	else
+	{
+		//m_pkAuxSprite->setName(sName);
+		m_pkAuxSprite->setDim(50,50);
+		m_pkAuxSprite->setPos(-150, 200);
+		m_kArmadura->setSprite(m_pkAuxSprite);
+		//addEntity(m_pkAuxSprite);
+		Armadura = m_kArmadura->getSprite();
+		addEntity(Armadura);
+		m_pkAuxSprite = NULL;
+	}
 	
+	m_pkAuxSprite = new Sprite();
+	if(!pkImporter->createSprite("Fantasma", m_pkAuxSprite))
+	{
+		return false;
+	}
+	else
+	{
+		//m_pkAuxSprite->setName(sName);
+		m_pkAuxSprite->setDim(50,50);
+		m_pkAuxSprite->setPos(-300, -150);
+		m_kEspada->setSprite(m_pkAuxSprite);
+		//addEntity(m_pkAuxSprite);
+		Espada = m_kEspada->getSprite();
+		addEntity(Espada);
+		m_pkAuxSprite = NULL;
+	}
 	return true;
 }
 //----------------------------------------------------------------
 bool TestScene::onUpdate (float fTimeBetweenFrames)
 {
-	//updatePacmanCollision();
-	updateGhostInput();
+	updatePacmanCollision();
+	//updateGhostInput();
 
 	if (m_pkInput->getKeyDown(DIK_W))
 		m_kPj->getSprite()->setPos(m_kPj->getSprite()->getPosX(), m_kPj->getSprite()->getPosY()+1.0f);
@@ -99,7 +152,7 @@ bool TestScene::onUpdate (float fTimeBetweenFrames)
 	}
 	if (m_pkInput->getKeyEventDown(DIK_O))
 	{
-		m_kPj->useItem(TYPE_ARMOR);
+		m_kPj->useItem(TYPE_POTION);
 	}
 	if (m_pkInput->getKeyEventDown(DIK_J))
 	{
@@ -150,6 +203,9 @@ void TestScene::updatePacmanCollision ()
 	{
 		m_kPj->putItemInventory(m_kPosion);
 		Posion->setVisible(false);
+		/*if (Posion)
+			removeEntity(Posion);
+				*/
 	}
 
 	 eResult = Actor1->checkCollision(Armadura);
@@ -179,7 +235,7 @@ bool TestScene::onDeinit ()
 	//Hago boleta todo
 	/*
 	delete Actor1; Actor1 = NULL;
-	delete Posion;  Posion = NULL;
+	
 	delete Armadura;  Armadura = NULL;
 	delete Espada;  Espada = NULL;
 			
@@ -188,7 +244,7 @@ bool TestScene::onDeinit ()
 	delete m_kArmadura; m_kArmadura = NULL;
 	delete m_kEspada; m_kEspada = NULL;
 	*/
-	
+	delete Posion;  Posion = NULL;
 	m_kmyActor->removeAll();
 	m_kmyActor->RelaseInstance();
 	m_kmyItem->removeAll();

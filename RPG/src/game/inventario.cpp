@@ -107,16 +107,16 @@ bool Inventario::removeItem(Item* pkItem){
 Item* Inventario::getItem(int iType){
 
 	int i;
-	if (getNumChilds() > 0)
+	if (this->getNumChilds() > 0)
 	{
-		goFirstChild();
+		this->goFirstChild();
 		for (i = 0; i < m_iSlots; i++)
 		{
-			if ((getCurrentChild()->getType()) == iType)
+			if ((this->getCurrentChild()->getType()) == iType)
 				break;
 		}
 
-		return  (Item*) getCurrentChild();
+		return  (Item*) this->getCurrentChild();
 
 	}
 

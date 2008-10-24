@@ -164,6 +164,8 @@ Clase Actor::getClassHero()
 //-----------------------------------------------------------------------------------------
 void Actor::setItemEffect(Item *kItem)
 {
+	//revisar porque carga de nuevo el item, 
+	if(kItem != NULL){
 	m_kActAtt.setResAcd((m_kActAtt.getResAcd()+ kItem->m_kAttAux.getResAcd()));
 	m_kActAtt.setResFir((m_kActAtt.getResFir()+ kItem->m_kAttAux.getResFir()));
 	m_kActAtt.setResSon((m_kActAtt.getResSon()+ kItem->m_kAttAux.getResSon()));
@@ -190,7 +192,8 @@ void Actor::setItemEffect(Item *kItem)
 
 		i++;
 	}
-
+  }	
+	kItem = NULL;
 }
 //-----------------------------------------------------------------------------------------
 void Actor::removeEquipable(Item *kItem)
