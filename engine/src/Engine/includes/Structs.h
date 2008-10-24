@@ -48,5 +48,18 @@ struct RGBColor {
 	}
 };
 //----------------------------------------------------------------
+// Estructura para almacenar los datos de los caracteres de los fnt
+struct CharData
+{
+	char cId;
+	int iX;
+	int iY;
+	int iHeight;
+	int iWidth;
+	int iXOffset;
+	int iYOffset;
+	int iXAdvance;
+};
+//----------------------------------------------------------------
 #endif // GRAPHICS_STRUCTS_H
 //----------------------------------------------------------------

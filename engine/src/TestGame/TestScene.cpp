@@ -7,7 +7,8 @@ m_pkShape(NULL),
 m_pkPacman(NULL),
 m_pkGhost1(NULL),
 m_pkMapa(NULL),
-m_pkFont(NULL)
+m_pkFont(NULL),
+iPuntaje(0)
 {
 	/***/
 }
@@ -70,7 +71,7 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 
 	m_pkFont = new Font(pkRenderer, this);
 	m_pkFont->loadFont("../../res/font/font2.fnt");
-	m_pkFont->setText("SOMOS LA SAL");
+	m_pkFont->setText("SOMOS LA SAL!-.");
 	m_pkFont->setPos(-400,0);
 
 	return true;
@@ -101,7 +102,10 @@ bool TestScene::onUpdate (float fTimeBetweenFrames)
 
 	m_pkFont->setPos(m_pkFont->getPosX() + 0.1, m_pkFont->getPosY());
 
-	//m_pkFont->setText("Xnalksdfnlaksjdfnhkajsdhfkajsdbfkajsdbhflkajshdfahsdkfhaksdcvaksjdfhaklsdjfnhkasdhfkjashdfjkahsdkfjhaskdfhkasdhfkabfuiqwehfaksdnvahfaksdfnvkajfh");
+	if (m_pkInput->getKeyEventDown(DIK_P))
+		iPuntaje += 100;
+
+	m_pkFont->setText("Puntaje: %d", iPuntaje);
 	
 	return true;
 }

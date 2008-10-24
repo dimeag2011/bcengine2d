@@ -18,6 +18,8 @@
 #include <map>
 #include <cassert>
 #include <sstream>
+#include <stdarg.h>
+#include <stdio.h>
 //--------------------------------------------------------------------------------
 // boost smart pointer
 #include <boost/shared_ptr.hpp>

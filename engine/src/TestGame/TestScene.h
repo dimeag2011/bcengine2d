@@ -31,6 +31,7 @@ private:
 	Map* m_pkMapa;
 	Font* m_pkFont;
 
+	int iPuntaje;
 };
 //----------------------------------------------------------------
 #endif // TESTSCENE_H

@@ -9,7 +9,6 @@ m_fPosX(0),
 m_fPosY(0),
 m_fPosZ(0),
 m_iLength(0),
-m_pkChars(NULL),
 m_kText("")
 {
 
@@ -17,15 +16,14 @@ m_kText("")
 //----------------------------------------------------------------
 Font::~Font()
 {
-	if (m_pkChars)
+	if (!(m_pkChars.empty()))
 	{
 		for (int i = 0; i < m_iLength; i++)
 		{
 			if (&(m_pkChars[i]))
 				m_pkScene->removeEntity(&(m_pkChars[i]));
 		}
-		delete[] m_pkChars;
-		m_pkChars = NULL;
+		m_pkChars.clear();
 		m_iLength = 0;
 	}
 }
@@ -61,14 +59,19 @@ bool Font::loadFont(string kFontFile)
 		const char* pszCharY = kCharNode.getAttribute("y");
 		const char* pszCharHeight = kCharNode.getAttribute("height");
 		const char* pszCharWidth = kCharNode.getAttribute("width");
+		const char* pszCharXOffset = kCharNode.getAttribute("xoffset");
+		const char* pszCharYOffset = kCharNode.getAttribute("yoffset");
 		const char* pszCharXAdvance = kCharNode.getAttribute("xadvance");
 
 		CharData aux;
-		aux.fX = atof(pszCharX);
-		aux.fY = atof(pszCharY);
-		aux.fHeight = atof(pszCharHeight);
-		aux.fWidth = atof(pszCharWidth);
-		aux.fXAdvance = atof(pszCharXAdvance);
+		aux.cId = atoi(pszCharId);
+		aux.iX = atoi(pszCharX);
+		aux.iY = atoi(pszCharY);
+		aux.iHeight = atoi(pszCharHeight);
+		aux.iWidth = atoi(pszCharWidth);
+		aux.iXOffset = atoi(pszCharXOffset);
+		aux.iYOffset = atoi(pszCharYOffset);
+		aux.iXAdvance = atoi(pszCharXAdvance);
 		
 		char cId = atoi(pszCharId);
 		m_pcCharsData.insert(pair<char, CharData>(cId, aux));
@@ -78,40 +81,55 @@ bool Font::loadFont(string kFontFile)
 
 }
 //----------------------------------------------------------------
-void Font::setText(string kText)
+void Font::setText(char * psz_Texto, ...)
 {
-	m_kText = kText;
-	if (kText.length() > m_iLength)
+	static char psz_Text[256];
+
+	va_list argptr; 
+		va_start(argptr, psz_Texto); 
+		vsprintf(psz_Text, psz_Texto, argptr);
+	va_end(argptr);
+
+	m_kText.clear();
+	m_kText = psz_Text;
+	if (m_kText.length() > m_iLength)
 	{
-		if (m_pkChars)
+		if (!(m_pkChars.empty()))
 		{
 			for (int i = 0; i < m_iLength; i++)
 			{
 				if (&(m_pkChars[i]))
 					m_pkScene->removeEntity(&(m_pkChars[i]));
 			}
-			delete[] m_pkChars;
-			m_pkChars = NULL;
+			m_pkChars.empty();
 			m_iLength = 0;
 		}
-
-		m_pkChars = new Sprite[kText.length()];
+		m_pkChars.resize(m_kText.length(), Character());
+	}
+	else
+	{
+		while (m_pkChars.size() > m_kText.length())
+		{
+			m_pkScene->removeEntity(&m_pkChars.back());
+			m_pkChars.resize((m_pkChars.size() - 1));
+		}
 	}
 
 	m_iLength = 0;
-	for (int i=0; i < kText.length(); i++)
+	for (int i=0; i < m_kText.length(); i++)
 	{
-		CharsDataIt itChar = m_pcCharsData.find(kText.at(i));
+		CharsDataIt itChar = m_pcCharsData.find(m_kText.at(i));
 		if (itChar != m_pcCharsData.end())
 		{
 			char cChar = itChar->first;
 			CharData kCharData = itChar->second;
 
 			m_pkChars[i].setTexture(m_pkTexture);
-			m_pkChars[i].setTextureArea(kCharData.fX, kCharData.fY,
-										kCharData.fWidth, kCharData.fHeight);
-			m_pkChars[i].setDim(kCharData.fWidth, kCharData.fHeight, false);
-			m_pkChars[i].setBBDim(kCharData.fXAdvance, 0);
+			m_pkChars[i].setTextureArea(kCharData.iX, kCharData.iY,
+										kCharData.iWidth, kCharData.iHeight);
+			m_pkChars[i].setDim(kCharData.iWidth, kCharData.iHeight, false);
+			m_pkChars[i].setCharData(kCharData);
+
 			m_pkScene->addEntity(&m_pkChars[i]);
 			m_iLength++;
 		}
@@ -130,14 +148,19 @@ void Font::setPos(float fPosX, float fPosY, float fPosZ)
 	float fTotalWidth = 0;
 	for (int i = 0; i < m_iLength; i++)
 	{
-		fTotalWidth += m_pkChars[i].getBBDimW();
+		fTotalWidth += m_pkChars[i].getCharData().iXAdvance;
+		fTotalWidth += m_pkChars[i].getCharData().iXOffset;
 	}
 
-	m_pkChars[0].setPos(m_fPosX - fTotalWidth / 2 + m_pkChars[0].getBBDimW() / 2,
-							m_fPosY, m_fPosZ);
+	m_pkChars[0].setPos(m_fPosX - fTotalWidth / 2 + m_pkChars[0].getCharData().iXAdvance / 2 
+							+ m_pkChars[0].getCharData().iXOffset,
+							m_fPosY - m_pkChars[0].getCharData().iYOffset - m_pkChars[0].getCharData().iHeight / 2,
+							m_fPosZ);
 
 	for (int i = 1; i < m_iLength; i++)
-		m_pkChars[i].setPos(m_pkChars[i-1].getPosX() + m_pkChars[i-1].getBBDimW() / 2 +
-								m_pkChars[i].getDimW() / 2, m_fPosY, m_fPosZ);
+		m_pkChars[i].setPos(m_pkChars[i-1].getPosX() + m_pkChars[i-1].getCharData().iXAdvance / 2 +
+								m_pkChars[i].getCharData().iXAdvance / 2 + m_pkChars[i].getCharData().iXOffset,
+								m_fPosY - m_pkChars[i].getCharData().iYOffset - m_pkChars[i].getCharData().iHeight / 2,
+								m_fPosZ);
 }
 //----------------------------------------------------------------
