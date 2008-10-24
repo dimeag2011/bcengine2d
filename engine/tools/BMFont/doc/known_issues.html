@@ -1,0 +1,52 @@
+<html>
+<head>
+<title>Bitmap Font Generator - Documentation</title>
+</head>
+<body>
+
+<h1>Bitmap Font Generator - Documentation</h1>
+
+<p><a href="../documentation.html">Back to main page</a></p>
+
+<h2>Known issues</h2>
+
+<h3>Cropped characters</h3>
+
+<p>With some fonts, some characters are cropped. An example is Bitstream's Cyberbit font, where the bottom of the 
+square bracket characters are cropped off in some font sizes.</p>
+
+<p>This is a compatibility problem between the font and GDI, not a problem in this application by itself. You get 
+the same problem in WordPad for example. I will however try out other font rasterizers, to see if I can fix this 
+problem in a future version.</p>
+
+<h3>Rotated characters</h3>
+
+<p>Some font files have some but not all subsets with characters rotated by 90 degrees. For example @Arial Unicode MS, 
+with subset Enclosed Alphanumerics. This is not an error, but a feature of that font file. With the font rotated 
+like this it permits writing texts in normal text editors as if they were in vertical lines.</p>
+
+<h3>Large bitmap fonts switch to Arial</h3>
+
+<p>Some bitmap fonts, e.g. FixedSys, may switch to Arial when generating very large fonts. This is a side effect of
+BMFont using GDI for rasterizing the fonts. As GDI doesn't support rendering these bitmap fonts at very large sizes it 
+automatically switches to the default TrueType font, Arial, instead.</p>
+
+<h3>Texture file names with more than 2 digits for page number</h3>
+
+<p>For fonts with a large number of characters, or few characters per page, the number of texture files can exceed 100,
+in which case the file names begin to use more than 2 digits for the page number. Although this may cause 
+inconvencience for applications that rely on the texture files following the same fixed pattern for all file names, I 
+do not consider this a bug in BMFont. Instead the user should adjust the font size or texture size to lower the number 
+of texture files generated per font. This will not only avoid the differently named files, but will also improve the 
+performance of the application that uses the font as there will be less texture swaps while rendering the font.</p>
+
+<h3>Sound is played when selecting items in the list views on Windows Vista</h3>
+
+<p>On Windows Vista you might hear a sound anytime an item is selected in the list views, either the unicode charset 
+list or the image manager list. It seems that this is actually 
+<a href="http://blogs.msdn.com/larryosterman/archive/2008/09/25/why-specify-snd-nodefault-when-calling-playsound.aspx">a bug in Windows Vista</a>, 
+and will likely be fixed by Microsoft in a future patch.</p>
+
+
+</body>
+</html>

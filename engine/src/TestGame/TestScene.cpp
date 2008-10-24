@@ -6,7 +6,8 @@ TestScene::TestScene ()
 m_pkShape(NULL),
 m_pkPacman(NULL),
 m_pkGhost1(NULL),
-m_pkMapa(NULL)
+m_pkMapa(NULL),
+m_pkFont(NULL)
 {
 	/***/
 }
@@ -67,6 +68,10 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 	m_pkMapa->setLayerVisible(1,false);
 	setCurrentMap(m_pkMapa);
 
+	m_pkFont = new Font(pkRenderer, this);
+	m_pkFont->loadFont("../../res/font/font.fnt");
+	m_pkFont->setText("X");
+
 	return true;
 }
 //----------------------------------------------------------------
@@ -113,6 +118,10 @@ void TestScene::updateGhostInput ()
 		m_pkPacman->setMoving(true);
 		
 	}
+
+	if (m_pkInput->getKeyEventDown(DIK_B))
+		removeEntity(m_pkGhost1);
+
 }
 //----------------------------------------------------------------
 void TestScene::updatePacmanCollision ()

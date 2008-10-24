@@ -173,30 +173,36 @@ bool Scene::addEntity (Entity2D* pkEntity, string kColGroup)
 //----------------------------------------------------------------
 bool Scene::removeEntity (Entity2D* pkEntity)
 {
-	// delete from collision group
-	const string& kColGroup = pkEntity->getCollisionGroup();
-	
-	// check for empty collision group name
-	if(kColGroup != "")
-	{
-		// find if a group with that name already exists
-		Entity2DVector* pkColGroup = m_kpaCollisionGroups[kColGroup];
-		assert(pkColGroup);
-
-		Entity2DVectorIt kEntColIt = find( pkColGroup->begin(), 
-												pkColGroup->end(), 
-												pkEntity
-										);
-
-		pkColGroup->erase(kEntColIt);
-	}
-
 	// delete from scene
 	Entity2DVectorIt kEntIt = find( m_apkEntities.begin(), 
 										m_apkEntities.end(), 
 										pkEntity
 								);
-	m_apkEntities.erase(kEntIt);
+	if (kEntIt != m_apkEntities.end())
+	{
+		m_apkEntities.erase(kEntIt);
+
+		// delete from collision group
+		const string& kColGroup = pkEntity->getCollisionGroup();
+		
+		// check for empty collision group name
+		if(kColGroup != "")
+		{
+			// find if a group with that name already exists
+			Entity2DVector* pkColGroup = m_kpaCollisionGroups[kColGroup];
+			assert(pkColGroup);
+
+			Entity2DVectorIt kEntColIt = find( pkColGroup->begin(), 
+													pkColGroup->end(), 
+													pkEntity
+											);
+
+			if (kEntColIt != pkColGroup->end())
+				pkColGroup->erase(kEntColIt);
+		}
+	}
+
+
 
 	return true;	
 }

@@ -443,6 +443,22 @@
 				>
 			</File>
 		</Filter>
+		<Filter
+			Name="Font"
+			>
+			<File
+				RelativePath=".\Font.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\includes\Font.h"
+				>
+			</File>
+			<File
+				RelativePath=".\includes\Font.inl"
+				>
+			</File>
+		</Filter>
 		<File
 			RelativePath=".\includes\Defines.h"
 			>

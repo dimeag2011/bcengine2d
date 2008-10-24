@@ -29,6 +29,7 @@ private:
 	Sprite* m_pkPacman;
 	Sprite* m_pkGhost1;
 	Map* m_pkMapa;
+	Font* m_pkFont;
 
 };
 //----------------------------------------------------------------
