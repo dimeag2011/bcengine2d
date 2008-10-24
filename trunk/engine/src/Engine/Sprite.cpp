@@ -132,6 +132,9 @@ void Sprite::clone (Sprite* pkSprite)
 	// copy vertices
 	for(unsigned int i=0; i<4; i++)
 		pkSprite->m_akVertices[i] = m_akVertices[i];
+
+	// copy dimension
+	pkSprite->setDim(getDimW(), getDimH());
 }
 //----------------------------------------------------------------
 void Sprite::onCollision (Entity2D* pkEntity)

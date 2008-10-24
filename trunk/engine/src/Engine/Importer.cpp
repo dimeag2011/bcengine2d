@@ -92,6 +92,7 @@ bool Importer::importSprite (XMLNode& rkNode)
 
 	pkSprite->setName(pszName);
 	pkSprite->setTextureArea(uiTexPosX, uiTexPosY, uiWidth, uiHeight);
+	pkSprite->setDim(uiWidth, uiHeight);
 
 	// load animations
 	int iTotalAnims = rkNode.nChildNode("SPRITE_ANIMATION");	

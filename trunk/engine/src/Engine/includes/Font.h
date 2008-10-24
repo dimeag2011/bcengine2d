@@ -17,6 +17,10 @@ public:
 	bool loadFont(string kFontFile);
 	void setText(string kText);
 	void setPos(float fPosX, float fPosY, float fPosZ = 1.0f);
+	string getText();
+	float getPosX();
+	float getPosY();
+	float getPosZ();
 
 private:
 	struct CharData
@@ -25,6 +29,7 @@ private:
 		float fY;
 		float fHeight;
 		float fWidth;
+		float fXAdvance;
 	};
 	Sprite* m_pkChars;
 	float m_fPosX;
@@ -36,6 +41,7 @@ private:
 	Texture::Ptr m_pkTexture;
 	map<char,CharData> m_pcCharsData;
 	typedef map<char,CharData>::iterator CharsDataIt;
+	int m_iLength;
 };
 //----------------------------------------------------------------
 #include "Font.inl"

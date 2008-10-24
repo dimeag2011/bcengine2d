@@ -166,7 +166,10 @@ bool Scene::addEntity (Entity2D* pkEntity, string kColGroup)
 		pkEntity->setCollisionGroup(kColGroup);
 	}
 
-	m_apkEntities.push_back(pkEntity);
+	Entity2DVectorIt itEntity = find(m_apkEntities.begin(), m_apkEntities.end(), pkEntity);
+
+	if (itEntity == m_apkEntities.end())
+		m_apkEntities.push_back(pkEntity);
 
 	return true;
 }
