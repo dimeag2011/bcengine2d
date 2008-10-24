@@ -276,14 +276,6 @@
 						RelativePath=".\itemFactory.h"
 						>
 					</File>
-					<File
-						RelativePath=".\worldFactory.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\worldFactory.h"
-						>
-					</File>
 				</Filter>
 				<Filter
 					Name="Actor"
@@ -342,6 +334,14 @@
 					</File>
 					<File
 						RelativePath=".\skills.h"
+						>
+					</File>
+					<File
+						RelativePath=".\world.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\world.h"
 						>
 					</File>
 				</Filter>
