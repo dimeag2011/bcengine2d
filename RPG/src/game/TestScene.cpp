@@ -3,6 +3,7 @@
 //----------------------------------------------------------------
 TestScene::TestScene ()
 :
+m_pkFont(NULL),
 m_kmyActor(NULL),
 m_kPosion(NULL),
 m_kArmadura(NULL),
@@ -122,6 +123,12 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 		addEntity(Espada);
 		m_pkAuxSprite = NULL;
 	}
+
+	m_pkFont = new Font(pkRenderer, this);
+	m_pkFont->loadFont("../../res/font/font2.fnt");
+	m_pkFont->setText("SOMOS LA SAL!-.");
+	m_pkFont->setPos(-400,0);
+
 	return true;
 }
 //----------------------------------------------------------------
@@ -167,7 +174,7 @@ bool TestScene::onUpdate (float fTimeBetweenFrames)
 		m_kPj->removeEffect(m_kPosion->GetName());
 	}
 	
-
+	m_pkFont->setPos(m_pkFont->getPosX() + 0.1, m_pkFont->getPosY());
 
 	return true;
 }
