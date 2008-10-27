@@ -1,12 +1,13 @@
 //-----------------------------------------------------------------------------------------
 #pragma once
 //-----------------------------------------------------------------------------------------
-#include "factory.h"
+#include "component.h"
 #include "item.h"
 #include <list>
 #include <iostream>
 //-----------------------------------------------------------------------------------------
-class WorldFactory : public Component
+class World : public Component
+{
 private:
 	World();
 	~World();

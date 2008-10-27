@@ -1,8 +1,5 @@
 //-----------------------------------------------------------------------------------------
-#include "worldFactory.h"
-//-----------------------------------------------------------------------------------------
-int WorldFactory :: count = 0;
-WorldFactory * WorldFactory::instance = NULL;
+#include "world.h"
 //-----------------------------------------------------------------------------------------
 World::World(){
 
@@ -10,7 +7,7 @@ World::World(){
 //-----------------------------------------------------------------------------------------
 World::~World(){
 
-	World::removeAll();
+	//removeAll();
 }
 //-----------------------------------------------------------------------------------------
 void World::addWorldComp(Component pkComp){
@@ -21,6 +18,7 @@ void World::addWorldComp(Component pkComp){
 //-----------------------------------------------------------------------------------------
 void World::GetCreations()
 {
+	/*
 	//Ver como hacer para que muestre el contenido
 	WorldListIterator = WorldList.begin();
 	//if(count > 0)
@@ -32,10 +30,11 @@ void World::GetCreations()
 
 		WorldListIterator++;
 	}
+	*/
 
 }
 //-----------------------------------------------------------------------------------------
-bool WorldFactory::removeWorldComp(Component pkComp){
+bool World::removeWorldComp(Component pkComp){
 
 	/*WorldListIterator = WorldList.begin();
 
