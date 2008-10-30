@@ -321,6 +321,10 @@
 						>
 					</File>
 					<File
+						RelativePath=".\event.h"
+						>
+					</File>
+					<File
 						RelativePath=".\Include.h"
 						>
 					</File>
