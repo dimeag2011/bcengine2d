@@ -1,23 +1,24 @@
 //-----------------------------------------------------------------------------------------
 #include "world.h"
 //-----------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------
 World::World(){
 
 }
 //-----------------------------------------------------------------------------------------
 World::~World(){
 
-	//removeAll();
+	
 }
 //-----------------------------------------------------------------------------------------
-void World::addWorldComp(Component pkComp){
+void World::addWorldComp(Component* pkComp){
 
-	WorldList.push_back(pkComp);
-
+	if(addNewChild(pkComp));
 }
 //-----------------------------------------------------------------------------------------
 void World::GetCreations()
-{
+{/*
 	/*
 	//Ver como hacer para que muestre el contenido
 	WorldListIterator = WorldList.begin();
@@ -30,29 +31,11 @@ void World::GetCreations()
 
 		WorldListIterator++;
 	}
-	*/
-
+*/
 }
 //-----------------------------------------------------------------------------------------
-bool World::removeWorldComp(Component pkComp){
+bool World::removeWorldComp(Component* pkComp){
 
-	/*WorldListIterator = WorldList.begin();
-
-	while((WorldListIterator!= WorldList.end()) && (*WorldListIterator != pkComp))
-	{
-		WorldListIterator++;
-	}
-	if(WorldListIterator == WorldList.end()){
-
-		return false;
-
-	}else{
-
-		WorldList.erase(WorldListIterator);
-
-		return true;
-	}
-*/
 	return true;
 }
 //-----------------------------------------------------------------------
