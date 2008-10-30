@@ -12,7 +12,8 @@ m_kPj(NULL),
 Actor1(NULL),
 Armadura(NULL),
 Posion(NULL),
-Espada(NULL)
+Espada(NULL),
+mundo(NULL)
 {
 	/***/
 }
@@ -31,7 +32,7 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 	m_kPosion = m_kmyItem->CreateItem(TYPE_POTION);
 	m_kArmadura = m_kmyItem->CreateItem(TYPE_ARMOR);
 	m_kEspada = m_kmyItem->CreateItem(TYPE_WEAPON);
-
+	mundo = new World();
 	pkImporter->importResources("../../res/sprite.xml");
 
 	// create the entities
@@ -54,7 +55,11 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 		//addEntity(m_pkAuxSprite);
 		m_pkAuxSprite = NULL;
 	}
-	
+	//Lo agrego al mundo
+	mundo->addWorldComp(m_kPj);
+	mundo->addWorldComp(m_kPosion);
+	mundo->addWorldComp(m_kArmadura);
+	mundo->addWorldComp(m_kEspada);
 	for(int i=0; i < m_kPj->m_kInventory->getMaxSlots(); i++)
 	{
 		Sprite* m_pkAuxSprite = new Sprite();
@@ -210,9 +215,9 @@ void TestScene::updatePacmanCollision ()
 	{
 		m_kPj->putItemInventory(m_kPosion);
 		Posion->setVisible(false);
-		/*if (Posion)
+		if (Posion)
 			removeEntity(Posion);
-				*/
+				
 	}
 
 	 eResult = Actor1->checkCollision(Armadura);
@@ -220,12 +225,16 @@ void TestScene::updatePacmanCollision ()
 	{
 		m_kPj->putItemInventory(m_kArmadura);
 		Armadura->setVisible(false);
+		if (Armadura)
+			removeEntity(Armadura);
 	}
 	 eResult = Actor1->checkCollision(Espada);
 	if(eResult != Entity2D::None )
 	{
 		m_kPj->putItemInventory(m_kEspada);
 		Espada->setVisible(false);
+		if (Espada)
+			removeEntity(Espada);
 	}
 
 }

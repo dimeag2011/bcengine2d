@@ -39,7 +39,9 @@ private:
 	Sprite * Armadura; 
 	Sprite * Posion;  
 	Sprite * Espada; 
-	Font* m_pkFont;
+	Map * mapa;
+	Font * m_pkFont;
+	World * mundo;
 };
 //----------------------------------------------------------------
 #endif // TESTSCENE_H

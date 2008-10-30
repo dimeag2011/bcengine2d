@@ -5,6 +5,6 @@
 #include "item.h"
 //#include "slot.h"
 #include "itemFactory.h"
-#include "worldFactory.h"
+#include "world.h"
 #include "actorFactory.h"
 #include "actor.h"
