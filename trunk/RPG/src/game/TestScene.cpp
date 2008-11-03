@@ -178,8 +178,37 @@ bool TestScene::onUpdate (float fTimeBetweenFrames)
 	{
 		m_kPj->removeEffect(m_kPosion->GetName());
 	}
+	if (m_pkInput->getKeyEventDown(DIK_C))
+	{
+		m_pkFont->setText("Fuerza:", m_kPj->m_kAuxActAtt.getStr());
+		m_pkFont->setPos(-400,300);
+		m_pkFont->setText("Destreza:", m_kPj->m_kAuxActAtt.getDex());
+		m_pkFont->setPos(-400,295);
+		m_pkFont->setText("Comstitucion:", m_kPj->m_kAuxActAtt.getCon());
+		m_pkFont->setPos(-400,290);
+		m_pkFont->setText("Inteligencia:", m_kPj->m_kAuxActAtt.getInt());
+		m_pkFont->setPos(-400,285);
+		m_pkFont->setText("Carisma:", m_kPj->m_kAuxActAtt.getCha());
+		m_pkFont->setPos(-400,280);
+		m_pkFont->setText("Sabiduria:", m_kPj->m_kAuxActAtt.getWis());
+		m_pkFont->setPos(-400,275);
+		m_pkFont->setText("Salvacion Fortaleza:", m_kPj->m_kAuxActAtt.getSstr());
+		m_pkFont->setPos(-400,265);
+		m_pkFont->setText("Salvacion Reflejos:", m_kPj->m_kAuxActAtt.getSref());
+		m_pkFont->setPos(-400,260);
+		m_pkFont->setText("Salvacion voluntad:", m_kPj->m_kAuxActAtt.getWis());
+		m_pkFont->setPos(-400,255);
+		m_pkFont->setText("CA:", m_kPj->m_kAuxActAtt.getCa());
+		m_pkFont->setPos(-400,245);
+		m_pkFont->setText("Mana:", m_kPj->m_kAuxActAtt.getMana());
+		m_pkFont->setPos(-400,240);
+		m_pkFont->setText("Vida:", m_kPj->m_kAuxActAtt.getHps());
+		m_pkFont->setPos(-400,235);
+		m_pkFont->setText("Ataque base:", m_kPj->getClassHero().iAtk);
+		m_pkFont->setPos(-400,230);
+	}
 	
-	m_pkFont->setPos(m_pkFont->getPosX() + 0.1, m_pkFont->getPosY());
+	//m_pkFont->setPos(m_pkFont->getPosX() + 0.1, m_pkFont->getPosY());
 
 	return true;
 }

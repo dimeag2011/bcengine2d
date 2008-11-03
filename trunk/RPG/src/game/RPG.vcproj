@@ -321,10 +321,6 @@
 						>
 					</File>
 					<File
-						RelativePath=".\event.h"
-						>
-					</File>
-					<File
 						RelativePath=".\Include.h"
 						>
 					</File>
@@ -346,6 +342,14 @@
 					</File>
 					<File
 						RelativePath=".\world.h"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="QuestTools"
+					>
+					<File
+						RelativePath=".\event.h"
 						>
 					</File>
 				</Filter>
