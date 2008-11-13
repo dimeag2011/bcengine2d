@@ -4,7 +4,9 @@
 BasicGame::BasicGame (HINSTANCE hInstance)
 :
 Game (hInstance),
-m_pkScene1(NULL)
+m_pkScene1(NULL),
+m_pkScene2(NULL)
+
 {
 	
 }
@@ -30,6 +32,7 @@ bool BasicGame::OnStartUp ()
 bool BasicGame::OnLoop ()
 {
 	UpdateViewPortPos();
+	UpdateCharacterSheet();
 
 	return false;
 }
@@ -41,6 +44,12 @@ bool BasicGame::OnShutDown ()
 		m_pkScene1->deinit();
 		delete m_pkScene1;
 		m_pkScene1=NULL;
+	}
+
+	if (m_pkScene2)
+	{
+		delete m_pkScene2;
+		m_pkScene2=NULL;
 	}
 	
 	return true;
@@ -129,3 +138,24 @@ void BasicGame::UpdateViewPortPos()
 	}
 
 }
+//-----------------------------------------------------------------------------------------
+void BasicGame::UpdateCharacterSheet()
+{
+	if (m_pkInput->getKeyEventDown(DIK_C))
+	{
+		
+		Importer* pkImporter2 = getImporter();
+		m_pkScene2 = new TestScene2(m_pkScene1->getCharacter());
+		
+		m_pkScene2->init("Escena2", pkImporter2, m_pkInput, m_pkSound, m_pkRender);
+			
+		addSceneToDraw(m_pkScene2);
+	}
+	if(m_pkInput->getKeyEventDown(DIK_Z))
+	{
+		//m_pkScene2->deinit();
+		//delete m_pkScene2;
+		//m_pkScene2=NULL;
+	}
+}
+//-----------------------------------------------------------------------------------------
