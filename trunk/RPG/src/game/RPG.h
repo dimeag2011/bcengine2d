@@ -3,7 +3,7 @@
 
 #include "Engine.h"
 #include "TestScene.h"
-//#include "TestScene2.h"
+#include "TestScene2.h"
 
 
 class BasicGame : public Game
@@ -21,9 +21,10 @@ protected:
 	bool OnShutDown();
 
 	void UpdateViewPortPos();
+	void UpdateCharacterSheet();
 
 	TestScene* m_pkScene1;
-	//TestScene2* m_pkScene2;
+	TestScene2* m_pkScene2;
 
 };
 #endif

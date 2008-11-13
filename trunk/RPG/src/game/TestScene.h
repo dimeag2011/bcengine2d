@@ -24,6 +24,9 @@ protected:
 	void updatePacmanCollision ();
 	void updateGhostInput ();
 
+public:	
+	Actor * getCharacter();
+
 	// game entities
 private:	
 	//Creo la factory de actor y algunos items

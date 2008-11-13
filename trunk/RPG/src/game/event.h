@@ -17,10 +17,10 @@ string getEvent() { return m_kName; }
 void setDescrip(string descrip){ m_kDescrip = descrip; }
 string getDescrip() { return m_kDescrip; }
 //-------------Eventos----------------------------------------------------------------------
-void childAddendEvent(string name, Component *pkChild);
-bool childRemovedEvent(string name, Component *pkChild);
-void addedToParentEvent(string name, Component *pkParent);
-bool removedFromParentEvent(string name, Component *pkParent);
+//void childAddendEvent(string name, Component *pkChild);
+//bool childRemovedEvent(string name, Component *pkChild);
+//void addedToParentEvent(string name, Component *pkParent);
+//bool removedFromParentEvent(string name, Component *pkParent);
 //-----------------------------------------------------------------------------------------
 private:
 	string m_kName;

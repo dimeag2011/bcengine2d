@@ -199,4 +199,52 @@ void Component::OnParentRemoved(Component* pkExParent)
 {
 
 }
+//-------------------Manejos de eventos----------------------------------------------------------------------
+void Component::onAddedListener(string pkEvent,Component *pkComp)
+{
+	/*it = m_kListener.find(pkEvent,m_kListener.begin, m_kListener.end);
+	if (it != m_kListener.end)
+		it2 = it->second.find(pkComp);
+		if (it2 == it->second->end)
+			(it->second).append(pkComp);
+	else
+		vector<Component*> a;
+		a.add(pkComp);
+		m_kListener.add(pkEvent, a);
+*/
+	it = m_kListener[pkEvent].begin();
+	while(it != m_kListener[pkEvent].end())
+	{
+		if(*it == pkComp)
+			return;
+		it++;
+	}
+	m_kListener[pkEvent].push_back(pkComp);	
+
+}
+//-----------------------------------------------------------------------------------------
+void Component::onRemoveListener(string pkEvent,Component* pkComp)
+{
+	it = m_kListener[pkEvent].begin();
+	while(it != m_kListener[pkEvent].end())
+	{
+		if(*it == pkComp) {
+			m_kListener[pkEvent].erase(it);	
+			break;
+		}
+		it++;
+	}
+
+}
+//-----------------------------------------------------------------------------------------
+void Component::DispachEvent(Event *pkEvent,Component* pkComp)
+{
+	it = m_kListener[pkEvent->getEvent()].begin();
+	while(it != m_kListener[pkEvent->getEvent()].end())
+	{
+		(*it)->onEvent(pkEvent->getEvent(), this);
+		it++;
+	}
+
+}
 //-----------------------------------------------------------------------------------------

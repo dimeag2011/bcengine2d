@@ -178,7 +178,7 @@ bool TestScene::onUpdate (float fTimeBetweenFrames)
 	{
 		m_kPj->removeEffect(m_kPosion->GetName());
 	}
-	if (m_pkInput->getKeyEventDown(DIK_C))
+/*	if (m_pkInput->getKeyEventDown(DIK_C))
 	{
 		m_pkFont->setText("Fuerza:", m_kPj->m_kAuxActAtt.getStr());
 		m_pkFont->setPos(-400,300);
@@ -206,7 +206,7 @@ bool TestScene::onUpdate (float fTimeBetweenFrames)
 		m_pkFont->setPos(-400,235);
 		m_pkFont->setText("Ataque base:", m_kPj->getClassHero().iAtk);
 		m_pkFont->setPos(-400,230);
-	}
+	}*/
 	
 	//m_pkFont->setPos(m_pkFont->getPosX() + 0.1, m_pkFont->getPosY());
 
@@ -303,3 +303,7 @@ bool TestScene::onDeinit ()
 	return true;
 }
 //----------------------------------------------------------------
+Actor * TestScene::getCharacter()
+{
+	return m_kPj;
+}

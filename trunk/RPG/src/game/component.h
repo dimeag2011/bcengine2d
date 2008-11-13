@@ -43,6 +43,12 @@ public:
 	bool goNextChild();
 	bool goPrevChild();
 //-----------------------------------------------------------------------------------------
+	void onAddedListener(string pkEvent ,Component* pkComp);
+	void onRemoveListener(string pkEvent,Component* pkComp);
+	void DispachEvent(Event *pkEvent,Component* pkComp);
+
+	virtual void onEvent(Event *event, Component* dispatcher) {} 
+//-----------------------------------------------------------------------------------------
 	Component* findChild(Component* pkChild);
 //-----------------------------------------------------------------------------------------
 	Component* getParent();
@@ -63,12 +69,12 @@ public:
 //-----------------------------------------------------------------------------------------
 //----Agregado para las Quest (cosa que se le ocurrio/recomendo juan)------------------
 protected:
-	typedef map<string,vector<Component>> Listener;
+	 map<string,vector<Component*>> m_kListener;
+	 vector<Component*>::iterator it,it2;
 	 
 //-----------------------------------------------------------------------------------------
-public:
-	Listener m_kListener;
-	
+//public:
+//	Listener m_kListener;
 };
 //-----------------------------------------------------------------------------------------
 #include "component.inl"
