@@ -42,3 +42,8 @@ struct Clase{
 	int iCa;
 	int iAtk; //Attack
 };
+
+//------------------------------------------------------------------------------
+// CollisionObject Types:
+#define TYPE_ATTK_RANGE	0
+#define	TYPE_VIEW_RANGE	1

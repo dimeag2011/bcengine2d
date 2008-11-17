@@ -210,6 +210,10 @@
 				RelativePath=".\TestScene2.h"
 				>
 			</File>
+			<File
+				RelativePath=".\world.h"
+				>
+			</File>
 			<Filter
 				Name="Logic"
 				>
@@ -348,16 +352,24 @@
 						RelativePath=".\world.cpp"
 						>
 					</File>
-					<File
-						RelativePath=".\world.h"
-						>
-					</File>
 				</Filter>
 				<Filter
 					Name="QuestTools"
 					>
 					<File
 						RelativePath=".\event.h"
+						>
+					</File>
+				</Filter>
+				<Filter
+					Name="CombatSystem"
+					>
+					<File
+						RelativePath=".\CollisionObject.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\CollisionObject.h"
 						>
 					</File>
 				</Filter>
