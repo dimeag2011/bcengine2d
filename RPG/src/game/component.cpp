@@ -237,12 +237,12 @@ void Component::onRemoveListener(string pkEvent,Component* pkComp)
 
 }
 //-----------------------------------------------------------------------------------------
-void Component::DispachEvent(Event *pkEvent,Component* pkComp)
+void Component::DispachEvent(Event *pkEvent)
 {
 	it = m_kListener[pkEvent->getEvent()].begin();
 	while(it != m_kListener[pkEvent->getEvent()].end())
 	{
-		(*it)->onEvent(pkEvent->getEvent(), this);
+		(*it)->onEvent(pkEvent, this);
 		it++;
 	}
 

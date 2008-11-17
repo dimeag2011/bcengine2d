@@ -7,12 +7,12 @@ using namespace std;
 //-----------------------------------------------------------------------------------------
 class Event {
 public:
-	Event(string name) { Name = name; }
+	Event(string name) { m_kName = name; }
 	Event();
 	~Event();
 //-----------------------------------------------------------------------------------------
 void setEvent(string name){ m_kName = name; }
-string getEvent() { return m_kName; }
+string getEvent() { return m_kName;}
 
 void setDescrip(string descrip){ m_kDescrip = descrip; }
 string getDescrip() { return m_kDescrip; }
@@ -25,7 +25,5 @@ string getDescrip() { return m_kDescrip; }
 private:
 	string m_kName;
 	string m_kDescrip;
-
-	Component *m_kChild;
 };
 //-----------------------------------------------------------------------------------------
