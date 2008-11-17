@@ -7,6 +7,7 @@
 #include <vector>
 #include <map>
 #include "Defines.h"
+#include "Event.h"
 
 //-----------------------------------------------------------------------------------------
 using namespace std;
@@ -45,7 +46,7 @@ public:
 //-----------------------------------------------------------------------------------------
 	void onAddedListener(string pkEvent ,Component* pkComp);
 	void onRemoveListener(string pkEvent,Component* pkComp);
-	void DispachEvent(Event *pkEvent,Component* pkComp);
+	void DispachEvent(Event *pkEvent);
 
 	virtual void onEvent(Event *event, Component* dispatcher) {} 
 //-----------------------------------------------------------------------------------------
