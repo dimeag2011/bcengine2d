@@ -32,6 +32,8 @@ using namespace std;
 #define TYPE_ROUGE		14
 #define TYPE_CLERIC		15
 //------------------------------------------------------------------------------
+#define TYPE_COLLISIONOBJ	16
+//------------------------------------------------------------------------------
 //clases de personajes
 
 struct Clase{
