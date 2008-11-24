@@ -365,6 +365,14 @@
 					Name="CombatSystem"
 					>
 					<File
+						RelativePath=".\CollisionMgr.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\CollisionMgr.h"
+						>
+					</File>
+					<File
 						RelativePath=".\CollisionObject.cpp"
 						>
 					</File>

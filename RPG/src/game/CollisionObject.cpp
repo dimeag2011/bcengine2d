@@ -5,11 +5,9 @@
 CollisionObject::CollisionObject(int type, int width, int heigth)
 :
 m_heigth(0),
-m_width(0),
-m_Type(0)
+m_width(0)
 {
 	m_width		= width;
-	m_Type		= type;
 	m_heigth	= heigth;
 }
 //--------------------------------------------------------------------------
