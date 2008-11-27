@@ -357,7 +357,35 @@
 					Name="QuestTools"
 					>
 					<File
-						RelativePath=".\event.h"
+						RelativePath=".\evento.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\evento.h"
+						>
+					</File>
+					<File
+						RelativePath=".\quest.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\quest.h"
+						>
+					</File>
+					<File
+						RelativePath=".\questFactory.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\questFactory.h"
+						>
+					</File>
+					<File
+						RelativePath=".\questItemTaked.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\questItemTaked.h"
 						>
 					</File>
 				</Filter>

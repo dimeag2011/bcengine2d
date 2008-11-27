@@ -14,11 +14,8 @@ Armadura(NULL),
 Posion(NULL),
 Espada(NULL),
 m_kmyNpc(NULL),
-m_pkEvento(NULL),
-//m_pkCalculadora(NULL),
-quest(NULL),
-m_kNpc(NULL),
-Actor2(NULL),
+m_pkEvent(NULL),
+m_pkCalculadora(NULL),
 mundo(NULL)
 {
 	/***/
@@ -36,13 +33,10 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 	//Creamos un NPC Kobold.
 	m_kmyNpc = m_kmyActor->CreateActor("KOBOLD_PEDORRO",TYPE_NPC,TYPE_CLERIC);
 	m_kmyItem = ItemFactory::GetInstance();
-	m_kmyQuest = QuestFactory::GetInstance();
 	m_kPj = m_kmyActor->CreateActor("Mariano" ,TYPE_PLAYER , TYPE_WARRIOR);
-	m_kNpc = m_kmyActor->CreateActor("Troll" ,TYPE_NPC , TYPE_WARRIOR);
 	m_kPosion = m_kmyItem->CreateItem(TYPE_POTION);
 	m_kArmadura = m_kmyItem->CreateItem(TYPE_ARMOR);
 	m_kEspada = m_kmyItem->CreateItem(TYPE_WEAPON);
-	quest = m_kmyQuest->CreateQuest(TYPE_KILL_MONSTER);
 	mundo = new World();
 	pkImporter->importResources("../../res/sprite.xml");
 
@@ -62,40 +56,20 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 		m_pkAuxSprite->setPos(0, 0);
 		m_kPj->setSprite(m_pkAuxSprite);
 		Actor1 = m_kPj->getSprite();
-	}
-	m_pkAuxSprite = new Sprite();
-	if(!pkImporter->createSprite("Fantasma", m_pkAuxSprite))
-	{
-		return false;
-	}
-	else
-	{
-		//m_pkAuxSprite->setName(sName);
-		m_pkAuxSprite->setDim(50,50);
-		m_pkAuxSprite->setPos(100,100);
-		m_kNpc->setSprite(m_pkAuxSprite);
-		Actor2 = m_kNpc->getSprite();
-		addEntity(Actor2);
+		addEntity(Actor1);
 		//addEntity(m_pkAuxSprite);
 		m_pkAuxSprite = NULL;
 	}
-	
-	
-	
-	
-	
+
 	//Lo agrego al mundo
 	mundo->addWorldComp(m_kPj);
-	mundo->addWorldComp(m_kNpc);
 	mundo->addWorldComp(m_kPosion);
 	mundo->addWorldComp(m_kArmadura);
 	mundo->addWorldComp(m_kEspada);
-	mundo->addWorldComp(quest);
-	// Agrego un Listener al mundo para que mi NPC y mi Player escuchen los Eventoos de ataques.
+
+	// Agrego un Listener al mundo para que mi NPC y mi Player escuchen los eventos de ataques.
 	mundo->onAddedListener("ATTK_RANGE",m_kmyNpc);
 	mundo->onAddedListener("ATTK_RANGE",m_kPj);
-	//m_kNpc->onAddedListener(dieActorEvent::DIE_ACTOR_Evento,m_kNpc);
-	quest->onAddedListener("Completa",quest);
 	for(int i=0; i < m_kPj->m_kInventory->getMaxSlots(); i++)
 	{
 		Sprite* m_pkAuxSprite = new Sprite();
@@ -281,8 +255,8 @@ void TestScene::updateGhostInput ()
 		m_pkGhost1->getPosY() - m_pkInput->getMouseRelPosY()
 		);
 */
-/*	m_pkInput->getKeyEvento();
-	if (m_pkInput->getKeyEventoUp(DIK_T))
+/*	m_pkInput->getKeyEvent();
+	if (m_pkInput->getKeyEventUp(DIK_T))
 	{
 		//m_pkPacman->setPos(m_pkPacman->getPosX() + 0.1, m_pkPacman->getPosY() + 0.1);
 
@@ -346,17 +320,6 @@ void TestScene::updatePacmanCollision ()
 		// Similar a vaciarle el buffer y dejarla en 0, preparada para el proximo chekeo.
 		eResult = Entity2D::None;
 	}
-	eResult = Actor1->checkCollision(Actor2);
-
-	if(eResult != Entity2D::None )
-	{
-		Evento ev("Die");
-		mundo->onEvento(&ev, m_kNpc);
-		Actor2->setVisible(false);
-		if (Actor2)
-			removeEntity(Actor2);
-
-	}
 
 }
 //----------------------------------------------------------------
@@ -380,12 +343,12 @@ void TestScene::updateActorCollision()
 	}
 	// si eResult no es null (si es que se realizo una colicion)
 	if (eResult != Entity2D::None){
-		// creo el nuevo Eventoo de ATTK_Range y lo despacho.
-		m_pkEvento = new Evento("ATTK_RANGE");
-		m_kPj->DispachEvento(m_pkEvento);
+		// creo el nuevo evento de ATTK_Range y lo despacho.
+		m_pkEvent = new Event("ATTK_RANGE");
+		m_kPj->DispachEvent(m_pkEvent);
 
 		// Debug Text:
-		m_pkFont->setText("EventoO: ATTK_RANGE ");
+		m_pkFont->setText("EVENTO: ATTK_RANGE ");
 
 		// Seteo El result a 0 [Bug Fixed: cada vez que habia una colicion esta quedaba cargada en el eResult
 		// y todos los chekeos posteriores tiraban que huvo colision (por mas que no la huviera]
@@ -405,7 +368,6 @@ void TestScene::updateActorCollision()
 
 	}
 
-
 	eResult = Actor1->checkCollision(Armadura);
 	if(eResult != Entity2D::None )
 	{
@@ -423,7 +385,6 @@ void TestScene::updateActorCollision()
 			removeEntity(Espada);
 	}
 */
-
 }
 //----------------------------------------------------------------
 void TestScene::onDraw (Renderer* pkRenderer) const

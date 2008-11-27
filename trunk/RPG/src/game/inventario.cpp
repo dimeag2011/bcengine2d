@@ -3,10 +3,13 @@
 //-----------------------------------------------------------------------
 Inventario::Inventario()
 :
-m_iSlots(INVENTORY_SLOTS) 
+m_iSlots(INVENTORY_SLOTS),
+m_itera(0)
 {
-	for (int i=0; i<INVENTORY_SLOTS; i++)
+	for (int i=0; i<INVENTORY_SLOTS; i++){
 		m_pkInvSprt[i] = NULL;
+		m_kItmSprt[i] = NULL;
+	}
 }
 //-----------------------------------------------------------------------
 Inventario::~Inventario(){
@@ -47,34 +50,14 @@ int Inventario::getOcupedSlots(){
 //-----------------------------------------------------------------------
 bool Inventario::addItem(Item* pkNewItem){
 
-	/*
-	int i;
-	if (getNumChilds() > 0)
-	{
-	goFirstChild();
-	for (i = 0; i < m_iSlots; i++)
-	{
-	if ((getCurrentChild()->getName().compare(pkNewItem->getName())) == 0)
-	break;
-	}
-	}
-	else
-	{
-	i = m_iSlots;
-	}
-
-	// TO-DO 
-	if (i < m_iSlots)
-	{
-	m_kNumItems[i]++;
-	}
-	else
-	{
-	*/
 	if((int(getNumChilds()) < m_iSlots))
 	{
 		if(addNewChild(pkNewItem))
 		{
+			
+			m_kItmSprt[m_itera] = pkNewItem->getSprite();
+			m_kItmSprt[m_itera]->setVisible(true);
+			m_itera++;
 			m_iSlots--;
 			//m_kNumItems[getNumChilds()-1]++;
 		}
@@ -123,18 +106,10 @@ Item* Inventario::getItem(int iType){
 	return NULL;
 }
 //-----------------------------------------------------------------------
-/*bool onInit(Importer* pkImporter, float fPosX, float fPosY)
+/*void Inventario::setPosItem(float fPosX, float fPosY)
 {
-	/*if( !pkImporter->createSprite("Ghost", m_pkInvSprt) ){
-		return true;
-	}
-
-	m_pkInvSprt->setName("el Item loco");
-	m_pkInvSprt->setDim(50,50);
-	m_pkInvSprt->setPos(fPosX, fPosY, 500.0f);
-
-	return false;
-}*/ 
+	
+}*/
 //-----------------------------------------------------------------------
 void Inventario::setPos(float fPosX, float fPosY)
 {
@@ -151,10 +126,18 @@ void Inventario::setPos(float fPosX, float fPosY)
 				{
 					float fWidth = m_pkInvSprt[INVENTORY_WIDTH * i + j]->getDimW();
 					float fHeight = m_pkInvSprt[INVENTORY_WIDTH * i + j]->getDimH();
-					m_pkInvSprt[INVENTORY_WIDTH * i + j]->setPos(Pos0X + fWidth *  i, Pos0Y + fHeight * j);
+					if(m_kItmSprt[INVENTORY_WIDTH * i + j] != NULL)
+					{
+						m_kItmSprt[INVENTORY_WIDTH * i + j]->setPos(Pos0X + fWidth *  i, Pos0Y + fHeight * j);
+					}
+					else
+						{
+						m_pkInvSprt[INVENTORY_WIDTH * i + j]->setPos(Pos0X + fWidth *  i, Pos0Y + fHeight * j);					
+						}
+					}				
 				}
 			}
 		}
-	}
+	
 }
 //-----------------------------------------------------------------------

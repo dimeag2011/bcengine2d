@@ -19,7 +19,6 @@ using namespace std;
 #define INVENTORY_SLOTS			12
 #define INVENTORY_WIDTH			4
 #define INVENTORY_HEIGHT		3
-#define INVENTORY		        20
 //------------------------------------------------------------------------------
 // Actor Types
 #define TYPE_PLAYER		8
@@ -34,11 +33,6 @@ using namespace std;
 #define TYPE_CLERIC		15
 //------------------------------------------------------------------------------
 #define TYPE_COLLISIONOBJ	16
-//------------------------------------------------------------------------------
-// Quest Type
-#define TYPE_KILL_MONSTER   30 
-#define TYPE_TAKE_ITEM		31
-#define TYPE_SPEAKE_TO		32
 //------------------------------------------------------------------------------
 //clases de personajes
 

@@ -152,18 +152,20 @@ void Item::setAttributes(int iResAcd,int iResFir, int iResFro ,int iResSon,int i
 	m_kAttAux = m_kModAtt;
 }
 //-----------------------------------------------------------------------------------------
-//-----------------------------------------------------------------------------------------
-/*bool Item::onInit(Importer* pkImporter, float fPosX, float fPosY,string sName)
+void Item::OnAddedToParent(Component* pkParent)
 {
-	m_pkItemSpr = new Sprite();
-	if( !pkImporter->createSprite("Fantasma", m_pkItemSpr) ){
-		return true;
-	}
 	
-	m_pkItemSpr->setName(sName);
-	m_pkItemSpr->setDim(50,50);
-	m_pkItemSpr->setPos(fPosX, fPosY, 500.0f);
+	//Le pregunto si el parent es el inventario, creo el Eventoo taked y lo despacho
+	if(pkParent->m_iType == INVENTORY)
+	{
+		Evento evt("taked");
+		DispachEvento(&evt);
+	
+	}
 
-	return false;
-}*/
+}
 //-----------------------------------------------------------------------------------------
+void Item::onEvento(Evento *pkEvento, Component* dispatcher)
+{
+	std::cout << pkEvento->getEvento() << endl;
+}

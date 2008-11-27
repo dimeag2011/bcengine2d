@@ -4,7 +4,7 @@
 //----------------------------------------------------------------
 #include "Engine.h"
 #include "Include.h"
-#include "Evento.h"
+#include "Event.h"
 
 //----------------------------------------------------------------
 class TestScene : public Scene
@@ -38,13 +38,11 @@ private:
 	ActorFactory * m_kmyActor;
 	Actor * m_kmyNpc;
 	ItemFactory * m_kmyItem;
-	QuestFactory * m_kmyQuest;
 	Item * m_kPosion;
 	Item * m_kArmadura;
 	Item * m_kEspada;
 	Actor * m_kPj;
-	Sprite * Actor1;
-	Sprite * Actor2;
+	Sprite * Actor1;  
 	Sprite * Armadura; 
 	Sprite * Posion;  
 	Sprite * Espada; 
@@ -52,10 +50,8 @@ private:
 	Map * mapa;
 	Font * m_pkFont;
 	World * mundo;
-	Evento * m_pkEvento;
-//	CalculadorDeDaño * m_pkCalculadora;
-	Quest * quest;
-	Actor * m_kNpc;
+	Event * m_pkEvent;
+	CalculadorDeDaño * m_pkCalculadora;
 
 };
 //----------------------------------------------------------------

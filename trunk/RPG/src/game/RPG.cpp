@@ -26,6 +26,8 @@ bool BasicGame::OnStartUp ()
 
 	addSceneToUpdate(m_pkScene1);
 	addSceneToDraw(m_pkScene1);
+
+	//removeSceneToDraw();
 	return true;
 }
 //----------------------------------------------------------------
@@ -149,10 +151,15 @@ void BasicGame::UpdateCharacterSheet()
 		
 		m_pkScene2->init("Escena2", pkImporter2, m_pkInput, m_pkSound, m_pkRender);
 			
+		removeSceneToUpdate(m_pkScene1);
+		removeSceneToDraw(m_pkScene1);
 		addSceneToDraw(m_pkScene2);
 	}
 	if(m_pkInput->getKeyEventDown(DIK_Z))
 	{
+		addSceneToUpdate(m_pkScene1);
+		addSceneToDraw(m_pkScene1);
+		removeSceneToDraw(m_pkScene2);
 		//m_pkScene2->deinit();
 		//delete m_pkScene2;
 		//m_pkScene2=NULL;
