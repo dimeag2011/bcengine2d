@@ -5,6 +5,7 @@
 #include "Engine.h"
 #include "Include.h"
 #include "Event.h"
+
 //----------------------------------------------------------------
 class TestScene : public Scene
 {
@@ -50,6 +51,7 @@ private:
 	Font * m_pkFont;
 	World * mundo;
 	Event * m_pkEvent;
+	CalculadorDeDaño * m_pkCalculadora;
 
 };
 //----------------------------------------------------------------

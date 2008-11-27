@@ -24,6 +24,8 @@ public:
 	Clase getClassHero();
 	void setAttributes(int iResAcd,int iResFir, int iResFro ,int iResSon,int iResElec,int iStr, 
 					int iDex,int iCon, int iInt,int iWis, int iCha);
+	Attribute GetAttributes() {return m_kActAtt;}
+	
 //-----------------------------------------------------------------------------------------
 	void setItemEffect(Item *kItem);
 	void removeEffect(string m_sName);
@@ -48,7 +50,7 @@ private:
 	string		m_sDescript;
 	string		m_sName; 
 	//Atributos y skills del actor	
-	Attribute   m_kActAtt;
+	Attribute  m_kActAtt;
 	Skill		m_kActSki;
 
 
@@ -59,7 +61,7 @@ private:
 
 public:
 	Inventario *m_kInventory; 
-	Attribute   m_kAuxActAtt;
+	Attribute  m_kAuxActAtt;
 	Skill		m_kAuxActSki;
 	int			i,z;
 };

@@ -365,6 +365,14 @@
 					Name="CombatSystem"
 					>
 					<File
+						RelativePath=".\CalculadorDeDanio.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\CalculadorDeDanio.h"
+						>
+					</File>
+					<File
 						RelativePath=".\CheckCollisionObj.cpp"
 						>
 					</File>
