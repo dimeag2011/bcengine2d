@@ -56,6 +56,8 @@ public:
 	void setSwill(int iSwill);
 	int  getSwill();
 	//-----------------------------------------------------------------------------------------
+	Attribute& operator = (Attribute& kAttribute);
+	//-----------------------------------------------------------------------------------------
 private:
 	int m_iDaño;
 	int m_iCa;

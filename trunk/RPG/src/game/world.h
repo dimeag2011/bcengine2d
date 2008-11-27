@@ -18,7 +18,7 @@ public:
 	void addWorldComp(Component *pkComp);
 	bool removeWorldComp(Component *pkComp);
 	void GetCreations();
-	virtual void onEvento(Evento *pkEvento, Component* dispatcher);
+	virtual void onEvent(Event *pkEvent, Component* dispatcher);
 //------------------------------------------------------------------------------------------
 private:
 

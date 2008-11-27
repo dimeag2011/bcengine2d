@@ -13,8 +13,8 @@ class CollisionMgr  : public Component{
 	void OnAddedToParent(Component *pkParent);
 	void OnRemovedParent(Component *pkParent);
 	void OnChildRemoved(Component *pkChild);
-	void OnChildAdded(string sEvento,Component * pkChild);
-	void onEvento(Evento *Evento, Component* dispatcher);
+	void OnChildAdded(string sEvent,Component * pkChild);
+	void onEvent(Event *event, Component* dispatcher);
 //---------------------------------------------------------------------------------------	
 //---------------------------------------------------------------------------------------
 };

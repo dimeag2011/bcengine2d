@@ -62,15 +62,15 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance,
 	Item		item;
 //	Actor       npc;
 //	Quest       quest;
-	cmp1.onAddedListener(ChildAddedEvent::CHILD_ADDED_Evento, &item);
-	cmp1.onAddedListener(ChildRemoveEvent::CHILD_REMOVE_Evento, &item);
+	cmp1.onAddedListener(ChildAddedEvent::CHILD_ADDED_EVENT, &item);
+	cmp1.onAddedListener(ChildRemoveEvent::CHILD_REMOVE_EVENT, &item);
 
-//	cmp1.onAddedListener(dieActorEvent::DIE_ACTOR_Evento, &quest);
-	//npc.onAddedListener(dieActorEvent::DIE_ACTOR_Evento, &npc);
+//	cmp1.onAddedListener(DieActorEvent::DIE_ACTOR_EVENT, &quest);
+	//npc.onAddedListener(DieActorEvent::DIE_ACTOR_EVENT, &npc);
 	
 	
 	cmp1.addNewChild(&cmp2);
 	cmp1.removeChild(&cmp2);
 
-	//npc.onEvento(dieActorEvent::DIE_ACTOR_Evento, &npc);
+	//npc.onEvent(DieActorEvent::DIE_ACTOR_EVENT, &npc);
 }*/

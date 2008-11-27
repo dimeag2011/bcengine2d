@@ -7,13 +7,13 @@
 #include <vector>
 #include <map>
 #include "Defines.h"
-#include "Evento.h"
-//#include "ChildAddedEvent.h"
-//#include "ChildRemoveEvent.h"
-//#include "dieActorEvent.h"
+#include "event.h"
+#include "ChildAddedEvent.h"
+#include "ChildRemoveEvent.h"
+#include "dieActorEvent.h"
 
-//class ChildAddedEvent;
-//class ChildRemoveEvent;
+class ChildAddedEvent;
+class ChildRemoveEvent;
 //-----------------------------------------------------------------------------------------
 using namespace std;
 //-----------------------------------------------------------------------------------------
@@ -50,11 +50,10 @@ public:
 	bool goNextChild();
 	bool goPrevChild();
 //-----------------------------------------------------------------------------------------
-	void onAddedListener(string pkEvento ,Component* pkComp);
-	void onRemoveListener(string pkEvento,Component* pkComp);
-	void DispachEvento(Evento *pkEvento);
-
-	virtual void onEvento(Evento *Evento, Component* dispatcher) {} 
+	void onAddedListener(string pkEvent ,Component* pkComp);
+	void onRemoveListener(string pkEvent,Component* pkComp);
+	void DispachEvent(Event *pkEvent);
+	virtual void onEvent(Event *pkEvent, Component* dispatcher);
 //-----------------------------------------------------------------------------------------
 	Component* findChild(Component* pkChild);
 //-----------------------------------------------------------------------------------------

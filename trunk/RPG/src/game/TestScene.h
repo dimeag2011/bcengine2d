@@ -4,7 +4,7 @@
 //----------------------------------------------------------------
 #include "Engine.h"
 #include "Include.h"
-#include "Evento.h"
+#include "Event.h"
 
 //----------------------------------------------------------------
 class TestScene : public Scene
@@ -52,10 +52,10 @@ private:
 	Map * mapa;
 	Font * m_pkFont;
 	World * mundo;
-	Evento * m_pkEvento;
-//	CalculadorDeDaño * m_pkCalculadora;
 	Quest * quest;
 	Actor * m_kNpc;
+	Event * m_pkEvent;
+	CalculadorDeDanio * m_pkCalculadora;
 
 };
 //----------------------------------------------------------------

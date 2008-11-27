@@ -39,12 +39,12 @@ void Quest::onTaskComplet()
 
 }
 //-----------------------------------------------------------------------------------------
-void Quest::onEvento(Evento *pkEvento, Component* dispatcher)
+void Quest::onEvent(Event *pkEvent, Component* dispatcher)
 {
-	if(pkEvento->getEvento() == "Completa")
+	if(pkEvent->getEvent() == "Completa")
 	{
 		m_kDescrip = " Quest del troll completa";
-		DispachEvento(pkEvento);
+		DispachEvent(pkEvent);
 	}
 }
 //-----------------------------------------------------------------------------------------

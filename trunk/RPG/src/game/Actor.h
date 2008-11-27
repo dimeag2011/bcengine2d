@@ -6,12 +6,12 @@
 #include "attribute.h"
 #include "skills.h"
 #include "Defines.h"
-#include "Evento.h"
+#include "event.h"
 #include <iostream>
 //-----------------------------------------------------------------------------------------
 using namespace std;
 
-//class dieActorEvent;
+class DieActorEvent;
 class Component;
 
 class Actor : public Component{
@@ -38,7 +38,7 @@ public:
 	void removeItemInventory(Item *kItem);
 	void useItem(int iType);
 //-----------------------------------------------------------------------------------------
-	void onEvento(Evento *Evento, Component* dispatcher);
+	void onEvent(Event *event, Component* dispatcher);
 //-----------------------------------------------------------------------------------------
 	//void Draw(Renderer* pkReenderer);
 	//bool onInit(Importer* pkImporter, float fPosX, float fPosY, string sName);

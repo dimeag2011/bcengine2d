@@ -1,18 +1,18 @@
 #pragma once
 //-----------------------------------------------------------------------------------------
-#include "Evento.h"
+#include "event.h"
 
 //-----------------------------------------------------------------------------------------
 using namespace std;
 class Component;
 //-----------------------------------------------------------------------------------------
-class dieActorEvent : public Evento {
+class DieActorEvent : public Event {
 public:
-	dieActorEvent() : Evento(DIE_ACTOR_Evento) {
+	DieActorEvent() : Event(DIE_ACTOR_EVENT) {
 		
 	}
 
 public:
-	static const string DIE_ACTOR_Evento;
+	static const string DIE_ACTOR_EVENT;
 	
 };

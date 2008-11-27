@@ -8,6 +8,6 @@
 #include "world.h"
 #include "actorFactory.h"
 #include "actor.h"
-//#include "CalculadorDeDanio.h"
 #include "quest.h"
+#include "CalculadorDeDanio.h"
 #include "questFactory.h"

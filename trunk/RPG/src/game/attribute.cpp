@@ -68,5 +68,29 @@ Attribute::~Attribute()
 {
 	/***/
 }
-
 //-----------------------------------------------------------------------------------------
+Attribute& Attribute::operator = (Attribute& kAttribute)
+{
+	setDaño(kAttribute.getDaño());
+	setCa(kAttribute.getCa());
+	setResAcd(kAttribute.getResAcd());
+	setResFir(kAttribute.getResFir());
+	setResFro(kAttribute.getResFro());
+	setResSon(kAttribute.getResSon());
+	setResElec(kAttribute.getResElec());
+	setStr(kAttribute.getStr());
+	setDex(kAttribute.getDex());
+	setCon(kAttribute.getCon());
+	setInt(kAttribute.getInt());
+	setWis(kAttribute.getWis());
+	setCha(kAttribute.getCha());
+	setReDa(kAttribute.getReDa());
+	setHps(kAttribute.getHps());
+	setMana(kAttribute.getMana());
+	setSlotOcu(kAttribute.getSlotOcu());
+	setSref(kAttribute.getSref());
+	setSstr(kAttribute.getSstr());
+	setSwill(kAttribute.getSwill());
+
+	return *this; 
+}

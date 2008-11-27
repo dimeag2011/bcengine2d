@@ -1,3 +1,3 @@
 #include "dieActorEvent.h"
 
-const string dieActorEvent::DIE_ACTOR_Evento = "Die";
+const string DieActorEvent::DIE_ACTOR_EVENT = "Die";
