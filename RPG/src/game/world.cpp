@@ -42,9 +42,9 @@ bool World::removeWorldComp(Component* pkComp){
 	return true;
 }
 //-----------------------------------------------------------------------
-void World::onEvento(Evento *pkEvento, Component* dispatcher){
+void World::onEvent(Event *pkEvent, Component* dispatcher){
 
-	DispachEvento(pkEvento);
+	DispachEvent(pkEvent);
 
 
 }

@@ -1,7 +1,7 @@
 //-----------------------------------------------------------------------------------------
 #pragma once
 //-----------------------------------------------------------------------------------------
-#include "Evento.h"
+#include "event.h"
 #include <string>
 #include <vector>
 #include "component.h"
@@ -25,7 +25,7 @@ string getQuest() { return m_kQuest;}
 virtual void onStart();
 virtual void onComplete();
 virtual void onTaskComplet();
-virtual void onEvento(Evento *pkEvento, Component* dispatcher);
+virtual void onEvent(Event *pkEvent, Component* dispatcher);
 //-----------------------------------------------------------------------------------------
 public:
 	string	m_kQuest;

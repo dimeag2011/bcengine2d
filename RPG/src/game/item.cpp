@@ -155,17 +155,17 @@ void Item::setAttributes(int iResAcd,int iResFir, int iResFro ,int iResSon,int i
 void Item::OnAddedToParent(Component* pkParent)
 {
 	
-	//Le pregunto si el parent es el inventario, creo el Eventoo taked y lo despacho
+	//Le pregunto si el parent es el inventario, creo el evento taked y lo despacho
 	if(pkParent->m_iType == INVENTORY)
 	{
-		Evento evt("taked");
-		DispachEvento(&evt);
+		Event evt("taked");
+		DispachEvent(&evt);
 	
 	}
 
 }
 //-----------------------------------------------------------------------------------------
-void Item::onEvento(Evento *pkEvento, Component* dispatcher)
+void Item::onEvent(Event *pkEvent, Component* dispatcher)
 {
-	std::cout << pkEvento->getEvento() << endl;
+	std::cout << pkEvent->getEvent() << endl;
 }

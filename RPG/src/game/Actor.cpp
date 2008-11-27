@@ -105,7 +105,23 @@ void Actor::setDescripcion(const string &rkDesc)
 	m_sDescript = rkDesc;
 }
 //-----------------------------------------------------------------------------------------
+void Actor::onEvent(Event *event, Component* dispatcher){
+// Recibo el evento y chekeo, si soy npc y el despachante es jugador, lo ataco
 
+	if (event->getEvent() == "ATTK_RANGE"){
+		if ((dispatcher->m_iType == TYPE_NPC) && (m_iType == TYPE_PLAYER)){
+			//TODO: Chekear si soy yo el que estoy colisionando
+			// contra el player, para que no ataque todo el mundo
+			// al recibir el evento.
+
+		}
+	// Recibo el evento y chekeo si soy player y el despachante es NPC significa que me agarraron y lo ataco
+		if ((dispatcher->m_iType == TYPE_PLAYER) && (m_iType == TYPE_NPC)){
+
+		}
+	}
+
+}
 //-----------------------------------------------------------------------------------------
 string Actor::getDescripcion() const
 {
@@ -314,50 +330,16 @@ void Actor::useItem(int iType){
 
 }
 //-----------------------------------------------------------------------------------------
-void Actor::onEvento(Evento *pkEvento, Component *dispacher)
+/*
+void Actor::onEvent(Event *pkEvent, Component *dispacher)
 {
-// Recibo el Eventoo y chekeo, si soy npc y el despachante es jugador, lo ataco
-
-	if (pkEvento->getEvento() == "ATTK_RANGE"){
-		if ((dispacher->m_iType == TYPE_NPC) && (m_iType == TYPE_PLAYER)){
-			//TODO: Chekear si soy yo el que estoy colisionando
-			// contra el player, para que no ataque todo el mundo
-			// al recibir el Eventoo.
-
-		}
-	// Recibo el Eventoo y chekeo si soy player y el despachante es NPC significa que me agarraron y lo ataco
-		if ((dispacher->m_iType == TYPE_PLAYER) && (m_iType == TYPE_NPC)){
-
-		}
-	}
-
-
-	if(pkEvento->getEvento()== "Die")
+	if(pkEvent->getEvent()== "Die")
 	{
 		m_sDescript = "Un troll muerto";
-		Evento ev("Completa");
-		DispachEvento(&ev);
+		Event ev("Completa");
+		DispachEvent(&ev);
 	}
+		
 }
-
-/*
-void Actor::Draw(Renderer* pkReenderer)
-{
-	m_pkActorSpr->draw(pkReenderer);
-}
-//-----------------------------------------------------------------------------------------
-bool Actor::onInit(Importer* pkImporter, float fPosX, float fPosY, string sName)
-{
-	
-	m_pkActorSpr = new Sprite();
-	if( !pkImporter->createSprite("Pacman", m_pkActorSpr) ){
-		return true;
-	}
-	return false;
-
-	m_pkActorSpr->setName(sName);
-	m_pkActorSpr->setDim(50,50);
-	m_pkActorSpr->setPos(fPosX, fPosY, 500.0f);
-}
-//-----------------------------------------------------------------------------------------
 */
+//-----------------------------------------------------------------------------------------

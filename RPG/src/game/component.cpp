@@ -59,8 +59,8 @@ bool Component::addNewChild(Component* pkNewChild)
 		OnChildAdded(pkNewChild);
 		pkNewChild->OnNewParentSet(this);
 
-//		ChildAddedEvent e(pkNewChild);
-		//DispachEvento(&e);
+		ChildAddedEvent e(pkNewChild);
+		DispachEvent(&e);
 
 		return true;
 	}
@@ -82,8 +82,8 @@ bool Component::addNewChild(Component* pkNewChild)
 		OnChildAdded(pkNewChild);
 		pkNewChild->OnNewParentSet(this);
 
-	//	ChildAddedEvent e(pkNewChild);
-	//	DispachEvento(&e);
+		ChildAddedEvent e(pkNewChild);
+		DispachEvent(&e);
 
 		return true;
 	}
@@ -158,8 +158,8 @@ bool Component::removeCurrentChild()
 	m_kChilds.erase(m_itCurrentChild);
 	OnChildRemoved(*m_itCurrentChild);
 	(*m_itCurrentChild)->OnParentRemoved(this);
-	//ChildRemoveEvent e((*m_itCurrentChild));
-	//DispachEvento(&e);
+	ChildRemoveEvent e((*m_itCurrentChild));
+	DispachEvent(&e);
 	return true;
 }
 //-----------------------------------------------------------------------------------------
@@ -180,10 +180,11 @@ bool Component::removeChild(Component* pkChild)
 		OnChildRemoved(*itAux);
 		(*itAux)->OnParentRemoved(this);
 		
-	//	ChildRemoveEvent e((*itAux));
-	//	DispachEvento(&e);
+		ChildRemoveEvent e((*itAux));
+		DispachEvent(&e);
 
 		m_kChilds.erase(itAux);
+
 		return true;
 	}
 }
@@ -218,37 +219,28 @@ void Component::OnAddedToParent(Component* pkParent)
 {
 
 }
-//-------------------Manejos de Eventoos----------------------------------------------------------------------
-void Component::onAddedListener(string pkEvento,Component *pkComp)
+//-------------------Manejos de eventos----------------------------------------------------------------------
+void Component::onAddedListener(string pkEvent,Component *pkComp)
 {
-	/*it = m_kListener.find(pkEvento,m_kListener.begin, m_kListener.end);
-	if (it != m_kListener.end)
-		it2 = it->second.find(pkComp);
-		if (it2 == it->second->end)
-			(it->second).append(pkComp);
-	else
-		vector<Component*> a;
-		a.add(pkComp);
-		m_kListener.add(pkEvento, a);
-*/
-	it = m_kListener[pkEvento].begin();
-	while(it != m_kListener[pkEvento].end())
+	
+	it = m_kListener[pkEvent].begin();
+	while(it != m_kListener[pkEvent].end())
 	{
 		if(*it == pkComp)
 			return;
 		it++;
 	}
-	m_kListener[pkEvento].push_back(pkComp);	
+	m_kListener[pkEvent].push_back(pkComp);	
 
 }
 //-----------------------------------------------------------------------------------------
-void Component::onRemoveListener(string pkEvento,Component* pkComp)
+void Component::onRemoveListener(string pkEvent,Component* pkComp)
 {
-	it = m_kListener[pkEvento].begin();
-	while(it != m_kListener[pkEvento].end())
+	it = m_kListener[pkEvent].begin();
+	while(it != m_kListener[pkEvent].end())
 	{
 		if(*it == pkComp) {
-			m_kListener[pkEvento].erase(it);	
+			m_kListener[pkEvent].erase(it);	
 			break;
 		}
 		it++;
@@ -256,15 +248,20 @@ void Component::onRemoveListener(string pkEvento,Component* pkComp)
 
 }
 //-----------------------------------------------------------------------------------------
-void Component::DispachEvento(Evento *pkEvento)
+void Component::DispachEvent(Event *pkEvent)
 {
-	it = m_kListener[pkEvento->getEvento()].begin();
-	while(it != m_kListener[pkEvento->getEvento()].end())
+	it = m_kListener[pkEvent->getEvent()].begin();
+	while(it != m_kListener[pkEvent->getEvent()].end())
 	{
-		(*it)->onEvento(pkEvento, this);
+		
+		(*it)->onEvent(pkEvent, this);
 		it++;
 	}
 
 }
 //-----------------------------------------------------------------------------------------
+void Component::onEvent(Event *pkEvent, Component* dispatcher)
+{
+
+}
 //-----------------------------------------------------------------------------------------

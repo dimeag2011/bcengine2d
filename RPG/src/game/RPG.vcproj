@@ -288,6 +288,14 @@
 						RelativePath=".\itemFactory.h"
 						>
 					</File>
+					<File
+						RelativePath=".\questFactory.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\questFactory.h"
+						>
+					</File>
 				</Filter>
 				<Filter
 					Name="Actor"
@@ -357,35 +365,7 @@
 					Name="QuestTools"
 					>
 					<File
-						RelativePath=".\evento.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\evento.h"
-						>
-					</File>
-					<File
-						RelativePath=".\quest.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\quest.h"
-						>
-					</File>
-					<File
-						RelativePath=".\questFactory.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\questFactory.h"
-						>
-					</File>
-					<File
-						RelativePath=".\questItemTaked.cpp"
-						>
-					</File>
-					<File
-						RelativePath=".\questItemTaked.h"
+						RelativePath=".\event.h"
 						>
 					</File>
 				</Filter>
@@ -409,6 +389,22 @@
 						>
 					</File>
 					<File
+						RelativePath=".\childAddedEvent.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\childAddedEvent.h"
+						>
+					</File>
+					<File
+						RelativePath=".\childRemoveEvent.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\childRemoveEvent.h"
+						>
+					</File>
+					<File
 						RelativePath=".\CollisionMgr.cpp"
 						>
 					</File>
@@ -422,6 +418,38 @@
 					</File>
 					<File
 						RelativePath=".\CollisionObject.h"
+						>
+					</File>
+					<File
+						RelativePath=".\dieActorEvent.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\dieActorEvent.h"
+						>
+					</File>
+					<File
+						RelativePath=".\event.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\event.h"
+						>
+					</File>
+					<File
+						RelativePath=".\quest.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\quest.h"
+						>
+					</File>
+					<File
+						RelativePath=".\questItemTaked.cpp"
+						>
+					</File>
+					<File
+						RelativePath=".\questItemTaked.h"
 						>
 					</File>
 				</Filter>

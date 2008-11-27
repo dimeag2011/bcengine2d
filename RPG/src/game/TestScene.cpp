@@ -13,13 +13,13 @@ Actor1(NULL),
 Armadura(NULL),
 Posion(NULL),
 Espada(NULL),
+mundo(NULL),
 m_kmyNpc(NULL),
-m_pkEvento(NULL),
-//m_pkCalculadora(NULL),
 quest(NULL),
+m_pkEvent(NULL),
 m_kNpc(NULL),
-Actor2(NULL),
-mundo(NULL)
+m_pkCalculadora(NULL),
+Actor2(NULL)
 {
 	/***/
 }
@@ -42,8 +42,10 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 	m_kPosion = m_kmyItem->CreateItem(TYPE_POTION);
 	m_kArmadura = m_kmyItem->CreateItem(TYPE_ARMOR);
 	m_kEspada = m_kmyItem->CreateItem(TYPE_WEAPON);
-	quest = m_kmyQuest->CreateQuest(TYPE_KILL_MONSTER);
 	mundo = new World();
+	quest = m_kmyQuest->CreateQuest(TYPE_KILL_MONSTER);
+
+
 	pkImporter->importResources("../../res/sprite.xml");
 
 	// create the entities
@@ -59,10 +61,14 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 	{
 		//m_pkAuxSprite->setName(sName);
 		m_pkAuxSprite->setDim(50,50);
-		m_pkAuxSprite->setPos(0, 0);
+		m_pkAuxSprite->setPos(0,0);
 		m_kPj->setSprite(m_pkAuxSprite);
 		Actor1 = m_kPj->getSprite();
+		addEntity(Actor1);
+		//addEntity(m_pkAuxSprite);
+		m_pkAuxSprite = NULL;
 	}
+	
 	m_pkAuxSprite = new Sprite();
 	if(!pkImporter->createSprite("Fantasma", m_pkAuxSprite))
 	{
@@ -91,12 +97,12 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 	mundo->addWorldComp(m_kArmadura);
 	mundo->addWorldComp(m_kEspada);
 	mundo->addWorldComp(quest);
-	// Agrego un Listener al mundo para que mi NPC y mi Player escuchen los Eventoos de ataques.
+	// Agrego un Listener al mundo para que mi NPC y mi Player escuchen los eventos de ataques.
 	mundo->onAddedListener("ATTK_RANGE",m_kmyNpc);
 	mundo->onAddedListener("ATTK_RANGE",m_kPj);
-	//m_kNpc->onAddedListener(dieActorEvent::DIE_ACTOR_Evento,m_kNpc);
+	m_kNpc->onAddedListener(DieActorEvent::DIE_ACTOR_EVENT,m_kNpc);
 	quest->onAddedListener("Completa",quest);
-	for(int i=0; i < m_kPj->m_kInventory->getMaxSlots(); i++)
+	/*for(int i=0; i < m_kPj->m_kInventory->getMaxSlots(); i++)
 	{
 		Sprite* m_pkAuxSprite = new Sprite();
 		if(!pkImporter->createSprite("Fantasma", m_pkAuxSprite))
@@ -114,10 +120,10 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 		}
 	}
 	m_kPj->m_kInventory->setPos(10,10);
-
+*/
 
 	m_pkAuxSprite = new Sprite();
-	if(!pkImporter->createSprite("Fantasma", m_pkAuxSprite))
+	if(!pkImporter->createSprite("Pacman", m_pkAuxSprite))
 	{
 		return false;
 	}
@@ -134,7 +140,7 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 	}
 
 	m_pkAuxSprite = new Sprite();
-	if(!pkImporter->createSprite("Fantasma", m_pkAuxSprite))
+	if(!pkImporter->createSprite("Pacman", m_pkAuxSprite))
 	{
 		return false;
 	}
@@ -151,7 +157,7 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 	}
 	
 	m_pkAuxSprite = new Sprite();
-	if(!pkImporter->createSprite("Fantasma", m_pkAuxSprite))
+	if(!pkImporter->createSprite("Pacman", m_pkAuxSprite))
 	{
 		return false;
 	}
@@ -239,37 +245,7 @@ bool TestScene::onUpdate (float fTimeBetweenFrames)
 	{
 		m_kPj->removeEffect(m_kPosion->GetName());
 	}
-/*	if (m_pkInput->getKeyEventDown(DIK_C))
-	{
-		m_pkFont->setText("Fuerza:", m_kPj->m_kAuxActAtt.getStr());
-		m_pkFont->setPos(-400,300);
-		m_pkFont->setText("Destreza:", m_kPj->m_kAuxActAtt.getDex());
-		m_pkFont->setPos(-400,295);
-		m_pkFont->setText("Comstitucion:", m_kPj->m_kAuxActAtt.getCon());
-		m_pkFont->setPos(-400,290);
-		m_pkFont->setText("Inteligencia:", m_kPj->m_kAuxActAtt.getInt());
-		m_pkFont->setPos(-400,285);
-		m_pkFont->setText("Carisma:", m_kPj->m_kAuxActAtt.getCha());
-		m_pkFont->setPos(-400,280);
-		m_pkFont->setText("Sabiduria:", m_kPj->m_kAuxActAtt.getWis());
-		m_pkFont->setPos(-400,275);
-		m_pkFont->setText("Salvacion Fortaleza:", m_kPj->m_kAuxActAtt.getSstr());
-		m_pkFont->setPos(-400,265);
-		m_pkFont->setText("Salvacion Reflejos:", m_kPj->m_kAuxActAtt.getSref());
-		m_pkFont->setPos(-400,260);
-		m_pkFont->setText("Salvacion voluntad:", m_kPj->m_kAuxActAtt.getWis());
-		m_pkFont->setPos(-400,255);
-		m_pkFont->setText("CA:", m_kPj->m_kAuxActAtt.getCa());
-		m_pkFont->setPos(-400,245);
-		m_pkFont->setText("Mana:", m_kPj->m_kAuxActAtt.getMana());
-		m_pkFont->setPos(-400,240);
-		m_pkFont->setText("Vida:", m_kPj->m_kAuxActAtt.getHps());
-		m_pkFont->setPos(-400,235);
-		m_pkFont->setText("Ataque base:", m_kPj->getClassHero().iAtk);
-		m_pkFont->setPos(-400,230);
-	}*/
-	
-	//m_pkFont->setPos(m_pkFont->getPosX() + 0.1, m_pkFont->getPosY());
+
 
 	return true;
 }
@@ -281,8 +257,8 @@ void TestScene::updateGhostInput ()
 		m_pkGhost1->getPosY() - m_pkInput->getMouseRelPosY()
 		);
 */
-/*	m_pkInput->getKeyEvento();
-	if (m_pkInput->getKeyEventoUp(DIK_T))
+/*	m_pkInput->getKeyEvent();
+	if (m_pkInput->getKeyEventUp(DIK_T))
 	{
 		//m_pkPacman->setPos(m_pkPacman->getPosX() + 0.1, m_pkPacman->getPosY() + 0.1);
 
@@ -346,12 +322,13 @@ void TestScene::updatePacmanCollision ()
 		// Similar a vaciarle el buffer y dejarla en 0, preparada para el proximo chekeo.
 		eResult = Entity2D::None;
 	}
-	eResult = Actor1->checkCollision(Actor2);
 
+	eResult = Actor1->checkCollision(Actor2);
+	
 	if(eResult != Entity2D::None )
 	{
-		Evento ev("Die");
-		mundo->onEvento(&ev, m_kNpc);
+		Event ev("Die");
+		mundo->onEvent(&ev, m_kNpc);
 		Actor2->setVisible(false);
 		if (Actor2)
 			removeEntity(Actor2);
@@ -373,19 +350,19 @@ void TestScene::updateActorCollision()
 		// me manda a la pos inicial del sprite
 		//m_kPj->getSprite()->setPos(m_kPj->getSprite()->getPrevPosX(),m_kPj->getSprite()->getPrevPosY());
 
-// 		if (m_pkInput->getKeyEventDown(DIK_SPACE))
-// 		{
-// 			m_pkCalculadora->Atacar(m_kPj,m_kmyNpc);
-// 		}
+ 		if (m_pkInput->getKeyEventDown(DIK_SPACE))
+ 		{
+ 			m_pkCalculadora->Atacar(m_kPj,m_kmyNpc);
+ 		}
 	}
 	// si eResult no es null (si es que se realizo una colicion)
 	if (eResult != Entity2D::None){
-		// creo el nuevo Eventoo de ATTK_Range y lo despacho.
-		m_pkEvento = new Evento("ATTK_RANGE");
-		m_kPj->DispachEvento(m_pkEvento);
+		// creo el nuevo evento de ATTK_Range y lo despacho.
+		m_pkEvent = new Event("ATTK_RANGE");
+		m_kPj->DispachEvent(m_pkEvent);
 
 		// Debug Text:
-		m_pkFont->setText("EventoO: ATTK_RANGE ");
+		m_pkFont->setText("EVENTO: ATTK_RANGE ");
 
 		// Seteo El result a 0 [Bug Fixed: cada vez que habia una colicion esta quedaba cargada en el eResult
 		// y todos los chekeos posteriores tiraban que huvo colision (por mas que no la huviera]
@@ -405,7 +382,6 @@ void TestScene::updateActorCollision()
 
 	}
 
-
 	eResult = Actor1->checkCollision(Armadura);
 	if(eResult != Entity2D::None )
 	{
@@ -423,14 +399,11 @@ void TestScene::updateActorCollision()
 			removeEntity(Espada);
 	}
 */
-
 }
 //----------------------------------------------------------------
 void TestScene::onDraw (Renderer* pkRenderer) const
 {
-	/*Actor1->draw(pkRenderer);
-	Item1->draw(pkRenderer);
-*/
+
 }
 //----------------------------------------------------------------
 bool TestScene::onDeinit ()
