@@ -15,6 +15,7 @@ Posion(NULL),
 Espada(NULL),
 m_kmyNpc(NULL),
 m_pkEvent(NULL),
+m_pkCalculadora(NULL),
 mundo(NULL)
 {
 	/***/
@@ -281,10 +282,11 @@ void TestScene::updatePacmanCollision ()
 		if (Posion)
 			removeEntity(Posion);
 
+		// Debug Text:
+		m_pkFont->setText("Me Agarraste La Pocion xD");
 		// Seteo El result a 0 [Bug Fixed: cada vez que habia una colicion esta quedaba cargada en el eResult
 		// y todos los chekeos posteriores tiraban que huvo colision (por mas que no la huviera]
 		// Similar a vaciarle el buffer y dejarla en 0, preparada para el proximo chekeo.
-		eResult = Entity2D::None;
 		eResult = Entity2D::None;
 				
 	}
@@ -296,11 +298,11 @@ void TestScene::updatePacmanCollision ()
 		Armadura->setVisible(false);
 		if (Armadura)
 			removeEntity(Armadura);
-
+		// Debug Text:
+		m_pkFont->setText("Me Agarraste La Armadura xD");
 		// Seteo El result a 0 [Bug Fixed: cada vez que habia una colicion esta quedaba cargada en el eResult
 		// y todos los chekeos posteriores tiraban que huvo colision (por mas que no la huviera]
 		// Similar a vaciarle el buffer y dejarla en 0, preparada para el proximo chekeo.
-		eResult = Entity2D::None;
 		eResult = Entity2D::None;
 	}
 	 eResult = Actor1->checkCollision(Espada);
@@ -311,10 +313,11 @@ void TestScene::updatePacmanCollision ()
 		if (Espada)
 			removeEntity(Espada);
 
+		// Debug Text:
+		m_pkFont->setText("Me Agarraste La Espada xD");
 		// Seteo El result a 0 [Bug Fixed: cada vez que habia una colicion esta quedaba cargada en el eResult
 		// y todos los chekeos posteriores tiraban que huvo colision (por mas que no la huviera]
 		// Similar a vaciarle el buffer y dejarla en 0, preparada para el proximo chekeo.
-		eResult = Entity2D::None;
 		eResult = Entity2D::None;
 	}
 
@@ -325,7 +328,19 @@ void TestScene::updateActorCollision()
 	// Manager para chekear las colisiones entre NPC y Player.
 
 	// Chekeo si mi colision es contra el kobold.
-	Entity2D::CollisionResult eResult = Actor1->checkCollision(Kobold);
+	Entity2D::CollisionResult eResult = Actor1->checkCollision(Kobold); 
+
+	//m_kPj->getSprite()->setPos(m_kPj->getSprite()->getPosX()+1.0f, m_kPj->getSprite()->getPosY());		
+	if (eResult != Entity2D::None){
+		// TODO: Arreglar Este Metodo, en lugar de mandarme a la previous position,
+		// me manda a la pos inicial del sprite
+		//m_kPj->getSprite()->setPos(m_kPj->getSprite()->getPrevPosX(),m_kPj->getSprite()->getPrevPosY());
+
+// 		if (m_pkInput->getKeyEventDown(DIK_SPACE))
+// 		{
+// 			m_pkCalculadora->Atacar(m_kPj,m_kmyNpc);
+// 		}
+	}
 	// si eResult no es null (si es que se realizo una colicion)
 	if (eResult != Entity2D::None){
 		// creo el nuevo evento de ATTK_Range y lo despacho.
