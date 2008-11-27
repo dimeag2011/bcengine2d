@@ -25,7 +25,7 @@ protected:
 
 	// game entities
 private:	
-	Actor * m_kPersonaje;
+	Actor m_kPersonaje;
 	Font * m_pkFstg; //Font de fuerza
 	Font * m_pkFdex; //Font de destreza
 	Font * m_pkFcon; //Font de constitucion

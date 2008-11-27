@@ -6,6 +6,7 @@
 #include "attribute.h"
 #include "skills.h"
 #include "Engine.h"
+#include "Evento.h"
 
 using namespace std;
 //-----------------------------------------------------------------------------------------
@@ -47,7 +48,8 @@ public:
 //-----------------------------------------------------------------------------------------	
 	void setSprite(Sprite* kSprite) { m_pkItemSpr = kSprite;}
 	Sprite * getSprite() { return m_pkItemSpr; }
-	//virtual void setAttItem(Atrribute kModAtt);
+	virtual void OnAddedToParent(Component* pkParent);
+	virtual void onEvento(Evento *pkEvento, Component* dispatcher);
 //-----------------------------------------------------------------------------------------
 private:
 	string m_kDesc;

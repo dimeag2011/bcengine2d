@@ -1,26 +1,23 @@
 //-----------------------------------------------------------------------------------------
 #pragma once
 //-----------------------------------------------------------------------------------------
-#include "component.h"
-#include "item.h"
-#include "Actor.h"
+#include "factory.h"
 #include "quest.h"
-#include <list>
-#include <iostream>
 //-----------------------------------------------------------------------------------------
-class World : public Component
+class QuestFactory : public Factory
 {
-public:
-	World();
-	~World();
+private:
+	QuestFactory();
+	~QuestFactory();
 //-------------------------------------------------------------------------------------------
 public:
-	void addWorldComp(Component *pkComp);
-	bool removeWorldComp(Component *pkComp);
+	static QuestFactory * GetInstance();
+	static void RelaseInstance();
+	Quest* CreateQuest(int iQuestType);
 	void GetCreations();
-	virtual void onEvento(Evento *pkEvento, Component* dispatcher);
 //------------------------------------------------------------------------------------------
 private:
-
+	static int count;
+	static QuestFactory * instance;
 };
 //------------------------------------------------------------------------------------------

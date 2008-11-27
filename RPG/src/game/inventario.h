@@ -23,6 +23,7 @@ public:
 	bool addItem(Item* pkNewItem);
 	bool removeItem(Item* pkItem);
 	Item* getItem(int iType);
+	//void setPosItem(float fPosX, float fPosY);
 //-----------------------------------------------------------------------
 	void setSprite(Sprite* kSprite, int iIndex) { m_pkInvSprt[iIndex] = kSprite; }
 	Sprite * getSprite(int iIndex) { return m_pkInvSprt[iIndex]; }
@@ -34,9 +35,10 @@ public:
 
 private:
 	int m_iSlots;
+	int m_itera;
 	float m_fPosX, m_fPosY;
 	Sprite *m_pkInvSprt[INVENTORY_SLOTS];
-
+	Sprite *m_kItmSprt[INVENTORY_SLOTS];
 	//vector<int> m_kNumItems;
 //-----------------------------------------------------------------------
 };

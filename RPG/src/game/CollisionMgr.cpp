@@ -15,7 +15,7 @@ void CollisionMgr::OnAddedToParent(Component *pkParent){
 	pkParent->onAddedListener("OnChildAdded",this);
 }
 //---------------------------------------------------------------------------------------
-void CollisionMgr::onEvent(Event *event, Component* dispatcher){
+void CollisionMgr::onEvento(Evento *Evento, Component* dispatcher){
 	/***/
 	if (dispatcher){
 		ChildListIterator iter = m_kChilds.begin();

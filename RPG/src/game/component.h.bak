@@ -7,13 +7,8 @@
 #include <vector>
 #include <map>
 #include "Defines.h"
-#include "Evento.h"
-//#include "ChildAddedEvent.h"
-//#include "ChildRemoveEvent.h"
-//#include "dieActorEvent.h"
+#include "Event.h"
 
-//class ChildAddedEvent;
-//class ChildRemoveEvent;
 //-----------------------------------------------------------------------------------------
 using namespace std;
 //-----------------------------------------------------------------------------------------
@@ -44,17 +39,16 @@ public:
 	virtual void OnNewParentSet(Component* pkNewParent);
 	virtual void OnChildRemoved(Component* pkExChild);
 	virtual void OnParentRemoved(Component* pkExParent);
-	virtual void OnAddedToParent(Component* pkParent);
 	Component* getCurrentChild();
 	bool goFirstChild();
 	bool goNextChild();
 	bool goPrevChild();
 //-----------------------------------------------------------------------------------------
-	void onAddedListener(string pkEvento ,Component* pkComp);
-	void onRemoveListener(string pkEvento,Component* pkComp);
-	void DispachEvento(Evento *pkEvento);
+	void onAddedListener(string pkEvent ,Component* pkComp);
+	void onRemoveListener(string pkEvent,Component* pkComp);
+	void DispachEvent(Event *pkEvent);
 
-	virtual void onEvento(Evento *Evento, Component* dispatcher) {} 
+	virtual void onEvent(Event *event, Component* dispatcher) {} 
 //-----------------------------------------------------------------------------------------
 	Component* findChild(Component* pkChild);
 //-----------------------------------------------------------------------------------------
