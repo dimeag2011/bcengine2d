@@ -15,7 +15,7 @@ class CheckCollisionObj{
 		Horizontal
 	};
 
-	CollisionResult checkCollision(CollisionObject* _CollObj);
+	CollisionResult checkCollision(CollisionObject* _CollObj,CollisionObject* _CollObj2);
 	
 	
 };

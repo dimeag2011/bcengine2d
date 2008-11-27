@@ -32,6 +32,8 @@ public:
 	void removeItemInventory(Item *kItem);
 	void useItem(int iType);
 //-----------------------------------------------------------------------------------------
+	void onEvent(Event *event, Component* dispatcher);
+//-----------------------------------------------------------------------------------------
 	//void Draw(Renderer* pkReenderer);
 	//bool onInit(Importer* pkImporter, float fPosX, float fPosY, string sName);
 	Sprite * getSprite(){ return m_pkActorSpr; }
