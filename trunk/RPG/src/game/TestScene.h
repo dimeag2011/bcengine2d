@@ -4,6 +4,7 @@
 //----------------------------------------------------------------
 #include "Engine.h"
 #include "Include.h"
+#include "Event.h"
 //----------------------------------------------------------------
 class TestScene : public Scene
 {
@@ -22,6 +23,7 @@ protected:
 	// update methods
 protected:
 	void updatePacmanCollision ();
+	void updateActorCollision ();
 	void updateGhostInput ();
 
 public:	
@@ -33,6 +35,7 @@ private:
 	// Los dos Sprite de abajo van a recibir los sprites de m_kPj y m_kPosion
 	//mediante un getSprite de Actor y Item
 	ActorFactory * m_kmyActor;
+	Actor * m_kmyNpc;
 	ItemFactory * m_kmyItem;
 	Item * m_kPosion;
 	Item * m_kArmadura;
@@ -42,9 +45,12 @@ private:
 	Sprite * Armadura; 
 	Sprite * Posion;  
 	Sprite * Espada; 
+	Sprite * Kobold;
 	Map * mapa;
 	Font * m_pkFont;
 	World * mundo;
+	Event * m_pkEvent;
+
 };
 //----------------------------------------------------------------
 #endif // TESTSCENE_H

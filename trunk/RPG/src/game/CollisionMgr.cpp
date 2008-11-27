@@ -25,8 +25,8 @@ void CollisionMgr::onEvent(Event *event, Component* dispatcher){
 			if ((*iter)->m_iType == TYPE_COLLISIONOBJ ) {
 				// Hacer
 				if (((CollisionObject*)(*iter))->m_Type == COLLISIONOBJ_TYPE_VIEWRANGE){
-				//	((CollisionObject*)(*iter))->setCollisionGroup("UNO");
-//					Entity2D::CollisionResult eResult = (((CollisionObject*)(*iter))->checkCollision(Posion);
+					//((CollisionObject*)(*iter))->setCollisionGroup("UNO");
+					//Entity2D::CollisionResult eResult = (((CollisionObject*)(*iter))->checkCollision(Posion);
 				}
 				if (((CollisionObject*)(*iter))->m_Type == COLLISIONOBJ_TYPE_ATTKRANGE){
 				//	((CollisionObject*)(*iter))->setCollisionGroup("DOS");

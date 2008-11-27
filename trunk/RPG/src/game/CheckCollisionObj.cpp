@@ -1,10 +1,11 @@
 #include "CheckCollisionObj.h"
+#include "math.h"
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
-CheckCollisionObj::CollisionResult CheckCollisionObj::checkCollision(CollisionObject *_CollObj){
+CheckCollisionObj::CollisionResult CheckCollisionObj::checkCollision(CollisionObject *_CollObj,CollisionObject *_CollObj2){
 
 	
 	//TODO: -- Ver la manera de tener X e Y en los CollisionObject para poder 
@@ -12,19 +13,19 @@ CheckCollisionObj::CollisionResult CheckCollisionObj::checkCollision(CollisionOb
 
 
 
-	//float fAuxPosX = fabs(pkEntity->getPosX() - m_fX);
-	//float fAuxPosY = fabs(pkEntity->getPosY() - m_fY);
+	float fAuxPosX = fabs(_CollObj->GetPosX() - _CollObj2->GetPosX());
+	float fAuxPosY = fabs(_CollObj->GetPosY() - _CollObj2->GetPosY());
 
-	//float fAuxW = m_fW / 2.0f + pkEntity->getDimW() / 2.0f;
-	//float fAuxH = m_fH / 2.0f + pkEntity->getDimH() / 2.0f;
+	float fAuxW = _CollObj2->GetDimW() / 2.0f + _CollObj->GetDimW() / 2.0f;
+	float fAuxH = _CollObj2->GetDimH() / 2.0f + _CollObj->GetDimH() / 2.0f;
 
-	//if(fAuxPosX <= fAuxW && fAuxPosY <= fAuxH)
-	//{
-	//	if(fAuxPosX + fAuxW < fAuxPosY + fAuxH)
-	//		return Horizontal;
-	//	else
-	//		return Vertical;
-	//}
+	if(fAuxPosX <= fAuxW && fAuxPosY <= fAuxH)
+	{
+		if(fAuxPosX + fAuxW < fAuxPosY + fAuxH)
+			return Horizontal;
+		else
+			return Vertical;
+	}
 	return None; 
 }
 //---------------------------------------------------------------------------

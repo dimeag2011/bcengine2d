@@ -13,6 +13,8 @@ Actor1(NULL),
 Armadura(NULL),
 Posion(NULL),
 Espada(NULL),
+m_kmyNpc(NULL),
+m_pkEvent(NULL),
 mundo(NULL)
 {
 	/***/
@@ -27,6 +29,8 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 {
 	//Inicializo la factories y el pj
 	m_kmyActor = ActorFactory::GetInstance();
+	//Creamos un NPC Kobold.
+	m_kmyNpc = m_kmyActor->CreateActor("KOBOLD_PEDORRO",TYPE_NPC,TYPE_CLERIC);
 	m_kmyItem = ItemFactory::GetInstance();
 	m_kPj = m_kmyActor->CreateActor("Mariano" ,TYPE_PLAYER , TYPE_WARRIOR);
 	m_kPosion = m_kmyItem->CreateItem(TYPE_POTION);
@@ -55,11 +59,16 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 		//addEntity(m_pkAuxSprite);
 		m_pkAuxSprite = NULL;
 	}
+
 	//Lo agrego al mundo
 	mundo->addWorldComp(m_kPj);
 	mundo->addWorldComp(m_kPosion);
 	mundo->addWorldComp(m_kArmadura);
 	mundo->addWorldComp(m_kEspada);
+
+	// Agrego un Listener al mundo para que mi NPC y mi Player escuchen los eventos de ataques.
+	mundo->onAddedListener("ATTK_RANGE",m_kmyNpc);
+	mundo->onAddedListener("ATTK_RANGE",m_kPj);
 	for(int i=0; i < m_kPj->m_kInventory->getMaxSlots(); i++)
 	{
 		Sprite* m_pkAuxSprite = new Sprite();
@@ -69,7 +78,9 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 		}
 		else
 		{
+
 			m_pkAuxSprite->setDim(50,50);
+			
 			m_kPj->m_kInventory->setSprite(m_pkAuxSprite, i);
 			addEntity(m_pkAuxSprite);
 			m_pkAuxSprite = NULL;
@@ -129,6 +140,26 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 		m_pkAuxSprite = NULL;
 	}
 
+
+	// Creamos un nuevo Sprite para darle al npc Kobold.
+	m_pkAuxSprite = new Sprite();
+	if(!pkImporter->createSprite("Fantasma", m_pkAuxSprite))
+	{
+		return false;
+	}
+	else
+	{
+		m_pkAuxSprite->setDim(80,80);
+		m_pkAuxSprite->setPos(-100, -100);
+		m_kmyNpc->setSprite(m_pkAuxSprite);
+		Kobold = m_kmyNpc->getSprite();
+		addEntity(Kobold);
+		m_pkAuxSprite = NULL;
+	}
+
+
+
+
 	m_pkFont = new Font(pkRenderer, this);
 	m_pkFont->loadFont("../../res/font/font2.fnt");
 	m_pkFont->setText("SOMOS LA SAL!-.");
@@ -140,6 +171,9 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 bool TestScene::onUpdate (float fTimeBetweenFrames)
 {
 	updatePacmanCollision();
+	
+	// Updateo las coliciones del Actor. (no es lo mismo que el pacmancollision???)
+	updateActorCollision();
 	//updateGhostInput();
 
 	if (m_pkInput->getKeyDown(DIK_W))
@@ -246,6 +280,12 @@ void TestScene::updatePacmanCollision ()
 		Posion->setVisible(false);
 		if (Posion)
 			removeEntity(Posion);
+
+		// Seteo El result a 0 [Bug Fixed: cada vez que habia una colicion esta quedaba cargada en el eResult
+		// y todos los chekeos posteriores tiraban que huvo colision (por mas que no la huviera]
+		// Similar a vaciarle el buffer y dejarla en 0, preparada para el proximo chekeo.
+		eResult = Entity2D::None;
+		eResult = Entity2D::None;
 				
 	}
 
@@ -256,6 +296,12 @@ void TestScene::updatePacmanCollision ()
 		Armadura->setVisible(false);
 		if (Armadura)
 			removeEntity(Armadura);
+
+		// Seteo El result a 0 [Bug Fixed: cada vez que habia una colicion esta quedaba cargada en el eResult
+		// y todos los chekeos posteriores tiraban que huvo colision (por mas que no la huviera]
+		// Similar a vaciarle el buffer y dejarla en 0, preparada para el proximo chekeo.
+		eResult = Entity2D::None;
+		eResult = Entity2D::None;
 	}
 	 eResult = Actor1->checkCollision(Espada);
 	if(eResult != Entity2D::None )
@@ -264,8 +310,66 @@ void TestScene::updatePacmanCollision ()
 		Espada->setVisible(false);
 		if (Espada)
 			removeEntity(Espada);
+
+		// Seteo El result a 0 [Bug Fixed: cada vez que habia una colicion esta quedaba cargada en el eResult
+		// y todos los chekeos posteriores tiraban que huvo colision (por mas que no la huviera]
+		// Similar a vaciarle el buffer y dejarla en 0, preparada para el proximo chekeo.
+		eResult = Entity2D::None;
+		eResult = Entity2D::None;
 	}
 
+}
+//----------------------------------------------------------------
+void TestScene::updateActorCollision()
+{
+	// Manager para chekear las colisiones entre NPC y Player.
+
+	// Chekeo si mi colision es contra el kobold.
+	Entity2D::CollisionResult eResult = Actor1->checkCollision(Kobold);
+	// si eResult no es null (si es que se realizo una colicion)
+	if (eResult != Entity2D::None){
+		// creo el nuevo evento de ATTK_Range y lo despacho.
+		m_pkEvent = new Event("ATTK_RANGE");
+		m_kPj->DispachEvent(m_pkEvent);
+
+		// Debug Text:
+		m_pkFont->setText("EVENTO: ATTK_RANGE ");
+
+		// Seteo El result a 0 [Bug Fixed: cada vez que habia una colicion esta quedaba cargada en el eResult
+		// y todos los chekeos posteriores tiraban que huvo colision (por mas que no la huviera]
+		// Similar a vaciarle el buffer y dejarla en 0, preparada para el proximo chekeo.
+		eResult = Entity2D::None;
+	}
+	//eResult = m_pkPacman->checkCollision(m_pkGhost1);
+/*
+	//Si el resultado de la colision esta bien, le agrego el item al inventario
+	//y lo seteo no visible
+	if(eResult != Entity2D::None )
+	{
+		m_kPj->putItemInventory(m_kPosion);
+		Posion->setVisible(false);
+		if (Posion)
+			removeEntity(Posion);
+
+	}
+
+	eResult = Actor1->checkCollision(Armadura);
+	if(eResult != Entity2D::None )
+	{
+		m_kPj->putItemInventory(m_kArmadura);
+		Armadura->setVisible(false);
+		if (Armadura)
+			removeEntity(Armadura);
+	}
+	eResult = Actor1->checkCollision(Espada);
+	if(eResult != Entity2D::None )
+	{
+		m_kPj->putItemInventory(m_kEspada);
+		Espada->setVisible(false);
+		if (Espada)
+			removeEntity(Espada);
+	}
+*/
 }
 //----------------------------------------------------------------
 void TestScene::onDraw (Renderer* pkRenderer) const

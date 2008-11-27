@@ -103,6 +103,24 @@ void Actor::setDescripcion(const string &rkDesc)
 	m_sDescript = rkDesc;
 }
 //-----------------------------------------------------------------------------------------
+void Actor::onEvent(Event *event, Component* dispatcher){
+// Recibo el evento y chekeo, si soy npc y el despachante es jugador, lo ataco
+
+	if (event->getEvent() == "ATTK_RANGE"){
+		if ((dispatcher->m_iType == TYPE_NPC) && (m_iType == TYPE_PLAYER)){
+			//TODO: Chekear si soy yo el que estoy colisionando
+			// contra el player, para que no ataque todo el mundo
+			// al recibir el evento.
+
+		}
+	// Recibo el evento y chekeo si soy player y el despachante es NPC significa que me agarraron y lo ataco
+		if ((dispatcher->m_iType == TYPE_PLAYER) && (m_iType == TYPE_NPC)){
+
+		}
+	}
+
+}
+//-----------------------------------------------------------------------------------------
 string Actor::getDescripcion() const
 {
 	return m_sDescript;

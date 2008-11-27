@@ -16,7 +16,12 @@ class CollisionObject : public Component{
 public:
 	
 	//int GetPosX(){ return ((WorldObject*)parent)->GetPosX(); }
-
+	float GetPosX() {return PosX;}
+	float GetPosY() {return PosY;}
+	int GetDimH() { return m_width; }
+	int GetDimW() { return m_heigth; }
+	void SetPosX(float x) { PosX = x;}
+	void SetPosY(float y) { PosY = y;}
 
 	std::string m_sName;
 	int m_CollisionGroup;
@@ -25,7 +30,10 @@ public:
 	int m_heigth;
 
 	int m_Type;
-	
+private:
+	float PosX;
+	float PosY;
+
 
 //--------------------------------------------------------------------------
 	
