@@ -25,6 +25,8 @@ bool Game::StartUp()
 	//pasarlo a InitDX
 	HWND hWnd=NULL;
 
+	RedirectIOToConsole();
+
 	m_pkWindows = new Window(m_hInstance);
 
 	if (!m_pkWindows)
