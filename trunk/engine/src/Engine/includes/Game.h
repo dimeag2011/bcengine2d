@@ -11,6 +11,7 @@
 #include "Scene.h"
 #include "Sound.h"
 #include "Map.h"
+#include "Console.h"
 
 #include "Structs.h"
 //--------------------------------------------------------------------------------

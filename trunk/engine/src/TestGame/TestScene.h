@@ -3,6 +3,7 @@
 #define TESTSCENE_H
 //----------------------------------------------------------------
 #include "Engine.h"
+#include <iostream>
 //----------------------------------------------------------------
 class TestScene : public Scene
 {

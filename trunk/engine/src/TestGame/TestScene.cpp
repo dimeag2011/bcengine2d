@@ -20,6 +20,8 @@ TestScene::~TestScene ()
 //----------------------------------------------------------------
 bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 {
+	std::cout << "HOLA!!!" << std::endl;
+
 	m_pkShape = new Box();
 	m_pkPacman = new Sprite();
 	m_pkGhost1 = new Sprite();
