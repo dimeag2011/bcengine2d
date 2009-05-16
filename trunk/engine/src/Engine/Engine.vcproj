@@ -283,6 +283,14 @@
 			Name="Tools"
 			>
 			<File
+				RelativePath=".\Console.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\includes\Console.h"
+				>
+			</File>
+			<File
 				RelativePath=".\Importer.cpp"
 				>
 			</File>
