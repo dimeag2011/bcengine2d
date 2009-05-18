@@ -31,6 +31,7 @@ public:
 	int getNumRows();
 	int getNumLayers();
 	bool setTile(int iCol, int iRow, int iLayer, int iTileIndex); 
+	int getTile(int iCol, int iRow, int iLayer); 
 
 private:
 	string m_kName;
