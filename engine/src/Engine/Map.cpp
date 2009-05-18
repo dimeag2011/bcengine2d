@@ -469,3 +469,33 @@ bool Map::getLayerUpdateble(int iLayerId)
 	return kLayerData.bUpdatable;
 }
 //----------------------------------------------------------------
+bool Map::setTile(int iCol, int iRow, int iLayer, int iTileIndex)
+{
+	// si la fila o columan esta fuera de rango no hago nada
+	if ( (iCol >= m_iCols) || (iRow >= m_iRows) )
+		return false;
+
+	// busco el layer por id
+	LayerIdMapIterator itLayerId;
+	itLayerId = m_ikLayerIdMap.find(iLayer);
+	// si no lo encontre devuelvo false
+	if (itLayerId == m_ikLayerIdMap.end())
+		return false;
+
+	// busco el tile
+	TileMapIterator itTileIterator;
+	itTileIterator = m_kpTileMap.find(iTileIndex);
+	// si no existe devuelvo false
+	if (itTileIterator == m_kpTileMap.end())
+		return false;
+
+	TileVector* kTiles = m_kkLayerMap[itLayerId->second.kName];
+
+	kTiles[0][iRow * m_iCols + iCol] = itTileIterator->second;
+
+	setPos(m_fPosX, m_fPosY, m_fPosZ);
+	
+	return true;
+}
+//----------------------------------------------------------------
+
