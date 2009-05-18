@@ -488,11 +488,6 @@ bool Map::setTile(int iCol, int iRow, int iLayer, int iTileIndex)
 	if (itLayerId == m_ikLayerIdMap.end())
 		return false;
 
-	if (iTileIndex == 0)
-	{
-
-	}
-
 	// busco el tile
 	TileMapIterator itTileIterator;
 	itTileIterator = m_kpTileMap.find(iTileIndex);
@@ -509,4 +504,21 @@ bool Map::setTile(int iCol, int iRow, int iLayer, int iTileIndex)
 	return true;
 }
 //----------------------------------------------------------------
+int Map::getTile(int iCol, int iRow, int iLayer)
+{
+	// si la fila o columan esta fuera de rango no hago nada
+	if ( (iCol >= m_iCols) || (iRow >= m_iRows) )
+		return -1;
+
+	// busco el layer por id
+	LayerIdMapIterator itLayerId;
+	itLayerId = m_ikLayerIdMap.find(iLayer);
+	// si no lo encontre devuelvo false
+	if (itLayerId == m_ikLayerIdMap.end())
+		return -1;
+
+	TileVector* kTiles = m_kkLayerMap[itLayerId->second.kName];
+
+	return kTiles[0][iRow * m_iCols + iCol]->getId();
+}
 
