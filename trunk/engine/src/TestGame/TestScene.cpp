@@ -72,6 +72,7 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 	setCurrentMap(m_pkMapa);
 
 	m_pkMapa->setTile(3,1,1,17);
+	m_pkMapa->setTile(2,1,1,0);
 
 	cout << m_pkMapa->getNumCols() << endl;
 	cout << m_pkMapa->getNumRows() << endl;

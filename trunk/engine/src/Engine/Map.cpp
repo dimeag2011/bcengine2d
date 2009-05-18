@@ -63,6 +63,12 @@ bool Map::loadMap(string kTileSetFile, string kTileMapFile)
 		loadTile(kTile);
 	}
 
+	// agrego un tile vacio para borrar tiles
+	// creo el nuevo tile
+	Tile* pkTile = new Tile();
+	// lo agrego al mapa con el id 0
+	m_kpTileMap[0] = pkTile;
+
 	//TO DO: tiles animados, null tiles
 
 	//cargo los layers del mapa
@@ -481,6 +487,11 @@ bool Map::setTile(int iCol, int iRow, int iLayer, int iTileIndex)
 	// si no lo encontre devuelvo false
 	if (itLayerId == m_ikLayerIdMap.end())
 		return false;
+
+	if (iTileIndex == 0)
+	{
+
+	}
 
 	// busco el tile
 	TileMapIterator itTileIterator;
