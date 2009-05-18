@@ -25,10 +25,16 @@ public:
 	bool getLayerVisible(int iLayerId);
 	void setLayerUpdatable(int iLayerId, bool bUpdatable);
 	bool getLayerUpdateble(int iLayerId);
+	int getTileWidth();
+	int getTileHeight();
+	int getNumCols();
+	int getNumRows();
+	int getNumLayers();
+	bool setTile(int iCol, int iRow, int iLayer, int iTileIndex); 
 
 private:
 	string m_kName;
-	int m_iLayers; //¿es necesario?
+	int m_iLayers;
 	int m_iRows;
 	int m_iCols;
 	int m_iTileWidth;

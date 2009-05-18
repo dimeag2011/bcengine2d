@@ -90,7 +90,7 @@ bool TestScene2::onInit (Importer* pkImporter, Renderer* pkRenderer)
 	m_pkMapa->loadMap("../../res/MapaPrueba/tilesetFixed.xml","../../res/MapaPrueba/Mapa.xml");
 	m_pkMapa->setPos(500,500);
 	m_pkMapa->setLayerVisible(0,false);
-	setCurrentMap(m_pkMapa);
+	//setCurrentMap(m_pkMapa);
 	
 
 	m_pkSound->playSoundFile("../../res/Sounds/bell.wav");

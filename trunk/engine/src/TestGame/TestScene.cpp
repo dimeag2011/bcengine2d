@@ -68,8 +68,16 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 	m_pkMapa = new Map(pkRenderer);
 	m_pkMapa->loadMap("../../res/MapaPrueba/tilesetFixed.xml","../../res/MapaPrueba/Mapa.xml");
 	m_pkMapa->setPos(500,500);
-	m_pkMapa->setLayerVisible(1,false);
+	m_pkMapa->setLayerVisible(0,false);
 	setCurrentMap(m_pkMapa);
+
+	m_pkMapa->setTile(3,1,1,17);
+
+	cout << m_pkMapa->getNumCols() << endl;
+	cout << m_pkMapa->getNumRows() << endl;
+	cout << m_pkMapa->getNumLayers() << endl;
+	cout << m_pkMapa->getTileHeight() << endl;
+	cout << m_pkMapa->getTileWidth() << endl;
 
 	m_pkFont = new Font(pkRenderer, this);
 	m_pkFont->loadFont("../../res/font/font2.fnt");

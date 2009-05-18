@@ -36,6 +36,7 @@ void main( int argc, char *argv[] )
 	ifstream kArchivoXML;
 	ofstream kArchivoDestino;
 
+	/*
 	cout << "Ingrese la ruta del archivo de origen" << endl;
 
 	string kOriginalFilePath;
@@ -45,14 +46,12 @@ void main( int argc, char *argv[] )
 
 	string kDesFilePath;
 	cin >> kDesFilePath;
-
+	
 	char* cOriginalFilePath((char*)kOriginalFilePath.c_str());
 	char* cArchivoDestino((char*)kDesFilePath.c_str());
-
-	/*
-	char* cOriginalFilePath(argv[1]);
-	char* cArchivoDestino(argv[2]);
 	*/
+	char* cOriginalFilePath(argv[1]);
+	char* cArchivoDestino(argv[1]);
 
 	kArchivoXML.open(cOriginalFilePath);
 
