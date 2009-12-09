@@ -2,6 +2,7 @@
 #define BASIC_GAME_H
 
 #include "Engine.h"
+#include "GameScene.h"
 
 class BasicGame : public Game
 {
@@ -18,6 +19,9 @@ protected:
 	bool OnShutDown();
 
 	void UpdateViewPortPos();
+
+	//Escenas
+	GameScene* m_pkGameScene;
 
 };
 #endif
