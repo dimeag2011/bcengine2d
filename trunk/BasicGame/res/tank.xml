@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<PMML version="3.0" xmlns="http://www.dmg.org/PMML-3-0" xmlns:xsi="http://www.w3.org/2001/XMLSchema_instance">
+  <TEXTURA Name="tank" TextureFile="../../res/tank.png">
+    <ColorKey R="255" G="0" B="255" />
+  </TEXTURA>
+</PMML>
