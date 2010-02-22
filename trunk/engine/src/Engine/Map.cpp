@@ -354,18 +354,19 @@ void Map::moveMap()
 		{
 			Tile* kTile = kLayer->at(i);
 			//posiciones respecto al mapa
-			float fPosX = (float)((i % m_iRows));
+			float fPosX = (float)((i % m_iCols));
 			//float fPosX = (float)(m_iRows - 1 - (i % m_iRows));
-			float fPosY = (float)(m_iRows - 1 - (i / m_iRows));
+			//float fPosY = (float)(m_iRows - 1 - (i / m_iRows));
+			float fPosY = (float)((i - fPosX) / m_iCols);
 			fPosX = fPosX * m_iTileWidth - m_iTileHeight / 2;
-			fPosY = fPosY * m_iTileHeight - m_iTileHeight / 2;
+			fPosY = -(fPosY * m_iTileHeight - m_iTileHeight / 2);
 			float fPosZ = 0.0f;
 
 			//posiciones en el mundo
 			fPosX += m_fPosX;
 			fPosY += m_fPosY;
 			fPosX -= (float)((m_iRows * m_iTileWidth) / 2);
-			fPosY -= (float)((m_iCols * m_iTileHeight) / 2);
+			fPosY += (float)((m_iCols * m_iTileHeight) / 2);
 			fPosZ += m_fPosZ;
 
 			kTile->setPos(fPosX, fPosY, fPosZ);
