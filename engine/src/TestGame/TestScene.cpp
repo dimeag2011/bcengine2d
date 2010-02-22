@@ -66,9 +66,9 @@ bool TestScene::onInit (Importer* pkImporter, Renderer* pkRenderer)
 	addEntity(m_pkShape, "caja");
 
 	m_pkMapa = new Map(pkRenderer);
-	m_pkMapa->loadMap("../../res/MapaPrueba/tilesetFixed.xml","../../res/MapaPrueba/Mapa.xml");
+	m_pkMapa->loadMap("../../res/MapaPrueba/PruebaPropiaTileset.xml","../../res/MapaPrueba/PruebaPropia.xml");
 	m_pkMapa->setPos(500,500);
-	m_pkMapa->setLayerVisible(0,false);
+	//m_pkMapa->setLayerVisible(0,false);
 	setCurrentMap(m_pkMapa);
 
 	m_pkMapa->setTile(3,1,1,17);
