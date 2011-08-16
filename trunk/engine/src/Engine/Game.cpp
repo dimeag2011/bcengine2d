@@ -53,8 +53,7 @@ bool Game::StartUp()
 
 	m_pkSound = new Sound();
 
-	if(!m_pkSound->startSoundEngine())
-		return false;
+	m_pkSound->startSoundEngine();
 
 	if (!OnStartUp())
 		return false;

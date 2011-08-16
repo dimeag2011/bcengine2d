@@ -1,7 +1,8 @@
 #include "includes\Sound.h"
 //---------------------------------------------------------------- 
 Sound::Sound():
-m_pkSoundEngine(NULL)
+m_pkSoundEngine(NULL),
+m_bIsStarted(false)
 {
 
 }
@@ -18,14 +19,22 @@ bool Sound::startSoundEngine()
 	if (!m_pkSoundEngine)
 		return false;
 
+	m_bIsStarted = true;
 	return true;
 }
 //---------------------------------------------------------------- 
 bool Sound::stopSoundEngine()
 {
-	m_pkSoundEngine->drop();
+	if (m_bIsStarted)
+	{
+		m_pkSoundEngine->drop();
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 
-	return true;
 }
 //---------------------------------------------------------------- 
 bool Sound::playSoundFile(string kFileName, bool bLoop)
@@ -33,29 +42,41 @@ bool Sound::playSoundFile(string kFileName, bool bLoop)
 	if (kFileName=="")
 		return false;
 
-	m_pkSoundEngine->play2D(kFileName.c_str(), bLoop);
-
-	return true;
+	if (m_bIsStarted)
+	{
+		m_pkSoundEngine->play2D(kFileName.c_str(), bLoop);
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }
 //---------------------------------------------------------------- 
 void Sound::stopAllSounds()
 {
-	m_pkSoundEngine->stopAllSounds();
+	if (m_bIsStarted)
+		m_pkSoundEngine->stopAllSounds();
 }
 //---------------------------------------------------------------- 
 void Sound::setMasterVolume(float fVolume)
 {
-	if (fVolume >= 0.0f && fVolume <=1.0f)
-		m_pkSoundEngine->setSoundVolume(fVolume);
+	if (m_bIsStarted)
+		if (fVolume >= 0.0f && fVolume <=1.0f)
+			m_pkSoundEngine->setSoundVolume(fVolume);
 }
 //---------------------------------------------------------------- 
 float Sound::getMasterVolume()
 {
-	return m_pkSoundEngine->getSoundVolume();
+	if (m_bIsStarted)
+		return m_pkSoundEngine->getSoundVolume();
+	else
+		return -1.0f;
 }
 //---------------------------------------------------------------- 
 void Sound::pauseAllSounds(bool bPause)
 {
-	m_pkSoundEngine->setAllSoundsPaused(bPause);	
+	if (m_bIsStarted)
+		m_pkSoundEngine->setAllSoundsPaused(bPause);	
 }
 //----------------------------------------------------------------

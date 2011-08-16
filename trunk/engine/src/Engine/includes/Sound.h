@@ -28,6 +28,7 @@ public:
 
 protected:
 	SoundEngine m_pkSoundEngine;
+	bool m_bIsStarted;
 };
 //---------------------------------------------------------------- 
 #endif //SOUND_H
