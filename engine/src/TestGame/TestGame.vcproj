@@ -40,7 +40,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../Engine/includes; ../../ext"
+				AdditionalIncludeDirectories="../Engine/includes; ../../ext;&quot;$(DXSDK_DIR)/Include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -63,7 +63,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="user32.lib"
 				LinkIncremental="0"
-				AdditionalLibraryDirectories=""
+				AdditionalLibraryDirectories="&quot;$(DXSDK_DIR)/lib/x86&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -118,7 +118,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="../Engine/includes; ../../ext"
+				AdditionalIncludeDirectories="../Engine/includes; ../../ext;&quot;$(DXSDK_DIR)/Include&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
@@ -139,7 +139,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="user32.lib"
 				LinkIncremental="1"
-				AdditionalLibraryDirectories="&quot;$(SolutionDir)/../../lib&quot;;&quot;C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\actual\lib&quot;"
+				AdditionalLibraryDirectories="&quot;$(DXSDK_DIR)/lib/x86&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				OptimizeReferences="2"

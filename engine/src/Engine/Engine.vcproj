@@ -40,7 +40,7 @@
 			<Tool
 				Name="VCCLCompilerTool"
 				Optimization="0"
-				AdditionalIncludeDirectories="../../ext/"
+				AdditionalIncludeDirectories="../../ext/;&quot;$(DXSDK_DIR)/Include&quot;"
 				PreprocessorDefinitions="WIN32;_DEBUG;_WINDOWS;_USRDLL;ENGINE_EXPORTS"
 				MinimalRebuild="true"
 				BasicRuntimeChecks="3"
@@ -63,7 +63,7 @@
 				Name="VCLinkerTool"
 				AdditionalDependencies="user32.lib"
 				LinkIncremental="0"
-				AdditionalLibraryDirectories=""
+				AdditionalLibraryDirectories="&quot;$(DXSDK_DIR)/lib/x86&quot;"
 				GenerateDebugInformation="true"
 				SubSystem="2"
 				TargetMachine="1"
@@ -118,7 +118,7 @@
 			/>
 			<Tool
 				Name="VCCLCompilerTool"
-				AdditionalIncludeDirectories="../../ext/"
+				AdditionalIncludeDirectories="../../ext/;&quot;$(DXSDK_DIR)/Include&quot;"
 				PreprocessorDefinitions="WIN32;NDEBUG;_WINDOWS;_USRDLL;ENGINE_EXPORTS"
 				RuntimeLibrary="2"
 				UsePrecompiledHeader="0"
