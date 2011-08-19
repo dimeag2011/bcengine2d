@@ -100,7 +100,7 @@ bool Renderer::InitDX(HWND hWnd)
 
 	m_pkDevice->GetViewport(&kViewport);
 
-	D3DXMatrixOrthoLH(&m_mProjectionMatrix, (float) kViewport.Width, (float) kViewport.Height, -25, 25);
+	D3DXMatrixPerspectiveFovLH(&m_mProjectionMatrix, D3DX_PI/4, (float) kViewport.Width / (float) kViewport.Height, 1, 1000);
 	hr = m_pkDevice->SetTransform(D3DTS_PROJECTION, &m_mProjectionMatrix);
 
 	if (hr!=D3D_OK)
