@@ -26,6 +26,7 @@ protected:
 	TestScene* m_pkScene1;
 	TestScene2* m_pkScene2;
 	Map* m_pkMapa;
+	Camera* m_pkCam1;
 
 };
 #endif

@@ -17,6 +17,7 @@
 #include "Sound.h"
 #include "Map.h"
 #include "Font.h"
+#include "Camera.h"
 
 //----------------------------------------------------------------
 #endif // ENGINE_H

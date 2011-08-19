@@ -21,17 +21,22 @@ bool TestGame::OnStartUp ()
 
 	m_pkScene1 = new TestScene();
 
-	m_pkScene1->init("Escena1", pkImporter, m_pkInput, m_pkSound, m_pkRender);
+	if (!(m_pkScene1->init("Escena1", pkImporter, m_pkInput, m_pkSound, m_pkRender)))
+		return false;
 	
 	addSceneToUpdate(m_pkScene1);
 	addSceneToDraw(m_pkScene1);
-
+/*
 	m_pkScene2 = new TestScene2();
 
 	m_pkScene2->init("Escena2", pkImporter, m_pkInput, m_pkSound, m_pkRender);
 	
 	addSceneToUpdate(m_pkScene2);
 	addSceneToDraw(m_pkScene2);
+*/
+	m_pkCam1 = new Camera(m_pkRender);
+	//m_pkCam1->SetLookPos(
+	setCurrentCamera(m_pkCam1);
 
 	return true;
 }
@@ -73,89 +78,137 @@ bool TestGame::OnShutDown ()
 		delete m_pkScene2;
 		m_pkScene2=NULL;
 	}
+
+	if (m_pkCam1)
+	{
+		delete m_pkCam1;
+		m_pkCam1 = NULL;
+	}
+
 	return true;
 }
 //----------------------------------------------------------------
 void TestGame::UpdateViewPortPos()
 {
+	if (m_pkInput->getKeyDown(DIK_W))
+		m_pkCam1->MoveForward(0.1f);
+
+	if (m_pkInput->getKeyDown(DIK_S))
+		m_pkCam1->MoveForward(-0.1f);
+
+	if (m_pkInput->getKeyDown(DIK_D))
+		m_pkCam1->MoveRight(0.1f);
+
+	if (m_pkInput->getKeyDown(DIK_A))
+		m_pkCam1->MoveRight(-0.1f);
+
+	if (m_pkInput->getKeyDown(DIK_Q))
+		m_pkCam1->MoveUp(0.1f);
+
+	if (m_pkInput->getKeyDown(DIK_E))
+		m_pkCam1->MoveUp(-0.1f);
+
+	if (m_pkInput->getKeyDown(DIK_UP))
+		m_pkCam1->RotateDown(-0.01f);
+
+	if (m_pkInput->getKeyDown(DIK_DOWN))
+		m_pkCam1->RotateDown(0.01f);
+
+	if (m_pkInput->getKeyDown(DIK_RIGHT))
+		m_pkCam1->RotateRight(0.01f);
+
+	if (m_pkInput->getKeyDown(DIK_LEFT))
+		m_pkCam1->RotateRight(-0.01f);
+	//m_pkCam1->RotateRight(m_pkInput->getMouseRelPosX());
+	//m_pkCam1->RotateDown(m_pkInput->getMouseScrAbsPosX());
+
+	/* OLD CAMERA CODE
+	if (m_pkInput->getKeyDown(DIK_A))
+		m_pkCam1->SlideCamera(0.1,0);
+
+	if (m_pkInput->getKeyDown(DIK_D))
+		m_pkCam1->SlideCamera(-0.1,0);
+
+	if (m_pkInput->getKeyDown(DIK_Q))
+		m_pkCam1->SlideCamera(0,0.1);
+
+	if (m_pkInput->getKeyDown(DIK_E))
+		m_pkCam1->SlideCamera(0,-0.1);
+
+	if (m_pkInput->getKeyDown(DIK_W))
+		m_pkCam1->MoveCamera(0.1);
+
+	if (m_pkInput->getKeyDown(DIK_S))
+		m_pkCam1->MoveCamera(-0.1);
+
+	m_pkCam1->RotateCamera(-((float)(m_pkInput->getMouseRelPosX())/100), -((float)(m_pkInput->getMouseRelPosY())/100));
+	*/
+
+	/* BACK UP CAMERA CODE
 	if (m_pkInput->getKeyDown(DIK_ADD))
-		m_pkRender->setViewerAngle(m_pkRender->getViewerAngle() + 0.1f);
+		m_pkCam1->setRoll(m_pkCam1->getRoll() +	0.01f);	
 
 	if (m_pkInput->getKeyDown(DIK_SUBTRACT))
-		m_pkRender->setViewerAngle(m_pkRender->getViewerAngle() - 0.1f);
+		m_pkCam1->setRoll(m_pkCam1->getRoll() -	0.01f);	
 
+		
 	if (m_pkInput->getKeyDown(DIK_NUMPAD4))
 	{
-		float fX, fY;
-		m_pkRender->getViewerPosition(fX, fY);
-		fX -= 1.0f;
-		m_pkRender->setViewerPosition(fX, fY);
+		m_pkCam1->Strafe(-0.1f);
 	}
 
 	if (m_pkInput->getKeyDown(DIK_NUMPAD6))
 	{
-		float fX, fY;
-		m_pkRender->getViewerPosition(fX, fY);
-		fX += 1.0f;
-		m_pkRender->setViewerPosition(fX, fY);
+		m_pkCam1->Strafe(0.1f);
 	}
 
 	if (m_pkInput->getKeyDown(DIK_NUMPAD2))
 	{
-		float fX, fY;
-		m_pkRender->getViewerPosition(fX, fY);
-		fY -= 1.0f;
-		m_pkRender->setViewerPosition(fX, fY);
+		m_pkCam1->Fly(-0.1f);
 	}
 
 	if (m_pkInput->getKeyDown(DIK_NUMPAD8))
 	{
-		float fX, fY;
-		m_pkRender->getViewerPosition(fX, fY);
-		fY += 1.0f;
-		m_pkRender->setViewerPosition(fX, fY);
+		m_pkCam1->Fly(0.1f);
+	}
+	
+	if (m_pkInput->getKeyDown(DIK_DECIMAL))
+	{
+		m_pkCam1->Walk(-0.1f);
+	}
+
+	if (m_pkInput->getKeyDown(DIK_NUMPAD0))
+	{
+		m_pkCam1->Walk(0.1f);
 	}
 
 	if (m_pkInput->getKeyDown(DIK_NUMPAD7))
 	{
-		float fX, fY;
-		m_pkRender->getViewerPosition(fX, fY);
-		fX -= 1.0f;
-		fY += 1.0f;
-		m_pkRender->setViewerPosition(fX, fY);
-	}
-
-	if (m_pkInput->getKeyDown(DIK_NUMPAD9))
-	{
-		float fX, fY;
-		m_pkRender->getViewerPosition(fX, fY);
-		fX += 1.0f;
-		fY += 1.0f;
-		m_pkRender->setViewerPosition(fX, fY);
-	}
-
-	if (m_pkInput->getKeyDown(DIK_NUMPAD3))
-	{
-		float fX, fY;
-		m_pkRender->getViewerPosition(fX, fY);
-		fX += 1.0f;
-		fY -= 1.0f;
-		m_pkRender->setViewerPosition(fX, fY);
+		m_pkCam1->setPitch(m_pkCam1->getPitch() + 0.01f);	
 	}
 
 	if (m_pkInput->getKeyDown(DIK_NUMPAD1))
 	{
-		float fX, fY;
-		m_pkRender->getViewerPosition(fX, fY);
-		fX -= 1.0f;
-		fY -= 1.0f;
-		m_pkRender->setViewerPosition(fX, fY);
+		m_pkCam1->setPitch(m_pkCam1->getPitch() - 0.01f);	
 	}
 
+	if (m_pkInput->getKeyDown(DIK_NUMPAD9))
+	{
+		m_pkCam1->setYaw(m_pkCam1->getYaw() + 0.01f);	
+	}
+
+	if (m_pkInput->getKeyDown(DIK_NUMPAD3))
+	{
+		m_pkCam1->setYaw(m_pkCam1->getYaw() - 0.01f);	
+	}
+	*/
+	
+	/*
 	if (m_pkInput->getKeyDown(DIK_NUMPAD5))
 	{
 		m_pkRender->setViewerAngle(0);
 		m_pkRender->setViewerPosition(0,0);
 	}
+	*/
 
 }

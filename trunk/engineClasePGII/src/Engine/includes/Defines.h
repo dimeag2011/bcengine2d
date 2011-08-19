@@ -36,5 +36,8 @@ using namespace std;
 #define getR(c) (((c)&0x00ff0000)>>16)
 #define getG(c) (((c)&0x0000ff00)>>8)
 #define getB(c) ((c)&0x000000ff)
-//--------------------------------------------------------------------------------
+//----------------------------------------------------------------
+// include DirectX to have the types and some common mathemathical functions
+#include <d3dx9.h>
+//----------------------------------------------------------------
 #endif //DEFINES_H

@@ -11,6 +11,7 @@
 #include "Scene.h"
 #include "Sound.h"
 #include "Map.h"
+#include "Camera.h"
 #include "Console.h"
 
 #include "Structs.h"
@@ -64,6 +65,7 @@ private:
 	SceneMap m_kpaSceneToUpdate;
 	SceneMap m_kpaSceneToDraw;
 	Map* m_pkCurrentMap;
+	Camera* m_pkCurrentCamera;
 
 public:
 	bool addSceneToUpdate(Scene* pkScene);
@@ -71,6 +73,7 @@ public:
 	bool addSceneToDraw(Scene* pkScene);
 	bool removeSceneToDraw(Scene* pkScene);
 	void setCurrentMap(Map* pkMap);
+	void setCurrentCamera(Camera* pkCamera);
 
 };
 //----------------------------------------------------------------

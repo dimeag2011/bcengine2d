@@ -479,6 +479,18 @@
 				>
 			</File>
 		</Filter>
+		<Filter
+			Name="Camera"
+			>
+			<File
+				RelativePath=".\Camera.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\includes\Camera.h"
+				>
+			</File>
+		</Filter>
 		<File
 			RelativePath=".\includes\Defines.h"
 			>

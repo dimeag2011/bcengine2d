@@ -39,16 +39,21 @@ public:
 	void rotateZ (float fAngle);
 	void scale (float fW, float fH);
 
+	void setTransformMatrix(D3DXMATRIX* kMatrix);
+
+
 //	Metodos de Textura
 	void unbindTexture ();
 	bool bindTexture (Texture::Ptr rkTexture);
 	bool loadTexture (const char* pszFilename, Texture::Ptr rkTexture);
 
+/* Para uso en 2D VIEWPORT POSITION
 //	Metodos de la posicion del viewer
 	void setViewerPosition(float fPosX, float fPosY);
 	void getViewerPosition(float &fPosX, float &fPosY);
 	void setViewerAngle(float fAngle);
 	float getViewerAngle();
+*/
 
 private:
 	void StartFrame();
@@ -56,11 +61,16 @@ private:
 
 	bool InitDX(HWND hWnd);
 
+	/* Para uso en 2D VIEWPORT POSITION
 	//Metodo para la posicion del viewport
 	//DEPRECATED
 	//void setViewPosition (float fPosX, float fPosY);
 	//NEW VERSION
 	void setViewportPosition();
+	*/
+	/* Para uso 3D CAMERA */
+	//void initCamera();
+	void setCamera(D3DXVECTOR3 kViewerPos, D3DXVECTOR3 kLookPos, D3DXVECTOR3 kViewerUp);
 
 	HWND m_hWnd;
 	IDirect3DDevice9*  m_pkDevice;
@@ -81,7 +91,10 @@ protected:
 	map <string, IDirect3DTexture9*> m_kTextureMap;
 	typedef map<string, IDirect3DTexture9*>::iterator TextureIterator;
 
-	friend class Game;
+//----------------------------------------------------------------
+friend class Game;
+friend class Camera;
+//----------------------------------------------------------------
 };
 //--------------------------------------------------------------------------------
 #include "Renderer.inl"
