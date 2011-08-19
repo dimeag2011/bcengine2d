@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Tiilikarttaeditori version="1.0.2">
+	<generalSettings language="English" javaLookAndFeel="true" javaWindowDecorations="true" systemFonts="false" boldFonts="true" textAntiAliasing="false" linuxOpenGL="false"/>
+	<editorSettings backgroundRGB="255,255,255" dotsBelowTiles="true" dotColor="128,128,128" showCollision="true" collisionColor="255,0,0,64" showCode="true" codeFont="SansSerif,0,9" codeColor="255,0,0"/>
+	<paletteSettings backgroundRGB="255,255,255" sortXaxis="true" fps="30" showCollision="true" showCode="true"/>
+	<parallaxSettings fullScreen="true" desktop="true" fullWidth="1024" fullHeight="768" colorDepth="32" winWidth="320" winHeight="240" fps="30" measureFPS="false"/>
+</Tiilikarttaeditori>

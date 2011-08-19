@@ -1,0 +1,21 @@
+<!--<?xml version="1.0" encoding="ISO-8859-1"?>-->
+<PMML version="3.0"
+  xmlns="http://www.dmg.org/PMML-3-0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema_instance" >
+
+<SPRITE Name='Pacman' TextureFile='../../res/pacman.xml' TexPosX='18' TexPosY='0' Width='18' Height='18'>
+
+  <SPRITE_ANIMATION Name='Eat' Time='300.0' Speed='1' Loop='true' >
+    <FRAME TexPosX='0' TexPosY='0' Width='18' Height='18'></FRAME>
+    <FRAME TexPosX='18' TexPosY='0' Width='18' Height='18'></FRAME>
+    <FRAME TexPosX='36' TexPosY='0' Width='18' Height='18'></FRAME>
+    <FRAME TexPosX='18' TexPosY='0' Width='18' Height='18'></FRAME>
+  </SPRITE_ANIMATION>
+ 
+</SPRITE>
+
+<SPRITE Name='Fantasma' TextureFile='../../res/pacman.xml' TexPosX='0' TexPosY='18' Width='18' Height='18'>
+  
+</SPRITE>
+
+</PMML>

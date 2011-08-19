@@ -1,0 +1,24 @@
+C:\Documents and Settings\image\Escritorio\levantar_imagen\levantar_imagen\levantar_imagen\obj\Debug\levantar_imagen.exe
+C:\Documents and Settings\image\Escritorio\levantar_imagen\levantar_imagen\levantar_imagen\obj\Debug\levantar_imagen.pdb
+C:\Documents and Settings\image\Escritorio\levantar_imagen\levantar_imagen\levantar_imagen\bin\Debug\levantar_imagen.exe
+C:\Documents and Settings\image\Escritorio\levantar_imagen\levantar_imagen\levantar_imagen\bin\Debug\levantar_imagen.pdb
+C:\Documents and Settings\image\Escritorio\levantar_imagen\levantar_imagen\levantar_imagen\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\image\Escritorio\levantar_imagen\levantar_imagen\levantar_imagen\obj\Debug\levantar_imagen.Form1.resources
+C:\Documents and Settings\image\Escritorio\levantar_imagen\levantar_imagen\levantar_imagen\obj\Debug\levantar_imagen.Properties.Resources.resources
+C:\Documents and Settings\image\Escritorio\levantar_imagen\levantar_imagen\levantar_imagen\obj\Debug\levantar_imagen.csproj.GenerateResource.Cache
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\levantar_imagen\levantar_imagen\levantar_imagen\obj\Debug\levantar_imagen.exe
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\levantar_imagen\levantar_imagen\levantar_imagen\obj\Debug\levantar_imagen.pdb
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\levantar_imagen\levantar_imagen\levantar_imagen\bin\Debug\levantar_imagen.exe
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\levantar_imagen\levantar_imagen\levantar_imagen\bin\Debug\levantar_imagen.pdb
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\levantar_imagen\levantar_imagen\levantar_imagen\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\levantar_imagen\levantar_imagen\levantar_imagen\obj\Debug\levantar_imagen.Form1.resources
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\levantar_imagen\levantar_imagen\levantar_imagen\obj\Debug\levantar_imagen.Properties.Resources.resources
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\levantar_imagen\levantar_imagen\levantar_imagen\obj\Debug\levantar_imagen.csproj.GenerateResource.Cache
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\actual\tools\levantar_imagen\levantar_imagen\obj\Debug\levantar_imagen.exe
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\actual\tools\levantar_imagen\levantar_imagen\obj\Debug\levantar_imagen.pdb
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\actual\tools\levantar_imagen\levantar_imagen\bin\Debug\levantar_imagen.exe
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\actual\tools\levantar_imagen\levantar_imagen\bin\Debug\levantar_imagen.pdb
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\actual\tools\levantar_imagen\levantar_imagen\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\actual\tools\levantar_imagen\levantar_imagen\obj\Debug\levantar_imagen.Form1.resources
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\actual\tools\levantar_imagen\levantar_imagen\obj\Debug\levantar_imagen.Properties.Resources.resources
+C:\Documents and Settings\Daniel Brenner\Mis documentos\Image\Engine\actual\tools\levantar_imagen\levantar_imagen\obj\Debug\levantar_imagen.csproj.GenerateResource.Cache
