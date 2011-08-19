@@ -16,3 +16,8 @@ inline void Game::setCurrentMap(Map* pkMap)
 	m_pkCurrentMap = pkMap;
 }
 //----------------------------------------------------------------
+inline void Game::setCurrentCamera(Camera* pkCamera)
+{
+	m_pkCurrentCamera = pkCamera;
+}	
+

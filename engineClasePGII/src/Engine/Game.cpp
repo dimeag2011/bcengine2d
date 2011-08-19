@@ -9,7 +9,8 @@ m_hInstance(hInstance),
 m_pkImporter(NULL),
 m_pkInput(NULL),
 m_pkSound(NULL),
-m_pkCurrentMap(NULL)
+m_pkCurrentMap(NULL),
+m_pkCurrentCamera(NULL)
 {
 
 }
@@ -33,6 +34,7 @@ bool Game::StartUp()
 		return false;
 
 	m_pkWindows->createWindow(800, 600, hWnd);
+
 
 	m_pkRender = new Renderer(hWnd);
 
@@ -91,6 +93,17 @@ bool Game::Loop()
 		pkSceneToUpdate->update(m_kTimer.GetDT());
 	}
 
+	//le paso los datos de la camara al render para que pueda generar la matriz de vista
+	if (m_pkCurrentCamera)
+	{
+		m_pkCurrentCamera->Update();
+		/* OLD CAMERA CODE
+		m_pkRender->setCamera((m_pkCurrentCamera->cameraPosition),
+							(m_pkCurrentCamera->cameraTarget),
+							(m_pkCurrentCamera->cameraUpVector));
+		*/
+	}
+
 	m_pkRender->StartFrame();
 	
 	//dibujo el mapa
@@ -132,6 +145,9 @@ bool Game::Loop()
 bool Game::ShutDown()
 {
 	if (!OnShutDown())
+		return false;
+
+	if (!FreeConsole())
 		return false;
 
 	if (m_pkWindows)

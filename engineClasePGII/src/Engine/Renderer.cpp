@@ -74,6 +74,7 @@ bool Renderer::InitDX(HWND hWnd)
 	if (hr!=D3D_OK)
 		return false;
 
+
 	if (!m_pkDevice)
 		return false;
 
@@ -86,6 +87,7 @@ bool Renderer::InitDX(HWND hWnd)
 	m_pkDevice->SetRenderState(D3DRS_ZENABLE, D3DZB_TRUE);
 	m_pkDevice->SetRenderState(D3DRS_ZFUNC, D3DCMP_LESSEQUAL);
 	
+	//m_pkDevice->SetRenderState(D3DRS_FILLMODE, D3DFILL_WIREFRAME);
 	//D3DXMatrixIdentity(&d3dmat);
 	//D3DXMatrixTranslation(& d3dmat, 0,  0, 1.0f);
 	//D3DXMatrixRotationZ(& d3dmat, 0);
@@ -94,14 +96,23 @@ bool Renderer::InitDX(HWND hWnd)
 	if (hr!=D3D_OK)
 		return false;
 
-	setViewportPosition();
+	//setViewportPosition();
 
 	D3DVIEWPORT9 kViewport;
 
 	m_pkDevice->GetViewport(&kViewport);
 
+	//D3DXMatrixOrthoLH(&m_mProjectionMatrix, (float) kViewport.Width, (float) kViewport.Height, -25, 25);
+	//hr = m_pkDevice->SetTransform(D3DTS_PROJECTION, &m_mProjectionMatrix);
+
 	D3DXMatrixPerspectiveFovLH(&m_mProjectionMatrix, D3DX_PI/4, (float) kViewport.Width / (float) kViewport.Height, 1, 1000);
 	hr = m_pkDevice->SetTransform(D3DTS_PROJECTION, &m_mProjectionMatrix);
+
+	D3DXVECTOR3 kPos(0.0f, 0.0f, 0.0f);
+	D3DXVECTOR3 kLook(0.0f, 0.0f, 1.0f);
+	D3DXVECTOR3 kUp(0.0f, 1.0f, 0.0f);
+
+	setCamera(kPos, kLook, kUp);
 
 	if (hr!=D3D_OK)
 		return false;
@@ -120,7 +131,7 @@ bool Renderer::InitDX(HWND hWnd)
 void Renderer::StartFrame()
 {
 	// Limpia la escena
-	m_pkDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 150, 150), 1.0f, 0);
+	m_pkDevice->Clear(0, NULL, D3DCLEAR_TARGET | D3DCLEAR_ZBUFFER, D3DCOLOR_XRGB(0, 0, 0), 1.0f, 0);
 	
 	// Comienzo el render de una escena
 	m_pkDevice->BeginScene();
@@ -174,6 +185,7 @@ void Renderer::setViewPosition(float fPosX, float fPosY)
 }
 //----------------------------------------------------------------
 */ // NEW VERSION
+/*
 void Renderer::setViewportPosition()
 {
 	D3DXMATRIX kMatrix;
@@ -184,6 +196,15 @@ void Renderer::setViewportPosition()
 	kLookPos.z = 0.0f;
 
 	D3DXMatrixLookAtLH(&kMatrix, &m_kViewerPos, &kLookPos, &m_kViewerUp);
+	m_pkDevice->SetTransform(D3DTS_VIEW, &kMatrix);
+}
+*/
+//----------------------------------------------------------------
+void Renderer::setCamera(D3DXVECTOR3 kViewerPos, D3DXVECTOR3 kLookPos, D3DXVECTOR3 kViewerUp)
+{
+	D3DXMATRIX kMatrix;
+
+	D3DXMatrixLookAtLH(&kMatrix, &kViewerPos, &kLookPos, &kViewerUp);
 	m_pkDevice->SetTransform(D3DTS_VIEW, &kMatrix);
 }
 //----------------------------------------------------------------
@@ -287,6 +308,15 @@ void Renderer::scale (float fW, float fH)
 	m_pkDevice->MultiplyTransform(eMatMode, &kTempMatrix);
 }
 //----------------------------------------------------------------
+void Renderer::setTransformMatrix(D3DXMATRIX* kMatrix)
+{
+	// convert from MatrixMode to D3DTRANSFORMSTATETYPE
+	D3DTRANSFORMSTATETYPE eMatMode = static_cast<D3DTRANSFORMSTATETYPE>(m_eCurrentMatMode);
+
+	// set the matrix
+	m_pkDevice->MultiplyTransform(eMatMode, kMatrix);
+}
+//----------------------------------------------------------------
 void Renderer::unbindTexture ()
 {
 	m_pkDevice->SetTexture(0, NULL);
@@ -301,7 +331,10 @@ bool Renderer::bindTexture(Texture::Ptr rkTexture)
 	
 	HRESULT hr = m_pkDevice->SetTexture(0, pkDXTexture);
 
-	return true;
+	if (hr == S_OK)
+		return true;
+	else
+		return false;
 }
 //----------------------------------------------------------------
 bool Renderer::loadTexture(const char* pszFilename, Texture::Ptr rkTexture)
@@ -334,7 +367,7 @@ bool Renderer::loadTexture(const char* pszFilename, Texture::Ptr rkTexture)
 
 	m_kTextureMap[rkTexture->getFilename()] = pkBitmapTexture;
 
-	return NULL;
+	return true;
 }
 //----------------------------------------------------------------
 

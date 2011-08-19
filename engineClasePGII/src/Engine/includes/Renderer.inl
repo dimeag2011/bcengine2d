@@ -1,3 +1,4 @@
+/*
 inline void Renderer::setViewerPosition(float fPosX, float fPosY)
 {
 	m_kViewerPos.x = fPosX;
@@ -34,3 +35,4 @@ inline float Renderer::getViewerAngle()
 	return m_fViewerAngle;
 }
 //----------------------------------------------------------------
+*/
