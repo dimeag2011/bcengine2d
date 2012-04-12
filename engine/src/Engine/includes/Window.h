@@ -13,6 +13,7 @@ public:
 
 	bool createWindow(unsigned int uiWidth, unsigned int uiHeight, HWND & hWnd);
 	void SetWindowTitle(LPCSTR lpString);
+	void ToggleFullScreen(bool bFullScreen);
 
 private:
 

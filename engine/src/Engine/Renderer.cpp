@@ -117,6 +117,10 @@ bool Renderer::InitDX(HWND hWnd)
 	return true;
 }
 //--------------------------------------------------------------------------------
+void Renderer::ToggleFullScreen(bool bFullScreen)
+{	
+}
+//--------------------------------------------------------------------------------
 void Renderer::StartFrame()
 {
 	// Limpia la escena
