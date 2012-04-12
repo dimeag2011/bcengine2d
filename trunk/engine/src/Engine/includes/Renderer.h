@@ -55,6 +55,10 @@ private:
 	void EndFrame();
 
 	bool InitDX(HWND hWnd);
+	void ToggleFullScreen(bool bFullScreen);
+
+	// Parametros del device
+	D3DPRESENT_PARAMETERS m_d3dPresentParameters;
 
 	//Metodo para la posicion del viewport
 	//DEPRECATED

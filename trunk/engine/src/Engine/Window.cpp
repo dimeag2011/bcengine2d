@@ -71,3 +71,27 @@ void Window::SetWindowTitle(LPCSTR lpString)
 {
 	SetWindowText(m_hWnd, lpString);
 }
+//--------------------------------------------------------------------------------
+void Window::ToggleFullScreen(bool bFullScreen)
+{
+	if (bFullScreen)
+	{
+        // Set the fullscreen mode style, clear menu if attached
+        SetWindowLong(m_hWnd, GWL_STYLE, WS_POPUP|WS_SYSMENU|WS_VISIBLE);
+
+        // Save the windowed client dimensions
+        SavedWindowedWidth = ClientRect.right - ClientRect.left;
+        SavedWindowedHeight = ClientRect.bottom - ClientRect.top;
+
+        // Set the window position
+        SetWindowPos(hWnd, HWND_NOTOPMOST,
+                     WindowRect.left, WindowRect.top,
+                     (WindowRect.right - WindowRect.left),
+                     (WindowRect.bottom - WindowRect.top),
+                     SWP_SHOWWINDOW);	
+	}
+	else
+	{
+	}
+}
+//--------------------------------------------------------------------------------

@@ -31,6 +31,7 @@ public:
 
 	void addEntity(Entity2D* pkEntity);
 
+	void ToggleFullScreen();
 
 protected:
 	//game virtual functions to be overloaded in game
@@ -44,6 +45,8 @@ protected:
 	Timer m_kTimer;
 	Sound* m_pkSound;
 
+	bool m_bFullScreen;
+	bool m_bToggleFullScreen;
 
 	// resources
 public:

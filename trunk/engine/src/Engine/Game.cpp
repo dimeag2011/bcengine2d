@@ -9,7 +9,9 @@ m_hInstance(hInstance),
 m_pkImporter(NULL),
 m_pkInput(NULL),
 m_pkSound(NULL),
-m_pkCurrentMap(NULL)
+m_pkCurrentMap(NULL),
+m_bFullScreen(false),
+m_bToggleFullScreen(false)
 {
 
 }
@@ -118,6 +120,12 @@ bool Game::Loop()
 		return true;
 
 	m_pkRender->EndFrame();
+
+	if (m_bToggleFullScreen)
+	{
+		m_pkWindows->ToggleFullScreen(m_bFullScreen);
+		m_pkRender->ToggleFullScreen(m_bFullScreen);
+	}
 
 	stringstream s;
 	s << "Engine v0.1 - FPS:" << m_kTimer.GetFPS();
@@ -232,4 +240,9 @@ bool Game::removeSceneToDraw(Scene* pkScene)
 	return true;
 }
 //--------------------------------------------------------------------------------
-
+void Game::ToggleFullScreen()
+{
+	m_bToggleFullScreen = true;
+	m_bFullScreen = !m_bFullScreen;
+}
+//--------------------------------------------------------------------------------
