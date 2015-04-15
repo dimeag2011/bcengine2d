@@ -49,4 +49,5 @@ void Timer::Measure()
 		m_uiFrameCounter = 0;
 	}
 
+	// Comentario para probar SVN
 }
